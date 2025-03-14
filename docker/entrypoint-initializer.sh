@@ -113,6 +113,7 @@ echo "Migrating"
 python3 manage.py migrate
 
 echo "Admin user: ${DD_ADMIN_USER}"
+echo "Acunetix token: ${ACUNETIX_TOKEN}"
 ADMIN_EXISTS=$(echo "SELECT * from auth_user;" | python manage.py dbshell | grep "${DD_ADMIN_USER}")
 # Abort if the admin user already exists, instead of giving a new fake password that won't work
 if [ -n "$ADMIN_EXISTS" ]
@@ -124,8 +125,6 @@ then
     initialize_data
     exit
 fi
-
-echo "Acunetix token: ${ACUNETIX_TOKEN}"
 
 if [ -z "${DD_ADMIN_PASSWORD}" ]
 then
