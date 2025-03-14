@@ -125,13 +125,14 @@ then
     exit
 fi
 
+echo "Acunetix token: ${ACUNETIX_TOKEN}"
+
 if [ -z "${DD_ADMIN_PASSWORD}" ]
 then
   DD_ADMIN_PASSWORD="$(LC_ALL=C tr -dc a-zA-Z0-9 < /dev/urandom | \
     head -c 22)"
   export DD_ADMIN_PASSWORD
   echo "Admin password: ${DD_ADMIN_PASSWORD}"
-  echo "Acunetix token: ${ACUNETIX_TOKEN}"
 fi
 
 if [ -z "${DD_JIRA_WEBHOOK_SECRET}" ]

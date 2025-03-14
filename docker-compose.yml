@@ -55,7 +55,8 @@ services:
       DD_SECRET_KEY: "${DD_SECRET_KEY:-hhZCp@D28z!n@NED*yB!ROMt+WzsY*iq}"
       DD_CREDENTIAL_AES_256_KEY: "${DD_CREDENTIAL_AES_256_KEY:-&91a*agLqesc*0DJ+2*bAbsUZfR*4nLw}"
       DD_DATABASE_READINESS_TIMEOUT: "${DD_DATABASE_READINESS_TIMEOUT:-30}"
-      ACUNETIX_TOKEN: "${TOKEN}"
+      ACUNETIX_TOKEN: "${TOKEN:-1986ad8c0a5b3df4d7028d5f3c06e936ccb33a61a2d114e4588a8b7e431af6b38}"
+      ACUNETIX_URL: "${ACUNETIX_URL:-https://192.168.1.125:3443/api/v1/}"
     volumes:
         - type: bind
           source: ./docker/extra_settings

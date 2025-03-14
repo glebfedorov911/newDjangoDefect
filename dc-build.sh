@@ -6,7 +6,7 @@ if [[ $? -eq 1 ]]; then exit 1; fi
 # Building images for all configurations
 # The docker build doesn't supply any environment variables to the Dockerfile, so we can use any profile.
 
-# cat ./docker/environments/postgres-redis.env ./docker/environments/acunetix.env
+cat ./docker/environments/postgres-redis.env ./docker/environments/acunetix.env
 
 if [ $# -eq 0 ]
 then
