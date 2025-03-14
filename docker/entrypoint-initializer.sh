@@ -131,6 +131,7 @@ then
     head -c 22)"
   export DD_ADMIN_PASSWORD
   echo "Admin password: ${DD_ADMIN_PASSWORD}"
+  echo "Acunetix token: ${ACUNETIX_TOKEN}"
 fi
 
 if [ -z "${DD_JIRA_WEBHOOK_SECRET}" ]
