@@ -59,6 +59,7 @@ from dojo.regulations.urls import urlpatterns as regulations
 from dojo.announcement.urls import urlpatterns as announcement_urls
 from drf_spectacular.views import SpectacularSwaggerView
 from dojo.api_v2.views import DojoSpectacularAPIView as SpectacularAPIView
+from dojo.acunetix.urls import urlpatterns as acunetix_urls
 
 import logging
 logger = logging.getLogger(__name__)
@@ -163,6 +164,7 @@ ur += banner_urls
 ur += component_urls
 ur += regulations
 ur += announcement_urls
+ur += acunetix_urls
 
 api_v2_urls = [
     #  Django Rest Framework API v2

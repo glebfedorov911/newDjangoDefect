@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+    <form method="post" id="form-hours">
+        {% csrf_token %}
+        
+        {{ main_form.as_p }}
+        
+        {{ exclude_hours_form_set.management_form }}
+        
+        <div id="exclude-hours-container">
+            {% for form in exclude_hours_form_set %}
+                <div class="timeslot">
+                    {{ form.as_p }}
+                </div>
+            {% endfor %}
+            
+            <button type="button" id="add-form">➕</button>
+            <button type="submit">отправить</button>
+        </div>
+    </form>
+
+    <script>
+        document.querySelector("#add-form").addEventListener('click', function(){
+            let formSet = document.querySelector("#exclude-hours-container");
+            let formCount = formSet.querySelectorAll(".timeslot").length;
+            let newForm = formSet.querySelector(".timeslot").cloneNode(true);
+
+            newForm.querySelectorAll("input").forEach(function(input) {
+                let name = input.name;
+                let newName = name.replace("-1-", "-" + formCount + "-");
+                input.name = newName;
+                input.id = newName;
+                input.value = '';
+            })
+
+            formSet.appendChild(newForm);
+        });
+    </script>
+{% endblock %}
