@@ -11,29 +11,56 @@
             {% for form in exclude_hours_form_set %}
                 <div class="timeslot">
                     {{ form.as_p }}
+                    <input type="checkbox" class="timeslot-checkbox">
                 </div>
             {% endfor %}
-            
-            <button type="button" id="add-form">➕</button>
-            <button type="submit">отправить</button>
         </div>
+            
+        <button type="button" id="add-form">➕</button>
+        <button type="button" id="delete-form">🗑</button>
+        <button type="submit">отправить</button>
     </form>
 
     <script>
-        document.querySelector("#add-form").addEventListener('click', function(){
-            let formSet = document.querySelector("#exclude-hours-container");
-            let formCount = formSet.querySelectorAll(".timeslot").length;
-            let newForm = formSet.querySelector(".timeslot").cloneNode(true);
+        document.addEventListener("DOMContentLoaded", function() {
+            const container = document.querySelector("#exclude-hours-container");
+            const addNewFormButton = document.querySelector("#add-form");
+            const totalForms = document.querySelector("#id_form-TOTAL_FORMS");
+            const emptyForm = `{{ exclude_hours_form_set.empty_form|escapejs }}`
 
-            newForm.querySelectorAll("input").forEach(function(input) {
-                let name = input.name;
-                let newName = name.replace("-1-", "-" + formCount + "-");
-                input.name = newName;
-                input.id = newName;
-                input.value = '';
+            const deleteButton = document.querySelector("#delete-form");
+
+            deleteButton.addEventListener("click", function(e) {
+                const timeslots = document.querySelectorAll(".timeslot");
+
+                timeslots.forEach(function(timeslot) {
+                    timeslotCheckbox = timeslot.querySelector(".timeslot-checkbox");
+                    if (timeslotCheckbox.checked) {
+                        timeslot.parentNode.removeChild(timeslot);
+                    }
+                })
             })
 
-            formSet.appendChild(newForm);
+            addNewFormButton.addEventListener("click", function(e) {
+                const formNum = parseInt(totalForms.value);
+                let newFormHTML = emptyForm.replace(/__prefix__/g, formNum);
+                
+                const checkbox = createCheckboxForForm();
+                const div = document.createElement("div");
+                div.classList.add("timeslot");
+                div.innerHTML = newFormHTML;
+                div.appendChild(checkbox);
+                container.appendChild(div);
+
+                totalForms.value = formNum + 1;
+            });
+
+            function createCheckboxForForm() {
+                const checkbox = document.createElement("input");
+                checkbox.type = "checkbox";
+                checkbox.classList.add("timeslot-checkbox")
+                return checkbox
+            }
         });
     </script>
 {% endblock %}
