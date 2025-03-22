@@ -1,9 +1,12 @@
 import requests
 import urllib3
 import json as json_lib
+import logging
 
 
 urllib3.disable_warnings()
+
+logger = logging.getLogger(__name__)
 
 class HttpClientRequest:
 
@@ -30,6 +33,7 @@ class HttpClientRequest:
             raise ValueError("Bad request")
         
     def _send_request(self) -> str:
+        logger.info("start requesting to %s", self.url)
         response = requests.request(self.method, self.url, json=self.json, 
                                     headers=self.headers, proxies=self.proxy,
                                     verify=False)
@@ -37,6 +41,8 @@ class HttpClientRequest:
         try:
             response_json = json_lib.loads(response.text)
             if "code" in response_json:
+                logger.error("message %s", response_json['message'])
+                print(response_json)
                 raise ValueError(response_json["message"])
         except json_lib.JSONDecodeError:
             ...

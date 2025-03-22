@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 def is_available_acunetix_api() -> None:
     try:
         logging.info("Trying to connect to acunetix api")
-        response = requests.get(f"{ACUNETIX_URL}/users", headers=HEADERS, 
+        response = requests.get(f"{ACUNETIX_URL}/me", headers=HEADERS, 
                                 timeout=5, verify=False)
         logging.info("Status: %s", response.status_code)
         response.raise_for_status()

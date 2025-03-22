@@ -7,11 +7,12 @@ class ApiMixin:
     def __init__(
             self,
             method: str,
+            url: str = ACUNETIX_URL,
             api_key: str = ACUNETIX_TOKEN,
             /,
             json: dict | None = None
     ):
-        self.url = f"{ACUNETIX_URL}/excluded_hours_profiles"
+        self.url = url
 
         self.headers = {
             "X-Auth": api_key
@@ -30,6 +31,6 @@ class ApiMixin:
 
     def do(self):
         try:
-            self.http_client.send_request()
+            return self.http_client.send_request()
         except ValueError as e:
             raise e
