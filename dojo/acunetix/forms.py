@@ -7,7 +7,7 @@ from django.core.validators import FileExtensionValidator
 
 class ExcludeHours(forms.Form):
 
-    
+
     day_of_week = forms.ChoiceField(
         choices=[
             (1, "Воскресенье"), (2, "Понедельник"), (3, "Вторник"), (4, "Среда"),
@@ -97,6 +97,9 @@ class TargetCreateForm(TargetCreateMixinForm):
 class TargetsCreateForm(TargetCreateMixinForm):
 
 
+    name = forms.CharField(
+        label="Название объединения"
+    )
     addresses = forms.FileField(
         validators=[FileExtensionValidator(allowed_extensions=["txt"])],
         label="Файл (txt, URL'ы через точку с запятой)"
