@@ -28,8 +28,8 @@ def create_target_and_start_scan(request):
             "dojo/acunetix_target_and_scan_create.html",
             {"target_form": target_form}
         )
-    if request.method == "_request":
-        target_form = TargetCreateForm(request._request)
+    if request.method == "POST":
+        target_form = TargetCreateForm(request.POST)
         
         if target_form.is_valid():
             cleaned_data = target_form.cleaned_data
@@ -54,8 +54,8 @@ def create_targets_and_start_scan(request):
             "dojo/acunetix_target_and_scan_create.html",
             {"target_form": targets_form}
         )
-    if request.method == "_request":
-        targets_form = TargetsCreateForm(request._request, request.FILES)
+    if request.method == "POST":
+        targets_form = TargetsCreateForm(request.POST, request.FILES)
 
         if targets_form.is_valid():
             cleaned_data = targets_form.cleaned_data
