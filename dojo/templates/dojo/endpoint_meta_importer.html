@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    {{ block.super }}
+    <h3> Импортер метаданных конечных точек </h3>
+    <br/>
+    <form class="form-horizontal" action="" enctype="multipart/form-data" method="post">
+        {% csrf_token %}
+        {% include "dojo/form_fields.html" with form=form %}
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input class="btn btn-primary" type="submit" value="Добавить" label="Добавить"/>
+            </div>
+        </div>
+    </form>
+  
+{% endblock %}
+{% block postscript %}
+    {{ block.super }}
+{% endblock %}

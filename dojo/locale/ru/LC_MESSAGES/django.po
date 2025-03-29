@@ -1,0 +1,5052 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: defectdojo\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-28 03:52+0000\n"
+"PO-Revision-Date: 2024-04-01 15:06\n"
+"Last-Translator: \n"
+"Language-Team: Russian\n"
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=((n%10==1 && n%100!=11) ? 0 : ((n%10 >= 2 && n%10 <=4 && (n%100 < 12 || n%100 > 14)) ? 1 : ((n%10 == 0 || (n%10 >= 5 && n%10 <=9)) || (n%100 >= 11 && n%100 <= 14)) ? 2 : 3));\n"
+"X-Crowdin-Project: defectdojo\n"
+"X-Crowdin-Project-ID: 502970\n"
+"X-Crowdin-Language: ru\n"
+"X-Crowdin-File: django.po\n"
+"X-Crowdin-File-ID: 2\n"
+
+#: dojo/announcement/views.py:42
+msgid "Announcement removed for everyone."
+msgstr "Объявление удалено для всех пользователей."
+
+#: dojo/announcement/views.py:65
+msgid "Announcement updated successfully."
+msgstr "Объявление успешно обновлено."
+
+#: dojo/announcement/views.py:71
+msgid "Announcement Configuration"
+msgstr "Настройка объявлений"
+
+#: dojo/announcement/views.py:89
+msgid "Announcement removed."
+msgstr "Объявление удалено."
+
+#: dojo/announcement/views.py:97
+msgid "Failed to remove announcement."
+msgstr "Не удалось удалить объявление."
+
+#: dojo/api_v2/serializers.py:229 dojo/api_v2/serializers.py:367
+#, python-brace-format
+msgid "Expected a list of items but got type \"{input_type}\"."
+msgstr "Ожидался список элементов, но получил тип \"{input_type}\"."
+
+#: dojo/api_v2/serializers.py:232 dojo/api_v2/serializers.py:370
+msgid "Invalid json list. A tag list submitted in string form must be valid json."
+msgstr "Неверный список json. Список тегов должен быть в формате json."
+
+#: dojo/api_v2/serializers.py:235
+msgid "All list items must be of string type."
+msgstr "Все элементы списка должны иметь тип строки."
+
+#: dojo/api_v2/serializers.py:374
+msgid "All list items must be of dict type with keys 'request' and 'response'"
+msgstr "Все элементы списка должны иметь тип dict с ключами 'request' и 'response'"
+
+#: dojo/api_v2/serializers.py:376
+msgid "All values in the dict must be of string type."
+msgstr "Все значения в dict должны иметь тип строки."
+
+#: dojo/benchmark/views.py:274 dojo/benchmark/views.py:276
+#: dojo/templates/base.html:836
+msgid "Benchmarks"
+msgstr "Бенчмарки"
+
+#: dojo/benchmark/views.py:321
+msgid "Benchmarks removed."
+msgstr "Бенчмарки удалены."
+
+#: dojo/benchmark/views.py:327 dojo/templates/dojo/delete_benchmark.html:19
+msgid "Delete Benchmarks"
+msgstr "Удалить бенчмарки"
+
+#: dojo/filters.py:115 dojo/filters.py:159 dojo/filters.py:190
+#: dojo/filters.py:2384
+msgid "Any"
+msgstr "Любой"
+
+#: dojo/filters.py:116
+msgid "Open"
+msgstr "Открыть"
+
+#: dojo/filters.py:117 dojo/models.py:2259
+#: dojo/templates/dojo/findings_list_snippet.html:161
+#: dojo/templates/dojo/pt_counts.html:259
+#: dojo/templates/dojo/view_test.html:703
+msgid "Verified"
+msgstr "Подтвержден"
+
+#: dojo/filters.py:118 dojo/models.py:2275
+msgid "Out Of Scope"
+msgstr "Вне целевого исхода"
+
+#: dojo/filters.py:119 dojo/models.py:2262
+#: dojo/templates/dojo/findings_list_snippet.html:165
+#: dojo/templates/dojo/view_test.html:707
+msgid "False Positive"
+msgstr "False Positive"
+
+#: dojo/filters.py:120
+msgid "Inactive"
+msgstr "Неактивно"
+
+#: dojo/filters.py:121 dojo/models.py:2278
+msgid "Risk Accepted"
+msgstr "Риск принят"
+
+#: dojo/filters.py:122 dojo/templates/dojo/product.html:217
+#: dojo/templates/dojo/pt_counts.html:307
+#: dojo/templates/dojo/pt_counts.html:326
+#: dojo/templates/dojo/pt_counts.html:344
+#: dojo/templates/dojo/pt_counts.html:362
+#: dojo/templates/dojo/pt_counts.html:380
+#: dojo/templates/dojo/pt_counts.html:417
+msgid "Closed"
+msgstr "Закрыт"
+
+#: dojo/filters.py:123 dojo/models.py:2281
+#: dojo/templates/dojo/findings_list_snippet.html:186
+#: dojo/templates/dojo/view_test.html:728
+msgid "Under Review"
+msgstr "На рассмотрении"
+
+#: dojo/filters.py:160 dojo/filters.py:191
+msgid "False"
+msgstr "Нет"
+
+#: dojo/filters.py:161 dojo/filters.py:192
+msgid "True"
+msgstr "Да"
+
+#: dojo/filters.py:430 dojo/filters.py:476 dojo/filters.py:654
+msgid "Any date"
+msgstr "Любая дата"
+
+#: dojo/filters.py:431 dojo/filters.py:477
+msgid "Today"
+msgstr "Сегодня"
+
+#: dojo/filters.py:436 dojo/filters.py:494 dojo/filters.py:648
+msgid "Past 7 days"
+msgstr "За последние 7 дней"
+
+#: dojo/filters.py:440 dojo/filters.py:498 dojo/filters.py:647
+msgid "Past 30 days"
+msgstr "За последние 30 дней"
+
+#: dojo/filters.py:444 dojo/filters.py:502 dojo/filters.py:649
+msgid "Past 90 days"
+msgstr "За последние 90 дней"
+
+#: dojo/filters.py:448 dojo/filters.py:506 dojo/filters.py:650
+msgid "Current month"
+msgstr "Текущий месяц"
+
+#: dojo/filters.py:452 dojo/filters.py:514 dojo/filters.py:651
+msgid "Current year"
+msgstr "Текущий год"
+
+#: dojo/filters.py:455 dojo/filters.py:510 dojo/filters.py:653
+msgid "Past year"
+msgstr "За последний год"
+
+#: dojo/filters.py:482
+msgid "Next 7 days"
+msgstr "Следующие 7 дней"
+
+#: dojo/filters.py:486
+msgid "Next 30 days"
+msgstr "Следующие 30 дней"
+
+#: dojo/filters.py:490
+msgid "Next 90 days"
+msgstr "Следующие 90 дней"
+
+#: dojo/filters.py:517
+msgid "Next year"
+msgstr "Следующий год"
+
+#: dojo/filters.py:538 dojo/filters.py:576
+msgid "Either"
+msgstr "Всегда"
+
+#: dojo/filters.py:539 dojo/filters.py:577
+msgid "Yes"
+msgstr "Да"
+
+#: dojo/filters.py:542 dojo/filters.py:578
+msgid "No"
+msgstr "Нет"
+
+#: dojo/filters.py:579
+msgid "Was"
+msgstr "Был"
+
+#: dojo/filters.py:652
+msgid "Past 6 Months"
+msgstr "Последние полгода"
+
+#: dojo/filters.py:1306 dojo/models.py:2479
+#: dojo/templates/dojo/findings_list_snippet.html:142
+msgid "Planned remediation version"
+msgstr "Запланированная версия исправления"
+
+#: dojo/filters.py:2385
+msgid "Text Question"
+msgstr "Текст вопроса"
+
+#: dojo/filters.py:2386
+msgid "Choice Question"
+msgstr "Вопрос с выбором"
+
+#: dojo/forms.py:69
+msgid "Select valid choice: Low,Medium,High"
+msgstr "Выберите корректное значение: Низкий, Средний, Высокий"
+
+#: dojo/forms.py:2108
+msgid "Start date"
+msgstr "Дата начала"
+
+#: dojo/forms.py:2113
+msgid "End date"
+msgstr "Дата окончания"
+
+#: dojo/forms.py:2116
+msgid "Product type"
+msgstr "Тип продукта"
+
+#: dojo/forms.py:2123 dojo/product/views.py:284 dojo/product/views.py:316
+#: dojo/product/views.py:706 dojo/product/views.py:1077
+#: dojo/templates/dojo/dashboard.html:164 dojo/templates/dojo/metrics.html:312
+#: dojo/templates/dojo/metrics.html:390 dojo/templates/dojo/metrics.html:437
+#: dojo/templates/dojo/metrics.html:486 dojo/templates/dojo/pt_counts.html:468
+#: dojo/templates/dojo/simple_search.html:116
+#: dojo/templates/dojo/simple_search.html:190
+#: dojo/templates/dojo/simple_search.html:224
+#: dojo/templates/dojo/simple_search.html:263
+#: dojo/templates/dojo/simple_search.html:326
+#: dojo/templates/dojo/simple_search.html:351
+#: dojo/templates/dojo/simple_search.html:410
+#: dojo/templates/dojo/simple_search.html:447
+#: dojo/templates/dojo/view_user.html:208
+msgid "Product"
+msgstr "Продукт"
+
+#: dojo/forms.py:2960
+msgid "Dismissable?"
+msgstr "Можно скрыть?"
+
+#: dojo/forms.py:2963
+msgid "Ticking this box allows users to dismiss the current announcement"
+msgstr "Позволяет пользователям закрыть текущее объявление, чтобы оно больше не отображалось"
+
+#: dojo/metrics/views.py:50 dojo/templates/base.html:401
+msgid "Critical Product Metrics"
+msgstr "Критические метрики продукта"
+
+#: dojo/metrics/views.py:153 dojo/metrics/views.py:243
+#: dojo/product/views.py:508
+msgid "All objects have been filtered away. Displaying all objects"
+msgstr "Все объекты были отфильтрованы. Отображение всех объектов"
+
+#: dojo/metrics/views.py:386 dojo/templates/base.html:390
+#: dojo/templates/base.html:654 dojo/templates/dojo/product_type.html:87
+#: dojo/templates/dojo/view_product_details.html:123
+#: dojo/templates/dojo/view_product_type.html:31
+msgid "Metrics"
+msgstr "Метрики"
+
+#: dojo/metrics/views.py:395
+#, python-format
+msgid "%(product_type)s Metrics"
+msgstr "Метрики %(product_type)s"
+
+#: dojo/metrics/views.py:406
+msgid "Product Type Metrics by Findings"
+msgstr "Метрики Типа продукта по Уязвимостям"
+
+#: dojo/metrics/views.py:409
+msgid "Product Type Metrics by Affected Endpoints"
+msgstr "Метрики типа продукта по затронутым конечным точкам"
+
+#: dojo/metrics/views.py:432
+#, python-format
+msgid "%(team_name)s Metrics"
+msgstr "Метрики %(team_name)s"
+
+#: dojo/metrics/views.py:471 dojo/templates/base.html:416
+msgid "Simple Metrics"
+msgstr "Простые метрики"
+
+#: dojo/metrics/views.py:739
+msgid "Please choose month and year and the Product Type."
+msgstr "Пожалуйста, выберите месяц, год и Тип продукта."
+
+#: dojo/metrics/views.py:742
+msgid "Bi-Weekly Metrics"
+msgstr "BI метрики"
+
+#: dojo/metrics/views.py:771 dojo/templates/base.html:421
+msgid "Engineer Metrics"
+msgstr "Метрики по пользователям"
+
+#: dojo/models.py:158
+msgid "Privacy"
+msgstr "Личные данные"
+
+#: dojo/models.py:159
+msgid "Finance"
+msgstr "Финансы"
+
+#: dojo/models.py:160
+msgid "Education"
+msgstr "Образование"
+
+#: dojo/models.py:161
+msgid "Medical"
+msgstr "Медицина"
+
+#: dojo/models.py:162
+msgid "Corporate"
+msgstr "Корпоративный"
+
+#: dojo/models.py:163
+msgid "Other"
+msgstr "Прочие"
+
+#: dojo/models.py:166
+msgid "The name of the regulation."
+msgstr "Название правила."
+
+#: dojo/models.py:167
+msgid "A shortened representation of the name."
+msgstr "Краткое представление названия."
+
+#: dojo/models.py:168
+msgid "The subject of the regulation."
+msgstr "Предмет правила."
+
+#: dojo/models.py:169
+msgid "The territory over which the regulation applies."
+msgstr "Территория, на которой распространяется регулирование."
+
+#: dojo/models.py:170
+msgid "Information about the regulation's purpose."
+msgstr "Информация о предназначении данного положения."
+
+#: dojo/models.py:171
+msgid "An external URL for more information."
+msgstr "Внешний URL для дополнительной информации."
+
+#: dojo/models.py:229 dojo/models.py:233 dojo/models.py:237
+msgid "Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed."
+msgstr "Номер телефона должен быть введен в формате: '+9999999'. Допускается до 15 цифр."
+
+#: dojo/models.py:241
+msgid "Email address associated with your slack account"
+msgstr "Адрес электронной почты, связанный с вашим аккаунтом Slack"
+
+#: dojo/models.py:241 dojo/templates/dojo/view_user.html:97
+msgid "Slack Email Address"
+msgstr "Адрес электронной почты Slack"
+
+#: dojo/models.py:243
+msgid "Instead of async deduping a finding the findings will be deduped synchronously and will 'block' the user until completion."
+msgstr "Вместо асинхронной дедупликации уязвимостей, дедупликация будет проходить синхронно и \"блокировать\" пользователя до завершения."
+
+#: dojo/models.py:244
+msgid "Forces this user to reset their password on next login."
+msgstr "Принудительно сбросить пароль этого пользователя при следующем входе в систему."
+
+#: dojo/models.py:250
+msgid "AzureAD"
+msgstr "AzureAD"
+
+#: dojo/models.py:277
+msgid "Enable audit logging"
+msgstr "Включить журнал аудита"
+
+#: dojo/models.py:278
+msgid "With this setting turned on, Dojo maintains an audit log of changes made to entities (Findings, Tests, Engagements, Procuts, ...)If you run big import you may want to disable this because the way django-auditlog currently works, there's a big performance hit. Especially during (re-)imports."
+msgstr "При включении данной опции, Dojo ведет журнал аудита изменений сущностей (уязвимостей, тестов, проверок, продуктов, ...). Если вы импортируете большие объемы данных, будет лучше отключить данную настройку, чтобы избежать проблем с производительностью. Особенно во время (ре)импорта."
+
+#: dojo/models.py:286
+msgid "Deduplicate findings"
+msgstr "Дедупликация уязвимостей"
+
+#: dojo/models.py:287
+msgid "With this setting turned on, Dojo deduplicates findings by comparing endpoints, cwe fields, and titles. If two findings share a URL and have the same CWE or title, Dojo marks the less recent finding as a duplicate. When deduplication is enabled, a list of deduplicated findings is added to the engagement view."
+msgstr "При включении данного параметра, Dojo дедуплицирует уязвимости посредством сравнения эндпоинтов, cwe и заголовков. Если две уязвимости имеют общий URL и схожие CWE или заголовок, то Dojo пометит последнюю как дубликат. Когда дедупликация включена, список продублированных уязвимостей добавляется на страницу задания."
+
+#: dojo/models.py:293
+msgid "Requires next setting: maximum number of duplicates to retain."
+msgstr "Требуется указать параметр: максимальное количество хранимых дубликатов."
+
+#: dojo/models.py:295
+msgid "Max Duplicates"
+msgstr "Макс. дубликатов"
+
+#: dojo/models.py:296
+msgid "When enabled, if a single issue reaches the maximum number of duplicates, the oldest will be deleted. Duplicate will not be deleted when left empty. A value of 0 will remove all duplicates."
+msgstr "Когда включено, если задача достигает максимального количества дубликатов, то самые старые будут удаляться. Дубликаты не будут удаляться, если оставить значение пустым. При значении \"0\" будут удаляться все дубликаты."
+
+#: dojo/models.py:304
+msgid "Enable JIRA integration"
+msgstr "Включить интеграцию с JIRA"
+
+#: dojo/models.py:308
+msgid "Enable JIRA web hook"
+msgstr "Включить веб-хук JIRA"
+
+#: dojo/models.py:309
+msgid "Please note: It is strongly recommended to use a secret below and / or IP whitelist the JIRA server using a proxy such as Nginx."
+msgstr "Пожалуйста, обратите внимание: настоятельно рекомендуется использовать секретный ключ ниже и / или белый список IP серверов JIRA с использованием прокси-сервера, например Nginx."
+
+#: dojo/models.py:313
+msgid "Disable web hook secret"
+msgstr "Отключить секретный ключ для веб хука"
+
+#: dojo/models.py:314
+msgid "Allows incoming requests without a secret (discouraged legacy behaviour)"
+msgstr "Разрешает входящие запросы без использования секретного ключа (не рекомендуемое поведение)"
+
+#: dojo/models.py:318
+msgid "JIRA Webhook URL"
+msgstr "JIRA Webhook URL"
+
+#: dojo/models.py:319
+msgid "Secret needed in URL for incoming JIRA Webhook"
+msgstr "Секретный ключ, необходимый в URL для входящего JIRA Webhook"
+
+#: dojo/models.py:330 dojo/models.py:3742
+msgid "JIRA issue labels space seperated"
+msgstr "Разделенные пробелом метки задач JIRA"
+
+#: dojo/models.py:333 dojo/models.py:3744
+msgid "Add vulnerability Id as a JIRA label"
+msgstr "Добавить идентификатор уязвимости в качестве заголовка JIRA"
+
+#: dojo/models.py:337
+msgid "Enable GITHUB integration"
+msgstr "Включить интеграцию с GitHub"
+
+#: dojo/models.py:342
+msgid "Enable Slack notifications"
+msgstr "Включить уведомления Slack"
+
+#: dojo/models.py:345
+msgid "Optional. Needed if you want to send global notifications."
+msgstr "Необязательно. Требуется, если вы хотите отправлять глобальные уведомления."
+
+#: dojo/models.py:347
+msgid "Token required for interacting with Slack. Get one at https://api.slack.com/tokens"
+msgstr "Токен необходим для взаимодействия со Slack. Получите его на https://api.slack.com/tokens"
+
+#: dojo/models.py:351
+msgid "Optional. Will take your bot name otherwise."
+msgstr "Необязательно. В противном случае будет использоваться имя вашего бота."
+
+#: dojo/models.py:354
+msgid "Enable Microsoft Teams notifications"
+msgstr "Включить уведомления в Microsoft Teams"
+
+#: dojo/models.py:357
+msgid "The full URL of the incoming webhook"
+msgstr "Полный URL-адрес входящего веб хука"
+
+#: dojo/models.py:365
+msgid "(EXPERIMENTAL) DefectDojo will automatically mark the finding as a false positive if an equal finding (according to its dedupe algorithm) has been previously marked as a false positive on the same product. ATTENTION: Although the deduplication algorithm is used to determine if a finding should be marked as a false positive, this feature will not work if deduplication is enabled since it doesn't make sense to use both."
+msgstr "(ЭКСПЕРИМЕНТАЛЬНО) DefectDojo будет автоматически помечать Уязвимости как false positive, если аналогичная Уязвимость(на основе алгоритма дедупликации) была ранее помечена как false positive в том же продукте. ВНИМАНИЕ: Хотя алгоритм дедупликации используется для пометки Уязвимости как false positive, эта функция не будет работать, если дедупликация включена, поскольку использовать обе функции одновременно не имеет смысла."
+
+#: dojo/models.py:376
+msgid "(EXPERIMENTAL) FP History will also retroactively mark/unmark all existing equal findings in the same product as a false positives. Only works if the False Positive History feature is also enabled."
+msgstr "(ЭКПЕРИМЕНТАЛЬНО) FP History также будет задним числом ставить/снимать отметку false positive со всех существующих сопоставимых уязвимостей в продукте. Работает только в том случае, если функция False Positive History включена."
+
+#: dojo/models.py:382
+msgid "URL prefix if DefectDojo is installed in it's own virtual subdirectory."
+msgstr "Префикс URL, если DefectDojo установлен в свой виртуальный подкаталог."
+
+#: dojo/models.py:387
+msgid "Enable Product Grading"
+msgstr "Включить оценку продукта"
+
+#: dojo/models.py:387
+msgid "Displays a grade letter next to a product to show the overall health."
+msgstr "Отображает буквы оценки рядом с продуктом, показывающие общий уровень защищенности."
+
+#: dojo/models.py:390
+msgid "Grade A"
+msgstr "Оценка A"
+
+#: dojo/models.py:391
+msgid "Percentage score for an 'A' >="
+msgstr "Процент баллов для 'A' >="
+
+#: dojo/models.py:394
+msgid "Grade B"
+msgstr "Оценка Б"
+
+#: dojo/models.py:395
+msgid "Percentage score for a 'B' >="
+msgstr "Процент балла для 'B' >="
+
+#: dojo/models.py:398
+msgid "Grade C"
+msgstr "Оценка С"
+
+#: dojo/models.py:399
+msgid "Percentage score for a 'C' >="
+msgstr "Процент баллов для 'C' >="
+
+#: dojo/models.py:402
+msgid "Grade D"
+msgstr "Оценка D"
+
+#: dojo/models.py:403
+msgid "Percentage score for a 'D' >="
+msgstr "Процент баллов для 'D' >="
+
+#: dojo/models.py:406
+msgid "Grade F"
+msgstr "Оценка F"
+
+#: dojo/models.py:407
+msgid "Percentage score for an 'F' <="
+msgstr "Процент баллов для 'F' <="
+
+#: dojo/models.py:412 dojo/models.py:1050
+msgid "Enable Product Tag Inheritance"
+msgstr "Включить наследование тегов продуктов"
+
+#: dojo/models.py:413
+msgid "Enables product tag inheritance globally for all products. Any tags added on a product will automatically be added to all Engagements, Tests, and Findings"
+msgstr "Включение наследование тегов продуктами глобально для всех продуктов. Любые теги, добавленные в продукт будут автоматически добавлены во все задания, Тесты и Уязвимости"
+
+#: dojo/models.py:418
+msgid "Enable Benchmarks"
+msgstr "Включить бенчмарки"
+
+#: dojo/models.py:419
+msgid "Enables Benchmarks such as the OWASP ASVS (Application Security Verification Standard)"
+msgstr "Включает бенчмарки, такие как OWASP ASVS"
+
+#: dojo/models.py:425
+msgid "Enable Remediation Advice"
+msgstr "Включить консультации по исправлению"
+
+#: dojo/models.py:426
+msgid "Enables global remediation advice and matching on CWE and Title. The text will be replaced for mitigation, impact and references on a finding. Useful for providing consistent impact and remediation advice regardless of the scanner."
+msgstr "Позволяет использовать глобальные советы по восстановлению и сопоставление по CWE и названию. Текст будет заменен для \"Митигирования\", \"Импакта\", и ссылок на недостаток. Полезно для обеспечения консистентного значения поля \"Импакт\" и \"Совета по исправлению\", независимо от сканера."
+
+#: dojo/models.py:431
+msgid "Enable Engagement Auto-Close"
+msgstr "Включить автоматическое закрытие Проверок"
+
+#: dojo/models.py:432
+msgid "Closes an engagement after 3 days (default) past due date including last update."
+msgstr "Закрывает Проверку через 3 дня (по умолчанию) после истечения срока, включая последнее обновление."
+
+#: dojo/models.py:437
+msgid "Engagement Auto-Close Days"
+msgstr "Дней до автоматического закрытия задания"
+
+#: dojo/models.py:438
+msgid "Closes an engagement after the specified number of days past due date including last update."
+msgstr "Закрытие задания по прошествии указанного числа дней с момента истечения срока, включая последнее обновление."
+
+#: dojo/models.py:443
+msgid "Enable Handmade Engagement Auto-Delete"
+msgstr "Включить автоматическое удаление ручных проверок"
+
+#: dojo/models.py:444
+msgid "Delete an engagement after 30 days (default) after creation date."
+msgstr "Удалять задания через 30 дней (по умолчанию) после даты создания."
+
+#: dojo/models.py:449
+msgid "Handmade Engagement Auto-Delete Days"
+msgstr "Дней до автоматического удаления ручных проверок"
+
+#: dojo/models.py:450
+msgid "Delete an engagement after the specified number of days after creation date."
+msgstr "Удалять задания после определенного количества дней после даты создания."
+
+#: dojo/models.py:455
+msgid "Enable Finding SLA's"
+msgstr "Включить SLA для уязвимостей"
+
+#: dojo/models.py:456
+msgid "Enables Finding SLA's for time to remediate."
+msgstr "Включение SLA Уязвимости на время исправления."
+
+#: dojo/models.py:461
+msgid "Enable Notify SLA's Breach for active Findings"
+msgstr "Включить оповещения о нарушении SLA для активных уязвимостей"
+
+#: dojo/models.py:462
+msgid "Enables Notify when time to remediate according to Finding SLA's is breached for active Findings."
+msgstr "Включение оповещения, когда нарушено время на исправление SLA Уязвимости для активных уязвимостей."
+
+#: dojo/models.py:467
+msgid "Enable Notify SLA's Breach for active, verified Findings"
+msgstr "Включить оповещение о нарушении SLA для активных и подтвержденных уязвимостей"
+
+#: dojo/models.py:468
+msgid "Enables Notify when time to remediate according to Finding SLA's is breached for active, verified Findings."
+msgstr "Включение оповещения, когда наступило время на исправление нарушения SLA Уязвимости для активных и подтвержденных уязвимостей."
+
+#: dojo/models.py:473
+msgid "Enable Notify SLA's Breach only for Findings linked to JIRA"
+msgstr "Включить оповещение о нарушении SLA только для уязвимостей связанных с JIRA"
+
+#: dojo/models.py:474
+msgid "Enables Notify when time to remediate according to Finding SLA's is breached for Findings that are linked to JIRA issues. Notification is disabled for Findings not linked to JIRA issues"
+msgstr "Включение оповещения, когда наступило время на исправление нарушения SLA Уязвимости, которая связана с задачей в JIRA. Оповещение отключено для уязвимостей не связанных с задачами в JIRA"
+
+#: dojo/models.py:479
+msgid "Enable an exponential backoff strategy for SLA breach notifications."
+msgstr "Включить экспоненциальную стратегию отсрочки для оповещений о нарушении SLA."
+
+#: dojo/models.py:480
+msgid "Enable an exponential backoff strategy for SLA breach notifications, e.g. 1, 2, 4, 8, etc. Otherwise it alerts every day"
+msgstr "Включить экспоненциальную стратегию отсрочки для оповещений о нарушении SLA (например 1, 2, 4, 8 и т.д.). В противном случае оповещение будет приходить каждый день"
+
+#: dojo/models.py:485
+msgid "Allow Anonymous Survey Responses"
+msgstr "Разрешить анонимные ответы на опросник"
+
+#: dojo/models.py:486
+msgid "Enable anyone with a link to the survey to answer a survey"
+msgstr "Разрешить любому, кто имеет ссылку на опросник, ответить на вопрос"
+
+#: dojo/models.py:490
+msgid "Custom Disclaimer"
+msgstr "Пользовательский отказ от ответственности"
+
+#: dojo/models.py:491
+msgid "Include this custom disclaimer on all notifications and generated reports"
+msgstr "Включить этот пользовательский отказ от ответственности во все оповещения и сгенерированные отчеты"
+
+#: dojo/models.py:492
+msgid "Default expiry period for risk acceptance form."
+msgstr "Срок действия по умолчанию для формы принятия рисков."
+
+#: dojo/models.py:494
+msgid "Risk acceptance expiration heads up days"
+msgstr "Количество дней до истечения срока принятия риска"
+
+#: dojo/models.py:494
+msgid "Notify X days before risk acceptance expires. Leave empty to disable."
+msgstr "Уведомлять X дней до истечения срока действия риска. Оставьте пустым, чтобы отключить."
+
+#: dojo/models.py:498
+msgid "Enable credentials"
+msgstr "Включить учетные данные"
+
+#: dojo/models.py:499
+msgid "With this setting turned off, credentials will be disabled in the user interface."
+msgstr "Если эта настройка выключена, то учетные данные будут отключены в пользовательском интерфейсе."
+
+#: dojo/models.py:503
+msgid "Enable questionnaires"
+msgstr "Включить опросники"
+
+#: dojo/models.py:504
+msgid "With this setting turned off, questionnaires will be disabled in the user interface."
+msgstr "Если этот параметр выключен, опросники будут отключены в пользовательском интерфейсе."
+
+#: dojo/models.py:508
+msgid "Enable checklists"
+msgstr "Включить чеклист"
+
+#: dojo/models.py:509
+msgid "With this setting turned off, checklists will be disabled in the user interface."
+msgstr "Если этот параметр выключен, чек-листы будут отключены в пользовательском интерфейсе."
+
+#: dojo/models.py:513
+msgid "Enable Endpoint Metadata Import"
+msgstr "Включить импорт метаданных конечной точки"
+
+#: dojo/models.py:514
+msgid "With this setting turned off, endpoint metadata import will be disabled in the user interface."
+msgstr "Если эта настройка выключена, импорт метаданных конечных точек будет отключен в пользовательском интерфейсе."
+
+#: dojo/models.py:518
+msgid "Enable user profile for writing"
+msgstr "Включить изменение профиля пользователя"
+
+#: dojo/models.py:519
+msgid "When turned on users can edit their profiles"
+msgstr "Если включено, то пользователи могут редактировать свои профили"
+
+#: dojo/models.py:523
+msgid "Enable Product Tracking Files"
+msgstr "Включить отслеживание файлов в продукте"
+
+#: dojo/models.py:524
+msgid "With this setting turned off, the product tracking files will be disabled in the user interface."
+msgstr "Если эта настройка выключена, файлы отслеживания продукта будут отключены в пользовательском интерфейсе."
+
+#: dojo/models.py:528
+msgid "Enable Finding Groups"
+msgstr "Включить группы уязвимостей"
+
+#: dojo/models.py:529
+msgid "With this setting turned off, the Finding Groups will be disabled."
+msgstr "Если эта настройка выключена, группы уязвимостей будут отключены."
+
+#: dojo/models.py:533
+msgid "Enable Calendar"
+msgstr "Включить календарь"
+
+#: dojo/models.py:534
+msgid "With this setting turned off, the Calendar will be disabled in the user interface."
+msgstr "Если эта настройка выключена, календарь будет отключен в пользовательском интерфейсе."
+
+#: dojo/models.py:539
+msgid "New users will be assigned to this group."
+msgstr "Новые пользователи будут назначены в эту группу."
+
+#: dojo/models.py:545
+msgid "New users will be assigned to their default group with this role."
+msgstr "Новые пользователи будут назначены в их группу по умолчанию с этой ролью."
+
+#: dojo/models.py:551
+msgid "New users will only be assigned to the default group, when their email address matches this regex pattern. This is optional condition."
+msgstr "Новые пользователи будут назначены в группу по умолчанию только в том случает, если их email соответствует этому шаблону. Это необязательное условие."
+
+#: dojo/models.py:554
+msgid "Minimum password length"
+msgstr "Минимальная длина пароля"
+
+#: dojo/models.py:555
+msgid "Requires user to set passwords greater than minimum length."
+msgstr "Требует от пользователя задания паролей больше минимальной длины."
+
+#: dojo/models.py:558
+msgid "Maximum password length"
+msgstr "Максимальная длина пароля"
+
+#: dojo/models.py:559
+msgid "Requires user to set passwords less than maximum length."
+msgstr "Требует от пользователя установки паролей меньше максимальной длины."
+
+#: dojo/models.py:563
+msgid "Password must contain one digit"
+msgstr "Пароль должен содержать одну цифру"
+
+#: dojo/models.py:564
+msgid "Requires user passwords to contain at least one digit (0-9)."
+msgstr "Требует, чтобы пароли пользователей содержали как минимум одну цифру (0-9)."
+
+#: dojo/models.py:568
+msgid "Password must contain one special character"
+msgstr "Пароль должен содержать один специальный символ"
+
+#: dojo/models.py:569
+msgid "Requires user passwords to contain at least one special character (()[]{}|\\`~!@#$%^&*_-+=;:'\",<>./?)."
+msgstr "Требует, чтобы пароли пользователей содержали как минимум один специальный символ (()[]{}|\\`~!@#$%^&*_-+=;:'\",<>./?)."
+
+#: dojo/models.py:573
+msgid "Password must contain one lowercase letter"
+msgstr "Пароль должен содержать одну строчную букву"
+
+#: dojo/models.py:574
+msgid "Requires user passwords to contain at least one lowercase letter (a-z)."
+msgstr "Требует, чтобы пароли пользователей содержали как минимум одну строчную букву (a-z)."
+
+#: dojo/models.py:578
+msgid "Password must contain one uppercase letter"
+msgstr "Пароль должен содержать одну заглавную букву"
+
+#: dojo/models.py:579
+msgid "Requires user passwords to contain at least one uppercase letter (A-Z)."
+msgstr "Требует, чтобы пароли пользователей содержали как минимум одну заглавную букву (A-Z)."
+
+#: dojo/models.py:583
+msgid "Password must not be common"
+msgstr "Пароль не должен быть типичным"
+
+#: dojo/models.py:584
+msgid "Requires user passwords to not be part of list of common passwords."
+msgstr "Требует, чтобы пароли пользователей не входили в список типичных паролей."
+
+#: dojo/models.py:614
+msgid "This role determines the permissions of the user to manage the group."
+msgstr "Эта роль определяет права пользователя на управление группой."
+
+#: dojo/models.py:614 dojo/templates/dojo/profile.html:76
+#: dojo/templates/dojo/view_user.html:283
+msgid "Group role"
+msgstr "Роль в группе"
+
+#: dojo/models.py:620
+msgid "The global role will be applied to all product types and products."
+msgstr "Глобальная роль будет применяться ко всем проектам и типам проектов."
+
+#: dojo/models.py:620 dojo/templates/dojo/view_user.html:366
+msgid "Global role"
+msgstr "Глобальная роль"
+
+#: dojo/models.py:887
+msgid "Custom SLA Name"
+msgstr "Название пользовательского SLA"
+
+#: dojo/models.py:888
+msgid "A unique name for the set of SLAs."
+msgstr "Уникальное название для набора SLA."
+
+#: dojo/models.py:892
+msgid "Critical Finding SLA Days"
+msgstr "SLA дней на исправление критической Уязвимости "
+
+#: dojo/models.py:893
+msgid "number of days to remediate a critical finding."
+msgstr "количество дней на исправление критической Уязвимости."
+
+#: dojo/models.py:894
+msgid "High Finding SLA Days"
+msgstr "SLA дней на исправление Уязвимости высокой важности"
+
+#: dojo/models.py:895
+msgid "number of days to remediate a high finding."
+msgstr "количество дней на исправление Уязвимости высокой важности."
+
+#: dojo/models.py:896
+msgid "Medium Finding SLA Days"
+msgstr "SLA дней на исправление Уязвимости средней важности"
+
+#: dojo/models.py:897
+msgid "number of days to remediate a medium finding."
+msgstr "количество дней на исправление Уязвимости средней важности."
+
+#: dojo/models.py:898
+msgid "Low Finding SLA Days"
+msgstr "SLA дней на исправление Уязвимости низкой важности"
+
+#: dojo/models.py:899
+msgid "number of days to remediate a low finding."
+msgstr "количество дней на исправление Уязвимости низкой важности."
+
+#: dojo/models.py:934
+msgid "API"
+msgstr "API"
+
+#: dojo/models.py:935
+msgid "Desktop"
+msgstr "Настольный"
+
+#: dojo/models.py:936
+msgid "Internet of Things"
+msgstr "Интернет вещей"
+
+#: dojo/models.py:937
+msgid "Mobile"
+msgstr "Мобильный"
+
+#: dojo/models.py:938
+msgid "Web"
+msgstr "Веб"
+
+#: dojo/models.py:945
+msgid "Construction"
+msgstr "В разработке"
+
+#: dojo/models.py:958
+msgid "Production"
+msgstr "В эксплуатации"
+
+#: dojo/models.py:947
+msgid "Retirement"
+msgstr "Выведено из эксплуатации"
+
+#: dojo/models.py:957
+msgid "Third Party Library"
+msgstr "Сторонняя библиотека"
+
+#: dojo/models.py:958
+msgid "Purchased"
+msgstr "Приобретено"
+
+#: dojo/models.py:959
+msgid "Contractor Developed"
+msgstr "Разработано подрядчиком"
+
+#: dojo/models.py:960
+msgid "Internally Developed"
+msgstr "Внутренняя разработка"
+
+#: dojo/models.py:961
+msgid "Open Source"
+msgstr "Open Source"
+
+#: dojo/models.py:962
+msgid "Outsourced"
+msgstr "Аутсорсинг"
+
+#: dojo/models.py:972
+msgid "Very High"
+msgstr "Очень высокий"
+
+#: dojo/models.py:973 dojo/templates/dojo/findings_list_snippet.html:122
+#: dojo/templates/dojo/findings_list_snippet.html:299
+#: dojo/templates/dojo/metrics.html:314 dojo/templates/dojo/metrics.html:372
+#: dojo/templates/dojo/metrics.html:392 dojo/templates/dojo/metrics.html:419
+#: dojo/templates/dojo/metrics.html:439 dojo/templates/dojo/metrics.html:468
+#: dojo/templates/dojo/metrics.html:488 dojo/templates/dojo/metrics.html:515
+#: dojo/templates/dojo/metrics.html:539 dojo/templates/dojo/metrics.html:566
+#: dojo/templates/dojo/metrics.html:588 dojo/templates/dojo/pt_counts.html:166
+#: dojo/templates/dojo/pt_counts.html:287
+#: dojo/templates/dojo/pt_counts.html:470
+#: dojo/templates/dojo/simple_metrics.html:25
+#: dojo/templates/dojo/view_test.html:655
+#: dojo/templates/dojo/view_test.html:896
+msgid "High"
+msgstr "Высокий"
+
+#: dojo/models.py:974 dojo/templates/dojo/findings_list_snippet.html:119
+#: dojo/templates/dojo/findings_list_snippet.html:296
+#: dojo/templates/dojo/metrics.html:315 dojo/templates/dojo/metrics.html:373
+#: dojo/templates/dojo/metrics.html:393 dojo/templates/dojo/metrics.html:420
+#: dojo/templates/dojo/metrics.html:440 dojo/templates/dojo/metrics.html:469
+#: dojo/templates/dojo/metrics.html:489 dojo/templates/dojo/metrics.html:516
+#: dojo/templates/dojo/metrics.html:540 dojo/templates/dojo/metrics.html:567
+#: dojo/templates/dojo/metrics.html:589 dojo/templates/dojo/pt_counts.html:167
+#: dojo/templates/dojo/pt_counts.html:288
+#: dojo/templates/dojo/pt_counts.html:471
+#: dojo/templates/dojo/simple_metrics.html:26
+#: dojo/templates/dojo/view_test.html:652
+#: dojo/templates/dojo/view_test.html:893
+msgid "Medium"
+msgstr "Средний"
+
+#: dojo/models.py:975 dojo/templates/dojo/findings_list_snippet.html:116
+#: dojo/templates/dojo/findings_list_snippet.html:293
+#: dojo/templates/dojo/metrics.html:316 dojo/templates/dojo/metrics.html:374
+#: dojo/templates/dojo/metrics.html:394 dojo/templates/dojo/metrics.html:421
+#: dojo/templates/dojo/metrics.html:441 dojo/templates/dojo/metrics.html:470
+#: dojo/templates/dojo/metrics.html:490 dojo/templates/dojo/metrics.html:517
+#: dojo/templates/dojo/metrics.html:541 dojo/templates/dojo/metrics.html:568
+#: dojo/templates/dojo/metrics.html:590 dojo/templates/dojo/pt_counts.html:168
+#: dojo/templates/dojo/pt_counts.html:289
+#: dojo/templates/dojo/pt_counts.html:472
+#: dojo/templates/dojo/simple_metrics.html:27
+#: dojo/templates/dojo/view_test.html:649
+#: dojo/templates/dojo/view_test.html:890
+msgid "Low"
+msgstr "Низкий"
+
+#: dojo/models.py:976
+msgid "Very Low"
+msgstr "Очень низкий"
+
+#: dojo/models.py:977 dojo/templates/dojo/findings_list_snippet.html:309
+#: dojo/templates/dojo/simple_search.html:280
+#: dojo/templates/dojo/view_test.html:475
+#: dojo/templates/dojo/view_test.html:907
+msgid "None"
+msgstr "Нет"
+
+#: dojo/models.py:1040
+msgid "Estimate the number of user records within the application."
+msgstr "Оцените количество записей пользователей в приложении."
+
+#: dojo/models.py:1041
+msgid "Estimate the application's revenue."
+msgstr "Оцените доход приложения."
+
+#: dojo/models.py:1042
+msgid "Specify if the application is used by people outside the organization."
+msgstr "Укажите, используется ли приложение лицами, не входящими в организацию."
+
+#: dojo/models.py:1043
+msgid "Specify if the application is accessible from the public internet."
+msgstr "Укажите, доступно ли приложение через интернет."
+
+#: dojo/models.py:1046
+msgid "Add tags that help describe this product. Choose from the list or add new tags. Press Enter key to add."
+msgstr "Добавьте теги, которые помогут описать этот товар. Выберите из списка или добавьте новые теги. Нажмите клавишу Enter для добавления."
+
+#: dojo/models.py:1052
+msgid "Enables product tag inheritance. Any tags added on a product will automatically be added to all Engagements, Tests, and Findings"
+msgstr "Включает наследование тегов в продукте. Любые теги, добавленные в продукт будут автоматически добавлены во все задания, Тесты и Уязвимости"
+
+#: dojo/models.py:1053
+msgid "Allows simple risk acceptance by checking/unchecking a checkbox."
+msgstr "Позволяет принимать простые риски включением/отключением флажка."
+
+#: dojo/models.py:1054
+msgid "Allows full risk acceptance using a risk acceptance form, expiration date, uploaded proof, etc."
+msgstr "Разрешает полное принятие риска используя форму принятия риска, дату истечения срока действия, загруженные доказательства и т. д."
+
+#: dojo/models.py:1059
+msgid "Disable SLA breach notifications"
+msgstr "Отключить уведомления о нарушениях SLA"
+
+#: dojo/models.py:1060
+msgid "Disable SLA breach notifications if configured in the global settings"
+msgstr "Отключить уведомления о нарушениях SLA, если это указано в глобальных настройках"
+
+#: dojo/models.py:1243
+msgid "Additional definitions that will be consumed by scanner"
+msgstr "Дополнительные параметры, которые будут использованы сканером"
+
+#: dojo/models.py:1248
+msgid "Title for SSH/API Key"
+msgstr "Название для SSH/API ключа"
+
+#: dojo/models.py:1251 dojo/templates/dojo/profile.html:40
+#: dojo/user/views.py:96
+msgid "API Key"
+msgstr "Ключ API"
+
+#: dojo/models.py:1319
+msgid "Location of network testing: Examples: VPN, Internet or Internal."
+msgstr "Расположение сетевого тестирования: примеры: VPN, Интернет или Internal."
+
+#: dojo/models.py:1326
+msgid "Brief description of preset."
+msgstr "Краткое описание пресета."
+
+#: dojo/models.py:1329
+msgid "Description of what needs to be tested or setting up environment for testing"
+msgstr "Описание того, что необходимо протестировать или как настроить среду для тестирования"
+
+#: dojo/models.py:1330
+msgid "Scope of Engagement testing, IP's/Resources/URL's)"
+msgstr "Скоуп тестирования задания (IP/Ресуры/URL)"
+
+#: dojo/models.py:1353
+msgid "Version of the product the engagement tested."
+msgstr "Версия продукта тестируемой задания."
+
+#: dojo/models.py:1359
+msgid "Settings and notes for performing this engagement."
+msgstr "Настройки и заметки, необходимые для проведения этой задания."
+
+#: dojo/models.py:1366
+msgid "Link to epic or ticket system with changes to version."
+msgstr "Ссылка на эпиков или задачу с изменениями версии."
+
+#: dojo/models.py:1391
+msgid "Build ID of the product the engagement tested."
+msgstr "ID сборки задания в протестированном продукте."
+
+#: dojo/models.py:1391 dojo/models.py:1984 dojo/models.py:2129
+#: dojo/templates/dojo/view_finding.html:954
+#: dojo/templates/dojo/view_test.html:233
+msgid "Build ID"
+msgstr "ID сборки"
+
+#: dojo/models.py:1393
+msgid "Commit hash from repo"
+msgstr "Хэш коммита из репозитория"
+
+#: dojo/models.py:1393 dojo/models.py:1986 dojo/models.py:2131
+msgid "Commit Hash"
+msgstr "Хэш коммита"
+
+#: dojo/models.py:1395
+msgid "Tag or branch of the product the engagement tested."
+msgstr "Тег или ветка протестированного продукта."
+
+#: dojo/models.py:1395 dojo/models.py:1988 dojo/models.py:2133
+#: dojo/templates/dojo/view_finding.html:953
+#: dojo/templates/dojo/view_test.html:232
+msgid "Branch/Tag"
+msgstr "Ветка/Тег"
+
+#: dojo/models.py:1396
+msgid "Build Server"
+msgstr "Сервер сборки"
+
+#: dojo/models.py:1396
+msgid "Build server responsible for CI/CD test"
+msgstr "Сервер сборки, ответственный за CI/CD тест"
+
+#: dojo/models.py:1397
+msgid "SCM Server"
+msgstr "SCM сервер"
+
+#: dojo/models.py:1397
+msgid "Source code server for CI/CD test"
+msgstr "Сервер исходного кода для CI/CD теста"
+
+#: dojo/models.py:1398
+msgid "Repo"
+msgstr "Репозиторий"
+
+#: dojo/models.py:1398
+msgid "Resource link to source code"
+msgstr "Ссылка на ресурс с исходным кодом"
+
+#: dojo/models.py:1399
+msgid "Orchestration Engine"
+msgstr "Механизм оркестровки"
+
+#: dojo/models.py:1399
+msgid "Orchestration service responsible for CI/CD test"
+msgstr "Сервис оркестрации, отвечающий за проведение CI/CD тестов"
+
+#: dojo/models.py:1400
+msgid "Deduplication within this engagement only"
+msgstr "Дедупликация только в рамках этой задания"
+
+#: dojo/models.py:1400
+msgid "If enabled deduplication will only mark a finding in this engagement as duplicate of another finding if both findings are in this engagement. If disabled, deduplication is on the product level."
+msgstr "Если включено deduplication будет означать только вывод в этой проверке как дубликат другого вывода, если оба выводы находятся в этой проверке. Если отключено, происходит дедупликация на уровне продукта."
+
+#: dojo/models.py:1401
+msgid "Disable deduplication for this engagement"
+msgstr "Отключить дедупликацию для этой задания"
+
+#: dojo/models.py:1401
+msgid "If enabled findings will never mark as duplicate in this engagement"
+msgstr "Если включено, уязвимости не будут помечаться как дубликаты в этой проверке"
+
+#: dojo/models.py:1402
+msgid "Use this engagement as reference for deduplication"
+msgstr "Использовать эту проверку для дедупликации"
+
+#: dojo/models.py:1402
+msgid "If enabled findings from other engagements will deduplicate with findings from this engagement"
+msgstr "Если включено, уязвимости из других проверок будут дедуплицироваться с уязвимостями из этой задания"
+
+#: dojo/models.py:1404
+msgid "Add tags that help describe this engagement. Choose from the list or add new tags. Press Enter key to add."
+msgstr "Добавьте теги, которые помогут описать эту проверку. Выберите из списка или добавьте новые теги. Нажмите клавишу Enter для добавления."
+
+#: dojo/models.py:1405 dojo/models.py:1589 dojo/models.py:1979
+#: dojo/models.py:2489
+msgid "Internal use tags sepcifically for maintaining parity with product. This field will be present as a subset in the tags field"
+msgstr "Внутреннее использование специфичных тегов для поддержания паритетности продукта. Это поле будет присутствовать как подмножество в поле тегов"
+
+#: dojo/models.py:1564
+msgid "The communication protocol/scheme such as 'http', 'ftp', 'dns', etc."
+msgstr "Коммуникационный протокол/схема типа 'http', 'ftp', 'dns' и т.д."
+
+#: dojo/models.py:1566
+msgid "User info as 'alice', 'bob', etc."
+msgstr "Информация о пользователе как 'alice', 'bob' и т.д."
+
+#: dojo/models.py:1568
+msgid "The host name or IP address. It must not include the port number. For example '127.0.0.1', 'localhost', 'yourdomain.com'."
+msgstr "Имя хоста или IP-адрес. Не должно содержаться номера порта. Например, '127.0.0.1', 'localhost', 'yourdomain.com'."
+
+#: dojo/models.py:1571
+msgid "The network port associated with the endpoint."
+msgstr "Сетевой порт, связанный с конечной точкой."
+
+#: dojo/models.py:1573
+msgid "The location of the resource, it must not start with a '/'. For example endpoint/420/edit"
+msgstr "Расположение ресурса не должно начинаться с '/'. Например endpoint/420/edit"
+
+#: dojo/models.py:1576
+msgid "The query string, the question mark should be omitted.For example 'group=4&team=8'"
+msgstr "Строка запроса, знак вопроса должен быть опущен. Например, 'group=4&team=8'"
+
+#: dojo/models.py:1579
+msgid "The fragment identifier which follows the hash mark. The hash mark should be omitted. For example 'section-13', 'paragraph-2'."
+msgstr "Идентификатор фрагмента, который следует за хэш-меткой. Хэш-метку следует пропускать. Например «section-13», «paragraph -2»."
+
+#: dojo/models.py:1585 dojo/templates/base.html:296
+#: dojo/templates/base.html:697 dojo/templates/dojo/simple_search.html:44
+#: dojo/templates/dojo/view_test.html:329
+#: dojo/templates/dojo/view_test.html:513
+msgid "Findings"
+msgstr "Уязвимости"
+
+#: dojo/models.py:1588
+msgid "Add tags that help describe this endpoint. Choose from the list or add new tags. Press Enter key to add."
+msgstr "Добавьте теги, которые помогут описать эту конечную точку. Выберите из списка или добавьте новые теги. Нажмите клавишу Enter для добавления."
+
+#: dojo/models.py:1937
+msgid "SonarQube issue key"
+msgstr "Ключ задачи SonarQube"
+
+#: dojo/models.py:1938
+msgid "SonarQube issue status"
+msgstr "Статус задачи SonarQube"
+
+#: dojo/models.py:1939
+msgid "SonarQube issue type"
+msgstr "Тип проблемы SonarQube"
+
+#: dojo/models.py:1978
+msgid "Add tags that help describe this test. Choose from the list or add new tags. Press Enter key to add."
+msgstr "Добавьте теги, которые помогут описать этот тест. Выберите из списка или добавьте новые теги. Нажмите клавишу Enter для добавления."
+
+#: dojo/models.py:1984 dojo/models.py:2129
+msgid "Build ID that was tested, a reimport may update this field."
+msgstr "ID сборки, который был протестирован, реимпорт может обновить это поле."
+
+#: dojo/models.py:1986 dojo/models.py:2131
+msgid "Commit hash tested, a reimport may update this field."
+msgstr "Хэш протестированного коммита, реимпорт может изменить это поле."
+
+#: dojo/models.py:1988 dojo/models.py:2133
+msgid "Tag or branch that was tested, a reimport may update this field."
+msgstr "Проверенный тег или ветка, реимпорт может изменить это поле."
+
+#: dojo/models.py:1989 dojo/templates/dojo/view_test.html:122
+msgid "API Scan Configuration"
+msgstr "Настройка сканирования API"
+
+#: dojo/models.py:2181 dojo/templates/dojo/alerts.html:17
+#: dojo/templates/dojo/simple_search.html:223
+#: dojo/templates/dojo/simple_search.html:300
+#: dojo/templates/dojo/simple_search.html:449 dojo/templates/dojo/users.html:67
+#: dojo/templates/dojo/view_user.html:76
+msgid "Title"
+msgstr "Название"
+
+#: dojo/models.py:2182
+msgid "A short description of the flaw."
+msgstr "Краткое описание недостатка."
+
+#: dojo/models.py:2184 dojo/templates/dojo/findings_list_snippet.html:130
+#: dojo/templates/dojo/simple_search.html:191
+#: dojo/templates/dojo/simple_search.html:226
+#: dojo/templates/dojo/view_test.html:338
+#: dojo/templates/dojo/view_test.html:663
+#: dojo/templates/dojo/view_test.html:927
+#: dojo/templates/dojo/view_test.html:1317
+msgid "Date"
+msgstr "Дата"
+
+#: dojo/models.py:2185
+msgid "The date the flaw was discovered."
+msgstr "Дата обнаружения недостатка."
+
+#: dojo/models.py:2190
+msgid "SLA Start Date"
+msgstr "Дата начала SLA"
+
+#: dojo/models.py:2191
+msgid "(readonly)The date used as start date for SLA calculation. Set by expiring risk acceptances. Empty by default, causing a fallback to 'date'."
+msgstr "(только для чтения) Дата, используемая в качестве даты начала для расчёта SLA. Устанавливается для принятия рисков. По умолчанию она пуста и возвращается к 'дате'."
+
+#: dojo/models.py:2194 dojo/templates/dojo/findings_list_snippet.html:325
+#: dojo/templates/dojo/view_test.html:921
+msgid "CWE"
+msgstr "CWE"
+
+#: dojo/models.py:2195
+msgid "The CWE number associated with this flaw."
+msgstr "Номер CWE, связанный с этим недостатком."
+
+#: dojo/models.py:2199 dojo/templates/dojo/findings_list_snippet.html:328
+#: dojo/templates/dojo/simple_search.html:115
+#: dojo/templates/dojo/view_test.html:924
+msgid "Vulnerability Id"
+msgstr "Идентификатор уязвимости"
+
+#: dojo/models.py:2200
+msgid "An id of a vulnerability in a security advisory associated with this finding. Can be a Common Vulnerabilities and Exposures (CVE) or from other sources."
+msgstr "Идентификатор уязвимости в советах по безопасности, ассоциированный с этой Уязвимостью. Может быть Common Vulnerabilities and Exposures (CVE) или из других источников."
+
+#: dojo/models.py:2205
+msgid "CVSS v3"
+msgstr "CVSS v3"
+
+#: dojo/models.py:2206
+msgid "Common Vulnerability Scoring System version 3 (CVSSv3) score associated with this flaw."
+msgstr "CVSSv3, связанный с этим недостатком."
+
+#: dojo/models.py:2209
+msgid "CVSSv3 score"
+msgstr "Оценка CVSSv3"
+
+#: dojo/models.py:2210
+msgid "Numerical CVSSv3 score for the vulnerability. If the vector is given, the score is updated while saving the finding"
+msgstr "Числовой показатель CVSSv3 для уязвимости. Если задан вектор, оценка обновляется при сохранении Уязвимости"
+
+#: dojo/models.py:2215
+msgid "URL"
+msgstr "Адрес URL"
+
+#: dojo/models.py:2216
+msgid "External reference that provides more information about this flaw."
+msgstr "Внешняя ссылка, содержащая более подробную информацию об этом недостатке."
+
+#: dojo/models.py:2218 dojo/templates/dojo/findings_list_snippet.html:107
+#: dojo/templates/dojo/findings_list_snippet.html:317
+#: dojo/templates/dojo/simple_search.html:448
+#: dojo/templates/dojo/view_test.html:323
+#: dojo/templates/dojo/view_test.html:915
+#: dojo/templates/dojo/view_test.html:1311
+msgid "Severity"
+msgstr "Серьезность"
+
+#: dojo/models.py:2219
+msgid "The severity level of this flaw (Critical, High, Medium, Low, Informational)."
+msgstr "Уровень тяжести этой дефекта (критический, высокий, средний, низкий, информативный)."
+
+#: dojo/models.py:2220 dojo/templates/dojo/alerts.html:18
+#: dojo/templates/dojo/benchmark.html:63
+#: dojo/templates/dojo/simple_search.html:163
+#: dojo/templates/dojo/simple_search.html:301
+#: dojo/templates/dojo/simple_search.html:450
+#: dojo/templates/dojo/view_product_details.html:18
+#: dojo/templates/dojo/view_product_type.html:14
+msgid "Description"
+msgstr "Описание"
+
+#: dojo/models.py:2221
+msgid "Longer more descriptive information about the flaw."
+msgstr "Более подробная информация о недостатке."
+
+#: dojo/models.py:2222
+msgid "Mitigation"
+msgstr "Исправление"
+
+#: dojo/models.py:2225
+msgid "Text describing how to best fix the flaw."
+msgstr "Текст, описывающий способ наилучшего исправления недостатка."
+
+#: dojo/models.py:2226
+msgid "Impact"
+msgstr "Impact"
+
+#: dojo/models.py:2229
+msgid "Text describing the impact this flaw has on systems, products, enterprise, etc."
+msgstr "Текст, описывающий влияние этой ошибки на системы, продукты, предприятия и т.д."
+
+#: dojo/models.py:2232
+msgid "Steps to Reproduce"
+msgstr "Шаги для воспроизведения"
+
+#: dojo/models.py:2233
+msgid "Text describing the steps that must be followed in order to reproduce the flaw / bug."
+msgstr "Текст описания шагов, которые должны выполняться для воспроизведения дефекта/ошибки."
+
+#: dojo/models.py:2236
+msgid "Severity Justification"
+msgstr "Обоснование важности"
+
+#: dojo/models.py:2237
+msgid "Text describing why a certain severity was associated with this flaw."
+msgstr "Текст с описанием того, почему определенная степень тяжести связана с этим недостатком."
+
+#: dojo/models.py:2240 dojo/templates/base.html:346
+#: dojo/templates/base.html:772 dojo/templates/dojo/simple_search.html:69
+msgid "Endpoints"
+msgstr "Конечные точки"
+
+#: dojo/models.py:2241
+msgid "The hosts within the product that are susceptible to this flaw. + The status of the endpoint associated with this flaw (Vulnerable, Mitigated, ...)."
+msgstr "Принимающие стороны продукта, которые подвержены этому недостатку. + Статус конечной точки, связанной с этим недостатком (Уязвима, Решена, ...)."
+
+#: dojo/models.py:2246
+msgid "References"
+msgstr "Ссылки"
+
+#: dojo/models.py:2247
+msgid "The external documentation available for this flaw."
+msgstr "Внешняя документация доступна для этого недостатка."
+
+#: dojo/models.py:2251 dojo/templates/dojo/simple_search.html:118
+#: dojo/templates/dojo/simple_search.html:383
+#: dojo/templates/dojo/view_test.html:1426 dojo/test/views.py:146
+msgid "Test"
+msgstr "Проверка"
+
+#: dojo/models.py:2252
+msgid "The test that is associated with this flaw."
+msgstr "Тест, связанный с этим недостатком."
+
+#: dojo/models.py:2254 dojo/templates/dojo/findings_list_snippet.html:157
+#: dojo/templates/dojo/product.html:217 dojo/templates/dojo/pt_counts.html:255
+#: dojo/templates/dojo/users.html:12 dojo/templates/dojo/view_test.html:699
+#: dojo/templates/dojo/view_user.html:336
+msgid "Active"
+msgstr "Активно"
+
+#: dojo/models.py:2255
+msgid "Denotes if this flaw is active or not."
+msgstr "Обозначает если этот недостаток активен или нет."
+
+#: dojo/models.py:2260
+msgid "Denotes if this flaw has been manually verified by the tester."
+msgstr "Определяет, если этот недостаток был подтвержден тестером вручную."
+
+#: dojo/models.py:2263
+msgid "Denotes if this flaw has been deemed a false positive by the tester."
+msgstr "Обозначает если этот недостаток был признан тестером False positive."
+
+#: dojo/models.py:2265
+msgid "Duplicate"
+msgstr "Дубликат"
+
+#: dojo/models.py:2266
+msgid "Denotes if this flaw is a duplicate of other flaws reported."
+msgstr "Сообщает, что если этот недостаток дублирует другие недостатки."
+
+#: dojo/models.py:2272
+msgid "Duplicate Finding"
+msgstr "Дублированные уязвимости"
+
+#: dojo/models.py:2273
+msgid "Link to the original finding if this finding is a duplicate."
+msgstr "Ссылка на оригинальную уязвимость, если эта является дубликатом."
+
+#: dojo/models.py:2276
+msgid "Denotes if this flaw falls outside the scope of the test and/or engagement."
+msgstr "Оповещает, если недостаток выходит за рамки теста и/или задания."
+
+#: dojo/models.py:2279
+msgid "Denotes if this finding has been marked as an accepted risk."
+msgstr "Определяет, что Уязвимостьбыла помечена как принятый риск."
+
+#: dojo/models.py:2282
+msgid "Denotes is this flaw is currently being reviewed."
+msgstr "Определяет, что недостаток находится на рассмотрении."
+
+#: dojo/models.py:2288
+msgid "Last Status Update"
+msgstr "Последнее обновление статуса"
+
+#: dojo/models.py:2289
+msgid "Timestamp of latest status update (change in status related fields)."
+msgstr "Отметка времени последнего обновления статуса (изменение полей статуса)."
+
+#: dojo/models.py:2296
+msgid "Review Requested By"
+msgstr "Проверка запрошена"
+
+#: dojo/models.py:2297
+msgid "Documents who requested a review for this finding."
+msgstr "Документы, запросившие проверку для этой Уязвимости."
+
+#: dojo/models.py:2300
+msgid "Reviewers"
+msgstr "Рецензенты"
+
+
+#: dojo/models.py:2301
+msgid "Documents who reviewed the flaw."
+msgstr "Документы, в которых рассматривается о недостатке."
+
+#: dojo/models.py:2305
+msgid "Under Defect Review"
+msgstr "На рассмотрении"
+
+#: dojo/models.py:2306
+msgid "Denotes if this finding is under defect review."
+msgstr "Обозначает если эта Уязвимостьнаходится на рассмотрении."
+
+#: dojo/models.py:2312
+msgid "Defect Review Requested By"
+msgstr "Проверка дефектов запрошена"
+
+#: dojo/models.py:2313
+msgid "Documents who requested a defect review for this flaw."
+msgstr "Документы, запросившие проверку дефектов для этого недостатка."
+
+#: dojo/models.py:2315
+msgid "Is Mitigated"
+msgstr "Исправлено"
+
+#: dojo/models.py:2316
+msgid "Denotes if this flaw has been fixed."
+msgstr "Определяет, что этот недостаток был исправлен."
+
+#: dojo/models.py:2319
+msgid "Thread ID"
+msgstr "Thread ID"
+
+#: dojo/models.py:2323 dojo/templates/dojo/findings_list_snippet.html:179
+#: dojo/templates/dojo/view_test.html:721
+msgid "Mitigated"
+msgstr "Mitigated"
+
+#: dojo/models.py:2324
+msgid "Denotes if this flaw has been fixed by storing the date it was fixed."
+msgstr "Определяет, был ли этот недостаток исправлен, сохраняя дату исправления этой проблемы."
+
+#: dojo/models.py:2330
+msgid "Mitigated By"
+msgstr "Mitigated By"
+
+#: dojo/models.py:2331
+msgid "Documents who has marked this flaw as fixed."
+msgstr "Документы, которые отметили этот недостаток как исправленный."
+
+#: dojo/models.py:2337 dojo/templates/dojo/findings_list_snippet.html:350
+#: dojo/templates/dojo/view_test.html:938
+#: dojo/templates/dojo/view_test.html:1314
+msgid "Reporter"
+msgstr "Сообщил"
+
+#: dojo/models.py:2338
+msgid "Documents who reported the flaw."
+msgstr "Документы, которые сообщили о недостатке."
+
+#: dojo/models.py:2342 dojo/templates/dojo/benchmark.html:69
+#: dojo/templates/dojo/findings_list_snippet.html:244
+#: dojo/templates/dojo/view_test.html:836
+msgid "Notes"
+msgstr "Заметки"
+
+#: dojo/models.py:2343
+msgid "Stores information pertinent to the flaw or the mitigation."
+msgstr "Сохраняет информацию, относящуюся к недостатку или смягчению последствий."
+
+#: dojo/models.py:2345
+msgid "Numerical Severity"
+msgstr "Числовые оценки Severity"
+
+#: dojo/models.py:2346
+msgid "The numerical representation of the severity (S0, S1, S2, S3, S4)."
+msgstr "Числовое представление severity (S0, S1, S2, S3, S4)."
+
+#: dojo/models.py:2349
+msgid "Last Reviewed"
+msgstr "Последняя проверка"
+
+#: dojo/models.py:2350
+msgid "Provides the date the flaw was last 'touched' by a tester."
+msgstr "Определяет дату, когда недостаток был последний раз \"тронут\" тестером."
+
+#: dojo/models.py:2356
+msgid "Last Reviewed By"
+msgstr "Последняя проверка"
+
+#: dojo/models.py:2357
+msgid "Provides the person who last reviewed the flaw."
+msgstr "Кто последний раз производил проверку недостатка."
+
+#: dojo/models.py:2361 dojo/templates/dojo/view_test.html:1523
+msgid "Files"
+msgstr "Файлы"
+
+#: dojo/models.py:2362
+msgid "Files(s) related to the flaw."
+msgstr "Файлы(ы), связанные с недостатком."
+
+#: dojo/models.py:2366
+msgid "Parameter"
+msgstr "Параметр"
+
+#: dojo/models.py:2367
+msgid "Parameter used to trigger the issue (DAST)."
+msgstr "Параметр для срабатывания проблемы (DAST)."
+
+#: dojo/models.py:2371
+msgid "Payload"
+msgstr "Payload"
+
+#: dojo/models.py:2372
+msgid "Payload used to attack the service / application and trigger the bug / problem."
+msgstr "Payload, используемый для атаки на сервис/приложение и вызывающий ошибку/проблему."
+
+#: dojo/models.py:2377
+msgid "Hash Code"
+msgstr "Хэш код"
+
+#: dojo/models.py:2378
+msgid "A hash over a configurable set of fields that is used for findings deduplication."
+msgstr "Хэш значений настраиваемых полей, используемых для дедупликации уязвимостей."
+
+#: dojo/models.py:2381
+msgid "Line number"
+msgstr "Номер строки"
+
+#: dojo/models.py:2382 dojo/models.py:2447
+msgid "Source line number of the attack vector."
+msgstr "Номер исходной строки вектора атаки."
+
+#: dojo/models.py:2386
+msgid "File path"
+msgstr "Путь к файлу"
+
+#: dojo/models.py:2387
+msgid "Identified file(s) containing the flaw."
+msgstr "Идентификационный файл(ы), содержащий недостаток."
+
+#: dojo/models.py:2391
+msgid "Component name"
+msgstr "Название компонента"
+
+#: dojo/models.py:2392
+msgid "Name of the affected component (library name, part of a system, ...)."
+msgstr "Название затрагиваемого компонента (название библиотеки, часть системы, ...)."
+
+#: dojo/models.py:2396
+msgid "Component version"
+msgstr "Версия компонента"
+
+#: dojo/models.py:2397
+msgid "Version of the affected component."
+msgstr "Версия затрагиваемого компонента."
+
+#: dojo/models.py:2400
+msgid "Found by"
+msgstr "Найден"
+
+#: dojo/models.py:2401
+msgid "The name of the scanner that identified the flaw."
+msgstr "Название сканера, который идентифицировал недостаток."
+
+#: dojo/models.py:2403
+msgid "Static finding (SAST)"
+msgstr "Статический анализ (SAST)"
+
+#: dojo/models.py:2404
+msgid "Flaw has been detected from a Static Application Security Testing tool (SAST)."
+msgstr "Недостаток обнаружен Статическим Анализатором Кода (SAST)."
+
+#: dojo/models.py:2406
+msgid "Dynamic finding (DAST)"
+msgstr "Динамический анализ (DAST)"
+
+#: dojo/models.py:2407
+msgid "Flaw has been detected from a Dynamic Application Security Testing tool (DAST)."
+msgstr "Недостаток был обнаружен Динамическим Анализатором Кода (DAST)."
+
+#: dojo/models.py:2410 dojo/templates/dojo/pt_counts.html:397
+#: dojo/templates/dojo/view_product_details.html:478
+#: dojo/templates/dojo/view_test.html:31
+msgid "Created"
+msgstr "Создано"
+
+#: dojo/models.py:2411
+msgid "The date the finding was created inside DefectDojo."
+msgstr "Дата Уязвимости была создана внутри DefectDojo."
+
+#: dojo/models.py:2416
+msgid "Scanner confidence"
+msgstr "Точность сканирования"
+
+#: dojo/models.py:2417
+msgid "Confidence level of vulnerability which is supplied by the scanner."
+msgstr "Уровень критичности уязвимости был установлен сканером."
+
+#: dojo/models.py:2421
+msgid "The SonarQube issue associated with this finding."
+msgstr "Задача SonarQube была ассоциирована с этой Уязвимостью."
+
+#: dojo/models.py:2422
+msgid "SonarQube issue"
+msgstr "Задачи SonarQube"
+
+#: dojo/models.py:2427
+msgid "Unique ID from tool"
+msgstr "Уникальный идентификатор инструмента"
+
+#: dojo/models.py:2428
+msgid "Vulnerability technical id from the source tool. Allows to track unique vulnerabilities."
+msgstr "Технический идентификатор уязвимости инструмента. Применяется для отслеживания уникальных уязвимостей."
+
+#: dojo/models.py:2432
+msgid "Vulnerability ID from tool"
+msgstr "Идентификатор уязвимости инструмента"
+
+#: dojo/models.py:2433
+msgid "Non-unique technical id from the source tool associated with the vulnerability type."
+msgstr "Не уникальные технические идентификаторы инструмента ассоциированные с типом уязвимости."
+
+#: dojo/models.py:2437
+msgid "SAST Source Object"
+msgstr "Исходный объект SAST"
+
+#: dojo/models.py:2438
+msgid "Source object (variable, function...) of the attack vector."
+msgstr "Исходный объект (переменная, функция...) вектора атаки."
+
+#: dojo/models.py:2442
+msgid "SAST Sink Object"
+msgstr "Стоковый объект SAST"
+
+#: dojo/models.py:2443
+msgid "Sink object (variable, function...) of the attack vector."
+msgstr "Стоковый объект (переменная, функция...) вектора атаки."
+
+#: dojo/models.py:2446
+msgid "SAST Source Line number"
+msgstr "Номер строки исходника переданного в SAST"
+
+#: dojo/models.py:2451
+msgid "SAST Source File Path"
+msgstr "Путь к исходному файлу SAST"
+
+#: dojo/models.py:2452
+msgid "Source file path of the attack vector."
+msgstr "Путь к исходному файлу в векторе атаки."
+
+#: dojo/models.py:2455
+msgid "Number of occurences"
+msgstr "Количество вхождений"
+
+#: dojo/models.py:2456
+msgid "Number of occurences in the source tool when several vulnerabilites were found and aggregated by the scanner."
+msgstr "Количество вхождений в исходный код при обнаружении и агрегировании нескольких уязвимостей сканером."
+
+#: dojo/models.py:2461
+msgid "Publish date"
+msgstr "Дата публикации"
+
+#: dojo/models.py:2462
+msgid "Date when this vulnerability was made publicly available."
+msgstr "Дата, когда эта уязвимость стала общедоступна."
+
+#: dojo/models.py:2468 dojo/templates/dojo/findings_list_snippet.html:384
+msgid "Service"
+msgstr "Сервис"
+
+#: dojo/models.py:2469
+msgid "A service is a self-contained piece of functionality within a Product. This is an optional field which is used in deduplication of findings when set."
+msgstr "Самодостаточный функционал в рамках Продукта. Это опциональное поле, которое используется для дедупликации уязвимостей, если указано."
+
+#: dojo/models.py:2473 dojo/templates/dojo/findings_list_snippet.html:136
+#: dojo/templates/dojo/view_test.html:672
+msgid "Planned Remediation Date"
+msgstr "Плановая дата пересмотра"
+
+#: dojo/models.py:2474
+msgid "The date the flaw is expected to be remediated."
+msgstr "Ожидаемая дата, когда недостаток будет устранен."
+
+#: dojo/models.py:2480
+msgid "The target version when the vulnerability should be fixed / remediated"
+msgstr "Целевая версия, когда уязвимость должна быть исправлена"
+
+#: dojo/models.py:2485
+msgid "Effort for fixing"
+msgstr "Сложность исправления"
+
+#: dojo/models.py:2486
+msgid "Effort for fixing / remediating the vulnerability (Low, Medium, High)"
+msgstr "Сложность исправления уязвимости (Низкий, Средний, Высокий)"
+
+#: dojo/models.py:2488
+msgid "Add tags that help describe this finding. Choose from the list or add new tags. Press Enter key to add."
+msgstr "Добавьте теги, которые помогут описать эту Уязвимость. Выберите из списка или добавьте новые теги. Нажмите клавишу Enter для добавления."
+
+#: dojo/models.py:3320
+msgid "Template Match Enabled"
+msgstr "Совпадение шаблона включено"
+
+#: dojo/models.py:3320
+msgid "Enables this template for matching remediation advice. Match will be applied to all active, verified findings by CWE."
+msgstr "Включает этот шаблон для сопоставления рекомендаций по исправлению. Сопоставление будет применено ко всем активным и подтвержденным Уязвимостям по CWE."
+
+#: dojo/models.py:3321
+msgid "Match Template by Title and CWE"
+msgstr "Сопоставление шаблона по заголовку и CWE"
+
+#: dojo/models.py:3321
+msgid "Matches by title text (contains search) and CWE."
+msgstr "Сопоставление по тексту заголовка (содержит строку поиска) и CWE."
+
+#: dojo/models.py:3323
+msgid "Add tags that help describe this finding template. Choose from the list or add new tags. Press Enter key to add."
+msgstr "Добавьте теги, которые помогут описать этот шаблон Уязвимости. Выберите из списка или добавьте новые теги. Нажмите клавишу Enter для добавления."
+
+#: dojo/models.py:3463
+msgid "Descriptive name which in the future may also be used to group risk acceptances together across engagements and products"
+msgstr "Описательное название, которое, возможно, будет использоваться в будущем для объединения в группы принятых рисков во всех проверках и продуктах"
+
+#: dojo/models.py:3467
+msgid "Recommendation from the security team."
+msgstr "Рекомендация от команды безопасности."
+
+#: dojo/models.py:3467
+msgid "Security Recommendation"
+msgstr "Рекомендации по безопасности"
+
+#: dojo/models.py:3471
+msgid "Explanation of security recommendation"
+msgstr "Пояснение рекомендаций по обеспечению безопасности"
+
+#: dojo/models.py:3471
+msgid "Security Recommendation Details"
+msgstr "Детали рекомендаций по безопасности"
+
+#: dojo/models.py:3473
+msgid "Risk treatment decision by risk owner"
+msgstr "Решение владельца риска об обращении с риском"
+
+#: dojo/models.py:3474
+msgid "If a compensating control exists to mitigate the finding or reduce risk, then list the compensating control(s)."
+msgstr "Если компенсирующие меры доступны для разрешения Уязвимости или снижения риска, то перечислите компенсирующие меры."
+
+#: dojo/models.py:3476
+msgid "Accepted By"
+msgstr "Принят"
+
+#: dojo/models.py:3476
+msgid "The person that accepts the risk, can be outside of DefectDojo."
+msgstr "Лицо, принимающее риск, может быть вне DefectDojo."
+
+#: dojo/models.py:3479
+msgid "Proof"
+msgstr "Доказательство"
+
+#: dojo/models.py:3480
+msgid "User in DefectDojo owning this acceptance. Only the owner and staff users can edit the risk acceptance."
+msgstr "Пользователь DefectDojo принявший риск. В дальнейшем только этот пользователь и администраторы могут редактировать эту информацию."
+
+#: dojo/models.py:3482
+msgid "When the risk acceptance expires, the findings will be reactivated (unless disabled below)."
+msgstr "По истечении срока принятия риска Уязвимостьбудет вновь активирована (если не отключено ниже)."
+
+#: dojo/models.py:3483
+msgid "(readonly) Date at which notice about the risk acceptance expiration was sent."
+msgstr "(только для чтения) Дата отправки оповещения об истечении срока принятия риска."
+
+#: dojo/models.py:3484
+msgid "(readonly) When the risk acceptance expiration was handled (manually or by the daily job)."
+msgstr "(только для чтения) Когда было обработано истечение срока принятия риска (вручную или ежедневной задачей)."
+
+#: dojo/models.py:3485
+msgid "Reactivate findings on expiration"
+msgstr "Активировать Уязвимость по истечении срока принятия риска"
+
+#: dojo/models.py:3485
+msgid "Reactivate findings when risk acceptance expires?"
+msgstr "Активировать Уязвимость по истечении срока принятия риска?"
+
+#: dojo/models.py:3486
+msgid "Restart SLA on expiration"
+msgstr "Перезапустить SLA по истечении срока принятия риска"
+
+#: dojo/models.py:3486
+msgid "When enabled, the SLA for findings is restarted when the risk acceptance expires."
+msgstr "Если включено, SLA для Уязвимости перезапустится по истечении срока принятия риска."
+
+#: dojo/models.py:3577
+msgid "This dismissable message will be displayed on all pages for authenticated users. It can contain basic html tags, for example <a href='https://www.fred.com' style='color: #337ab7;' target='_blank'>https://example.com</a>"
+msgstr "Это скрываемое сообщение будет отображено на всех страницах для авторизованных пользователей. Оно может содержать базовые html теги, к примеру <a href='https://www.fred.com' style='color: #337ab7;' target='_blank'>https://example.com</a>"
+
+#: dojo/models.py:3581
+msgid "The style of banner to display. (info, success, warning, danger)"
+msgstr "Отображаемый стиль баннера. (синий, зеленый, желтый, красный)"
+
+#: dojo/models.py:3591
+msgid "This message will be displayed on the login page. It can contain basic html tags, for example <a href='https://www.fred.com' style='color: #337ab7;' target='_blank'>https://example.com</a>"
+msgstr "Это сообщение будет отображено на странице входа. Оно может содержать базовые html теги, к примеру <a href='https://www.fred.com' style='color: #337ab7;' target='_blank'>https://example.com</a>"
+
+#: dojo/models.py:3595 dojo/models.py:3636
+msgid "Enter a name to give to this configuration"
+msgstr "Введите имя для этой конфигурации"
+
+#: dojo/models.py:3596
+msgid "Enter your Github API Key"
+msgstr "Введите ваш GitHub API ключ"
+
+#: dojo/models.py:3604
+msgid "GitHub issue URL"
+msgstr "URL проблемы на GitHub"
+
+#: dojo/models.py:3626
+msgid "Github project"
+msgstr "Проект на GitHub"
+
+#: dojo/models.py:3626
+msgid "Specify your project location. (:user/:repo)"
+msgstr "Укажите местоположение проекта. (:user/:repo)"
+
+#: dojo/models.py:3627
+msgid "Github Configuration"
+msgstr "Конфигурация Github"
+
+#: dojo/models.py:3629
+msgid "Notes added to findings will be automatically added to the corresponding github issue"
+msgstr "Примечания, добавленные в результаты будут автоматически добавлены в соответствующую задачу github"
+
+#: dojo/models.py:3637
+msgid "JIRA URL"
+msgstr "JIRA URL"
+
+#: dojo/models.py:3637
+msgid "For more information how to configure Jira, read the DefectDojo documentation."
+msgstr "Для получения дополнительной информации о том, как настроить связку с Jira, обратитесь к документации DefectDojo."
+
+#: dojo/models.py:3655
+msgid "You can define extra issue types in settings.py"
+msgstr "Вы можете определить дополнительные типы задач в settings.py"
+
+#: dojo/models.py:3659 dojo/models.py:3734
+msgid "Choose the folder containing the Django templates used to render the JIRA issue description. These are stored in dojo/templates/issue-trackers. Leave empty to use the default jira_full templates."
+msgstr "Выберите папку, содержащую шаблоны Django, используемые для отображения описания задач в JIRA. Они хранятся в dojo/templates/issue-trackers. Оставьте пустым, чтобы использовать шаблоны по умолчанию."
+
+#: dojo/models.py:3660
+msgid "To obtain the 'Epic name id' visit https://<YOUR JIRA URL>/rest/api/2/field and search for Epic Name. Copy the number out of cf[number] and paste it here."
+msgstr "Чтобы получить 'Идентификатор эпика', посетите https://<URL вашей JIRA>/rest/api/2/field и выполните поиск по имени эпика. Скопируйте номер из cf[число] и вставьте его здесь."
+
+#: dojo/models.py:3661
+msgid "Reopen Transition ID"
+msgstr "Идентификатор для повторного открытия задачи"
+
+#: dojo/models.py:3661
+msgid "Transition ID to Re-Open JIRA issues, visit https://<YOUR JIRA URL>/rest/api/latest/issue/<ANY VALID ISSUE KEY>/transitions?expand=transitions.fields to find the ID for your JIRA instance"
+msgstr "Идентификатор перехода к повторному открытию задачи JIRA, посетите https://<YOUR JIRA URL>/rest/api/latest/issue/<ANY VALID ISSUE KEY>/transitions?expand=transitions.fields, чтобы найти идентификатор для вашего экземпляра JIRA"
+
+#: dojo/models.py:3662
+msgid "Close Transition ID"
+msgstr "Идентификатор перехода к закрытию"
+
+#: dojo/models.py:3662
+msgid "Transition ID to Close JIRA issues, visit https://<YOUR JIRA URL>/rest/api/latest/issue/<ANY VALID ISSUE KEY>/transitions?expand=transitions.fields to find the ID for your JIRA instance"
+msgstr "Идентификатор перехода к закрытию задачи JIRA, посетите https://<YOUR JIRA URL>/rest/api/latest/issue/<ANY VALID ISSUE KEY>/transitions?expand=transitions.fields, чтобы найти идентификатор для вашего экземпляра JIRA"
+
+#: dojo/models.py:3663
+msgid "Maps to the 'Priority' field in Jira. For example: Info"
+msgstr "Соответствует полю \"Priority\" в Jira. Например: Info"
+
+#: dojo/models.py:3664
+msgid "Maps to the 'Priority' field in Jira. For example: Low"
+msgstr "Соответствует полю \"Priority\" в Jira. Например: Low"
+
+#: dojo/models.py:3665
+msgid "Maps to the 'Priority' field in Jira. For example: Medium"
+msgstr "Соответствует полю \"Priority\" в Jira. Например: Medium"
+
+#: dojo/models.py:3666
+msgid "Maps to the 'Priority' field in Jira. For example: High"
+msgstr "Соответствует полю \"Priority\" в Jira. Например: High"
+
+#: dojo/models.py:3667
+msgid "Maps to the 'Priority' field in Jira. For example: Critical"
+msgstr "Соответствует полю \"Priority\" в Jira. Например: Critical"
+
+#: dojo/models.py:3668
+msgid "Additional text that will be added to the finding in Jira. For example including how the finding was created or who to contact for more information."
+msgstr "Дополнительный текст, который будет добавлен в Уязвимость в Jira. Например, может включать в себя информацию о том, как Уязвимостьбыла создана или к кому можно обратиться за дополнительной информацией."
+
+#: dojo/models.py:3669
+msgid "JIRA resolution names (comma-separated values) that maps to an Accepted Finding"
+msgstr "Названия решений в JIRA (значения, разделенные запятыми), которые сопоставляются с принятым риском"
+
+#: dojo/models.py:3670
+msgid "JIRA resolution names (comma-separated values) that maps to a False Positive Finding"
+msgstr "Названия решений в JIRA (значения, разделенные запятыми), которые сопоставляются с False Positive Уязвимостью"
+
+#: dojo/models.py:3671
+msgid "Globally send SLA notifications as comment?"
+msgstr "Глобально отправлять SLA уведомления в качестве комментария?"
+
+#: dojo/models.py:3671
+msgid "This setting can be overidden at the Product level"
+msgstr "Этот параметр может быть изменен на уровне продукта"
+
+#: dojo/models.py:3672
+msgid "Automatically sync Findings with JIRA?"
+msgstr "Автоматически синхронизировать Уязвимости с JIRA?"
+
+#: dojo/models.py:3672
+msgid "If enabled, this will sync changes to a Finding automatically to JIRA"
+msgstr "Если включено, будет автоматически отправлять изменения уязвимостей в JIRA"
+
+#: dojo/models.py:3727
+msgid "JIRA Instance"
+msgstr "Экземпляр JIRA"
+
+#: dojo/models.py:3738
+msgid "JIRA custom field JSON mapping of Id to value, e.g. {\"customfield_10122\": [{\"name\": \"8.0.1\"}]}"
+msgstr "Пользовательское поле в JIRA, представляющее собой сопоставление идентификаторов и значений в формате JSON, например {\"customfield_10122\": [{\"name\": \"8.0.1\"}]}"
+
+#: dojo/models.py:3740
+msgid "JIRA default assignee (name). If left blank then it defaults to whatever is configured in JIRA."
+msgstr "Исполнитель по умолчанию в JIRA (имя). Если оставлено пустым, то используется значение по умолчанию, настроенное в JIRA."
+
+#: dojo/models.py:3747
+msgid "Automatically maintain parity with JIRA. Always create and update JIRA tickets for findings in this Product."
+msgstr "Автоматически поддерживать паритет с JIRA. Всегда создавать и обновлять задачи JIRA для уязвимостей в этом Продукте."
+
+#: dojo/models.py:3751
+msgid "Send SLA notifications as comment?"
+msgstr "Отправлять SLA уведомления в качестве комментария?"
+
+#: dojo/models.py:3752
+msgid "Send Risk Acceptance expiration notifications as comment?"
+msgstr "Отправлять оповещение об истечении срока принятия риска в качестве комментария?"
+
+#: dojo/models.py:3798
+msgid "Jira creation"
+msgstr "Дата создания задачи в Jira"
+
+#: dojo/models.py:3799
+msgid "The date a Jira issue was created from this finding."
+msgstr "Дата создания задачи в Jira по этой Уязвимости."
+
+#: dojo/models.py:3802
+msgid "Jira last update"
+msgstr "Дата последнего обновления в Jira"
+
+#: dojo/models.py:3803
+msgid "The date the linked Jira issue was last modified."
+msgstr "Дата последнего изменения связанной задачи в Jira."
+
+#: dojo/models.py:3838
+msgid "Triggered whenever an (re-)import has been done that created/updated/closed findings."
+msgstr "Срабатывает каждый раз, когда (ре)импорт выполняется создавая/изменяя/закрывая Уязвимости."
+
+#: dojo/models.py:3839
+msgid "JIRA problems"
+msgstr "Проблемы JIRA"
+
+#: dojo/models.py:3839
+msgid "JIRA sync happens in the background, errors will be shown as notifications/alerts so make sure to subscribe"
+msgstr "Синхронизация JIRA происходит в фоновом режиме, ошибки будут показаны как уведомления/оповещения, так что не забудьте подписаться"
+
+#: dojo/models.py:3852
+msgid "SLA breach"
+msgstr "Нарушение SLA"
+
+#: dojo/models.py:3853
+msgid "Get notified of (upcoming) SLA breaches"
+msgstr "Получать уведомления о (грядущих) нарушениях SLA"
+
+#: dojo/models.py:3855
+msgid "Risk Acceptance Expiration"
+msgstr "Принятие риска действует до"
+
+#: dojo/models.py:3856
+msgid "Get notified of (upcoming) Risk Acceptance expiries"
+msgstr "Получать уведомления о (грядущем) истечении срока приема риска"
+
+#: dojo/models.py:3918
+msgid "Succesfully"
+msgstr "Успешно"
+
+#: dojo/models.py:3957
+msgid "Login is valid"
+msgstr "Учетка активная"
+
+#: dojo/models.py:3969
+msgid "Credential"
+msgstr "Учётные данные"
+
+#: dojo/models.py:3978 dojo/templates/dojo/view_test.html:1413
+msgid "Authentication Provider"
+msgstr "Провайдер аутентификации"
+
+#: dojo/models.py:3987
+msgid "HTML color"
+msgstr "Цвет HTML"
+
+#: dojo/models.py:3997
+msgid "Number of files"
+msgstr "Количество файлов"
+
+#: dojo/models.py:3998
+msgid "Number of blank lines"
+msgstr "Количество пустых строк"
+
+#: dojo/models.py:3999
+msgid "Number of comment lines"
+msgstr "Количество строк комментариев"
+
+#: dojo/models.py:4000
+msgid "Number of code lines"
+msgstr "Количество строк кода"
+
+#: dojo/models.py:4014
+msgid "Confidence level"
+msgstr "Уровень доверия"
+
+#: dojo/models.py:4015
+msgid "Version Number"
+msgstr "Номер версии"
+
+#: dojo/models.py:4038
+msgid "Full file path"
+msgstr "Полный путь к файлу"
+
+#: dojo/models.py:4040
+msgid "Folder"
+msgstr "Папка"
+
+#: dojo/models.py:4042
+msgid "Artifact"
+msgstr "Артефакт"
+
+#: dojo/models.py:4047
+msgid "Add tags that help describe this object. Choose from the list or add new tags. Press Enter key to add."
+msgstr "Добавьте теги, которые помогут описать этот объект. Выберите из списка или добавьте новые теги. Нажмите клавишу Enter для добавления."
+
+#: dojo/models.py:4075
+msgid "Test Unique Identifier"
+msgstr "Тест уникального идентификатора"
+
+#: dojo/models.py:4076
+msgid "Name of the test"
+msgstr "Название теста"
+
+#: dojo/models.py:4077
+msgid "Summary of the test"
+msgstr "Описание теста"
+
+#: dojo/models.py:4078
+msgid "Objective of the test"
+msgstr "Цель теста"
+
+#: dojo/models.py:4079
+msgid "How to test the objective"
+msgstr "Как протестировать цель"
+
+#: dojo/models.py:4080
+msgid "What the results look like for a test"
+msgstr "Какие ожидаются результаты теста"
+
+#: dojo/models.py:4106
+msgid "Benchmark Type"
+msgstr "Тип бенчмарка"
+
+#: dojo/models.py:4142 dojo/templates/dojo/benchmark.html:68
+msgid "Pass"
+msgstr "Проверено"
+
+#: dojo/models.py:4143
+msgid "Does the product meet the requirement?"
+msgstr "Соответствует ли продукт требованию?"
+
+#: dojo/models.py:4145
+msgid "Applicable for this specific product."
+msgstr "Применимо для этого конкретного продукта."
+
+#: dojo/models.py:4169 dojo/models.py:4171 dojo/models.py:4173
+msgid "Total number of active benchmarks for this application."
+msgstr "Общее количество активных бенчмарков для этого приложения."
+
+#: dojo/models.py:4170
+msgid "ASVS Level 1 Score"
+msgstr "Оценка уровня 1 ASVS"
+
+#: dojo/models.py:4172
+msgid "ASVS Level 2 Score"
+msgstr "Оценка уровня 2 ASVS"
+
+#: dojo/models.py:4174
+msgid "ASVS Level 3 Score"
+msgstr "Оценка уровня 3 ASVS"
+
+#: dojo/models.py:4175
+msgid "Publish score to Product."
+msgstr "Опубликовать балл в продукте."
+
+#: dojo/models.py:4199
+msgid "The render order"
+msgstr "Порядок отображения"
+
+#: dojo/models.py:4203
+msgid "If selected, user doesn't have to answer this question"
+msgstr "Если выбрано, пользователь может не отвечать на этот вопрос"
+
+#: dojo/models.py:4205
+msgid "The question text"
+msgstr "Текст вопроса"
+
+#: dojo/models.py:4247
+msgid "Select one or more"
+msgstr "Выберите не менее одного"
+
+#: dojo/models.py:4269
+msgid "Engagement Survey"
+msgstr "Опрос о проверке"
+
+#: dojo/models.py:4297
+msgid "Answered Engagement Survey"
+msgstr "Опросы о проверке, у которые есть ответ"
+
+#: dojo/models.py:4298
+msgid "Answered Engagement Surveys"
+msgstr "Опросы о проверке, у которых есть ответ"
+
+#: dojo/models.py:4311
+msgid "General Engagement Survey"
+msgstr "Общий опрос по проверке"
+
+#: dojo/models.py:4312
+msgid "General Engagement Surveys"
+msgstr "Общие опросы по проверке"
+
+#: dojo/models.py:4332
+msgid "The answer text"
+msgstr "Текст ответа"
+
+#: dojo/models.py:4342
+msgid "The selected choices as the answer"
+msgstr "Выбранный вариант ответа"
+
+#: dojo/notes/views.py:50
+msgid "Note deleted."
+msgstr "Примечание удалено."
+
+#: dojo/notes/views.py:55
+msgid "Note was not succesfully deleted."
+msgstr "Примечание не было удалено."
+
+#: dojo/notes/views.py:117
+msgid "Note edited."
+msgstr "Примечание отредактировано."
+
+#: dojo/notes/views.py:123
+msgid "Note was not succesfully edited."
+msgstr "Примечание не было изменено."
+
+#: dojo/notifications/helper.py:121
+#, python-format
+msgid "Product %(title)s has been created successfully."
+msgstr "Продукт %(title)s успешно создан."
+
+#: dojo/notifications/helper.py:123
+#, python-format
+msgid "Product Type %(title)s has been created successfully."
+msgstr "Тип продукта %(title)s успешно создан."
+
+#: dojo/notifications/helper.py:125
+#, python-format
+msgid "Event %(event)s  has occurred."
+msgstr "Произошло событие %(event)s."
+
+#: dojo/notifications/views.py:53
+msgid "System notification settings"
+msgstr "Системные настройки уведомлений"
+
+#: dojo/notifications/views.py:62
+msgid "Settings saved."
+msgstr "Настройки сохранены."
+
+#: dojo/notifications/views.py:115
+msgid "Personal notification settings"
+msgstr "Персональные настройки уведомлений"
+
+#: dojo/notifications/views.py:131
+msgid "Template notification settings"
+msgstr "Шаблон настроек уведомлений"
+
+#: dojo/product/views.py:93
+msgid "Product List"
+msgstr "Список продуктов"
+
+#: dojo/product/views.py:796 dojo/templates/base.html:272
+msgid "All Engagements"
+msgstr "Все задания"
+
+#: dojo/product/views.py:888
+msgid "Product added successfully."
+msgstr "Продукт успешно добавлен."
+
+#: dojo/product/views.py:901
+msgid "GitHub information added successfully."
+msgstr "Данные GitHub успешно добавлены."
+
+#: dojo/product/views.py:906
+msgid "This label is automatically applied to all issues created by DefectDojo"
+msgstr "Эта метка автоматически применяется ко всем задачам, созданным в DefectDojo"
+
+#: dojo/product/views.py:943
+msgid "New Product"
+msgstr "Новый продукт"
+
+#: dojo/product/views.py:976
+msgid "Product updated successfully."
+msgstr "Продукт успешно обновлен."
+
+#: dojo/product/views.py:1000
+msgid "GITHUB information updated successfully."
+msgstr "Данные GITHUB успешно обновлены."
+
+#: dojo/product/views.py:1022
+msgid "Edit Product"
+msgstr "Изменить продукт"
+
+#: dojo/product/views.py:1047
+msgid "Product and relationships will be removed in the background."
+msgstr "Продукт и его связи будут удалены в фоновом режиме."
+
+#: dojo/product/views.py:1049
+msgid "Product and relationships removed."
+msgstr "Продукт и его связи удалены."
+
+#: dojo/product/views.py:1056
+#, python-format
+msgid "Deletion of %(name)s"
+msgstr "Удаление %(name)s"
+
+#: dojo/product/views.py:1058
+#, python-format
+msgid "The product \"%(name)s\" was deleted by %(user)s"
+msgstr "Продукт \"%(name)s\" был удален пользователем %(user)s"
+
+#: dojo/product/views.py:1136
+msgid "Engagement added successfully."
+msgstr "Задание успешно добавлено."
+
+#: dojo/product/views.py:1165
+msgid "New CI/CD Engagement"
+msgstr "Новое задание CI/CD"
+
+#: dojo/product/views.py:1167
+msgid "New Interactive Engagement"
+msgstr "Новое интерактивное задание"
+
+#: dojo/product/views.py:1188
+msgid "Technology added successfully."
+msgstr "Технология успешно добавлена."
+
+#: dojo/product/views.py:1193
+msgid "Add Technology"
+msgstr "Добавить технологию"
+
+#: dojo/product/views.py:1210
+msgid "Technology changed successfully."
+msgstr "Технология успешно изменена."
+
+#: dojo/product/views.py:1214
+msgid "Edit Technology"
+msgstr "Изменить технологию"
+
+#: dojo/product/views.py:1231
+msgid "Technology deleted successfully."
+msgstr "Технология успешно удалена."
+
+#: dojo/product/views.py:1235
+msgid "Delete Technology"
+msgstr "Удалить технологию"
+
+#: dojo/product/views.py:1258
+msgid "Metadata added successfully."
+msgstr "Метаданные успешно добавлена."
+
+#: dojo/product/views.py:1267
+msgid "Add Metadata"
+msgstr "Добавить метаданные"
+
+#: dojo/product/views.py:1295
+msgid "Metadata edited successfully."
+msgstr "Метаданные успешно изменены."
+
+#: dojo/product/views.py:1299
+msgid "Edit Metadata"
+msgstr "Изменить метаданные"
+
+#: dojo/product/views.py:1311
+msgid "Pen Test"
+msgstr "Пентест"
+
+#: dojo/product/views.py:1316 dojo/product/views.py:1319
+msgid "Ad Hoc Engagement"
+msgstr "Для данной задания"
+
+#: dojo/product/views.py:1342 dojo/test/views.py:432 dojo/test/views.py:751
+msgid "Add Finding"
+msgstr "Добавить уязвимость"
+
+#: dojo/product/views.py:1411 dojo/test/views.py:484 dojo/test/views.py:666
+msgid "Can not set a finding as inactive without adding all mandatory notes"
+msgstr "Невозможно пометить Уязвимость как не активную без добавления всех обязательных заметок"
+
+#: dojo/product/views.py:1415 dojo/test/views.py:487 dojo/test/views.py:669
+msgid "Can not set a finding as false positive without adding all mandatory notes"
+msgstr "Невозможно пометить Уязвимость как false positive без добавления всех обязательных заметок"
+
+#: dojo/product/views.py:1425 dojo/test/views.py:496 dojo/test/views.py:677
+msgid "Can not set a finding as inactive or false positive without adding all mandatory notes"
+msgstr "Невозможно пометить Уязвимость как не активную или false positive без добавления всех обязательных заметок"
+
+#: dojo/product/views.py:1542 dojo/test/views.py:608
+msgid "Finding added successfully."
+msgstr "Уязвимостьуспешно добавлена."
+
+#: dojo/product/views.py:1590
+msgid "Engagement Presets"
+msgstr "Шаблоны задания"
+
+#: dojo/product/views.py:1603
+msgid "Edit Engagement Preset"
+msgstr "Изменить шаблоны задания"
+
+#: dojo/product/views.py:1612
+msgid "Engagement Preset Successfully Updated."
+msgstr "Шаблон задания обновлен."
+
+#: dojo/product/views.py:1637
+msgid "Engagement Preset Successfully Created."
+msgstr "Шаблон задания создан."
+
+#: dojo/product/views.py:1643
+msgid "New Engagement Preset"
+msgstr "Новый шаблон задания"
+
+#: dojo/product/views.py:1660
+msgid "Engagement presets and engagement relationships removed."
+msgstr "Удалены шаблоны и связи задания."
+
+#: dojo/product/views.py:1668
+msgid "Delete Engagement Preset"
+msgstr "Удалить шаблон задания"
+
+#: dojo/product/views.py:1695
+msgid "Notification settings updated."
+msgstr "Настройки уведомлений обновлены."
+
+#: dojo/product/views.py:1712 dojo/product_type/views.py:198
+msgid "You are not permitted to add users as owners."
+msgstr "У вас не хватает прав на добавление пользователей в качестве владельцев."
+
+#: dojo/product/views.py:1726 dojo/user/views.py:546
+msgid "Product members added successfully."
+msgstr "Участники продукта успешно добавлены."
+
+#: dojo/product/views.py:1729 dojo/user/views.py:549
+msgid "Add Product Member"
+msgstr "Добавить участника продукта"
+
+#: dojo/product/views.py:1748
+msgid "You are not permitted to make users to owners."
+msgstr "У вас не хватает прав на повышение пользователя до владельца."
+
+#: dojo/product/views.py:1754
+msgid "Product member updated successfully."
+msgstr "Участник продукта успешно изменен."
+
+#: dojo/product/views.py:1760
+msgid "Edit Product Member"
+msgstr "Изменить участника продукта"
+
+#: dojo/product/views.py:1779
+msgid "Product member deleted successfully."
+msgstr "Участник продукта успешно удален."
+
+#: dojo/product/views.py:1788
+msgid "Delete Product Member"
+msgstr "Удалить участника продукта"
+
+#: dojo/product/views.py:1810 dojo/product/views.py:1873
+#, python-format
+msgid "API connection successful with message: %(result)s."
+msgstr "Успешное подключение к API с сообщением: %(result)s."
+
+#: dojo/product/views.py:1815
+msgid "API Scan Configuration added successfully."
+msgstr "Конфигурация сканирования API успешно добавлена."
+
+#: dojo/product/views.py:1830 dojo/templates/base.html:885
+#: dojo/templates/dojo/view_product_details.html:47
+msgid "Add API Scan Configuration"
+msgstr "Добавить конфигурацию сканирования API"
+
+#: dojo/product/views.py:1845
+msgid "API Scan Configurations"
+msgstr "Настройки сканирования API"
+
+#: dojo/product/views.py:1879
+msgid "API Scan Configuration successfully updated."
+msgstr "Настройки сканирования API успешно изменены."
+
+#: dojo/product/views.py:1891
+msgid "Edit API Scan Configuration"
+msgstr "Изменить конфигурацию сканирования API"
+
+#: dojo/product/views.py:1914
+msgid "API Scan Configuration deleted."
+msgstr "Конфигурация сканирования API удалена."
+
+#: dojo/product/views.py:1920
+msgid "Delete Tool Configuration"
+msgstr "Удалить конфигурацию инструмента"
+
+#: dojo/product/views.py:1942 dojo/product_type/views.py:351
+msgid "You are not permitted to make groups owners."
+msgstr "У вас не хватает прав на создание владельцев групп."
+
+#: dojo/product/views.py:1948
+msgid "Product group updated successfully."
+msgstr "Группа продуктов успешно обновлена."
+
+#: dojo/product/views.py:1955 dojo/product/views.py:2020
+msgid "Edit Product Group"
+msgstr "Изменить группу продуктов"
+
+#: dojo/product/views.py:1974
+msgid "Product group deleted successfully."
+msgstr "Группа продуктов успешно удалена."
+
+#: dojo/product/views.py:1983
+msgid "Delete Product Group"
+msgstr "Удалить группу продуктов"
+
+#: dojo/product/views.py:2003 dojo/product_type/views.py:313
+msgid "You are not permitted to add groups as owners."
+msgstr "У вас не хватает прав на добавление групп в качестве владельцев."
+
+#: dojo/product/views.py:2017
+msgid "Product groups added successfully."
+msgstr "Группа продуктов успешно добавлена."
+
+#: dojo/product_type/views.py:45 dojo/templates/dojo/product_type.html:14
+msgid "Product Type List"
+msgstr "Список типов продукта"
+
+#: dojo/product_type/views.py:75 dojo/templates/base.html:251
+#: dojo/templates/dojo/product_type.html:27
+msgid "Add Product Type"
+msgstr "Добавить тип продукта"
+
+#: dojo/product_type/views.py:88
+msgid "Product type added successfully."
+msgstr "Тип продукта успешно добавлен."
+
+#: dojo/product_type/views.py:104
+msgid "View Product Type"
+msgstr "Все типы продуктов"
+
+#: dojo/product_type/views.py:147
+msgid "Previewing the relationships has been disabled."
+msgstr "Предварительный просмотр связей был отключен."
+
+#: dojo/product_type/views.py:154
+#: dojo/templates/dojo/delete_product_type.html:24
+msgid "Delete Product Type"
+msgstr "Удалить тип продукта"
+
+#: dojo/product_type/views.py:175
+msgid "Product type updated successfully."
+msgstr "Тип продукта успешно обновлен."
+
+#: dojo/product_type/views.py:212 dojo/user/views.py:518
+msgid "Product type members added successfully."
+msgstr "Участник типа продукта успешно добавлен."
+
+#: dojo/product_type/views.py:215
+#: dojo/templates/dojo/view_product_type.html:139 dojo/user/views.py:521
+msgid "Add Product Type Member"
+msgstr "Добавить участника типа продукта"
+
+#: dojo/product_type/views.py:224
+msgid "Edit Product Type Member"
+msgstr "Изменить участника типа продукта"
+
+#: dojo/product_type/views.py:234
+#, python-format
+msgid "There must be at least one owner for Product Type %(product_type_name)s."
+msgstr "У типа продукта %(product_type_name)s должен быть как минимум один владелец."
+
+#: dojo/product_type/views.py:249
+msgid "Product type member updated successfully."
+msgstr "Участник типа продукта успешно обновлен."
+
+#: dojo/product_type/views.py:276
+msgid "There must be at least one owner."
+msgstr "Должен быть как минимум один владелец."
+
+#: dojo/product_type/views.py:284
+msgid "Product type member deleted successfully."
+msgstr "Участник типа продукта успешно удален."
+
+#: dojo/product_type/views.py:327
+msgid "Product type groups added successfully."
+msgstr "Группы типов продукта успешно добавлены."
+
+#: dojo/product_type/views.py:357
+msgid "Product type group updated successfully."
+msgstr "Группа типов продукта успешно обновлена."
+
+#: dojo/product_type/views.py:384
+msgid "Product type group deleted successfully."
+msgstr "Группа типов продукта успешно удалена."
+
+#: dojo/search/views.py:318 dojo/search/views.py:349
+msgid "Simple Search"
+msgstr "Простой поиск"
+
+#: dojo/templates/base.html:126 dojo/templates/dojo/simple_search.html:24
+msgid "Search"
+msgstr "Поиск"
+
+#: dojo/templates/base.html:166 dojo/user/views.py:99
+msgid "API v2 Key"
+msgstr "Ключ API v2"
+
+#: dojo/templates/base.html:174
+msgid "API v2 OpenAPI2 Docs (Deprecated)"
+msgstr "API v2 OpenAPI2 документация (устарело)"
+
+#: dojo/templates/base.html:180
+msgid "API v2 OpenAPI3 Docs"
+msgstr "API v2 OpenAPI3 Docs"
+
+#: dojo/templates/base.html:186
+msgid "Documentation"
+msgstr "Документация"
+
+#: dojo/templates/base.html:195
+msgid "SAML Logout"
+msgstr "SAML выход"
+
+#: dojo/templates/base.html:202
+msgid "Logout"
+msgstr "Выйти"
+
+#: dojo/templates/base.html:221
+msgid "Dashboard"
+msgstr "Дашборд"
+
+#: dojo/templates/base.html:227 dojo/templates/dojo/simple_search.html:54
+#: dojo/templates/dojo/view_product_type.html:56
+msgid "Products"
+msgstr "Продукты"
+
+#: dojo/templates/base.html:233
+msgid "All Products"
+msgstr "Все продукты"
+
+#: dojo/templates/base.html:239 dojo/templates/dojo/product_type.html:81
+#: dojo/templates/dojo/view_product_type.html:67
+msgid "Add Product"
+msgstr "Добавить продукт"
+
+#: dojo/templates/base.html:245
+msgid "All Product Types"
+msgstr "Все типы продуктов"
+
+#: dojo/templates/base.html:261 dojo/templates/base.html:661
+#: dojo/templates/dojo/simple_search.html:59
+msgid "Engagements"
+msgstr "Задания"
+
+#: dojo/templates/base.html:267 dojo/templates/dojo/dashboard.html:27
+msgid "Active Engagements"
+msgstr "Активные задания"
+
+#: dojo/templates/base.html:277
+msgid "Engagements by Product"
+msgstr "Задания в проектах"
+
+#: dojo/templates/base.html:282
+msgid "Test Types"
+msgstr "Типы тестов"
+
+#: dojo/templates/base.html:287
+msgid "Environments"
+msgstr "Окружение"
+
+#: dojo/templates/base.html:302 dojo/templates/dojo/simple_search.html:264
+msgid "Open Findings"
+msgstr "Открытые уязвимости"
+
+#: dojo/templates/base.html:307
+msgid "All Findings"
+msgstr "Все уязвимости"
+
+#: dojo/templates/base.html:312 dojo/templates/dojo/metrics.html:299
+msgid "Closed Findings"
+msgstr "Закрытые уязвимости"
+
+#: dojo/templates/base.html:317
+msgid "Risk Accepted Findings"
+msgstr "Уязвимости с принятым риском"
+
+#: dojo/templates/base.html:323 dojo/templates/dojo/simple_search.html:74
+msgid "Finding Templates"
+msgstr "Шаблоны уязвимостей"
+
+#: dojo/templates/base.html:333 dojo/templates/base.html:648
+#: dojo/templates/dojo/view_test.html:335
+msgid "Components"
+msgstr "Компоненты"
+
+#: dojo/templates/base.html:338
+msgid "All Components"
+msgstr "Все компоненты"
+
+#: dojo/templates/base.html:352
+msgid "All Endpoints"
+msgstr "Все конечные точки"
+
+#: dojo/templates/base.html:357
+msgid "All Hosts"
+msgstr "Все хосты"
+
+#: dojo/templates/base.html:362
+msgid "Vulnerable Endpoints"
+msgstr "Уязвимые конечные точки"
+
+#: dojo/templates/base.html:367
+msgid "Vulnerable Hosts"
+msgstr "Уязвимые хосты"
+
+#: dojo/templates/base.html:373
+msgid "Migrate Endpoints"
+msgstr "Мигрировать конечные точки"
+
+#: dojo/templates/base.html:382
+msgid "Reports"
+msgstr "Отчёты"
+
+#: dojo/templates/base.html:396
+msgid "Metrics Dashboard"
+msgstr "Панель управления метриками"
+
+#: dojo/templates/base.html:406
+msgid "Product Type Metrics"
+msgstr "Метрики типа продукта"
+
+#: dojo/templates/base.html:411
+msgid "Product Type Counts"
+msgstr "Счетчик типов продукта"
+
+#: dojo/templates/base.html:426
+msgid "DT statistic"
+msgstr "Статистика DT"
+
+#: dojo/templates/base.html:436 dojo/templates/base.html:443
+msgid "Users"
+msgstr "Пользователи"
+
+#: dojo/templates/base.html:450 dojo/templates/dojo/profile.html:47
+#: dojo/templates/dojo/view_product_details.html:346
+#: dojo/templates/dojo/view_product_type.html:205
+#: dojo/templates/dojo/view_test.html:300
+msgid "Groups"
+msgstr "Группы"
+
+#: dojo/templates/base.html:461
+msgid "Calendar"
+msgstr "Календарь"
+
+#: dojo/templates/base.html:470
+msgid "Questionnaires"
+msgstr "Анкетирование"
+
+#: dojo/templates/base.html:477
+msgid "All Questionnaires"
+msgstr "Все анкеты"
+
+#: dojo/templates/base.html:484
+msgid "All Questions"
+msgstr "Список вопросов"
+
+#: dojo/templates/base.html:496
+msgid "Configuration"
+msgstr "Конфигурация"
+
+#: dojo/templates/base.html:502
+msgid "Announcement"
+msgstr "Объявление"
+
+#: dojo/templates/base.html:509
+msgid "Credential Manager"
+msgstr "Менеджер учетных данных"
+
+#: dojo/templates/base.html:516
+msgid "GitHub"
+msgstr "GitHub"
+
+#: dojo/templates/base.html:523 dojo/templates/dojo/simple_search.html:451
+#: dojo/templates/dojo/view_product_details.html:510
+msgid "JIRA"
+msgstr "JIRA"
+
+#: dojo/templates/base.html:530
+msgid "Login Banner"
+msgstr "Баннер входа"
+
+#: dojo/templates/base.html:537
+msgid "Note Types"
+msgstr "Типы заметок"
+
+#: dojo/templates/base.html:543
+#: dojo/templates/dojo/view_product_details.html:630
+msgid "Notifications"
+msgstr "Уведомления"
+
+#: dojo/templates/base.html:548
+#: dojo/templates/dojo/view_product_details.html:193
+msgid "Regulations"
+msgstr "Регламенты"
+
+#: dojo/templates/base.html:554
+msgid "SLA Configuration"
+msgstr "Конфигурация SLA"
+
+#: dojo/templates/base.html:561
+msgid "System Settings"
+msgstr "Системные настройки"
+
+#: dojo/templates/base.html:568
+msgid "Tool Configuration"
+msgstr "Конфигурация инструмента"
+
+#: dojo/templates/base.html:575
+msgid "Tool Type"
+msgstr "Типы инструментов"
+
+#: dojo/templates/base.html:593
+msgid "Collapse Menu"
+msgstr "Свернуть меню"
+
+#: dojo/templates/base.html:642
+msgid "Overview"
+msgstr "Обзор"
+
+#: dojo/templates/base.html:672
+msgid "View Engagements"
+msgstr "Задания"
+
+#: dojo/templates/base.html:680
+msgid "Add New Interactive Engagement"
+msgstr "Добавить новую интерактивную проверку"
+
+#: dojo/templates/base.html:686
+msgid "Add New CI/CD Engagement"
+msgstr "Новое CI/CD задание"
+
+#: dojo/templates/base.html:708
+msgid "View Active Findings"
+msgstr "Активные уязвимости"
+
+#: dojo/templates/base.html:714
+msgid "View Active Verified Findings"
+msgstr "Активные подтвержденные уязвимости"
+
+#: dojo/templates/base.html:720
+msgid "View Critical Findings"
+msgstr "Критические Уязвимости"
+
+#: dojo/templates/base.html:726
+msgid "View Findings from Last 7 Days"
+msgstr "Уязвимости за последнюю неделю"
+
+#: dojo/templates/base.html:733
+msgid "View Risk Accepted Findings"
+msgstr "Уязвимости с принятым риском"
+
+#: dojo/templates/base.html:739
+msgid "View All Findings"
+msgstr "Все уязвимости"
+
+#: dojo/templates/base.html:745
+msgid "View Closed Findings"
+msgstr "Закрытые уязвимости"
+
+#: dojo/templates/base.html:753
+msgid "Add New Finding"
+msgstr "Добавить новую уязвимость"
+
+#: dojo/templates/base.html:761
+msgid "Import Scan Results"
+msgstr "Импорт результатов сканирования"
+
+#: dojo/templates/base.html:783
+msgid "View Endpoints"
+msgstr "Посмотреть конечные точки"
+
+#: dojo/templates/base.html:789
+msgid "View Hosts"
+msgstr "Просмотр хостов"
+
+#: dojo/templates/base.html:795
+msgid "View Vulnerable Endpoints"
+msgstr "Посмотреть уязвимые точки"
+
+#: dojo/templates/base.html:801
+msgid "View Vulnerable Hosts"
+msgstr "Просмотреть уязвимые хосты"
+
+#: dojo/templates/base.html:808
+msgid "Endpoint Report"
+msgstr "Отчет о конечных точках"
+
+#: dojo/templates/base.html:816
+msgid "Add New Endpoint"
+msgstr "Добавить новую конечную точку"
+
+#: dojo/templates/base.html:824
+msgid "Import Endpoint Meta"
+msgstr "Импорт данных"
+
+#: dojo/templates/base.html:858
+msgid "Settings"
+msgstr "Настройки"
+
+#: dojo/templates/base.html:865
+#: dojo/templates/dojo/findings_list_snippet.html:416
+#: dojo/templates/dojo/product_type.html:75 dojo/templates/dojo/users.html:96
+#: dojo/templates/dojo/view_product_details.html:29
+#: dojo/templates/dojo/view_product_details.html:164
+#: dojo/templates/dojo/view_product_details.html:302
+#: dojo/templates/dojo/view_product_details.html:390
+#: dojo/templates/dojo/view_product_type.html:25
+#: dojo/templates/dojo/view_product_type.html:175
+#: dojo/templates/dojo/view_product_type.html:248
+#: dojo/templates/dojo/view_test.html:997 dojo/templates/dojo/view_user.html:26
+#: dojo/templates/dojo/view_user.html:151
+#: dojo/templates/dojo/view_user.html:224
+#: dojo/templates/dojo/view_user.html:298
+#: dojo/templates/dojo/view_user.html:390
+msgid "Edit"
+msgstr "Редактировать"
+
+#: dojo/templates/base.html:872
+#: dojo/templates/dojo/view_product_details.html:35
+msgid "Add Custom Fields"
+msgstr "Добавление произвольного поля"
+
+#: dojo/templates/base.html:878
+#: dojo/templates/dojo/view_product_details.html:41
+msgid "Edit Custom Fields"
+msgstr "Редактировать произвольные поля"
+
+#: dojo/templates/base.html:891
+#: dojo/templates/dojo/view_product_details.html:53
+msgid "View API Scan Configurations"
+msgstr "Просмотреть конфигурации сканирования API"
+
+#: dojo/templates/base.html:899
+#: dojo/templates/dojo/view_product_details.html:62
+msgid "Add Product Tracking Files"
+msgstr "Добавить файлы для отслеживания"
+
+#: dojo/templates/base.html:905
+#: dojo/templates/dojo/view_product_details.html:69
+msgid "View Product Tracking Files"
+msgstr "Просмотр файлов для отслеживания"
+
+#: dojo/templates/base.html:914
+msgid "Add Credentials"
+msgstr "Добавить учетные данные"
+
+#: dojo/templates/base.html:920
+msgid "View Credentials"
+msgstr "Посмотреть учётные данные"
+
+#: dojo/templates/base.html:928
+msgid "Add Tools"
+msgstr "Добавить инструменты"
+
+#: dojo/templates/base.html:934
+msgid "View Tools"
+msgstr "Посмотреть инструменты"
+
+#: dojo/templates/base.html:941
+msgid "Add Engagement Presets"
+msgstr "Добавить шаблоны проверок"
+
+#: dojo/templates/base.html:947
+msgid "View Engagement Presets"
+msgstr "Шаблоны задания"
+
+#: dojo/templates/base.html:954
+#: dojo/templates/dojo/findings_list_snippet.html:507
+#: dojo/templates/dojo/users.html:102
+#: dojo/templates/dojo/view_product_details.html:96
+#: dojo/templates/dojo/view_test.html:85
+#: dojo/templates/dojo/view_test.html:1087
+#: dojo/templates/dojo/view_user.html:32
+msgid "View History"
+msgstr "Посмотреть историю"
+
+#: dojo/templates/base.html:963 dojo/templates/dojo/benchmark.html:113
+#: dojo/templates/dojo/delete_product_type_group.html:9
+#: dojo/templates/dojo/delete_product_type_member.html:10
+#: dojo/templates/dojo/findings_list_snippet.html:519
+#: dojo/templates/dojo/product_type.html:97 dojo/templates/dojo/users.html:109
+#: dojo/templates/dojo/view_product_details.html:104
+#: dojo/templates/dojo/view_product_details.html:170
+#: dojo/templates/dojo/view_product_details.html:308
+#: dojo/templates/dojo/view_product_details.html:396
+#: dojo/templates/dojo/view_product_type.html:41
+#: dojo/templates/dojo/view_product_type.html:181
+#: dojo/templates/dojo/view_product_type.html:254
+#: dojo/templates/dojo/view_test.html:396
+#: dojo/templates/dojo/view_test.html:1105
+#: dojo/templates/dojo/view_test.html:1461
+#: dojo/templates/dojo/view_user.html:38 dojo/templates/dojo/view_user.html:157
+#: dojo/templates/dojo/view_user.html:230
+#: dojo/templates/dojo/view_user.html:304
+#: dojo/templates/dojo/view_user.html:391
+msgid "Delete"
+msgstr "Удалить"
+
+#: dojo/templates/base.html:1039
+msgid "DefectDojo Chop"
+msgstr "DefectDojo Chop"
+
+#: dojo/templates/base.html:1100
+msgid "See All Alerts"
+msgstr "Посмотреть все оповещения"
+
+#: dojo/templates/base.html:1102
+msgid "Clear All Alerts"
+msgstr "Очистить все оповещения"
+
+#: dojo/templates/base.html:1106
+msgid "No alerts found"
+msgstr "Уведомления не найдены"
+
+#: dojo/templates/dojo/add_user.html:11 dojo/templates/dojo/profile.html:11
+#: dojo/templates/dojo/view_user.html:14
+msgid "Default Information"
+msgstr "Информация по умолчанию"
+
+#: dojo/templates/dojo/add_user.html:15 dojo/templates/dojo/profile.html:15
+msgid "Additional Contact Information"
+msgstr "Дополнительная контактная информация"
+
+#: dojo/templates/dojo/add_user.html:19 dojo/templates/dojo/profile.html:19
+#: dojo/templates/dojo/users.html:75
+msgid "Global Role"
+msgstr "Глобальная Роль"
+
+#: dojo/templates/dojo/add_user.html:24
+#: dojo/templates/dojo/edit_product_type.html:25
+#: dojo/templates/dojo/edit_product_type_group.html:9
+#: dojo/templates/dojo/edit_product_type_member.html:10
+#: dojo/templates/dojo/edit_tool_type.html:12
+#: dojo/templates/dojo/new_group_member_user.html:14
+#: dojo/templates/dojo/new_product_member_user.html:15
+#: dojo/templates/dojo/new_product_type.html:24
+#: dojo/templates/dojo/new_product_type_group.html:14
+#: dojo/templates/dojo/new_product_type_member.html:15
+#: dojo/templates/dojo/new_product_type_member_user.html:15
+#: dojo/templates/dojo/new_tool_type.html:11
+#: dojo/templates/dojo/notifications.html:150
+#: dojo/templates/dojo/profile.html:24
+msgid "Submit"
+msgstr "Отправить"
+
+#: dojo/templates/dojo/alerts.html:15
+#: dojo/templates/dojo/simple_search.html:189
+#: dojo/templates/dojo/simple_search.html:375
+#: dojo/templates/dojo/simple_search.html:446
+#: dojo/templates/dojo/view_test.html:230
+#: dojo/templates/dojo/view_test.html:1561
+msgid "Type"
+msgstr "Тип"
+
+#: dojo/templates/dojo/alerts.html:16
+#: dojo/templates/dojo/view_product_details.html:287
+#: dojo/templates/dojo/view_product_details.html:375
+msgid "Source"
+msgstr "Источник"
+
+#: dojo/templates/dojo/alerts.html:19
+msgid "Timeframe"
+msgstr "Период"
+
+#: dojo/templates/dojo/alerts.html:20
+msgid "Select all visible alerts"
+msgstr "Выбрать все видимые уведомления"
+
+#: dojo/templates/dojo/alerts.html:42
+msgid "Remove selected"
+msgstr "Удалить выбранное"
+
+#: dojo/templates/dojo/alerts.html:50
+msgid "No alerts found."
+msgstr "Уведомления не найдены."
+
+#: dojo/templates/dojo/api_v2_key.html:9
+msgid "Your current API key is"
+msgstr "Текущий ключ API"
+
+#: dojo/templates/dojo/api_v2_key.html:10
+msgid "Your current API Authorization Header value is"
+msgstr "Текущее значение заголовка авторизации API"
+
+#: dojo/templates/dojo/api_v2_key.html:11
+msgid "Has your key been exposed? Are you ready for a new one?"
+msgstr "Ваш ключ был скомпрометирован? Хотите получить новый?"
+
+#: dojo/templates/dojo/api_v2_key.html:15
+msgid "Generate New Key"
+msgstr "Сформировать новый ключ"
+
+#: dojo/templates/dojo/api_v2_key.html:18
+msgid "Alternatively, you can use /api/v2/api-token-auth/ to get your token. Example:"
+msgstr "Вы можете использовать /api/v2/api-token-auth/ для получения токена. Пример:"
+
+#: dojo/templates/dojo/api_v2_key.html:21
+msgid "To use your API Key you need to specify an Authorization header. Example:"
+msgstr "Для использования ключа API необходимо указать заголовок авторизации. Пример:"
+
+#: dojo/templates/dojo/api_v2_key.html:27
+msgid "Here is a simple python example against the /users endpoint"
+msgstr "Вот простой пример использования конечной точки /users на языке python"
+
+#: dojo/templates/dojo/benchmark.html:21
+msgid "Target Level"
+msgstr "Целевой уровень"
+
+#: dojo/templates/dojo/benchmark.html:23
+msgid "Target ASVS Level for this application."
+msgstr "Целевой ASVS уровень для этого приложения."
+
+#: dojo/templates/dojo/benchmark.html:27
+msgid "Publish"
+msgstr "Опубликовать"
+
+#: dojo/templates/dojo/benchmark.html:30
+msgid "Publish will display the ASVS Level on the product and other areas in DefectDojo. Check this once you have completed the assessment."
+msgstr "Публикация покажет уровень ASVS в продукте и в других областях в DefectDojo. Отметьте это поле, как только закончите оценку."
+
+#: dojo/templates/dojo/benchmark.html:41
+msgid "View All"
+msgstr "Посмотреть все"
+
+#: dojo/templates/dojo/benchmark.html:67
+msgid "Applicable"
+msgstr "Применимо"
+
+#: dojo/templates/dojo/benchmark.html:86
+msgid "Is applicable?"
+msgstr "Применимо?"
+
+#: dojo/templates/dojo/benchmark.html:91
+msgid "Is passed?"
+msgstr "Пройдено?"
+
+#: dojo/templates/dojo/benchmark.html:107
+msgid "No benchmarks found."
+msgstr "Ориентиры не найдены."
+
+#: dojo/templates/dojo/benchmark.html:121
+msgid "Close"
+msgstr "Закрыть"
+
+#: dojo/templates/dojo/benchmark.html:123
+msgid "Benchmark Notes"
+msgstr "Комментарий к пункту"
+
+#: dojo/templates/dojo/benchmark.html:127
+msgid "There is no notes yet."
+msgstr "Заметок пока нет."
+
+#: dojo/templates/dojo/benchmark.html:128
+msgid "Notes:"
+msgstr "Заметки:"
+
+#: dojo/templates/dojo/benchmark.html:135
+msgid "Add Note"
+msgstr "Добавить Заметку"
+
+#: dojo/templates/dojo/benchmark.html:286
+msgid "Are you sure?"
+msgstr "Вы уверены?"
+
+#: dojo/templates/dojo/change_pwd.html:8 dojo/templates/dojo/change_pwd.html:12
+#: dojo/templates/dojo/profile.html:37 dojo/user/views.py:287
+msgid "Change Password"
+msgstr "Изменить пароль"
+
+#: dojo/templates/dojo/dashboard-metrics.html:31
+#, python-format
+msgid "%(name)s for %(start_date)s - %(end_date)s"
+msgstr "%(name)s для %(start_date)s - %(end_date)s"
+
+#: dojo/templates/dojo/dashboard-metrics.html:42
+#: dojo/templates/dojo/metrics.html:139
+msgid "Measures Findings"
+msgstr "Показатели по Уязвимостям"
+
+#: dojo/templates/dojo/dashboard-metrics.html:47
+#: dojo/templates/dojo/metrics.html:144
+msgid "Measure Affected Endpoints"
+msgstr "Показатели по затронутым конечным точкам"
+
+#: dojo/templates/dojo/dashboard-metrics.html:58
+#: dojo/templates/dojo/metrics.html:214
+msgid "Open Bug Count by Month"
+msgstr "Количество найденных уязвимостей по месяцам"
+
+#: dojo/templates/dojo/dashboard-metrics.html:69
+#: dojo/templates/dojo/metrics.html:241
+msgid "Risk Accepted Bug Count by Month"
+msgstr "Количество уязвимостей с принятым риском по месяцам"
+
+#: dojo/templates/dojo/dashboard-metrics.html:80
+#: dojo/templates/dojo/metrics.html:256
+msgid "Open Bug Count by Week"
+msgstr "Количество найденных уязвимостей по неделям"
+
+#: dojo/templates/dojo/dashboard-metrics.html:91
+#: dojo/templates/dojo/metrics.html:269
+msgid "Risk Accepted Bug Count by Week"
+msgstr "Количество уязвимостей с принятым риском по неделям"
+
+#: dojo/templates/dojo/dashboard-metrics.html:105
+#, python-format
+msgid "Top %(length)s Products By Bug Severity"
+msgstr "Топ %(length)s продуктов по критичности уязвимостей"
+
+#: dojo/templates/dojo/dashboard-metrics.html:117
+msgid "Total Findings In Period By Severity"
+msgstr "Всего уязвимостей за период по критичности"
+
+#: dojo/templates/dojo/dashboard-metrics.html:128
+msgid "Total Findings Risk Accepted In Period By Severity"
+msgstr "Всего уязвимостей с принятым риском за период по критичности"
+
+#: dojo/templates/dojo/dashboard-metrics.html:139
+msgid "Total Findings Closed In Period By Severity"
+msgstr "Всего уязвимостей закрыто за период по критичности"
+
+#: dojo/templates/dojo/dashboard-metrics.html:152
+msgid "Weekly activity, displayed by day, of findings reported.*"
+msgstr "Еженедельная активность с разбивкой по дням о сообщенных Уязвимостях.*"
+
+#: dojo/templates/dojo/dashboard-metrics.html:156
+#: dojo/templates/dojo/dashboard.html:240
+msgid "Week begins on date displayed."
+msgstr "Дата начала недели."
+
+#: dojo/templates/dojo/dashboard-metrics.html:160
+msgid "* Weeks are only displayed if findings are available."
+msgstr "* Недели отображаются только при наличии уязвимостей."
+
+#: dojo/templates/dojo/dashboard.html:33
+msgid "View Engagement Details"
+msgstr "Подробности"
+
+#: dojo/templates/dojo/dashboard.html:51
+msgid "Last Seven Days"
+msgstr "Обнаружено за последние 7 дней"
+
+#: dojo/templates/dojo/dashboard.html:57 dojo/templates/dojo/dashboard.html:81
+#: dojo/templates/dojo/dashboard.html:105
+msgid "View Finding Details"
+msgstr "Подробности"
+
+#: dojo/templates/dojo/dashboard.html:75
+msgid "Closed In Last Seven Days"
+msgstr "Закрыто за последние 7 дней"
+
+#: dojo/templates/dojo/dashboard.html:99
+msgid "Risk Accepted In Last Seven Days"
+msgstr "Принято рисков за последние 7 дней"
+
+#: dojo/templates/dojo/dashboard.html:121
+msgid "Historical Finding Severity"
+msgstr "Уязвимости за все время (по уровню критичности)"
+
+#: dojo/templates/dojo/dashboard.html:136
+msgid "Reported Finding Severity by Month"
+msgstr "Обнаружено уязвимостей за месяц (по уровню критичности)"
+
+#: dojo/templates/dojo/dashboard.html:156
+msgid "Unassigned Answered Engagement Questionnaires"
+msgstr "Не назначенные анкеты для участия с ответами"
+
+#: dojo/templates/dojo/dashboard.html:163
+#: dojo/templates/dojo/simple_search.html:162
+#: dojo/templates/dojo/view_test.html:326
+#: dojo/templates/dojo/view_test.html:918
+#: dojo/templates/dojo/view_test.html:1308
+#: dojo/templates/dojo/view_test.html:1401
+msgid "Name"
+msgstr "Название"
+
+#: dojo/templates/dojo/dashboard.html:165
+#: dojo/templates/dojo/simple_search.html:117
+#: dojo/templates/dojo/simple_search.html:225
+#: dojo/templates/dojo/simple_search.html:428
+#: dojo/templates/dojo/view_test.html:103
+#: dojo/templates/dojo/view_test.html:1469
+msgid "Engagement"
+msgstr "Задание"
+
+#: dojo/templates/dojo/dashboard.html:166
+msgid "Responder"
+msgstr "Исполнитель"
+
+#: dojo/templates/dojo/dashboard.html:167
+#: dojo/templates/dojo/findings_list_snippet.html:148
+#: dojo/templates/dojo/findings_list_snippet.html:356
+#: dojo/templates/dojo/simple_search.html:192
+#: dojo/templates/dojo/simple_search.html:227
+#: dojo/templates/dojo/view_test.html:352
+#: dojo/templates/dojo/view_test.html:689
+#: dojo/templates/dojo/view_test.html:941
+msgid "Status"
+msgstr "Статус"
+
+#: dojo/templates/dojo/dashboard.html:168
+msgid "Completion"
+msgstr "Прогресс"
+
+#: dojo/templates/dojo/dashboard.html:169
+#: dojo/templates/dojo/view_test.html:237
+#: dojo/templates/dojo/view_test.html:1320
+#: dojo/templates/dojo/view_test.html:1419
+msgid "Actions"
+msgstr "Действия"
+
+#: dojo/templates/dojo/dashboard.html:189
+msgid "Anonymous"
+msgstr "Анонимно"
+
+#: dojo/templates/dojo/dashboard.html:194
+msgid "Completed"
+msgstr "Завершено"
+
+#: dojo/templates/dojo/dashboard.html:196
+msgid "Unanswered"
+msgstr "Без ответа"
+
+#: dojo/templates/dojo/dashboard.html:204
+#: dojo/templates/dojo/dashboard.html:209
+msgid "View Responses"
+msgstr "Просмотр ответов"
+
+#: dojo/templates/dojo/dashboard.html:206
+#: dojo/templates/dojo/dashboard.html:212
+msgid "Assign User"
+msgstr "Назначить пользователя"
+
+#: dojo/templates/dojo/dashboard.html:210
+msgid "Create Engagement"
+msgstr "Создать проверку"
+
+#: dojo/templates/dojo/dashboard.html:221
+msgid "No questionnaires found."
+msgstr "Анкеты не найдены."
+
+#: dojo/templates/dojo/dashboard.html:236
+msgid "Weekly activity, displayed by day, of findings you reported."
+msgstr "Еженедельная активность с разбивкой по дням о сообщенных вами Уязвимостях."
+
+#: dojo/templates/dojo/dashboard.html:243
+msgid "Weeks are only displayed if findings are available."
+msgstr "Недели отображаются только при наличии уязвимостей."
+
+#: dojo/templates/dojo/delete_alerts.html:5
+#, python-format
+msgid "Delete All alerts %(product)s"
+msgstr "Удалить все оповещения %(product)s"
+
+#: dojo/templates/dojo/delete_alerts.html:6
+msgid "Delete all alerts will remove all alerts from this instance"
+msgstr "Удаление всех оповещений удалит все оповещения из этого экземпляра"
+
+#: dojo/templates/dojo/delete_alerts.html:9
+#: dojo/templates/dojo/delete_benchmark.html:11
+#: dojo/templates/dojo/delete_product_type.html:12
+#: dojo/templates/dojo/delete_user.html:9
+#: dojo/templates/dojo/dismiss_announcement.html:11
+msgid "Danger Zone"
+msgstr "Опасная зона"
+
+#: dojo/templates/dojo/delete_alerts.html:13
+msgid "The following alerts will be deleted"
+msgstr "Следующие оповещения будут удалены"
+
+#: dojo/templates/dojo/delete_alerts.html:25
+msgid "Delete Alert"
+msgstr "Удалить оповещение"
+
+#: dojo/templates/dojo/delete_benchmark.html:5
+#, python-format
+msgid "Delete Benchmarks for %(product)s"
+msgstr "Удалить бенчмарки %(product)s"
+
+#: dojo/templates/dojo/delete_benchmark.html:7
+msgid "Deleting these benchmarks will remove the benchmarks from the product and any related notes on the benchmarks."
+msgstr "Удаление этих бенчмарков удалит бенчмарки из продукта и все связанные с ними заметки."
+
+#: dojo/templates/dojo/delete_product_type.html:5
+#, python-format
+msgid "Delete Product Type %(product_type)s"
+msgstr "Удалить тип продукта %(product_type)s"
+
+#: dojo/templates/dojo/delete_product_type.html:7
+msgid "Deleting this Product Type will remove any related objects associated\n"
+"        with it. These relationships are listed below:"
+msgstr "Удаление этого типа продукта приведет к удалению всех связанных с ним объектов. Эти связи перечислены ниже:"
+
+#: dojo/templates/dojo/delete_product_type.html:17
+#: dojo/templates/dojo/delete_user.html:14
+msgid "No relationships found."
+msgstr "Связи не найдены."
+
+#: dojo/templates/dojo/delete_user.html:5
+#, python-format
+msgid " Delete User %(to_delete)s"
+msgstr " Удалить пользователя %(to_delete)s"
+
+#: dojo/templates/dojo/delete_user.html:6
+msgid "Deleting this User will remove any related objects associated with it. These relationships are listed below:"
+msgstr "Удаление этого пользователя приведет к удалению всех связанных с ним объектов. Эти связи перечислены ниже:"
+
+#: dojo/templates/dojo/delete_user.html:21 dojo/user/views.py:492
+msgid "Delete User"
+msgstr "Удалить пользователя"
+
+#: dojo/templates/dojo/dismiss_announcement.html:5
+#: dojo/templates/dojo/dismiss_announcement.html:18
+msgid "Dismiss Announcement"
+msgstr "Скрыть объявление"
+
+#: dojo/templates/dojo/dismiss_announcement.html:7
+msgid "Dismissing the announcement will remove the current announcement from your view"
+msgstr "Скрыв объявление, вы больше его не увидите"
+
+#: dojo/templates/dojo/edit_note.html:5
+msgid "Edit Note"
+msgstr "Редактировать заметку"
+
+#: dojo/templates/dojo/edit_note.html:10
+msgid "Save"
+msgstr "Сохранить"
+
+#: dojo/templates/dojo/edit_product_type.html:19
+#, python-format
+msgid "Edit Product Type %(name)s"
+msgstr "Изменить тип продукта %(name)s"
+
+#: dojo/templates/dojo/edit_product_type.html:25
+msgid "Edit product type"
+msgstr "Изменить тип продукта"
+
+#: dojo/templates/dojo/edit_tool_type.html:7
+msgid "Edit Tool Type Configuration"
+msgstr "Изменить конфигурацию типа инструмента"
+
+#: dojo/templates/dojo/findings_list_snippet.html:14
+#, python-format
+msgid "%(filter_name)s Findings"
+msgstr "Уязвимость%(filter_name)s"
+
+#: dojo/templates/dojo/findings_list_snippet.html:29
+#: dojo/templates/dojo/view_test.html:75 dojo/templates/dojo/view_test.html:563
+msgid "Report"
+msgstr "Отчет"
+
+#: dojo/templates/dojo/findings_list_snippet.html:34
+#: dojo/templates/dojo/view_test.html:568
+msgid "CSV Export"
+msgstr "Экспорт в CSV"
+
+#: dojo/templates/dojo/findings_list_snippet.html:39
+#: dojo/templates/dojo/view_test.html:573
+msgid "Excel Export"
+msgstr "Экспорт в Excel"
+
+#: dojo/templates/dojo/findings_list_snippet.html:68
+#: dojo/templates/dojo/view_test.html:599
+msgid "Bulk Edit"
+msgstr "Массовое изменение"
+
+#: dojo/templates/dojo/findings_list_snippet.html:98
+#: dojo/templates/dojo/view_test.html:630
+msgid "Choose wisely..."
+msgstr "Выбирайте мудро..."
+
+#: dojo/templates/dojo/findings_list_snippet.html:110
+#: dojo/templates/dojo/view_test.html:643
+#: dojo/templates/dojo/view_test.html:815
+msgid "Choose..."
+msgstr "Выберете..."
+
+#: dojo/templates/dojo/findings_list_snippet.html:113
+#: dojo/templates/dojo/findings_list_snippet.html:290
+#: dojo/templates/dojo/metrics.html:375 dojo/templates/dojo/metrics.html:395
+#: dojo/templates/dojo/metrics.html:422 dojo/templates/dojo/metrics.html:442
+#: dojo/templates/dojo/metrics.html:471 dojo/templates/dojo/metrics.html:491
+#: dojo/templates/dojo/simple_metrics.html:28
+#: dojo/templates/dojo/view_test.html:646
+#: dojo/templates/dojo/view_test.html:887
+msgid "Info"
+msgstr "Инфо"
+
+#: dojo/templates/dojo/findings_list_snippet.html:125
+#: dojo/templates/dojo/findings_list_snippet.html:302
+#: dojo/templates/dojo/metrics.html:313 dojo/templates/dojo/metrics.html:371
+#: dojo/templates/dojo/metrics.html:391 dojo/templates/dojo/metrics.html:418
+#: dojo/templates/dojo/metrics.html:438 dojo/templates/dojo/metrics.html:467
+#: dojo/templates/dojo/metrics.html:487 dojo/templates/dojo/metrics.html:514
+#: dojo/templates/dojo/metrics.html:538 dojo/templates/dojo/metrics.html:565
+#: dojo/templates/dojo/metrics.html:587 dojo/templates/dojo/pt_counts.html:165
+#: dojo/templates/dojo/pt_counts.html:286
+#: dojo/templates/dojo/pt_counts.html:469
+#: dojo/templates/dojo/simple_metrics.html:24
+#: dojo/templates/dojo/view_test.html:658
+#: dojo/templates/dojo/view_test.html:899
+msgid "Critical"
+msgstr "Критический"
+
+#: dojo/templates/dojo/findings_list_snippet.html:172
+#: dojo/templates/dojo/view_test.html:714
+msgid "Out of scope"
+msgstr "Вне целевого исхода"
+
+#: dojo/templates/dojo/findings_list_snippet.html:190
+#: dojo/templates/dojo/view_test.html:731
+msgid "Risk Acceptance"
+msgstr "Риск принят"
+
+#: dojo/templates/dojo/findings_list_snippet.html:199
+#: dojo/templates/dojo/view_test.html:740
+msgid "Accept"
+msgstr "Принять"
+
+#: dojo/templates/dojo/findings_list_snippet.html:206
+#: dojo/templates/dojo/view_test.html:747
+msgid "Unaccept"
+msgstr "Отменить принятие"
+
+#: dojo/templates/dojo/findings_list_snippet.html:210
+#: dojo/templates/dojo/findings_list_snippet.html:373
+#: dojo/templates/dojo/profile.html:75
+#: dojo/templates/dojo/view_product_details.html:374
+#: dojo/templates/dojo/view_product_type.html:233
+#: dojo/templates/dojo/view_test.html:751
+#: dojo/templates/dojo/view_test.html:958
+#: dojo/templates/dojo/view_user.html:282
+msgid "Group"
+msgstr "Группа"
+
+#: dojo/templates/dojo/findings_list_snippet.html:217
+#: dojo/templates/dojo/view_test.html:801
+msgid "Remove from any group"
+msgstr "Удалить из всех групп"
+
+#: dojo/templates/dojo/findings_list_snippet.html:223
+msgid "Push to Jira"
+msgstr "Отправить в Jira"
+
+#: dojo/templates/dojo/findings_list_snippet.html:236
+msgid "Push to GitHub"
+msgstr "Отправить в GitHub"
+
+#: dojo/templates/dojo/findings_list_snippet.html:252
+#: dojo/templates/dojo/view_product_type.html:84
+#: dojo/templates/dojo/view_test.html:840
+msgid "Tags"
+msgstr "Теги"
+
+#: dojo/templates/dojo/findings_list_snippet.html:306
+#: dojo/templates/dojo/paging_snippet.html:45
+#: dojo/templates/dojo/view_test.html:904
+msgid "All"
+msgstr "Все"
+
+#: dojo/templates/dojo/findings_list_snippet.html:342
+#: dojo/templates/dojo/view_test.html:341
+#: dojo/templates/dojo/view_test.html:930
+msgid "Age"
+msgstr "Возраст"
+
+#: dojo/templates/dojo/findings_list_snippet.html:346
+#: dojo/templates/dojo/view_test.html:345
+#: dojo/templates/dojo/view_test.html:934
+msgid "SLA"
+msgstr "SLA"
+
+#: dojo/templates/dojo/findings_list_snippet.html:353
+msgid "Found By"
+msgstr "Найден"
+
+#: dojo/templates/dojo/findings_list_snippet.html:361
+#: dojo/templates/dojo/view_test.html:357
+#: dojo/templates/dojo/view_test.html:946
+msgid "Jira"
+msgstr "Jira"
+
+#: dojo/templates/dojo/findings_list_snippet.html:364
+msgid "JIRA Age"
+msgstr "Возраст JIRA"
+
+#: dojo/templates/dojo/findings_list_snippet.html:367
+msgid "JIRA Change"
+msgstr "Изменение JIRA"
+
+#: dojo/templates/dojo/findings_list_snippet.html:387
+#: dojo/templates/dojo/view_test.html:962
+msgid "Planned Remediation"
+msgstr "Запланированное исправление"
+
+#: dojo/templates/dojo/findings_list_snippet.html:410
+#: dojo/templates/dojo/product_type.html:70 dojo/templates/dojo/users.html:91
+#: dojo/templates/dojo/view_test.html:990
+#: dojo/templates/dojo/view_test.html:1457
+#: dojo/templates/dojo/view_test.html:1495
+#: dojo/templates/dojo/view_user.html:388
+msgid "View"
+msgstr "Просмотр"
+
+#: dojo/templates/dojo/findings_list_snippet.html:421
+#: dojo/templates/dojo/view_test.html:1002
+msgid "Copy"
+msgstr "Копировать"
+
+#: dojo/templates/dojo/findings_list_snippet.html:431
+#: dojo/templates/dojo/view_test.html:1012
+msgid "Clear Review"
+msgstr "Очистить проверку"
+
+#: dojo/templates/dojo/findings_list_snippet.html:437
+#: dojo/templates/dojo/view_test.html:1018
+msgid "Request Peer Review"
+msgstr "Запрос коллегиальной задания"
+
+#: dojo/templates/dojo/findings_list_snippet.html:445
+#: dojo/templates/dojo/view_test.html:1026
+msgid "Touch Finding"
+msgstr "Уязвимостьпросмотрена"
+
+#: dojo/templates/dojo/findings_list_snippet.html:452
+#: dojo/templates/dojo/view_test.html:1033
+msgid "Make Finding a Template"
+msgstr "Создать шаблон из Уязвимости"
+
+#: dojo/templates/dojo/findings_list_snippet.html:459
+#: dojo/templates/dojo/view_test.html:1040
+msgid "Apply Template to Finding"
+msgstr "Применить шаблон к Уязвимости"
+
+#: dojo/templates/dojo/findings_list_snippet.html:467
+#: dojo/templates/dojo/view_test.html:1046
+msgid "Close Finding"
+msgstr "Закрыть Уязвимость"
+
+#: dojo/templates/dojo/findings_list_snippet.html:473
+#: dojo/templates/dojo/view_test.html:1052
+msgid "Open Finding"
+msgstr "Открыть Уязвимость"
+
+#: dojo/templates/dojo/findings_list_snippet.html:483
+#: dojo/templates/dojo/view_test.html:1061
+msgid "Unaccept Risk"
+msgstr "Отозвать принятие риска"
+
+#: dojo/templates/dojo/findings_list_snippet.html:491
+#: dojo/templates/dojo/view_test.html:1069
+msgid "Accept Risk"
+msgstr "Принять риск"
+
+#: dojo/templates/dojo/findings_list_snippet.html:498
+#: dojo/templates/dojo/view_test.html:1077
+msgid "Add Risk Acceptance..."
+msgstr "Добавить принятие риска..."
+
+#: dojo/templates/dojo/findings_list_snippet.html:702
+#: dojo/templates/dojo/view_test.html:1269
+msgid "No findings found."
+msgstr "Уязвимости не найдены."
+
+#: dojo/templates/dojo/forgot_username.html:5
+#: dojo/templates/dojo/forgot_username_done.html:5
+msgid "Retrieve Username"
+msgstr "Получить имя пользователя"
+
+#: dojo/templates/dojo/forgot_username.html:6
+msgid "Forgotten your username? Enter your email address below, and we’ll email it to you."
+msgstr "Забыли имя пользователя? Введите свой адрес электронной почты ниже, и мы отправим его по электронной почте."
+
+#: dojo/templates/dojo/forgot_username.html:12
+msgid "Retreive my username"
+msgstr "Получить мое имя пользователя"
+
+#: dojo/templates/dojo/forgot_username_done.html:7
+msgid "We’ve emailed you information about your user account, if an account exists with the email you entered. You should receive the requested information shortly."
+msgstr "Если пользователь с введенной электронной почтой существует, то вам на почту придет письмо с информацией о вашей учетной записи. Вы должны получить запрошенную информацию в ближайшее время."
+
+#: dojo/templates/dojo/forgot_username_done.html:8
+#: dojo/templates/dojo/password_reset_done.html:8
+msgid "If you don’t receive an email, please make sure you’ve entered the address you registered with, and check your spam folder."
+msgstr "Если вы не получили инструкцию, убедитесь, что вы ввели тот адрес электронный почты, на который зарегистрирована учетная запись и проверьте папку со спамом."
+
+#: dojo/templates/dojo/forgot_username_subject.html:2
+#, python-format
+msgid "Retrieve username on %(site_name)s"
+msgstr "Получить имя пользователя на %(site_name)s"
+
+#: dojo/templates/dojo/login.html:6 dojo/templates/dojo/login.html:31
+msgid "Login"
+msgstr "Войти"
+
+#: dojo/templates/dojo/login.html:25
+msgid "Show Password"
+msgstr "Показать пароль"
+
+#: dojo/templates/dojo/login.html:37
+msgid "I forgot my password"
+msgstr "Забыл пароль"
+
+#: dojo/templates/dojo/login.html:40
+msgid "I forgot my username"
+msgstr "Забыл имя пользователя"
+
+#: dojo/templates/dojo/login.html:51
+msgid "Login with Google"
+msgstr "Войти через Google"
+
+#: dojo/templates/dojo/login.html:59
+msgid "Login with OKTA"
+msgstr "Войти через OKTA"
+
+#: dojo/templates/dojo/login.html:67
+msgid "Login with Azure AD"
+msgstr "Войти через Azure AD"
+
+#: dojo/templates/dojo/login.html:75
+msgid "Login with Gitlab"
+msgstr "Войти через Gitlab"
+
+#: dojo/templates/dojo/login.html:83
+msgid "Login with Auth0"
+msgstr "Войти с помощью Auth0"
+
+#: dojo/templates/dojo/login.html:99
+msgid "Login with Github Enterprise"
+msgstr "Войти через Github Enterprise"
+
+#: dojo/templates/dojo/metrics.html:172
+#, python-format
+msgid "%(name)s is affected by <b>both</b> critical and\n"
+"                                        high severity vulnerabilities."
+msgstr "На %(name)s влияют уязвимости и <b>критического</b> и\n"
+"                                        <b>высокого</b> уровня критичности."
+
+#: dojo/templates/dojo/metrics.html:176 dojo/templates/dojo/metrics.html:186
+msgid "Critical Severity Vulnerabilities"
+msgstr "Критические уязвимости"
+
+#: dojo/templates/dojo/metrics.html:179 dojo/templates/dojo/metrics.html:193
+msgid "High Severity Vulnerabilities"
+msgstr "Уязвимости высокой критичности"
+
+#: dojo/templates/dojo/metrics.html:181
+#, python-format
+msgid "\n"
+"                                        %(name)s is affected by critical vulnerabilities."
+msgstr "\n"
+"                                        %(name)s подвержен критическим уязвимостям."
+
+#: dojo/templates/dojo/metrics.html:188
+#, python-format
+msgid "\n"
+"                                        %(name)s is affected by high severity vulnerabilities."
+msgstr "\n"
+"                                        %(name)s подвержен уязвимостям высокой критичности."
+
+#: dojo/templates/dojo/metrics.html:197
+msgid "Full Metrics"
+msgstr "Полные метрики"
+
+#: dojo/templates/dojo/metrics.html:205
+msgid "No Critical Products registered"
+msgstr "Не зарегистрировано критических продуктов"
+
+#: dojo/templates/dojo/metrics.html:227
+msgid "Active Bug Count by Month"
+msgstr "Количество активных ошибок по месяцам"
+
+#: dojo/templates/dojo/metrics.html:284
+msgid "Metric Counts"
+msgstr "Количественные метрики"
+
+#: dojo/templates/dojo/metrics.html:292
+msgid "Top 10 Products <br/> by bug severity"
+msgstr "Топ 10 продуктов <br/> по критичности ошибок"
+
+#: dojo/templates/dojo/metrics.html:296
+msgid "Detail Breakdown"
+msgstr "Детальный разбор"
+
+#: dojo/templates/dojo/metrics.html:297
+msgid "Opened Findings"
+msgstr "Открытые Уязвимости"
+
+#: dojo/templates/dojo/metrics.html:298
+msgid "Accepted Findings"
+msgstr "Уязвимости с принятым риском"
+
+#: dojo/templates/dojo/metrics.html:300
+msgid "Trending Open<br/>Bug Count"
+msgstr "Тренд <br/> появления ошибок"
+
+#: dojo/templates/dojo/metrics.html:302
+msgid "Trending Accepted <br/> Bug Count"
+msgstr "Тренд <br/> принятия риска"
+
+#: dojo/templates/dojo/metrics.html:304
+msgid "Age of Issues"
+msgstr "Возраст задач"
+
+#: dojo/templates/dojo/metrics.html:317 dojo/templates/dojo/metrics.html:376
+#: dojo/templates/dojo/metrics.html:396 dojo/templates/dojo/metrics.html:423
+#: dojo/templates/dojo/metrics.html:443 dojo/templates/dojo/metrics.html:472
+#: dojo/templates/dojo/metrics.html:492 dojo/templates/dojo/metrics.html:518
+#: dojo/templates/dojo/metrics.html:542 dojo/templates/dojo/metrics.html:569
+#: dojo/templates/dojo/metrics.html:591 dojo/templates/dojo/pt_counts.html:290
+#: dojo/templates/dojo/pt_counts.html:297
+#: dojo/templates/dojo/pt_counts.html:473
+#: dojo/templates/dojo/simple_metrics.html:23
+msgid "Total"
+msgstr "Всего"
+
+#: dojo/templates/dojo/metrics.html:367
+msgid "Opened During Period"
+msgstr "Открыто за период"
+
+#: dojo/templates/dojo/metrics.html:414
+msgid "Accepted in Period"
+msgstr "Принято за период"
+
+#: dojo/templates/dojo/metrics.html:463
+msgid "Closed in Period"
+msgstr "Закрыто за период"
+
+#: dojo/templates/dojo/metrics.html:513
+msgid "Weekly"
+msgstr "Неделя"
+
+#: dojo/templates/dojo/metrics.html:519 dojo/templates/dojo/metrics.html:543
+msgid "Closed*"
+msgstr "Закрыто*"
+
+#: dojo/templates/dojo/metrics.html:537
+msgid "Monthly"
+msgstr "Месяц"
+
+#: dojo/templates/dojo/metrics.html:557
+msgid "*Closed findings may have been opened outside of requested period."
+msgstr "*Закрытые Уязвимости могут быть открыты вне запрошенного периода."
+
+#: dojo/templates/dojo/metrics.html:564
+msgid "By Week"
+msgstr "По неделям"
+
+#: dojo/templates/dojo/metrics.html:586
+msgid "By Month"
+msgstr "По месяцам"
+
+#: dojo/templates/dojo/metrics.html:610
+msgid "Days"
+msgstr "Дни"
+
+#: dojo/templates/dojo/metrics.html:611
+msgid "Bug Count"
+msgstr "Количество ошибок"
+
+#: dojo/templates/dojo/metrics.html:614
+msgid "0 - 30 Days"
+msgstr "0 - 30 дней"
+
+#: dojo/templates/dojo/metrics.html:618
+msgid "31 - 60 Days"
+msgstr "31 - 60 дней"
+
+#: dojo/templates/dojo/metrics.html:622
+msgid "61 - 90 Days"
+msgstr "61 - 90 дней"
+
+#: dojo/templates/dojo/metrics.html:626
+msgid "91+ Days"
+msgstr "91+ дней"
+
+#: dojo/templates/dojo/new_group_member_user.html:9
+msgid "Add Some Group Members"
+msgstr "Добавить участников группы"
+
+#: dojo/templates/dojo/new_product_member_user.html:10
+msgid "Register new Product Members"
+msgstr "Зарегистрировать новых участников продукта"
+
+#: dojo/templates/dojo/new_product_type.html:19
+msgid "Register a new Product Type"
+msgstr "Зарегистрировать новый тип продукта"
+
+#: dojo/templates/dojo/new_product_type_member.html:10
+#: dojo/templates/dojo/new_product_type_member_user.html:10
+msgid "Register new Product Type Members"
+msgstr "Зарегистрировать новых участников типа продукта"
+
+#: dojo/templates/dojo/new_tool_type.html:6
+msgid "Add a Tool Type Configuration"
+msgstr "Добавить конфигурацию типа инструмента"
+
+#: dojo/templates/dojo/notifications.html:9
+#: dojo/templates/dojo/notifications.html:13
+#: dojo/templates/dojo/notifications.html:29
+msgid "System"
+msgstr "Система"
+
+#: dojo/templates/dojo/notifications.html:11
+#: dojo/templates/dojo/notifications.html:32
+msgid "Personal"
+msgstr "Личное"
+
+#: dojo/templates/dojo/notifications.html:15
+msgid "Notification Settings"
+msgstr "Параметры уведомлений"
+
+#: dojo/templates/dojo/notifications.html:23
+msgid "Scope"
+msgstr "Скоуп"
+
+#: dojo/templates/dojo/notifications.html:23
+msgid "Destinations for system notifications are configured in System Settings. Destinations for personal notifications are taken from your personal contact details (personal Slack notifications will be sent to you as a direct message)."
+msgstr "Адресаты для системных уведомлений настроены в системных настройках. Адресаты для личных уведомлений берутся из личных контактных данных (личные уведомления Slack будут отправляться вам в качестве прямого сообщения)."
+
+#: dojo/templates/dojo/notifications.html:35
+msgid "Template"
+msgstr "Шаблон"
+
+#: dojo/templates/dojo/notifications.html:51
+msgid "These notification settings apply <u>globally</u> to all products and will be sent to all superusers."
+msgstr "Эти настройки уведомлений применяются <u>глобально</u> ко всем продуктам и будут отправлены всем суперпользователям."
+
+#: dojo/templates/dojo/notifications.html:55
+msgid "These notification settings apply <u>globally</u> to all products that you have read access to and will be sent to you only."
+msgstr "Эти настройки уведомлений применяются <u>глобально</u> ко всем продуктам, к которым вы имеете доступ на чтение, и будут отправлены только вам."
+
+#: dojo/templates/dojo/notifications.html:58
+msgid "If you want only notifications for certain products you should disable everything here and enable notifications on those products."
+msgstr "Если вы хотите получать уведомления только для определенных продуктов, вы должны отключить все настройки тут и включить уведомления на уровне продуктов."
+
+#: dojo/templates/dojo/notifications.html:62
+msgid "These template <u>template</u>"
+msgstr "Это шаблон <u>шаблона</u>"
+
+#: dojo/templates/dojo/notifications.html:82
+msgid "Event"
+msgstr "Событие"
+
+#: dojo/templates/dojo/notifications.html:84
+#: dojo/templates/dojo/view_product_details.html:641
+msgid "Slack"
+msgstr "Slack"
+
+#: dojo/templates/dojo/notifications.html:87
+msgid "Microsoft Teams"
+msgstr "Microsoft Teams"
+
+#: dojo/templates/dojo/notifications.html:90
+#: dojo/templates/dojo/view_product_details.html:644
+msgid "Mail"
+msgstr "Почта"
+
+#: dojo/templates/dojo/notifications.html:92
+#: dojo/templates/dojo/view_product_details.html:646
+msgid "Alert"
+msgstr "Предупреждение"
+
+#: dojo/templates/dojo/paging_snippet.html:8
+#, python-format
+msgid "\n"
+"    Showing entries %(start_index)s to %(end_index)s of %(count)s\n"
+"    "
+msgstr "\n"
+"    Показ записей с %(start_index)s до %(end_index)s из %(count)s\n"
+"    "
+
+#: dojo/templates/dojo/paging_snippet.html:32
+msgid "Page Size"
+msgstr "Размер страницы"
+
+#: dojo/templates/dojo/paging_snippet.html:34
+msgid "Toggle Dropdown"
+msgstr "Вкл/Выкл выпадающий список"
+
+#: dojo/templates/dojo/password_reset.html:5
+#: dojo/templates/dojo/password_reset_complete.html:5
+#: dojo/templates/dojo/password_reset_done.html:5
+msgid "Password reset"
+msgstr "Сброс пароля"
+
+#: dojo/templates/dojo/password_reset.html:6
+msgid "Forgotten your password? Enter your email address below, and we’ll email instructions for setting a new one."
+msgstr "Забыли пароль? Введите свой адрес электронной почты ниже, и мы отправим инструкции по установке нового."
+
+#: dojo/templates/dojo/password_reset.html:13
+msgid "Reset my password"
+msgstr "Восстановить мой пароль"
+
+#: dojo/templates/dojo/password_reset_complete.html:7
+msgid "Your password has been set.  You may go ahead and log in now."
+msgstr "Ваш пароль был установлен.  Вы можете продолжить и войти прямо сейчас."
+
+#: dojo/templates/dojo/password_reset_complete.html:10
+msgid "Log in"
+msgstr "Войти"
+
+#: dojo/templates/dojo/password_reset_confirm.html:5
+msgid "Password reset confirmation"
+msgstr "Подтверждение изменения пароля"
+
+#: dojo/templates/dojo/password_reset_confirm.html:7
+msgid "Please enter your new password twice so we can verify you typed it in correctly."
+msgstr "Пожалуйста, введите ваш новый пароль дважды, чтобы мы могли убедиться, что вы ввели его правильно."
+
+#: dojo/templates/dojo/password_reset_confirm.html:13
+msgid "Change my password"
+msgstr "Изменить мой пароль"
+
+#: dojo/templates/dojo/password_reset_confirm.html:20
+msgid "The password reset link was invalid, possibly because it has already been used.  Please request a new password reset."
+msgstr "Ссылка для изменения пароля была неверна, возможно, потому что она уже была использована. Пожалуйста, запросите новое изменение пароля."
+
+#: dojo/templates/dojo/password_reset_done.html:7
+msgid "We’ve emailed you instructions for setting your password, if an account exists with the email you entered. You should receive them shortly."
+msgstr "Мы выслали вам инструкцию для настройки пароля. Если учетная запись с указанным вами адресом электронной почты существует, вскоре вы получите инструкцию."
+
+#: dojo/templates/dojo/product_type.html:54
+msgid "Product count"
+msgstr "Количество продуктов"
+
+#: dojo/templates/dojo/product_type.html:55
+msgid "Active (Verified) findings"
+msgstr "Активные (Подтвержденные) Уязвимости"
+
+#: dojo/templates/dojo/product_type.html:56
+#: dojo/templates/dojo/view_product_type.html:286
+msgid "Critical product"
+msgstr "Критический продукт"
+
+#: dojo/templates/dojo/product_type.html:57
+#: dojo/templates/dojo/view_product_type.html:296
+msgid "Key product"
+msgstr "Ключевой продукт"
+
+#: dojo/templates/dojo/product_type.html:91
+#: dojo/templates/dojo/view_product_type.html:35
+msgid "Product Type Report"
+msgstr "Отчет по типу продукта"
+
+#: dojo/templates/dojo/product_type.html:133
+msgid "No product types found."
+msgstr "Типы продукта не найдены."
+
+#: dojo/templates/dojo/profile.html:6
+#, python-format
+msgid " User Profile - %(full_name)s"
+msgstr " Профиль пользователя - %(full_name)s"
+
+#: dojo/templates/dojo/profile.html:32
+msgid "Last Login:"
+msgstr "Последний вход:"
+
+#: dojo/templates/dojo/profile.html:33
+msgid "Date Joined:"
+msgstr "Зарегистрирован:"
+
+#: dojo/templates/dojo/profile.html:61
+#: dojo/templates/dojo/view_product_details.html:360
+#: dojo/templates/dojo/view_product_type.html:219
+#: dojo/templates/dojo/view_user.html:268
+msgid "Add Groups"
+msgstr "Добавить группы"
+
+#: dojo/templates/dojo/profile.html:93 dojo/templates/dojo/view_user.html:320
+msgid "No group members found."
+msgstr "Участники группы не найдены."
+
+#: dojo/templates/dojo/pt_counts.html:57
+msgid "Generate Metrics For Selected Period"
+msgstr "Сгенерировать метрики по выбранному периоду"
+
+#: dojo/templates/dojo/pt_counts.html:135
+msgid " Finding Information For Period of "
+msgstr " Информация о Уязвимостях для периода "
+
+#: dojo/templates/dojo/pt_counts.html:137
+msgid "Metrics by Product Types"
+msgstr "Метрики типов продукта"
+
+#: dojo/templates/dojo/pt_counts.html:145
+msgid "Metrics by Products"
+msgstr "Метрики продуктов"
+
+#: dojo/templates/dojo/pt_counts.html:159
+msgid "Trending Total Bug Count By Month"
+msgstr "Тренд ошибок безопасности по месяцам"
+
+#: dojo/templates/dojo/pt_counts.html:164
+msgid "Month"
+msgstr "Месяц"
+
+#: dojo/templates/dojo/pt_counts.html:169
+msgid "Opened in Month"
+msgstr "Открыто за месяц"
+
+#: dojo/templates/dojo/pt_counts.html:170
+msgid "Total Closed"
+msgstr "Всего закрыто"
+
+#: dojo/templates/dojo/pt_counts.html:171
+msgid "Active to Date"
+msgstr "Активно к дате"
+
+#: dojo/templates/dojo/pt_counts.html:211
+msgid "Total Active and Verified To Date"
+msgstr "Активно и подтверждено к дате"
+
+#: dojo/templates/dojo/pt_counts.html:280
+msgid "Total Security Bug Count In Period"
+msgstr "Всего ошибок безопасности за период"
+
+#: dojo/templates/dojo/pt_counts.html:304
+#: dojo/templates/dojo/pt_counts.html:323
+#: dojo/templates/dojo/pt_counts.html:341
+#: dojo/templates/dojo/pt_counts.html:359
+#: dojo/templates/dojo/pt_counts.html:377
+msgid "Opened"
+msgstr "Открыто"
+
+#: dojo/templates/dojo/pt_counts.html:313
+#: dojo/templates/dojo/pt_counts.html:332
+#: dojo/templates/dojo/pt_counts.html:350
+#: dojo/templates/dojo/pt_counts.html:368
+#: dojo/templates/dojo/pt_counts.html:386
+#: dojo/templates/dojo/pt_counts.html:437
+msgid "Trend"
+msgstr "Тренд"
+
+#: dojo/templates/dojo/pt_counts.html:463
+msgid "Top By Bug Severity"
+msgstr "Лидеры по критичности ошибок"
+
+#: dojo/templates/dojo/simple_metrics.html:11
+msgid "Generate Metrics For Selected Month/Year"
+msgstr "Сгенерировать метрики по выбранному месяцу/году"
+
+#: dojo/templates/dojo/simple_metrics.html:18
+msgid "View Details"
+msgstr "Подробности"
+
+#: dojo/templates/dojo/simple_metrics.html:29
+msgid "Opened This Month"
+msgstr "Открыто в этом месяце"
+
+#: dojo/templates/dojo/simple_metrics.html:30
+msgid "Closed This Month"
+msgstr "Закрыто в этом месяце"
+
+#: dojo/templates/dojo/simple_search.html:9
+msgid "This simple search function will return results whose findings or finding templates\n"
+"                                     title, URL, description, endpoints, tags, references, languages or technologies contain the search query and products whose\n"
+"                                     name, tags or description contain the search query.</br> Advanced search operators: (Restrict results to a certain type) product:,\n"
+"                                     engagement:, finding:, endpoint:, tag:, language:, technology: or vulnerability_id:.\n"
+"                                     test-tags shows findings in tests that are tagged with provided tag, similar for engagement-tags and product-tags.\n"
+"                                     After submitting the search query, tabbed results will be displayed. The findings tab will have the possibility to\n"
+"                                     to perform more finegrained filtering on status fields, test type, etc."
+msgstr "Эта простая функия поиска покажет Уязвимости и шаблоны уязвимостей, чьи заголовки, URL, описания, конечные точки, теги, ссылки, языки или технологии содержат поисковой запрос, а также продукты, чьи названия, теги или описания содержат поисковой запрос.</br> Дополнительные параметры поиска: (Ограничить результаты для определенных типов) продукт:, проверка:, Уязвимость:, конечная точка:, тег:, язык:, технология: или идентификатор уязвимости:. Теги теста показывают Уязвимости в тестах, которые отмеченны указанным тегом, Аналогично для тегов проверок и продуктов. После отправки поискового запроса, результаты будут показаны во вкладках. Вкладка уязвимостей позволит выполнить более тонкую фильтрацию по статусным полям, типу теста и т. д."
+
+#: dojo/templates/dojo/simple_search.html:49
+#: dojo/templates/dojo/view_test.html:332
+msgid "Vulnerability Ids"
+msgstr "Идентификаторы уязвимости"
+
+#: dojo/templates/dojo/simple_search.html:64
+msgid "Tests"
+msgstr "Тесты"
+
+#: dojo/templates/dojo/simple_search.html:79
+#: dojo/templates/dojo/view_product_details.html:559
+msgid "Languages"
+msgstr "Языки"
+
+#: dojo/templates/dojo/simple_search.html:84
+msgid "Application Technolgies"
+msgstr "Технологии приложения"
+
+#: dojo/templates/dojo/simple_search.html:119
+#: dojo/templates/dojo/simple_search.html:393
+msgid "Finding"
+msgstr "Уязвимость"
+
+#: dojo/templates/dojo/simple_search.html:262
+#: dojo/templates/dojo/simple_search.html:419
+#: dojo/templates/dojo/view_finding.html:957
+#: dojo/templates/dojo/view_test.html:236
+msgid "Endpoint"
+msgstr "Конечная точка"
+
+#: dojo/templates/dojo/simple_search.html:271
+msgid "Endpoint is broken. Check documentation to look for fix process"
+msgstr "Конечная точка повреждена. Проверьте документацию, чтобы найти процесс для исправления"
+
+#: dojo/templates/dojo/simple_search.html:286
+msgid "No Open, Active Findings"
+msgstr "Не открывать, активные Уязвимости"
+
+#: dojo/templates/dojo/simple_search.html:325
+msgid "Language"
+msgstr "Язык"
+
+#: dojo/templates/dojo/simple_search.html:350
+msgid "Technology"
+msgstr "Технология"
+
+#: dojo/templates/dojo/simple_search.html:376
+msgid "Item"
+msgstr "Элемент"
+
+#: dojo/templates/dojo/simple_search.html:401
+msgid "Finding Template"
+msgstr "Шаблон Уязвимости"
+
+#: dojo/templates/dojo/simple_search.html:445
+msgid "ID"
+msgstr "ID"
+
+#: dojo/templates/dojo/simple_search.html:452
+msgid "Rank"
+msgstr "Рейтинг"
+
+#: dojo/templates/dojo/tool_type.html:13
+msgid "Tool Types"
+msgstr "Типы инструмента"
+
+#: dojo/templates/dojo/tool_type.html:25
+msgid "Add Tool Type"
+msgstr "Добавить тип инструмента"
+
+#: dojo/templates/dojo/tool_type.html:70
+msgid "No tool types found"
+msgstr "Типы инструмента не найдены"
+
+#: dojo/templates/dojo/users.html:8 dojo/templates/dojo/view_user.html:49
+msgid "First Name"
+msgstr "Имя"
+
+#: dojo/templates/dojo/users.html:9 dojo/templates/dojo/view_user.html:53
+msgid "Last Name"
+msgstr "Фамилия"
+
+#: dojo/templates/dojo/users.html:10
+msgid "User Name"
+msgstr "Имя пользователя"
+
+#: dojo/templates/dojo/users.html:11 dojo/templates/dojo/view_user.html:61
+msgid "Email"
+msgstr "E-mail"
+
+#: dojo/templates/dojo/users.html:13 dojo/templates/dojo/view_user.html:346
+msgid "Superuser"
+msgstr "Суперпользователь"
+
+#: dojo/templates/dojo/users.html:32
+msgid "New User"
+msgstr "Новый пользователь"
+
+#: dojo/templates/dojo/users.html:68
+msgid "Phone Number(s)"
+msgstr "Номер(а) телефона"
+
+#: dojo/templates/dojo/users.html:76 dojo/templates/dojo/view_user.html:370
+msgid "Last Login"
+msgstr "Последний вход"
+
+#: dojo/templates/dojo/users.html:122
+msgid "Phone:"
+msgstr "Телефон:"
+
+#: dojo/templates/dojo/users.html:124
+msgid "Cell:"
+msgstr "Ячейка:"
+
+#: dojo/templates/dojo/users.html:133 dojo/templates/dojo/view_user.html:371
+msgid "Never"
+msgstr "Никогда"
+
+#: dojo/templates/dojo/users.html:146
+msgid "No Users"
+msgstr "Нет пользователей"
+
+#: dojo/templates/dojo/view_finding.html:264
+#: dojo/templates/dojo/view_test.html:682
+msgid "Planned Remediation version"
+msgstr "Запланированная версия исправления"
+
+#: dojo/templates/dojo/view_finding.html:915
+#: dojo/templates/dojo/view_test.html:196
+msgid "Import History"
+msgstr "История импортов"
+
+#: dojo/templates/dojo/view_finding.html:950
+msgid "Action"
+msgstr "Действие"
+
+#: dojo/templates/dojo/view_finding.html:951
+#: dojo/templates/dojo/view_test.html:231
+msgid "Date/Time"
+msgstr "Дата/время"
+
+#: dojo/templates/dojo/view_finding.html:952
+msgid "Import Type"
+msgstr "Тип импорта"
+
+#: dojo/templates/dojo/view_finding.html:955
+#: dojo/templates/dojo/view_test.html:234
+msgid "Commit"
+msgstr "Коммит"
+
+#: dojo/templates/dojo/view_finding.html:956
+#: dojo/templates/dojo/view_test.html:108
+#: dojo/templates/dojo/view_test.html:235
+msgid "Version"
+msgstr "Версия"
+
+#: dojo/templates/dojo/view_finding.html:998
+#: dojo/templates/dojo/view_test.html:283
+msgid "No import history found."
+msgstr "История импортов не найдена."
+
+#: dojo/templates/dojo/view_note_history.html:5
+msgid "Note History"
+msgstr "История заметок"
+
+#: dojo/templates/dojo/view_note_history.html:14
+#, python-format
+msgid "commented %(time)s"
+msgstr "прокомментировано в %(time)s"
+
+#: dojo/templates/dojo/view_note_history.html:16
+#, python-format
+msgid "made changes on %(time)s"
+msgstr "изменено в %(time)s"
+
+#: dojo/templates/dojo/view_note_history.html:22
+msgid "Note type:"
+msgstr "Тип заметки:"
+
+#: dojo/templates/dojo/view_note_history.html:31
+msgid "Return"
+msgstr "Вернуться"
+
+#: dojo/templates/dojo/view_product_details.html:77
+msgid "Product Report"
+msgstr "Отчет по продукту"
+
+#: dojo/templates/dojo/view_product_details.html:128
+msgid "CRITICAL"
+msgstr "КРИТИЧЕСКИЙ"
+
+#: dojo/templates/dojo/view_product_details.html:129
+msgid "HIGH"
+msgstr "ВЫСОКИЙ"
+
+#: dojo/templates/dojo/view_product_details.html:130
+msgid "MEDIUM"
+msgstr "СРЕДНИЙ"
+
+#: dojo/templates/dojo/view_product_details.html:131
+msgid "LOW"
+msgstr "НИЗКИЙ"
+
+#: dojo/templates/dojo/view_product_details.html:132
+msgid "INFORMATIONAL"
+msgstr "ИНФОРМАЦИОННЫЙ"
+
+#: dojo/templates/dojo/view_product_details.html:133
+msgid "TOTAL"
+msgstr "ВСЕГО"
+
+#: dojo/templates/dojo/view_product_details.html:145
+msgid "Technologies"
+msgstr "Технологии"
+
+#: dojo/templates/dojo/view_product_details.html:147
+msgid "Add new Technology"
+msgstr "Добавить новую технологию"
+
+#: dojo/templates/dojo/view_product_details.html:185
+msgid "There are no technologies."
+msgstr "Нет технологий."
+
+#: dojo/templates/dojo/view_product_details.html:199
+msgid "There are no regulations."
+msgstr "Никаких правил нет."
+
+#: dojo/templates/dojo/view_product_details.html:213
+msgid "Benchmark Progress"
+msgstr "Прогресс бенчмарка"
+
+#: dojo/templates/dojo/view_product_details.html:224
+msgid "complete"
+msgstr "прогресс"
+
+#: dojo/templates/dojo/view_product_details.html:229
+msgid "Successful"
+msgstr "Успешно"
+
+#: dojo/templates/dojo/view_product_details.html:234
+msgid "Pending"
+msgstr "В обработке"
+
+#: dojo/templates/dojo/view_product_details.html:239
+msgid "Identified"
+msgstr "Определено"
+
+#: dojo/templates/dojo/view_product_details.html:247
+msgid "There are no benchmarks"
+msgstr "Нет бенчмарков"
+
+#: dojo/templates/dojo/view_product_details.html:258
+#: dojo/templates/dojo/view_product_type.html:132
+msgid "Members"
+msgstr "Участники"
+
+#: dojo/templates/dojo/view_product_details.html:272
+#: dojo/templates/dojo/view_product_type.html:146
+msgid "Add Users"
+msgstr "Добавить пользователей"
+
+#: dojo/templates/dojo/view_product_details.html:286
+#: dojo/templates/dojo/view_product_type.html:160
+msgid "User"
+msgstr "Пользователь"
+
+#: dojo/templates/dojo/view_product_details.html:288
+#: dojo/templates/dojo/view_product_details.html:376
+#: dojo/templates/dojo/view_product_type.html:161
+#: dojo/templates/dojo/view_product_type.html:234
+#: dojo/templates/dojo/view_test.html:1407
+#: dojo/templates/dojo/view_user.html:136
+#: dojo/templates/dojo/view_user.html:209
+msgid "Role"
+msgstr "Роль"
+
+#: dojo/templates/dojo/view_product_details.html:316
+msgid "Product member"
+msgstr "Участник продукта"
+
+#: dojo/templates/dojo/view_product_details.html:338
+#: dojo/templates/dojo/view_product_type.html:197
+msgid "No members found."
+msgstr "Участников не обнаружено."
+
+#: dojo/templates/dojo/view_product_details.html:404
+msgid "Product Group"
+msgstr "Группа продуктов"
+
+#: dojo/templates/dojo/view_product_details.html:425
+#: dojo/templates/dojo/view_product_type.html:270
+msgid "No groups found."
+msgstr "Группы не найдены."
+
+#: dojo/templates/dojo/view_product_details.html:433
+msgid "JIRA tasks"
+msgstr "Задачи JIRA"
+
+#: dojo/templates/dojo/view_product_details.html:452
+#: dojo/templates/dojo/view_product_type.html:86
+#: dojo/templates/dojo/view_user.html:329
+msgid "Metadata"
+msgstr "Метаданные"
+
+#: dojo/templates/dojo/view_product_details.html:458
+msgid "Business Criticality"
+msgstr "Критичность для бизнеса"
+
+#: dojo/templates/dojo/view_product_details.html:462
+#: dojo/templates/dojo/view_user.html:135
+msgid "Product Type"
+msgstr "Тип продукта"
+
+#: dojo/templates/dojo/view_product_details.html:466
+msgid "Platform"
+msgstr "Платформа"
+
+#: dojo/templates/dojo/view_product_details.html:470
+msgid "Lifecycle"
+msgstr "Жизненный цикл"
+
+#: dojo/templates/dojo/view_product_details.html:474
+msgid "Origin"
+msgstr "Источник"
+
+#: dojo/templates/dojo/view_product_details.html:482
+msgid "User Records"
+msgstr "Пользовательских данных"
+
+#: dojo/templates/dojo/view_product_details.html:492
+msgid "Revenue"
+msgstr "Доход"
+
+#: dojo/templates/dojo/view_product_details.html:566
+msgid "files"
+msgstr "файлов"
+
+#: dojo/templates/dojo/view_product_details.html:566
+msgid "and"
+msgstr "и"
+
+#: dojo/templates/dojo/view_product_details.html:569
+msgid "lines of code"
+msgstr "строк в коде"
+
+#: dojo/templates/dojo/view_product_details.html:584
+msgid "Custom Fields"
+msgstr "Пользовательские поля"
+
+#: dojo/templates/dojo/view_product_details.html:604
+msgid "Contacts"
+msgstr "Контакты"
+
+#: dojo/templates/dojo/view_product_details.html:610
+msgid "Team Manager"
+msgstr "Руководитель"
+
+#: dojo/templates/dojo/view_product_details.html:614
+msgid "Product Manager"
+msgstr "Менеджер по продукту"
+
+#: dojo/templates/dojo/view_product_details.html:618
+msgid "Technical Contact"
+msgstr "Технические вопросы"
+
+#: dojo/templates/dojo/view_product_details.html:631
+msgid "These are your personal settings for this product."
+msgstr "Это ваши персональные настройки для этого продукта."
+
+#: dojo/templates/dojo/view_product_details.html:719
+msgid "saving..."
+msgstr "сохранение..."
+
+#: dojo/templates/dojo/view_product_type.html:85
+msgid "Criticality"
+msgstr "Критичность"
+
+#: dojo/templates/dojo/view_product_type.html:87
+msgid "Active (Verified) Findings"
+msgstr "Активные (Подтвержденные) Уязвимости"
+
+#: dojo/templates/dojo/view_product_type.html:125
+msgid "No products found."
+msgstr "Продукты не найдены."
+
+#: dojo/templates/dojo/view_product_type.html:212
+msgid "Add Product Type Group"
+msgstr "Добавить группу типа продукта"
+
+#: dojo/templates/dojo/view_test.html:31 dojo/templates/dojo/view_test.html:106
+msgid "Updated"
+msgstr "Обновлено"
+
+#: dojo/templates/dojo/view_test.html:48 dojo/test/views.py:270
+msgid "Edit Test"
+msgstr "Редактировать тест"
+
+#: dojo/templates/dojo/view_test.html:53
+msgid "Copy Test"
+msgstr "Копировать тест"
+
+#: dojo/templates/dojo/view_test.html:61
+msgid "Re-Upload Scan"
+msgstr "Повторно загрузить отчет"
+
+#: dojo/templates/dojo/view_test.html:69
+msgid "Add Notes"
+msgstr "Добавить заметки"
+
+#: dojo/templates/dojo/view_test.html:80
+msgid "Add To Calendar"
+msgstr "Добавить в календарь"
+
+#: dojo/templates/dojo/view_test.html:92 dojo/test/views.py:317
+msgid "Delete Test"
+msgstr "Удалить тест"
+
+#: dojo/templates/dojo/view_test.html:104
+#: dojo/templates/dojo/view_test.html:1410
+msgid "Environment"
+msgstr "Окружение"
+
+#: dojo/templates/dojo/view_test.html:105
+msgid "Dates"
+msgstr "Даты"
+
+#: dojo/templates/dojo/view_test.html:107
+msgid "Progress"
+msgstr "Прогресс"
+
+#: dojo/templates/dojo/view_test.html:111
+msgid "Reimports"
+msgstr "Реимпорты"
+
+#: dojo/templates/dojo/view_test.html:181
+msgid "Details"
+msgstr "Подробности"
+
+#: dojo/templates/dojo/view_test.html:349
+msgid "Creator"
+msgstr "Автор"
+
+#: dojo/templates/dojo/view_test.html:360
+#: dojo/templates/dojo/view_test.html:949
+msgid "Jira Age"
+msgstr "Возраст Jira"
+
+#: dojo/templates/dojo/view_test.html:363
+#: dojo/templates/dojo/view_test.html:952
+msgid "Jira Change"
+msgstr "Изменено в Jira"
+
+#: dojo/templates/dojo/view_test.html:380
+msgid "View/Edit"
+msgstr "Просмотр/редактирование"
+
+#: dojo/templates/dojo/view_test.html:501
+msgid "No Groups found."
+msgstr "Группы не найдены."
+
+#: dojo/templates/dojo/view_test.html:537
+msgid "New Finding"
+msgstr "Новая Уязвимость"
+
+#: dojo/templates/dojo/view_test.html:542
+msgid "Finding From Template"
+msgstr "Уязвимостьиз шаблона"
+
+#: dojo/templates/dojo/view_test.html:764
+msgid "Create"
+msgstr "Создать"
+
+#: dojo/templates/dojo/view_test.html:780
+msgid "Add to..."
+msgstr "Добавить в..."
+
+#: dojo/templates/dojo/view_test.html:810
+msgid "Group by"
+msgstr "Группировать по"
+
+#: dojo/templates/dojo/view_test.html:827
+msgid "Push to JIRA"
+msgstr "Отправить в Jira"
+
+#: dojo/templates/dojo/view_test.html:1280
+msgid "Potential Findings"
+msgstr "Потенциальные Уязвимости"
+
+#: dojo/templates/dojo/view_test.html:1295
+msgid "Add Potential Finding"
+msgstr "Добавить потенциальную Уязвимость"
+
+#: dojo/templates/dojo/view_test.html:1354
+msgid "Promote To Finding"
+msgstr "Продвинуть до Уязвимости"
+
+#: dojo/templates/dojo/view_test.html:1388
+msgid "Credentials"
+msgstr "Учётные данные"
+
+#: dojo/templates/dojo/view_test.html:1404
+#: dojo/templates/dojo/view_user.html:57
+msgid "Username"
+msgstr "Имя пользователя"
+
+#: dojo/templates/dojo/view_test.html:1416
+msgid "Login Valid"
+msgstr "Учетная запись действительна"
+
+#: dojo/templates/dojo/view_test.html:1426
+#: dojo/templates/dojo/view_test.html:1469
+msgid "Credentials Configured for this"
+msgstr "Учетные данные настроены для этого"
+
+#: dojo/templates/dojo/view_test.html:1429
+msgid "None configured"
+msgstr "Не настроено"
+
+#: dojo/templates/dojo/view_test.html:1505
+msgid "No credentials configured."
+msgstr "Учётные данные не настроены."
+
+#: dojo/templates/dojo/view_test.html:1507
+msgid "Configure engagement credentials first, then add credentials to the test."
+msgstr "Сначала настройте учетные данные задания, потом добавьте учетные данные к тесту."
+
+#: dojo/templates/dojo/view_test.html:1561
+msgid "ProTip!"
+msgstr "Совет профессионала новичку!"
+
+#: dojo/templates/dojo/view_test.html:1561
+msgid "to edit this test. Type"
+msgstr "для изменения этого теста. Нажмите"
+
+#: dojo/templates/dojo/view_test.html:1561
+msgid "to add a finding to this test."
+msgstr "чтобы добавить Уязвимость к этому тесту."
+
+#: dojo/templates/dojo/view_user.html:8
+#, python-format
+msgid "User %(full_name)s"
+msgstr "Пользователь %(full_name)s"
+
+#: dojo/templates/dojo/view_user.html:70
+msgid "Contact Information"
+msgstr "Контактная информация"
+
+#: dojo/templates/dojo/view_user.html:80
+msgid "Phone Number"
+msgstr "Номер телефона"
+
+#: dojo/templates/dojo/view_user.html:84
+msgid "Cell Number"
+msgstr "Номер ячейки"
+
+#: dojo/templates/dojo/view_user.html:88
+msgid "Twitter Username"
+msgstr "Имя пользователя в Twitter"
+
+#: dojo/templates/dojo/view_user.html:93
+msgid "Github Username"
+msgstr "Имя пользователя в Github"
+
+#: dojo/templates/dojo/view_user.html:107
+msgid "Product Type Membership"
+msgstr "Членство в типах продукта"
+
+#: dojo/templates/dojo/view_user.html:121
+msgid "Add Product Types"
+msgstr "Добавить типы продукта"
+
+#: dojo/templates/dojo/view_user.html:173
+msgid "No product type members found."
+msgstr "Участники типа продукта не найдены."
+
+#: dojo/templates/dojo/view_user.html:180
+msgid "Product Membership"
+msgstr "Членство в продуктах"
+
+#: dojo/templates/dojo/view_user.html:194
+msgid "Add Products"
+msgstr "Добавить продукты"
+
+#: dojo/templates/dojo/view_user.html:246
+msgid "No product members found."
+msgstr "Участники продукта не найдены."
+
+#: dojo/templates/dojo/view_user.html:254
+msgid "Group Membership"
+msgstr "Членство в группах"
+
+#: dojo/templates/dojo/view_user.html:356
+msgid "Block execution"
+msgstr "Заблокирован"
+
+#: dojo/templates/dojo/view_user.html:381
+msgid "Configuration Permissions"
+msgstr "Настройки разрешений"
+
+#: dojo/templates/dojo/view_user.html:389
+msgid "Add"
+msgstr "Добавить"
+
+#: dojo/templates/dojo/view_user.html:453
+msgid "(saving...)"
+msgstr "(сохранение...)"
+
+#: dojo/templatetags/display_tags.py:220
+#, python-format
+msgid "Checklist is %(level)s full (pass: %(total_viewed)s, total: %(total)s)"
+msgstr "Завершено на %(level)s (успешно: %(total_viewed)s, всего: %(total)s)"
+
+#: dojo/test/views.py:201
+msgid "Note added successfully."
+msgstr "Заметка успешно добавлена."
+
+#: dojo/test/views.py:262
+msgid "Test saved."
+msgstr "Тест сохранен."
+
+#: dojo/test/views.py:293
+msgid "Test and relationships will be removed in the background."
+msgstr "Тест и его связи будут удалены в фоновом режиме."
+
+#: dojo/test/views.py:295
+msgid "Test and relationships removed."
+msgstr "Тест и его связи удалены."
+
+#: dojo/test/views.py:302
+#, python-format
+msgid "Deletion of %(title)s"
+msgstr "Удаление %(title)s"
+
+#: dojo/test/views.py:304
+#, python-format
+msgid "The test \"%(title)s\" was deleted by %(user)s"
+msgstr "Тест \"%(title)s\" был удален пользователем %(user)s"
+
+#: dojo/test/views.py:392
+msgid "Test Calendar"
+msgstr "Календарь тестов"
+
+#: dojo/test/views.py:408
+#, python-format
+msgid "Test: %(test_type_name)s (%(product_name)s)"
+msgstr "Тест: %(test_type_name)s (%(product_name)s)"
+
+#: dojo/test/views.py:412
+#, python-format
+msgid "Set aside for test %(test_type_name)s, on product %(product_name)s. Additional detail can be found at %(detail_url)s"
+msgstr "Отложить тест %(test_type_name)s, продукта %(product_name)s. Дополнительную информацию можно найти на %(detail_url)s"
+
+#: dojo/test/views.py:597
+#, python-format
+msgid "Addition of %(title)s"
+msgstr "Добавление %(title)s"
+
+#: dojo/test/views.py:599
+#, python-format
+msgid "Finding \"%(title)s\" was added by %(user)s"
+msgstr "Уязвимость\"%(title)s\" была добавлена пользователем %(user)s"
+
+#: dojo/test/views.py:716
+msgid "Finding from template added successfully."
+msgstr "Уязвимостьпо шаблону успешно добавлена."
+
+#: dojo/test/views.py:723
+msgid "The form has errors, please correct them below."
+msgstr "В форме допущены ошибки, пожалуйста, исправьте их ниже."
+
+#: dojo/test/views.py:774
+msgid "Add From Template"
+msgstr "Добавить из шаблона"
+
+#: dojo/test/views.py:786
+msgid "When re-uploading a scan, any findings not found in original scan will be updated as mitigated.  The process attempts to identify the differences, however manual verification is highly recommended."
+msgstr "При повторной загрузке результатов сканирования любые Уязвимости, которые не были найдены при повторном сканировании, будут переведены в статус \"Решено\". Этот процесс пытается самостоятельно определить различия в Уязвимостях, однако настоятельно рекомендуется проводить ручную проверку."
+
+#: dojo/test/views.py:853
+#, python-format
+msgid "Report file is too large. Maximum supported size is %(size)d MB"
+msgstr "Файл отчета слишком большой. Максимальный поддерживаемый размер - %(size)d МБ"
+
+#: dojo/test/views.py:885
+#, python-format
+msgid "Re-upload a %(scan_type)s"
+msgstr "Повторная загрузка %(scan_type)s"
+
+#: dojo/tool_product/views.py:33
+msgid "Product Tool Configuration Successfully Created."
+msgstr "Конфигурация инструмента продукта успешно создана."
+
+#: dojo/tool_product/views.py:39 dojo/tool_product/views.py:51
+msgid "Tool Configurations"
+msgstr "Конфигурации инструмента"
+
+#: dojo/tool_product/views.py:73
+msgid "Tool Product Configuration Successfully Updated."
+msgstr "Конфигурация инструмента продукта успешно обновлена."
+
+#: dojo/tool_product/views.py:79
+msgid "Edit Product Tool Configuration"
+msgstr "Изменить конфигурацию инструмента продукта"
+
+#: dojo/tool_product/views.py:99
+msgid "Tool Product Successfully Deleted."
+msgstr "Инструмент продукта успешно удален."
+
+#: dojo/tool_product/views.py:105
+msgid "Delete Product Tool Configuration"
+msgstr "Удалить конфигурацию инструмента продукта"
+
+#: dojo/tool_type/views.py:26
+msgid "Tool Type Configuration Successfully Created."
+msgstr "Конфигурация типа инструмента успешно создана."
+
+#: dojo/tool_type/views.py:33
+msgid "New Tool Type Configuration"
+msgstr "Новая конфигурация типа инструмента"
+
+#: dojo/tool_type/views.py:47
+msgid "Tool Type successfully updated."
+msgstr "Тип инструмента успешно изменен."
+
+#: dojo/tool_type/views.py:53
+msgid "Edit Tool Type"
+msgstr "Изменить тип инструмента"
+
+#: dojo/tool_type/views.py:61
+msgid "Tool Type List"
+msgstr "Список типов инструмента"
+
+#: dojo/user/validators.py:19
+#, python-brace-format
+msgid "Password must be at least {minimum_length} characters long."
+msgstr "Пароль должен содержать не менее {minimum_length} символов."
+
+#: dojo/user/validators.py:33
+#, python-brace-format
+msgid "Password must be less than {maximum_length} characters long."
+msgstr "Пароль должен быть менее {maximum_length} символов."
+
+#: dojo/user/validators.py:47
+msgid "Password must contain at least 1 digit, 0-9."
+msgstr "Пароль должен содержать хотя бы одну цифру, 0-9."
+
+#: dojo/user/validators.py:60
+msgid "Password must contain at least 1 uppercase letter, A-Z."
+msgstr "Пароль должен содержать хотя бы одну заглавную букву, A-Z."
+
+#: dojo/user/validators.py:73
+msgid "Password must contain at least 1 lowercase letter, a-z."
+msgstr "Пароль должен содержать хотя бы одну строчную букву, a-z."
+
+#: dojo/user/validators.py:87
+msgid "The password must contain at least 1 special character, ()[]{}|\\`~!@#$%^&*_-+=;:'\",<>./?."
+msgstr "Пароль должен содержать хотя бы один символ, ()[]{}|\\`~!@#$%^&*_-+=;:'\",<>./?."
+
+#: dojo/user/views.py:63
+msgid "Hello {name}! Your last login was {naturaltime(last_login)} ({last_login.strftime(\"%Y-%m-%d %I:%M:%S %p\")})"
+msgstr "Здравствуйте {name}! Ваш последний вход был {naturaltime(last_login)} ({last_login.strftime(\"%Y-%m-%d %I:%M:%S %p\")})"
+
+#: dojo/user/views.py:87
+msgid "API Key generated successfully."
+msgstr "Ключ API успешно сгенерирован."
+
+#: dojo/user/views.py:154
+msgid "You have logged out successfully."
+msgstr "Вы успешно вышли из системы."
+
+#: dojo/user/views.py:188
+msgid "Alerts removed."
+msgstr "Оповещения удалены."
+
+#: dojo/user/views.py:248
+msgid "Only superusers are allowed to change their global role."
+msgstr "Только суперпользователи могут изменять свою глобальную роль."
+
+#: dojo/user/views.py:255
+msgid "Profile updated successfully."
+msgstr "Профиль успешно обновлен."
+
+#: dojo/user/views.py:257
+#, python-format
+msgid "User Profile - %(user_full_name)s"
+msgstr "Профиль пользователя - %(user_full_name)s"
+
+#: dojo/user/views.py:283
+msgid "Your password has been changed."
+msgstr "Ваш пароль был изменен."
+
+#: dojo/user/views.py:293
+msgid "All Users"
+msgstr "Все пользователи"
+
+#: dojo/user/views.py:309
+msgid "Add User"
+msgstr "Добавить пользователя"
+
+#: dojo/user/views.py:323
+msgid "Only superusers are allowed to add superusers. User was not saved."
+msgstr "Только суперпользователи могут добавлять суперпользователей. Пользователь не был сохранен."
+
+#: dojo/user/views.py:328
+msgid "Only superusers are allowed to add users with a global role. User was not saved."
+msgstr "Только суперпользователи могут добавлять пользователей с глобальной ролью. Пользователь не был сохранен."
+
+#: dojo/user/views.py:347
+msgid "User added successfully."
+msgstr "Пользователь успешно добавлен."
+
+#: dojo/user/views.py:353
+msgid "User was not added successfully."
+msgstr "Пользователь не был успешно добавлен."
+
+#: dojo/user/views.py:372
+msgid "View User"
+msgstr "Просмотр пользователя"
+
+#: dojo/user/views.py:383
+msgid "Edit User"
+msgstr "Редактировать пользователя"
+
+#: dojo/user/views.py:415
+msgid "Only superusers are allowed to edit superusers. User was not saved."
+msgstr "Только суперпользователи могут редактировать суперпользователей. Пользователь не был сохранен."
+
+#: dojo/user/views.py:420
+msgid "Only superusers are allowed to edit users with a global role. User was not saved."
+msgstr "Только суперпользователи могут редактировать пользователей с глобальной ролью. Пользователь не был сохранен."
+
+#: dojo/user/views.py:432
+msgid "User saved successfully."
+msgstr "Пользователь успешно сохранен."
+
+#: dojo/user/views.py:437
+msgid "User was not saved successfully."
+msgstr "Пользователь не был успешно сохранен."
+
+#: dojo/user/views.py:456
+msgid "You may not delete yourself."
+msgstr "Вы не можете удалить себя."
+
+#: dojo/user/views.py:467
+msgid "Only superusers are allowed to delete superusers. User was not removed."
+msgstr "Только суперпользователи могут удалять суперпользователей. Пользователь не был удален."
+
+#: dojo/user/views.py:472
+msgid "Only superusers are allowed to delete users with a global role. User was not removed."
+msgstr "Только суперпользователи могут удалять пользователей с глобальной ролью. Пользователь не был удален."
+
+#: dojo/user/views.py:479
+msgid "User and relationships removed."
+msgstr "Пользователь и его связи удалены."
+
+#: dojo/user/views.py:484
+#, python-format
+msgid "User cannot be deleted: %(error)s"
+msgstr "Пользователь не может быть удален: %(error)s"
+
+#: dojo/user/views.py:575
+msgid "Groups added successfully."
+msgstr "Группы успешно добавлены."
+
+#: dojo/user/views.py:579
+msgid "Add Group Member"
+msgstr "Добавить участника группы"
+
+#: dojo/user/views.py:595
+msgid "Permissions updated."
+msgstr "Права доступа обновлены."
+
+#: dojo/utils.py:698
+msgid "Home"
+msgstr "Главная"
+
+#~ msgid "Closed findings may have been opened outside of requested period."
+#~ msgstr "Закрытые Уязвимости могут быть открыты вне запрошенного периода."
+
+#~ msgid "Year"
+#~ msgstr "Год"
+
+#~ msgid "Closed To Date"
+#~ msgstr "Закрыто к дате"
+
+#~ msgid ""
+#~ "DefectDojo will automatically mark the finding as a false positive if the "
+#~ "finding has been previously marked as a false positive. Not needed when "
+#~ "using deduplication, advised to not combine these two."
+#~ msgstr ""
+#~ "Dojo автоматически помечает Уязвимость как false positive в случае, если "
+#~ "обнаружение было ранее помечено как false positive. Не требуется при "
+#~ "использовании дедупликации, рекомендуется не комбинировать эти два "
+#~ "подхода."
+
+#~ msgid "CVE"
+#~ msgstr "CVE"
+
+#~ msgid ""
+#~ "The Common Vulnerabilities and Exposures (CVE) associated with this flaw."
+#~ msgstr "CVE, связанные с этим недостатком."
+
+#~ msgid "Endpoint Status"
+#~ msgstr "Статус конечной точки"
+
+#~ msgid "Google Sheets Sync"
+#~ msgstr "Синхронизация с Google Таблицами"
+
+#~ msgid "Rules Framework"
+#~ msgstr "Фреймворк правил"
+

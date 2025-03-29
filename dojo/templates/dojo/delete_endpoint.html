@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+    {{ block.super }}
+    <h3> Удалить эндпоинт {{ endpoint }}{% if endpoint.is_broken %} <span data-toggle="tooltip" title="Endpoint is broken. Check documentation to look for fix process" >&#128681;</span>{% endif %}</h3>
+    <p>
+        При удалении этой конечной точки она не будет связана ни с какими выводами, продуктами и другими отношениями, связанными с ней.
+
+    </p>
+    <div class="danger-zone panel panel-danger">
+        <div class="panel-heading">
+            <h3>Опасная зона</h3>
+        </div>
+        {% if rels|length > 1 %}
+            <ul class="left">{{ rels|unordered_list }}</ul>
+        {% else %}
+            <p class="text-center">Отношения не обнаружены.</p>
+        {% endif %}
+        <form class="form-horizontal" method="post">
+            {% csrf_token %}
+            {{ form }}
+
+            <div class="form-group">
+                <button class="btn btn-danger" type="submit" name="delete_name" value="delete_test">Удалить эндпоинт</button>
+            </div>
+        </form>
+    </div>
+    <br/>
+{% endblock %}
+{% block postscript %}
+<script>
+    let breadcrumb = document.querySelector("ol > li:first-child > a")
+    breadcrumb.textContent = "Эндпоинты"
+ </script>
+ {% endblock %}
