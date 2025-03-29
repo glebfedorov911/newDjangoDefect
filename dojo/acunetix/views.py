@@ -53,7 +53,9 @@ def create_target_and_start_scan(request):
                 target_id = target.get("target_id")
 
                 scan = post_scan_request(target_id, scan_type)
-                fill_statistic.delay(scan, protocol, product, address)
+                fill_statistic.apply_async(
+                    args=[scan, protocol, product, address]
+                )
 
                 return redirect("active_scans")
             else:
@@ -116,7 +118,7 @@ def create_targets_and_start_scan(request):
                 target_group_id = target_group.get("group_id")
                 set_target_to_group(target_ids, target_group_id)
 
-                fill_statistic_for_files.delay(scans)
+                fill_statistic_for_files.apply_async(args=[scans])
 
                 return redirect("active_scans")
             else:
@@ -142,11 +144,10 @@ def import_reports(request):
         form = GetReportForm(request.POST)
         if form.is_valid():
             cleaned_data = form.cleaned_data
-            all_scans = get_all_scans()
             type_scan = cleaned_data["type_scan"]
             periodic_in_seconds = cleaned_data["periodic"]
             type_import = cleaned_data["type_import"]
-            schedule_task(type_import, periodic_in_seconds, all_scans, type_scan)
+            schedule_task(type_import, periodic_in_seconds, type_scan)
 
             return render(request, "dojo/acunetix_report.html", {"form": form})
         else:
@@ -155,3 +156,7 @@ def import_reports(request):
     if request.method == "GET":
         form = GetReportForm()
         return render(request, "dojo/acunetix_report.html", {"form": form})
+    
+@check_acunetix_api
+def delete_target_groups(request):
+    ...

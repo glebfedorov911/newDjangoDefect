@@ -1,0 +1,19 @@
+{"export": {
+"lang": "None",
+"scans": [
+{"info":
+{"host": "api.autostructure.ru", "start_date": "2025-03-29T17:26:09.152343+00:00", "end_date": "2025-03-29T17:26:47.448121+00:00", "start_url": "https://api.autostructure.ru/", "duration": "0:00:34", "vuln_selection": false, "profile": "Critical / High Risk", "source_type": "scans", "authentication_config_overrides": "", "build": "24.10.241106172", "progress": 100, "avg_response_time": 22, "max_response_time": 637, "locations_found": 2, "request_count": 1252, "responsive": true, "technologies": null, "os": "Unknown", "server": "uvicorn", "sensor_detected": null, "hosts_discovered": null, "is_starting_host": true},
+"vulnerability_types": [
+{"vt_id": "00916545-f349-3a51-660d-a408cb4bb325", "app_id": "db/vulnerabilities/acx/2008/SSL_weak_ciphers.yaml", "name": "TLS/SSL Weak Cipher Suites", "severity": 2, "details_template": "", "impact": "", "description": "The remote host supports TLS/SSL cipher suites with weak or insecure properties.", "recommendation": "Reconfigure the affected application to avoid use of weak cipher suites.", "long_description": "", "tags": ["configuration", "weak_crypto", "CWE-310"], "cvss2": "AV:L/AC:M/Au:N/C:P/I:P/A:N", "cvss3": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N", "cvss4": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:L/VA:N/SC:N/SI:N/SA:N", "cvss_score": 6.5, "refs": [{"name": "OWASP: TLS Cipher String Cheat Sheet", "url": "https://cheatsheetseries.owasp.org/cheatsheets/TLS_Cipher_String_Cheat_Sheet.html"}, {"name": "OWASP: Transport Layer Protection Cheat Sheet", "url": "https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Protection_Cheat_Sheet.html"}, {"name": "Mozilla: TLS Cipher Suite Recommendations", "url": "https://wiki.mozilla.org/Security/Server_Side_TLS"}, {"name": "SSLlabs: SSL and TLS Deployment Best Practices", "url": "https://github.com/ssllabs/research/wiki/SSL-and-TLS-Deployment-Best-Practices"}, {"name": "RFC 9155: Deprecating MD5 and SHA-1 Signature Hashes in TLS 1.2 and DTLS 1.2", "url": "https://datatracker.ietf.org/doc/html/rfc9155"}], "created": 0, "updated": 0, "app": "wvs", "vuln_count": 1, "cvss4_score": 6.9, "type": "configuration"}
+],
+"locations": [
+{"loc_id": 2, "scan_session_id": "57558369-15aa-428e-a8cc-152889ac712f", "name": "https://api.autostructure.ru/", "parent_id": null, "source_id": 2, "root_id": 2, "tags": ["static", "stable404"], "fragments": null, "path": "/", "loc_type": "folder", "input_data": [{"variations": 1, "method": "GET", "groups": [{"type": "HTTP Header", "input_names": ["Referer", "User-Agent", "X-Forwarded-For"]}]}], "root_url": "https://api.autostructure.ru/", "url": "https://api.autostructure.ru/"}
+],
+"vulnerabilities": [
+{"info":{"loc_url": "https://api.autostructure.ru/", "vt_id": "00916545-f349-3a51-660d-a408cb4bb325", "vuln_hash": "b1ff4cbf-019d-3008-7820-a79b5b1f712c", "request": "", "source": "/Scripts/PerServer/SSL_Audit.script", "loc_id": 2, "details": "Weak TLS/SSL Cipher Suites: (offered via TLS1.2 on port 443): <br/><br/><li>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA  </li><li>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA  </li><br/><br/>", "app_id": "db/vulnerabilities/acx/2008/SSL_weak_ciphers.yaml", "loc_detail": "", "request_secure": null, "request_port": null, "attack_vector": "", "use_ssl": true, "first_seen": "2025-03-29T17:26:14.618014+00:00", "status": "open", "tags": [], "url": "https://api.autostructure.ru/", "name": "TLS/SSL Weak Cipher Suites", "sensor_details": null, "host": "https://api.autostructure.ru/"},
+"response": ""
+}
+]
+}
+]}
+}

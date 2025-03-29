@@ -111,7 +111,7 @@ class GetReportForm(forms.Form):
     XML = "21111111-1111-1111-1111-111111111111"
 
     TYPE_SCAN = (
-        (DEV, "DEVELOPMENT"),
+        (DEV, "HTML"),
         (JSON, "JSON"),
         (XML, "XML"),
     )

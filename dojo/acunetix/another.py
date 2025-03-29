@@ -18,7 +18,6 @@ from dojo.models import (
 )
 
 from celery.schedules import crontab, schedule
-from celery import shared_task
 
 from datetime import datetime, timezone, timedelta
 import time
@@ -75,7 +74,10 @@ def post_scan_request(target_id: str, profile_id: str) -> dict:
 
     scan_api = ApiScanStart(scan)
     logger.info("Do request to start scan")
-    return do_request(scan_api)
+    
+    json = do_request(scan_api)
+    update_args_in_periodic_task()
+    return json
 
 def do_request(api) -> dict:
     result = api.do()
@@ -182,8 +184,12 @@ def get_result_id_by_scan(scan_id):
 def fill_statistic_for_files(scans):
     while not all([scans[scan]['delete'] for scan in scans]):
         for scan in scans:
-            if not scans[scan]["delete"] and fill_statistic.delay(scans[scan]["scan"], 
-                        scans[scan]["protocol"], scans[scan]["product"], scans[scan]["address"]):
+            if not scans[scan]["delete"] and fill_statistic.apply_async(
+                args=[
+                    scans[scan]["scan"], scans[scan]["protocol"], 
+                    scans[scan]["product"], scans[scan]["address"]
+                ]
+            ):
                 scans[scan]["delete"] = True
 @app.task
 def fill_statistic(scan: dict, protocol: str, product: Product, address: str):
@@ -254,18 +260,18 @@ def fill_statistic(scan: dict, protocol: str, product: Product, address: str):
     
     return True
 
-@shared_task
+@app.task
 def prepare_report(all_scans, type_scan):
         scan_ids = []
         for scan in all_scans:
             scan_id = scan["scan_id"]
-            scan = CheckedScan.objects.filter(scan_id=scan_id, checked=True)
-            if scan:
+            checked_scan = CheckedScan.objects.filter(scan_id=scan_id, checked=True)
+            if checked_scan:
                 continue
             scan_ids.append(scan_id)
 
         for scan_id in scan_ids:
-            CheckedScan.objects.create(scan_id=scan_id, checked=True)
+            CheckedScan.objects.update_or_create(scan_id=scan_id, checked=True)
             gen_json = {
                 "export_id": type_scan,
                 "source": {
@@ -274,7 +280,7 @@ def prepare_report(all_scans, type_scan):
                 }
             }
 
-            result = get_report.delay(gen_json)
+            result = get_report.apply_async(args=[gen_json])
 
 @app.task
 def get_report(gen_json):
@@ -305,10 +311,9 @@ def get_report(gen_json):
                 return file_path
         time.sleep(5)
 
-def schedule_task(period, periodic_in_seconds, all_scans, type_scan):
-    print(all_scans, type_scan, '\n', period, 'fdskkfdskfdkfdkfds')
+def schedule_task(period, periodic_in_seconds, type_scan):
+    all_scans = get_all_scans()
     if period == "O":
-        print(all_scans, type_scan)
         prepare_report.apply_async(args=(all_scans, type_scan))
     if period == "P":
         schedule, _ = IntervalSchedule.objects.get_or_create(
@@ -316,10 +321,27 @@ def schedule_task(period, periodic_in_seconds, all_scans, type_scan):
             period=IntervalSchedule.SECONDS
         )
 
-        PeriodicTask.objects.create(
-            interval=schedule,
-            name="Scan Parser {periodic_in_seconds}s",
-            task="dojo.acunetix.another.prepare_report",
-            args=json.dumps([all_scans, type_scan]),
-            enabled=True
+        start_time = datetime.now() + timedelta(seconds=periodic_in_seconds)
+        PeriodicTask.objects.update_or_create(
+            name=f"Scan Parser {periodic_in_seconds}s",
+            defaults = {
+            "interval": schedule,
+            "task": "dojo.acunetix.another.prepare_report",
+            "args": json.dumps([all_scans, type_scan]),
+            "enabled": True,
+            "start_time": start_time
+            }
         )
+
+def update_args_in_periodic_task(task="dojo.acunetix.another.prepare_report"):
+    periodic_tasks = PeriodicTask.objects.filter(
+        task=task,
+        enabled=True,
+    )
+    for periodic_task in periodic_tasks:
+        scans = get_all_scans()
+        periodic_task.args = json.dumps(
+            [scans, json.loads(periodic_task.args)[1]]
+        )
+        periodic_task.save()
+    logger.info("update args in tasks")

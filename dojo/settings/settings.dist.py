@@ -1146,7 +1146,7 @@ CELERY_RESULT_BACKEND = env("DD_CELERY_RESULT_BACKEND")
 CELERY_TIMEZONE = TIME_ZONE
 CELERY_RESULT_EXPIRES = env("DD_CELERY_RESULT_EXPIRES")
 CELERY_BEAT_SCHEDULE_FILENAME = env("DD_CELERY_BEAT_SCHEDULE_FILENAME")
-CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DataBaseScheduler"
+CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler"
 CELERY_ACCEPT_CONTENT = ["pickle", "json", "msgpack", "yaml"]
 CELERY_TASK_SERIALIZER = env("DD_CELERY_TASK_SERIALIZER")
 CELERY_PASS_MODEL_BY_ID = env("DD_CELERY_PASS_MODEL_BY_ID")
@@ -1156,7 +1156,10 @@ if len(env("DD_CELERY_BROKER_TRANSPORT_OPTIONS")) > 0:
         env("DD_CELERY_BROKER_TRANSPORT_OPTIONS")
     )
 
-CELERY_IMPORTS = ("dojo.tools.tool_issue_updater",)
+CELERY_IMPORTS = (
+    "dojo.tools.tool_issue_updater",
+    "dojo.acunetix.another"    
+)
 
 # Celery beat scheduled tasks
 CELERY_BEAT_SCHEDULE = {
