@@ -80,3 +80,26 @@ class ApiGetVulnerabilities(ApiMixin):
             api_key: str = ACUNETIX_TOKEN
     ): 
         url = f"{ACUNETIX_URL}/scans/{scan_id}/results/{result_id}/vulnerabilities"
+        super().__init__("GET", url, api_key)
+
+class ApiGetTargetGroups(ApiMixin):
+    
+
+    def __init__(
+            self,
+            api_key: str = ACUNETIX_TOKEN
+    ):
+        url = f"{ACUNETIX_URL}/target_groups"
+        super().__init__("GET", url, api_key)
+
+class ApiDeleteTargetGroups(ApiMixin):
+
+
+    def __init__(
+            self,
+            list_target_groups: dict,
+            api_key: str = ACUNETIX_TOKEN
+    ):
+        url = f"{ACUNETIX_URL}/target_groups/delete"
+        print(url, list_target_groups, 'fskjdfdsjdfsjfdsj')
+        super().__init__("POST", url, api_key, json=list_target_groups)

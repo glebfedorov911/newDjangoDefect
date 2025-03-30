@@ -8,4 +8,6 @@ urlpatterns = [
     re_path(r'acunetix/scans/active', views.get_active_scans, name='active_scans'),
     re_path(r'acunetix/scans', views.get_scans, name='scans'),
     re_path(r'acunetix/reports/import-now', views.import_reports, name='import_reports'),
+    re_path(r'acunetix/targets/groups', views.target_groups, name='target_groups'),
+    re_path(r'acunetix/reports/periodic-tasks', views.periodic_task, name='periodic_task'),
 ]

@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">Список Периодичных задач</h2>
+    {% csrf_token %}
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Название</th>
+                    <th>Активность</th>
+                    <th>Интервал</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for periodic_task in periodic_tasks %}
+                    <tr>
+                        <td>{{ periodic_task.name }}</td>
+                        <td>
+                            <input type="checkbox" name="periodic_task" value="{{ periodic_task.id }}" {% if periodic_task.enabled %}checked{% endif %}>
+                        </td>
+                        <td>{{ periodic_task.interval }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <button type="button" id="submit-btn" class="btn btn-primary mt-3">Отправить</button>
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            {% if periodic_tasks.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page=1">Первая</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ periodic_tasks.previous_page_number }}">Назад</a>
+                </li>
+            {% endif %}
+    
+            <li class="page-item disabled">
+                <span class="page-link">Страница {{ periodic_tasks.number }} из {{ periodic_tasks.paginator.num_pages }}</span>
+            </li>
+    
+            {% if periodic_tasks.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ periodic_tasks.next_page_number }}">Вперёд</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ periodic_tasks.paginator.num_pages }}">Последняя</a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+</div>
+
+<script>
+document.querySelector("#submit-btn").addEventListener("click", function(e) {
+    const allCheckboxes = document.querySelectorAll("input[name='periodic_task']");
+    const formData = new FormData();
+    
+    allCheckboxes.forEach(checkbox => {
+        if (checkbox.checked) {
+            formData.append("active[]", checkbox.value);
+        } else {
+            formData.append("inactive[]", checkbox.value);
+        }
+    });
+
+    formData.append("csrfmiddlewaretoken", '{{ csrf_token }}');
+
+    fetch("{% url 'periodic_task' %}", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        alert("Данные успешно сохранены!");
+    })
+    .catch(error => console.error("Ошибка:", error));
+});
+</script>
+{% endblock %}

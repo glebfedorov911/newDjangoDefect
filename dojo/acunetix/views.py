@@ -7,10 +7,6 @@ from dojo.acunetix.another import *
 from dojo.acunetix.acunetix_api.acunetix_exception import AcunetixException
 from dojo.acunetix.acunetix_api.utils import ACUNETIX_URL   
 from dojo.acunetix.acunetix_api.acunetix_target_and_scan import ApiGetScan
-from dojo.models import (
-    Endpoint, Test, Test_Type, Development_Environment, Engagement,
-    Finding, CheckedScan
-)
 from dojo.acunetix.acunetix_api.acunetix_export import ApiGenerateExport, ApiGetExport
 
 import logging
@@ -22,6 +18,7 @@ from datetime import datetime, timezone
 from django.http import Http404
 from django.shortcuts import render, redirect
 from django.utils.timezone import make_aware
+from django_celery_beat.models import PeriodicTask
 
 
 logger = logging.getLogger(__name__)
@@ -140,23 +137,73 @@ def get_scans(request):
 
 @check_acunetix_api
 def import_reports(request):
-    if request.method == "POST":
-        form = GetReportForm(request.POST)
-        if form.is_valid():
-            cleaned_data = form.cleaned_data
-            type_scan = cleaned_data["type_scan"]
-            periodic_in_seconds = cleaned_data["periodic"]
-            type_import = cleaned_data["type_import"]
-            schedule_task(type_import, periodic_in_seconds, type_scan)
+    try:
+        if request.method == "POST":
+            form = GetReportForm(request.POST)
+            if form.is_valid():
+                cleaned_data = form.cleaned_data
+                type_scan = cleaned_data["type_scan"]
+                periodic_in_seconds = cleaned_data["periodic"]
+                type_import = cleaned_data["type_import"]
+                schedule_task(type_import, periodic_in_seconds, type_scan)
 
-            return render(request, "dojo/acunetix_report.html", {"form": form})
-        else:
-            raise Http404("Invalid form")
+                return render(request, "dojo/acunetix_report.html", {"form": form})
+            else:
+                raise Http404("Invalid form")
+    except AcunetixException as e:
+        raise Http404(str(e))
 
     if request.method == "GET":
         form = GetReportForm()
         return render(request, "dojo/acunetix_report.html", {"form": form})
     
 @check_acunetix_api
-def delete_target_groups(request):
-    ...
+def target_groups(request):
+    if request.method == "POST":
+        group_ids = get_splited_items(request)
+        group_id_list = {"group_id_list": group_ids}
+        delete_target_groups_by_ids(group_id_list)
+
+    groups = get_all_target_groups().get("groups")
+    groups_context = [
+        {
+            "name": group["name"],
+            "group_id": group["group_id"],
+            "critical": group["vuln_count"]["critical"],
+            "high": group["vuln_count"]["high"],
+            "info": group["vuln_count"]["info"],
+            "low": group["vuln_count"]["low"],
+            "medium": group["vuln_count"]["medium"],
+        } for group in groups
+    ]
+    paginate_groups = paginate(request, groups_context)
+
+    return render(request, "dojo/acunetix_target_groups.html", {"groups": paginate_groups})
+
+@check_acunetix_api
+def periodic_task(request):
+    if request.method == "POST":
+        print(request.POST)
+        active = request.POST.getlist("active[]")
+        inactive = request.POST.getlist("inactive[]")
+        print(active, inactive)
+        # data = json.loads(request.body)
+        # active_ids = [int(i) for i in data.getlist('active_tasks', [])]
+        # inactive_ids = [int(i) for i in data.getlist('inactive_tasks', [])]
+        
+        # PeriodicTask.objects.filter(id__in=active_ids).update(enabled=True)
+        # PeriodicTask.objects.filter(id__in=inactive_ids).update(enabled=False)
+
+
+    periodic_tasks = PeriodicTask.objects.all()
+    periodic_tasks_context = [
+        {
+            "id": periodic_task.id,
+            "name": periodic_task.name,
+            "enabled": periodic_task.enabled,
+            "interval": periodic_task.interval
+        }
+    for periodic_task in periodic_tasks if "Scan Parser" in periodic_task.name]
+    periodic_tasks_context = paginate(request, periodic_tasks_context)
+
+    return render(request, "dojo/acunetix_delete_reports.html", {"periodic_tasks": periodic_tasks_context})

@@ -4496,11 +4496,7 @@ class Answered_Survey(models.Model):
 class CheckedScan(models.Model):
     scan_id = models.CharField(max_length=50)
     checked = models.BooleanField(default=True)
-
-class PeriodicScan(models.Model):
-    periodic_in_seconds = models.PositiveIntegerField(default=3600)
-    is_active = models.BooleanField(default=True)
-    start_run = models.DateTimeField(default=datetime.now)
+    type_scan = models.CharField(max_length=50, null=True, blank=True)
 
 class General_Survey(models.Model):
     survey = models.ForeignKey(Engagement_Survey, on_delete=models.CASCADE)
@@ -4671,4 +4667,3 @@ admin.site.register(Test_Import)
 admin.site.register(Test_Import_Finding_Action)
 admin.site.register(Finding_Group)
 admin.site.register(CheckedScan)
-admin.site.register(PeriodicScan)

@@ -3,7 +3,7 @@ import requests
 from dojo.acunetix.acunetix_api.acunetix_export import ApiGenerateExport, ApiGetExport
 from dojo.acunetix.acunetix_api.acunetix_target_and_scan import (
     ApiGetScan, ApiTargetAddTarget, ApiScanStart, ApiTargetGroupCreate, 
-    ApiTargetGroupSetTargets, ApiGetScans
+    ApiTargetGroupSetTargets, ApiGetScans, ApiGetTargetGroups, ApiDeleteTargetGroups
 )
 from dojo.acunetix.acunetix_api.acunetix_statistics import (
     ApiGetCrawlDataChildren, ApiGetCrawlData, ApiGetResultByScan,
@@ -14,7 +14,6 @@ from dojo.celery import app
 from dojo.models import (
     CheckedScan, Endpoint, Product, Test_Type, 
     Engagement, Finding, Test, Development_Environment,
-    PeriodicScan
 )
 
 from celery.schedules import crontab, schedule
@@ -32,14 +31,14 @@ from django_celery_beat.models import PeriodicTask, IntervalSchedule
 
 logger = logging.getLogger(__name__)
 
-def paginate_scans(request, scans_context):
+def paginate(request, context):
     page = request.GET.get("page", 1)
-    paginator = Paginator(scans_context, 10)
+    paginator = Paginator(context, 10)
     return paginator.get_page(page)
 
 def create_template_scan(request, scans):
     scans_context = create_context_scans(scans)
-    scans_page = paginate_scans(request, scans_context)
+    scans_page = paginate(request, scans_context)
 
     return render(request, "dojo/acunetix_target_and_scan_table.html", {"scans": scans_page})
 
@@ -265,13 +264,13 @@ def prepare_report(all_scans, type_scan):
         scan_ids = []
         for scan in all_scans:
             scan_id = scan["scan_id"]
-            checked_scan = CheckedScan.objects.filter(scan_id=scan_id, checked=True)
+            checked_scan = CheckedScan.objects.filter(scan_id=scan_id, checked=True, scan_type=type_scan)
             if checked_scan:
                 continue
             scan_ids.append(scan_id)
 
         for scan_id in scan_ids:
-            CheckedScan.objects.update_or_create(scan_id=scan_id, checked=True)
+            CheckedScan.objects.update_or_create(scan_id=scan_id, checked=True, scan_type=type_scan)
             gen_json = {
                 "export_id": type_scan,
                 "source": {
@@ -345,3 +344,15 @@ def update_args_in_periodic_task(task="dojo.acunetix.another.prepare_report"):
         )
         periodic_task.save()
     logger.info("update args in tasks")
+
+def get_all_target_groups():
+    api = ApiGetTargetGroups()
+    return do_request(api)
+
+def delete_target_groups_by_ids(group_id_list):
+    api = ApiDeleteTargetGroups(group_id_list)
+    return do_request(api)
+
+def get_splited_items(request):
+    group_ids = request.body.decode('utf-8').split("&")[1:]
+    return [item.split('=')[1] for item in group_ids]
