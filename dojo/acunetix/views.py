@@ -183,18 +183,15 @@ def target_groups(request):
 @check_acunetix_api
 def periodic_task(request):
     if request.method == "POST":
-        print(request.POST)
-        active = request.POST.getlist("active[]")
-        inactive = request.POST.getlist("inactive[]")
-        print(active, inactive)
-        # data = json.loads(request.body)
-        # active_ids = [int(i) for i in data.getlist('active_tasks', [])]
-        # inactive_ids = [int(i) for i in data.getlist('inactive_tasks', [])]
+        data = request.POST
+        active_ids = [int(i) for i in data.getlist('active[]', [])]
+        inactive_ids = [int(i) for i in data.getlist('inactive[]', [])]
         
-        # PeriodicTask.objects.filter(id__in=active_ids).update(enabled=True)
-        # PeriodicTask.objects.filter(id__in=inactive_ids).update(enabled=False)
+        PeriodicTask.objects.filter(id__in=active_ids).update(enabled=True)
+        PeriodicTask.objects.filter(id__in=inactive_ids).update(enabled=False)
 
-
+        return redirect("periodic_task")
+    
     periodic_tasks = PeriodicTask.objects.all()
     periodic_tasks_context = [
         {

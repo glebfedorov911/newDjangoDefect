@@ -264,13 +264,13 @@ def prepare_report(all_scans, type_scan):
         scan_ids = []
         for scan in all_scans:
             scan_id = scan["scan_id"]
-            checked_scan = CheckedScan.objects.filter(scan_id=scan_id, checked=True, scan_type=type_scan)
+            checked_scan = CheckedScan.objects.filter(scan_id=scan_id, checked=True, type_scan=type_scan)
             if checked_scan:
                 continue
             scan_ids.append(scan_id)
 
         for scan_id in scan_ids:
-            CheckedScan.objects.update_or_create(scan_id=scan_id, checked=True, scan_type=type_scan)
+            CheckedScan.objects.update_or_create(scan_id=scan_id, checked=True, type_scan=type_scan)
             gen_json = {
                 "export_id": type_scan,
                 "source": {

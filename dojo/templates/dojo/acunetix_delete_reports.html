@@ -53,31 +53,38 @@
     </nav>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-document.querySelector("#submit-btn").addEventListener("click", function(e) {
-    const allCheckboxes = document.querySelectorAll("input[name='periodic_task']");
-    const formData = new FormData();
-    
-    allCheckboxes.forEach(checkbox => {
-        if (checkbox.checked) {
-            formData.append("active[]", checkbox.value);
-        } else {
-            formData.append("inactive[]", checkbox.value);
-        }
+$(document).ready(function() {
+    $('#submit-btn').click(function() {
+        let active = [];
+        let inactive = [];
+        
+        $('input[name="periodic_task"]').each(function() {
+            if ($(this).is(':checked')) {
+                active.push($(this).val());
+            } else {
+                inactive.push($(this).val());
+            }
+        });
+
+        $.ajax({
+            url: '{% url "periodic_task" %}',
+            type: "POST",
+            data: {
+                'active': active,
+                'inactive': inactive,
+                'csrfmiddlewaretoken': '{{ csrf_token }}'
+            },
+            success: function(response) {
+                console.log('Изменения сохранены!');
+                console.log(response);
+            },
+            error: function(xhr) {
+                console.log('Ошибка: ' + xhr.responseText);
+            }
+        });
     });
-
-    formData.append("csrfmiddlewaretoken", '{{ csrf_token }}');
-
-    fetch("{% url 'periodic_task' %}", {
-        method: "POST",
-        body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log(data);
-        alert("Данные успешно сохранены!");
-    })
-    .catch(error => console.error("Ошибка:", error));
 });
 </script>
 {% endblock %}
