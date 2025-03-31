@@ -1,0 +1,17 @@
+{"export": {
+"lang": "None",
+"scans": [
+{"info":
+{"host": "api.chucknorris.io", "start_date": "2025-03-31T22:44:43.421018+00:00", "end_date": "2025-03-31T22:47:19.384998+00:00", "start_url": "https://api.chucknorris.io/", "duration": "0:02:31", "vuln_selection": false, "profile": "Full Scan", "source_type": "scans", "authentication_config_overrides": "", "build": "24.10.241106172", "progress": 100, "avg_response_time": 18375, "max_response_time": 30001, "locations_found": 2, "request_count": 5, "responsive": false, "hosts_discovered": null, "is_starting_host": true},
+"vulnerability_types": [
+
+],
+"locations": [
+{"loc_id": 2, "scan_session_id": "02154ae1-8870-452a-8a86-9320d13d0cfc", "name": "https://api.chucknorris.io/", "parent_id": null, "source_id": 2, "root_id": 2, "tags": null, "fragments": null, "path": "/", "loc_type": "folder", "input_data": [{"variations": 1, "method": "GET", "groups": [{"type": "HTTP Header", "input_names": ["Referer", "User-Agent", "X-Forwarded-For"]}]}], "root_url": "https://api.chucknorris.io/", "url": "https://api.chucknorris.io/"}
+],
+"vulnerabilities": [
+
+]
+}
+]}
+}
