@@ -248,6 +248,38 @@
             {% endif %}
         </div>
     {% endblock %}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Acunetix Интеграция
+                </div>
+                <div class="panel-body">
+                    <div>
+                        <a href="{% url 'create_targets_and_start_scan' %}">Запустить множественное сканирование</a>
+                    </div>
+                    <div>
+                        <a href="{% url 'create_target_and_start_scan' %}">Запустить сканирование</a>
+                    </div>
+                    <div>
+                        <a href="{% url 'active_scans' %}">Посмотреть активные сканы</a>
+                    </div>
+                    <div>
+                        <a href="{% url 'import_reports' %}">Настройка импорта отчетов</a>
+                    </div>
+                    <div>
+                        <a href="{% url 'scans' %}">Посмотреть все сканы</a>
+                    </div>
+                    <div>
+                        <a href="{% url 'target_groups' %}">Посмотреть группы целей</a>
+                    </div>
+                    <div>
+                        <a href="{% url 'periodic_task' %}">Настройка периодических задач импорта отчетов</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 {% block postscript %}
     {{ block.super }}
