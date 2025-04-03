@@ -34,7 +34,18 @@ class TargetCreateViewSet(viewsets.ViewSet):
 
     @extend_schema(
         summary="Создать цель и начать сканирование",
-        description="Возвращает ответ о успешности запроса",
+        description="""
+        description - описание
+        criticality - уровень критичность (0 - слабый, 10 - низкий, 20 - средний, 30 -высокий)
+        scan_type - тип сканирования (
+            11111111-1111-1111-1111-111111111111 - полное сканирование
+            11111111-1111-1111-1111-111111111113 - SQL инъекции
+            11111111-1111-1111-1111-111111111115 - слабые пароли
+        )
+        address - url
+        type - оставить пустым
+        Возвращает ответ о успешности запроса
+        """,
         parameters=[
             OpenApiParameter(
                 name="Acunetix",
@@ -76,7 +87,18 @@ class TargetCreateViewSet(viewsets.ViewSet):
         
     @extend_schema(
         summary="Создать множество целей и начать сканирование",
-        description="Возвращает ответ о успешности запроса",
+        description="""
+        description - описание
+        criticality - уровень критичность (0 - слабый, 10 - низкий, 20 - средний, 30 -высокий)
+        scan_type - тип сканирования (
+            11111111-1111-1111-1111-111111111111 - полное сканирование
+            11111111-1111-1111-1111-111111111113 - SQL инъекции
+            11111111-1111-1111-1111-111111111115 - слабые пароли
+        )
+        addresses - список url
+        type - оставить пустым
+        Возвращает ответ о успешности запроса
+        """,
         parameters=[
             OpenApiParameter(
                 name="Acunetix",
@@ -142,7 +164,7 @@ class TargetCreateViewSet(viewsets.ViewSet):
     
     @extend_schema(
         summary="Получить все активные сканы",
-        description="Получить все активные сканы",
+        description="Возвращает все АКТИВНЫЕ сканы",
         parameters=[
             OpenApiParameter(
                 name="Acunetix",
@@ -158,7 +180,7 @@ class TargetCreateViewSet(viewsets.ViewSet):
     
     @extend_schema(
         summary="Получить все сканы",
-        description="Получить все сканы",
+        description="Возвращает все сканы",
         parameters=[
             OpenApiParameter(
                 name="Acunetix",
@@ -173,7 +195,16 @@ class TargetCreateViewSet(viewsets.ViewSet):
     
     @extend_schema(
         summary="Импортировать отчеты",
-        description="Импортировать отчеты",
+        description="""
+        type_import = Тип импорта (P - периодичность, O - один раз)
+        periodic - Периодичность в секундах
+        type_scan - (
+            11111111-1111-1111-1111-111111111111 = HTML
+            21111111-1111-1111-1111-111111111130 = JSON
+            21111111-1111-1111-1111-111111111111 = XML
+        )
+        Возвращает ответ о успешности старта
+        """,
         parameters=[
             OpenApiParameter(
                 name="Acunetix",
@@ -201,7 +232,7 @@ class TargetCreateViewSet(viewsets.ViewSet):
         
     @extend_schema(
         summary="Получить таргет группы",
-        description="Получить таргет группы",
+        description="Возвращает все таргет группы",
         parameters=[
             OpenApiParameter(
                 name="Acunetix",
@@ -250,7 +281,7 @@ class TargetCreateViewSet(viewsets.ViewSet):
         
     @extend_schema(
         summary="Получить все периодические задачи",
-        description="Получить все периодические задачи",
+        description="Возвращает все периодические задачи",
         parameters=[
             OpenApiParameter(
                 name="Acunetix",
