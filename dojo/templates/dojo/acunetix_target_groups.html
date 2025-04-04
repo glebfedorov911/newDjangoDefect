@@ -1,37 +1,39 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="container mt-4">
-    <h2 class="mb-4">Список Таргет Групп</h2>
-        {% csrf_token %}
-        <div class="table-responsive">
-            <table class="table table-bordered table-striped">
-                <thead class="thead-dark">
-                    <tr>
-                        <th>Выбор</th>
-                        <th>Название</th>
-                        <th class="text-danger">Critical</th>
-                        <th class="text-warning">High</th>
-                        <th class="text-primary">Medium</th>
-                        <th class="text-success">Low</th>
-                        <th class="text-info">Info</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for group in groups %}
+    <form method="post">
+        <h2 class="mb-4">Список Таргет Групп</h2>
+            {% csrf_token %}
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                    <thead class="thead-dark">
                         <tr>
-                            <td><input type="checkbox" name="group_ids" value="{{ group.group_id }}"></td>
-                            <td>{{ group.name }}</td>
-                            <td class="text-danger font-weight-bold">{{ group.critical }}</td>
-                            <td class="text-warning font-weight-bold">{{ group.high }}</td>
-                            <td class="text-primary font-weight-bold">{{ group.medium }}</td>
-                            <td class="text-success font-weight-bold">{{ group.low }}</td>
-                            <td class="text-info font-weight-bold">{{ group.info }}</td>
+                            <th>Выбор</th>
+                            <th>Название</th>
+                            <th class="text-danger">Critical</th>
+                            <th class="text-warning">High</th>
+                            <th class="text-primary">Medium</th>
+                            <th class="text-success">Low</th>
+                            <th class="text-info">Info</th>
                         </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-    <button type="button" class="btn btn-primary mt-3">Отправить</button>
+                    </thead>
+                    <tbody>
+                        {% for group in groups %}
+                            <tr>
+                                <td><input type="checkbox" name="group_ids" value="{{ group.group_id }}"></td>
+                                <td>{{ group.name }}</td>
+                                <td class="text-danger font-weight-bold">{{ group.critical }}</td>
+                                <td class="text-warning font-weight-bold">{{ group.high }}</td>
+                                <td class="text-primary font-weight-bold">{{ group.medium }}</td>
+                                <td class="text-success font-weight-bold">{{ group.low }}</td>
+                                <td class="text-info font-weight-bold">{{ group.info }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        <button type="submit" class="btn btn-primary mt-3">Отправить</button>
+    </form>
     <nav aria-label="Page navigation">
         <ul class="pagination">
             {% if groups.has_previous %}
@@ -59,6 +61,41 @@
     </nav>
 </div>
 
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('#submit-btn').click(function() {
+        let active = [];
+        let inactive = [];
+        
+        $('input[name="periodic_task"]').each(function() {
+            if ($(this).is(':checked')) {
+                active.push($(this).val());
+            } else {
+                inactive.push($(this).val());
+            }
+        });
+
+        $.ajax({
+            url: '{% url "periodic_task" %}',
+            type: "POST",
+            data: {
+                'active': active,
+                'inactive': inactive,
+                'csrfmiddlewaretoken': '{{ csrf_token }}'
+            },
+            success: function(response) {
+                console.log('Изменения сохранены!');
+                console.log(response);
+            },
+            error: function(xhr) {
+                console.log('Ошибка: ' + xhr.responseText);
+            }
+        });
+    });
+});
+</script>
 <script>
 document.querySelector("form").addEventListener("submit", function(e) {
     e.preventDefault();
