@@ -133,7 +133,7 @@ v2_api.register(r'questionnaire_engagement_questionnaires', QuestionnaireEngagem
 v2_api.register(r'questionnaire_general_questionnaires', QuestionnaireGeneralSurveyViewSet)
 v2_api.register(r'questionnaire_questions', QuestionnaireQuestionViewSet)
 v2_api.register(r'announcements', AnnouncementViewSet)
-v2_api.register(r'acunetix', TargetCreateViewSet, basename='target-create')
+v2_api.register(r'indepo', TargetCreateViewSet, basename='target-create')
 ur = []
 ur += dev_env_urls
 ur += endpoint_urls
@@ -236,3 +236,4 @@ def drf_spectacular_preprocessing_filter_spec(endpoints):
         if path.startswith("/api/v2/"):
             filtered.append((path, path_regex, method, callback))
     return filtered
+
