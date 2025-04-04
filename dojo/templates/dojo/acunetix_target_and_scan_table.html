@@ -10,9 +10,9 @@
                     <th>Прогресс</th>
                     <th class="text-danger">Critical</th>
                     <th class="text-warning">High</th>
-                    <th class="text-info">Info</th>
-                    <th class="text-success">Low</th>
                     <th class="text-primary">Medium</th>
+                    <th class="text-success">Low</th>
+                    <th class="text-info">Info</th>
                     <th>Статус</th>
                 </tr>
             </thead>
@@ -32,9 +32,9 @@
                         </td>
                         <td class="text-danger font-weight-bold">{{ scan.critical }}</td>
                         <td class="text-warning font-weight-bold">{{ scan.high }}</td>
-                        <td class="text-info font-weight-bold">{{ scan.info }}</td>
-                        <td class="text-success font-weight-bold">{{ scan.low }}</td>
                         <td class="text-primary font-weight-bold">{{ scan.medium }}</td>
+                        <td class="text-success font-weight-bold">{{ scan.low }}</td>
+                        <td class="text-info font-weight-bold">{{ scan.info }}</td>
                         <td>
                             <span class="badge {% if scan.status == 'Completed' %}badge-success{% elif scan.status == 'In Progress' %}badge-warning{% else %}badge-secondary{% endif %}">
                                 {{ scan.status }}
