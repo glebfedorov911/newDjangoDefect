@@ -48,7 +48,7 @@ class TargetCreateViewSet(viewsets.ViewSet):
         """,
         parameters=[
             OpenApiParameter(
-                name="Acunetix",
+                name="Indepo",
             )
         ],
         request=TargetCreateSerializer
@@ -101,7 +101,7 @@ class TargetCreateViewSet(viewsets.ViewSet):
         """,
         parameters=[
             OpenApiParameter(
-                name="Acunetix",
+                name="Indepo",
             )
         ],
         request=TargetsCreateSerializer
@@ -167,7 +167,7 @@ class TargetCreateViewSet(viewsets.ViewSet):
         description="Возвращает все АКТИВНЫЕ сканы",
         parameters=[
             OpenApiParameter(
-                name="Acunetix",
+                name="Indepo",
             )
         ],
     )
@@ -183,7 +183,7 @@ class TargetCreateViewSet(viewsets.ViewSet):
         description="Возвращает все сканы",
         parameters=[
             OpenApiParameter(
-                name="Acunetix",
+                name="Indepo",
             )
         ],
     )
@@ -207,7 +207,7 @@ class TargetCreateViewSet(viewsets.ViewSet):
         """,
         parameters=[
             OpenApiParameter(
-                name="Acunetix",
+                name="Indepo",
             )
         ],
         request=GetReportSerializer
@@ -235,7 +235,7 @@ class TargetCreateViewSet(viewsets.ViewSet):
         description="Возвращает все таргет группы",
         parameters=[
             OpenApiParameter(
-                name="Acunetix",
+                name="Indepo",
             )
         ]
     )
@@ -262,7 +262,7 @@ class TargetCreateViewSet(viewsets.ViewSet):
         description="Удалить таргет группы, необходимо указать в массив список id групп",
         parameters=[
             OpenApiParameter(
-                name="Acunetix",
+                name="Indepo",
             )
         ],
         request=TargetGroupsSerializer,
@@ -284,7 +284,7 @@ class TargetCreateViewSet(viewsets.ViewSet):
         description="Возвращает все периодические задачи",
         parameters=[
             OpenApiParameter(
-                name="Acunetix",
+                name="Indepo",
             )
         ],
     )
@@ -308,7 +308,7 @@ class TargetCreateViewSet(viewsets.ViewSet):
         description="Остановить задачи, необходимо указать в массивы задачи, у которых хочется изменить статус",
         parameters=[
             OpenApiParameter(
-                name="Acunetix",
+                name="Indepo",
             )
         ],
         request=PeriodicTaskSerializer
