@@ -11,9 +11,9 @@
                         <th>Название</th>
                         <th class="text-danger">Critical</th>
                         <th class="text-warning">High</th>
-                        <th class="text-info">Info</th>
-                        <th class="text-success">Low</th>
                         <th class="text-primary">Medium</th>
+                        <th class="text-success">Low</th>
+                        <th class="text-info">Info</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -23,9 +23,9 @@
                             <td>{{ group.name }}</td>
                             <td class="text-danger font-weight-bold">{{ group.critical }}</td>
                             <td class="text-warning font-weight-bold">{{ group.high }}</td>
-                            <td class="text-info font-weight-bold">{{ group.info }}</td>
-                            <td class="text-success font-weight-bold">{{ group.low }}</td>
                             <td class="text-primary font-weight-bold">{{ group.medium }}</td>
+                            <td class="text-success font-weight-bold">{{ group.low }}</td>
+                            <td class="text-info font-weight-bold">{{ group.info }}</td>
                         </tr>
                     {% endfor %}
                 </tbody>
