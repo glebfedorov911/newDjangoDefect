@@ -36,7 +36,7 @@ def create_target_and_start_scan(request):
             )
         if request.method == "POST":
             target_form = TargetCreateForm(request.POST)
-            
+
             if target_form.is_valid():
                 cleaned_data = target_form.cleaned_data
                 scan_type = cleaned_data.pop("scan_type")
@@ -83,8 +83,8 @@ def create_targets_and_start_scan(request):
                 group_name = cleaned_data.pop("name")
                 content = read_file(file)
                 
-                target_group = create_target_group(group_name)
                 target_ids = []
+                valid_product = {}
                 scans = {}
                 for url in content:
                     target = TargetCreateForm(data={
@@ -103,15 +103,24 @@ def create_targets_and_start_scan(request):
                         target_created = post_target_request(target_cleaned_data)
                         target_id = target_created.get("target_id")
                         target_ids.append(target_id)
-
+    
                         scan = post_scan_request(target_id, scan_type)
-                        scans[scan["scan_id"]] = {
-                            "scan": scan,
+                        valid_product[target_id] = {
                             "protocol": protocol,
                             "product": product,
                             "address": address,
                             "delete": False
                         }
+                        
+                for target_id in target_ids:
+                    scans[scan["scan_id"]] = {
+                        "scan": scan,
+                        "protocol": valid_product[target_id]["protocol"],
+                        "product": valid_product[target_id]["product"],
+                        "address": valid_product[target_id]["address"],
+                        "delete": valid_product[target_id]["delete"]
+                    }
+                target_group = create_target_group(group_name)
                 target_group_id = target_group.get("group_id")
                 set_target_to_group(target_ids, target_group_id)
 
