@@ -55,6 +55,7 @@ class TargetCreateViewSet(viewsets.ViewSet):
     @extend_schema(
         summary="Создать цель и начать сканирование",
         description="""
+        server - id сервера-сканера
         description - описание
         criticality - уровень критичность (0 - слабый, 10 - низкий, 20 - средний, 30 -высокий)
         scan_type - тип сканирования (
@@ -111,6 +112,7 @@ class TargetCreateViewSet(viewsets.ViewSet):
     @extend_schema(
         summary="Создать множество целей и начать сканирование",
         description="""
+        server - id сервера-сканера
         description - описание
         criticality - уровень критичность (0 - слабый, 10 - низкий, 20 - средний, 30 -высокий)
         scan_type - тип сканирования (
@@ -190,7 +192,7 @@ class TargetCreateViewSet(viewsets.ViewSet):
     
     @extend_schema(
         summary="Получить все активные сканы",
-        description="Возвращает все АКТИВНЫЕ сканы",
+        description="Возвращает все АКТИВНЫЕ сканы server - id сервера-сканера",
         parameters=[
             OpenApiParameter(
                 name="Indepo",
@@ -206,7 +208,7 @@ class TargetCreateViewSet(viewsets.ViewSet):
     
     @extend_schema(
         summary="Получить все сканы",
-        description="Возвращает все сканы",
+        description="Возвращает все сканы, server - id сервера-сканера",
         parameters=[
             OpenApiParameter(
                 name="Indepo",
@@ -222,6 +224,7 @@ class TargetCreateViewSet(viewsets.ViewSet):
     @extend_schema(
         summary="Импортировать отчеты",
         description="""
+        server - id сервера-сканера
         type_import = Тип импорта (P - периодичность, O - один раз)
         periodic - Периодичность в секундах
         type_scan - (
@@ -259,7 +262,7 @@ class TargetCreateViewSet(viewsets.ViewSet):
         
     @extend_schema(
         summary="Получить таргет группы",
-        description="Возвращает все таргет группы",
+        description="Возвращает все таргет группы, server - id сервера-сканера",
         parameters=[
             OpenApiParameter(
                 name="Indepo",
@@ -286,7 +289,7 @@ class TargetCreateViewSet(viewsets.ViewSet):
     
     @extend_schema(
         summary="Удалить таргет группы",
-        description="Удалить таргет группы, необходимо указать в массив список id групп",
+        description="Удалить таргет группы, необходимо указать в массив список id групп, server - id сервера-сканера",
         parameters=[
             OpenApiParameter(
                 name="Indepo",
