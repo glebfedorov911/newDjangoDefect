@@ -6,6 +6,22 @@ import ipaddress
 from dojo.models import *
 
 
+class AcunetixServerSerializer(serializers.Serializer):
+    server = serializers.IntegerField(required=False)
+
+class AcunetixAddServerSerializer(serializers.Serializer):
+    
+    
+    class Meta:
+        model = AcunetixServers
+        fields = "__all__"
+
+class AcunetixDeleteSerializer(serializers.Serializer):
+    ids = serializers.ListField(
+        child=serializers.IntegerField(),
+        allow_empty=False
+    )
+
 class ExcludeHoursSerializer(serializers.Serializer):
 
 
@@ -70,7 +86,7 @@ class TargetCreateMixinSerializer(serializers.Serializer):
         except ValueError:
             return False
 
-class TargetCreateSerializer(TargetCreateMixinSerializer):
+class TargetCreateSerializer(TargetCreateMixinSerializer, AcunetixServerSerializer):
 
 
     DEFAULT = "default"
@@ -88,7 +104,7 @@ class TargetCreateSerializer(TargetCreateMixinSerializer):
 
         return cleaned_data
 
-class TargetsCreateSerializer(TargetCreateMixinSerializer):
+class TargetsCreateSerializer(TargetCreateMixinSerializer, AcunetixServerSerializer):
 
 
     name = serializers.CharField(
@@ -98,7 +114,7 @@ class TargetsCreateSerializer(TargetCreateMixinSerializer):
         allow_empty=False
     )
 
-class GetReportSerializer(serializers.Serializer):
+class GetReportSerializer(AcunetixServerSerializer):
     DEV = "11111111-1111-1111-1111-111111111111"
     JSON = "21111111-1111-1111-1111-111111111130"
     XML = "21111111-1111-1111-1111-111111111111"
@@ -125,7 +141,7 @@ class GetReportSerializer(serializers.Serializer):
     )
     type_scan = serializers.ChoiceField(label="Формат файла", choices=TYPE_SCAN)
 
-class TargetGroupsSerializer(serializers.Serializer):
+class TargetGroupsSerializer(AcunetixServerSerializer):
 
 
     group_ids = serializers.ListField(

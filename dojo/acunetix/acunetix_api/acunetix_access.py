@@ -11,10 +11,10 @@ from dojo.acunetix.acunetix_api.utils import (
 
 logger = logging.getLogger(__name__)
 
-def is_available_acunetix_api() -> None:
+def is_available_acunetix_api(url, token) -> None:
     try:
         logging.info("Trying to connect to acunetix api")
-        response = requests.get(f"{ACUNETIX_URL}/me", headers=HEADERS, 
+        response = requests.get(f"{url}/me", headers={"X-Auth": token}, 
                                 timeout=5, verify=False)
         logging.info("Status: %s", response.status_code)
         response.raise_for_status()

@@ -30,6 +30,13 @@ from django_celery_beat.models import PeriodicTask, IntervalSchedule
 
 
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG) 
+
+file_handler = logging.FileHandler('./dojo/acunetix/acunetix.log', mode='a', encoding='utf-8')  
+file_handler.setLevel(logging.DEBUG)
+
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+file_handler.setFormatter(formatter)
 
 def paginate(request, context):
     page = request.GET.get("page", 1)
@@ -40,7 +47,7 @@ def create_template_scan(request, scans):
     scans_context = create_context_scans(scans)
     scans_page = paginate(request, scans_context)
 
-    return render(request, "dojo/acunetix_target_and_scan_table.html", {"scans": scans_page})
+    return render(request, "dojo/acunetix_target_and_scan_table.html", {"has_form": False, "scans": scans_page})
 
 def create_context_scans(scans):
     return [{
@@ -55,12 +62,12 @@ def create_context_scans(scans):
         "address": scan["target"]["address"]
     } for scan in scans]
 
-def post_target_request(target: dict) -> dict:
-    target_api = ApiTargetAddTarget(target)
+def post_target_request(server, token, target: dict) -> dict:
+    target_api = ApiTargetAddTarget(url=server, api_key=token, target=target)
     logger.info("Do request to create target")
     return do_request(target_api)
 
-def post_scan_request(target_id: str, profile_id: str) -> dict:
+def post_scan_request(server, token, target_id: str, profile_id: str) -> dict:
     scan = {
         "target_id": target_id,
         "profile_id": profile_id,
@@ -71,11 +78,11 @@ def post_scan_request(target_id: str, profile_id: str) -> dict:
         }
     }
 
-    scan_api = ApiScanStart(scan)
+    scan_api = ApiScanStart(url=server, api_key=token, scan=scan)
     logger.info("Do request to start scan")
     
     json = do_request(scan_api)
-    update_args_in_periodic_task()
+    update_args_in_periodic_task(server=server, token=token)
     return json
 
 def do_request(api) -> dict:
@@ -89,35 +96,38 @@ def do_request(api) -> dict:
 def read_file(file) -> list:
     return file.read().decode("utf-8").split(";")
 
-def create_target_group(name: str):
+def create_target_group(server, token, name: str):
     json = {
         "group_id": str(uuid.uuid4()),
         "name": name
     }
-    api = ApiTargetGroupCreate(json)
+    api = ApiTargetGroupCreate(target_group=json, url=server, api_key=token)
     return do_request(api)
 
-def set_target_to_group(target_ids: list, group_id: str):
+def set_target_to_group(server, token, target_ids: list, group_id: str):
     json = {
         "target_id_list": target_ids
     }
-    api = ApiTargetGroupSetTargets(json, group_id=group_id)
+    api = ApiTargetGroupSetTargets(url=server, api_key=token, list_target=json, group_id=group_id)
     return do_request(api)
 
-def get_scans_in_processing():
-    scans = get_scans_mixin()
+def get_scans_in_processing(server, token):
+    scans = get_scans_mixin(server, token)
     return [
         scan for scan in scans 
         if scan["current_session"]["status"] == "processing"
     ]
 
-def get_all_scans():
-    return get_scans_mixin()
+def get_all_scans(server, token):
+    return get_scans_mixin(server, token)
 
-def get_scans_mixin():
-    api = ApiGetScans()
+def get_scans_mixin(server, token):
+    api = ApiGetScans(url=server, api_key=token)
     json = do_request(api)
     return json["scans"]
+
+def get_data_server(server) -> tuple:
+    return f"https://{server.server_address}:{server.server_port}/api/v1", server.token_system
 
 def check_has_product(address):
     protocol = "https"
@@ -180,21 +190,22 @@ def get_result_id_by_scan(scan_id):
     return do_request(result_api)["results"][0]["result_id"]
 
 @app.task
-def fill_statistic_for_files(scans):
+def fill_statistic_for_files(server, token, scans):
     while not all([scans[scan]['delete'] for scan in scans]):
         for scan in scans:
             if not scans[scan]["delete"] and fill_statistic.apply_async(
                 args=[
+                    server, token,
                     scans[scan]["scan"], scans[scan]["protocol"], 
                     scans[scan]["product"], scans[scan]["address"]
                 ]
             ):
                 scans[scan]["delete"] = True
 @app.task
-def fill_statistic(scan: dict, protocol: str, product: Product, address: str):
+def fill_statistic(server, token, scan: dict, protocol: str, product: Product, address: str):
     scan_id = scan["scan_id"]
     while True:
-        api = ApiGetScan(scan_id)
+        api = ApiGetScan(scan_id=scan_id, api_key=token, url=server)
         scan_result = do_request(api)
         scan_status = scan_result['current_session']["progress"]
         if str(scan_status) == "100":
@@ -260,7 +271,7 @@ def fill_statistic(scan: dict, protocol: str, product: Product, address: str):
     return True
 
 @app.task
-def prepare_report(all_scans, type_scan):
+def prepare_report(server, token, all_scans, type_scan):
         scan_ids = []
         for scan in all_scans:
             scan_id = scan["scan_id"]
@@ -279,16 +290,16 @@ def prepare_report(all_scans, type_scan):
                 }
             }
 
-            result = get_report.apply_async(args=[gen_json])
+            result = get_report.apply_async(args=[server, token, gen_json])
 
 @app.task
-def get_report(gen_json):
-    generate_api = ApiGenerateExport(gen_json)
+def get_report(server, token, gen_json):
+    generate_api = ApiGenerateExport(json=gen_json, url=server, api_key=token)
     json_result = json.loads(generate_api.do())
     report_id = json_result["report_id"]
     
     while True:
-        get_api = ApiGetExport(report_id)
+        get_api = ApiGetExport(export_id=report_id, url=server, api_key=token)
         get_json_result = json.loads(get_api.do())
         status = get_json_result["status"]
 
@@ -310,10 +321,10 @@ def get_report(gen_json):
                 return file_path
         time.sleep(5)
 
-def schedule_task(period, periodic_in_seconds, type_scan):
-    all_scans = get_all_scans()
+def schedule_task(server, token, period, periodic_in_seconds, type_scan):
+    all_scans = get_all_scans(server, token)
     if period == "O":
-        prepare_report.apply_async(args=(all_scans, type_scan))
+        prepare_report.apply_async(args=(server, token, all_scans, type_scan))
     if period == "P":
         schedule, _ = IntervalSchedule.objects.get_or_create(
             every=periodic_in_seconds,
@@ -326,31 +337,31 @@ def schedule_task(period, periodic_in_seconds, type_scan):
             defaults = {
             "interval": schedule,
             "task": "dojo.acunetix.another.prepare_report",
-            "args": json.dumps([all_scans, type_scan]),
+            "args": json.dumps([server, token, all_scans, type_scan]),
             "enabled": True,
             "start_time": start_time
             }
         )
 
-def update_args_in_periodic_task(task="dojo.acunetix.another.prepare_report"):
+def update_args_in_periodic_task(server, token, task="dojo.acunetix.another.prepare_report"):
     periodic_tasks = PeriodicTask.objects.filter(
         task=task,
         enabled=True,
     )
     for periodic_task in periodic_tasks:
-        scans = get_all_scans()
+        scans = get_all_scans(server, token)
         periodic_task.args = json.dumps(
-            [scans, json.loads(periodic_task.args)[1]]
+            [server, token, scans, json.loads(periodic_task.args)[1]]
         )
         periodic_task.save()
     logger.info("update args in tasks")
 
-def get_all_target_groups():
-    api = ApiGetTargetGroups()
+def get_all_target_groups(server, token):
+    api = ApiGetTargetGroups(url=server, api_key=token)
     return do_request(api)
 
-def delete_target_groups_by_ids(group_id_list):
-    api = ApiDeleteTargetGroups(group_id_list)
+def delete_target_groups_by_ids(server, token, group_id_list):
+    api = ApiDeleteTargetGroups(url=server, api_key=token, list_target_groups=group_id_list)
     return do_request(api)
 
 def get_splited_items(request):

@@ -3,7 +3,16 @@ import ipaddress
 
 from django import forms
 from django.core.validators import FileExtensionValidator
+from dojo.models import AcunetixServers
 
+
+class AcunetixServerSelectForm(forms.Form):
+    server = forms.ModelChoiceField(
+        queryset=AcunetixServers.objects.all(),
+        label="Выберите сервер",
+        widget=forms.Select(attrs={"class": "form-select"}),
+        required=False
+    )
 
 class ExcludeHours(forms.Form):
 
@@ -76,7 +85,7 @@ class TargetCreateMixinForm(forms.Form):
         except ValueError:
             return False
 
-class TargetCreateForm(TargetCreateMixinForm):
+class TargetCreateForm(TargetCreateMixinForm, AcunetixServerSelectForm):
 
 
     DEFAULT = "default"
@@ -94,7 +103,7 @@ class TargetCreateForm(TargetCreateMixinForm):
 
         return cleaned_data
 
-class TargetsCreateForm(TargetCreateMixinForm):
+class TargetsCreateForm(TargetCreateMixinForm, AcunetixServerSelectForm):
 
 
     name = forms.CharField(
@@ -105,7 +114,7 @@ class TargetsCreateForm(TargetCreateMixinForm):
         label="Файл (txt, URL'ы через точку с запятой)"
     )
 
-class GetReportForm(forms.Form):
+class GetReportForm(AcunetixServerSelectForm):
     DEV = "11111111-1111-1111-1111-111111111111"
     JSON = "21111111-1111-1111-1111-111111111130"
     XML = "21111111-1111-1111-1111-111111111111"
@@ -137,3 +146,10 @@ class GetReportForm(forms.Form):
         })
     )
     type_scan = forms.ChoiceField(label="Формат файла", choices=TYPE_SCAN)
+
+class AddAcunetixServerForm(forms.ModelForm):
+
+
+    class Meta:
+        model = AcunetixServers
+        fields = "__all__"

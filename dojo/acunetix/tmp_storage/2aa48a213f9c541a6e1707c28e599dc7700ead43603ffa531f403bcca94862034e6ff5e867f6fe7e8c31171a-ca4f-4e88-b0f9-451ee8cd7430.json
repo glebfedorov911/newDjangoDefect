@@ -1,0 +1,17 @@
+{"export": {
+"lang": "None",
+"scans": [
+{"info":
+{"host": "api.auto1dsadstructure.ru", "start_date": "2025-04-09T21:39:29.180787+00:00", "end_date": "2025-04-09T21:39:35.069537+00:00", "start_url": "https://api.auto1dsadstructure.ru/", "duration": "0:00:01", "vuln_selection": false, "profile": "Full Scan", "source_type": "scans", "authentication_config_overrides": "", "build": "24.10.241106172", "progress": 100, "avg_response_time": null, "max_response_time": null, "locations_found": 2, "request_count": null, "responsive": false, "hosts_discovered": null, "is_starting_host": true},
+"vulnerability_types": [
+
+],
+"locations": [
+{"loc_id": 2, "scan_session_id": "44e7a6d7-2613-46b9-93d7-bc3b82d99f7b", "name": "https://api.auto1dsadstructure.ru/", "parent_id": null, "source_id": 2, "root_id": 2, "tags": null, "fragments": null, "path": "/", "loc_type": "folder", "input_data": null, "root_url": "https://api.auto1dsadstructure.ru/", "url": "https://api.auto1dsadstructure.ru/"}
+],
+"vulnerabilities": [
+
+]
+}
+]}
+}

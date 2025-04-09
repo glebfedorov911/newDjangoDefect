@@ -1,13 +1,14 @@
 import os
-from dojo.acunetix.acunetix_api.acunetix_access import check_acunetix_api
+from dojo.acunetix.acunetix_api.acunetix_access import is_available_acunetix_api
 from dojo.acunetix.forms import (
-    TargetCreateForm, TargetsCreateForm, GetReportForm
+    TargetCreateForm, TargetsCreateForm, GetReportForm, AddAcunetixServerForm, AcunetixServerSelectForm
 )
 from dojo.acunetix.another import *
 from dojo.acunetix.acunetix_api.acunetix_exception import AcunetixException
 from dojo.acunetix.acunetix_api.utils import ACUNETIX_URL   
 from dojo.acunetix.acunetix_api.acunetix_target_and_scan import ApiGetScan
 from dojo.acunetix.acunetix_api.acunetix_export import ApiGenerateExport, ApiGetExport
+from dojo.models import AcunetixServers
 
 import logging
 import time
@@ -16,14 +17,21 @@ import time
 from datetime import datetime, timezone
 
 from django.http import Http404
+from django.urls import reverse
 from django.shortcuts import render, redirect
 from django.utils.timezone import make_aware
 from django_celery_beat.models import PeriodicTask
 
 
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG) 
 
-@check_acunetix_api
+file_handler = logging.FileHandler('./dojo/acunetix/acunetix.log', mode='a', encoding='utf-8')  
+file_handler.setLevel(logging.DEBUG)
+
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+file_handler.setFormatter(formatter)
+
 def create_target_and_start_scan(request):
     try:
         logger.info(f"%s Request to acunetix/targets/create", request.method)
@@ -39,22 +47,27 @@ def create_target_and_start_scan(request):
 
             if target_form.is_valid():
                 cleaned_data = target_form.cleaned_data
+                acunetix_server = cleaned_data.pop("server")
+                server, token = get_data_server(acunetix_server)
+                is_available_acunetix_api(server, token)
                 scan_type = cleaned_data.pop("scan_type")
                 address = cleaned_data.get("address")
                 try:
                     protocol, product = check_has_product(address)
                 except Exception as e:
-                    raise Http404(e)
+                    logger.warning(f"Not found product {address}")
+                    # raise Http404(e)
+                else:
 
-                target = post_target_request(cleaned_data)
-                target_id = target.get("target_id")
+                    target = post_target_request(server, token, cleaned_data)
+                    target_id = target.get("target_id")
 
-                scan = post_scan_request(target_id, scan_type)
-                fill_statistic.apply_async(
-                    args=[scan, protocol, product, address]
-                )
+                    scan = post_scan_request(server, token, target_id, scan_type)
+                    fill_statistic.apply_async(
+                        args=[server, token, scan, protocol, product, address]
+                    )
 
-                return redirect("active_scans")
+                    return redirect(f"indepo/scans/active?server={acunetix_server.id}")
             else:
                 logger.error("Mistakes %s", target_form.errors)
                 raise Http404("Invalid fill form")
@@ -63,7 +76,7 @@ def create_target_and_start_scan(request):
         raise Http404(str(e))
         
 
-@check_acunetix_api
+
 def create_targets_and_start_scan(request):
     try:
         logger.info(f"%s Request to acunetix/targets/create-any", request.method)
@@ -79,6 +92,9 @@ def create_targets_and_start_scan(request):
 
             if targets_form.is_valid():
                 cleaned_data = targets_form.cleaned_data
+                cleaned_data_server = cleaned_data.pop("server")
+                server, token = get_data_server(cleaned_data_server)
+                is_available_acunetix_api(server, token)
                 file = cleaned_data.pop("addresses")
                 group_name = cleaned_data.pop("name")
                 content = read_file(file)
@@ -98,13 +114,21 @@ def create_targets_and_start_scan(request):
                         try:
                             protocol, product = check_has_product(address)
                         except ValueError as e:
-                            raise Http404(e)
+                            logger.warning(f"Not found product {address}")
+                            # raise Http404(e)
 
-                        target_created = post_target_request(target_cleaned_data)
+                        target_created = post_target_request(
+                            server=server, 
+                            token=token, 
+                            target=target_cleaned_data)
                         target_id = target_created.get("target_id")
                         target_ids.append(target_id)
     
-                        scan = post_scan_request(target_id, scan_type)
+                        scan = post_scan_request(
+                            server=server, 
+                            token=token, 
+                            target_id=target_id, 
+                            profile_id=scan_type)
                         valid_product[target_id] = {
                             "protocol": protocol,
                             "product": product,
@@ -120,13 +144,13 @@ def create_targets_and_start_scan(request):
                         "address": valid_product[target_id]["address"],
                         "delete": valid_product[target_id]["delete"]
                     }
-                target_group = create_target_group(group_name)
+                target_group = create_target_group(server=server, token=token, name=group_name)
                 target_group_id = target_group.get("group_id")
-                set_target_to_group(target_ids, target_group_id)
+                set_target_to_group(server, token, target_ids, target_group_id)
 
-                fill_statistic_for_files.apply_async(args=[scans])
+                fill_statistic_for_files.apply_async(args=[server, token, scans])
 
-                return redirect("active_scans")
+                return redirect(f"indepo/scans/active?server={cleaned_data_server.id}")
             else:
                 logger.error("Mistakes %s", targets_form.errors)
                 raise Http404("Invalid fill form")
@@ -134,17 +158,39 @@ def create_targets_and_start_scan(request):
     except AcunetixException as e:
         raise Http404(str(e))
 
-@check_acunetix_api
+def get_scans_by_func(request, func, server, token):
+    is_available_acunetix_api(server, token)
+    scans = func(server, token)
+    return create_template_scan(request, scans)
+
+def get_scans_by_type(request, func, server_id=None):
+    try:
+        if server_id:
+            acunetix_server = AcunetixServers.objects.get(id=server_id)
+            server, token = get_data_server(acunetix_server)
+            return get_scans_by_func(request, func, server, token)
+        if request.method == "POST":
+            form = AcunetixServerSelectForm(request.POST)
+            if form.is_valid(): 
+                cleaned_data = form.cleaned_data
+                server, token = get_data_server(cleaned_data.pop("server"))
+            else:
+                raise Http404("Invalid form data")
+            return get_scans_by_func(request, func, server, token)
+        if request.method == "GET":
+            form = AcunetixServerSelectForm()
+            return render(request, "dojo/acunetix_target_and_scan_table.html", {"has_form": True, "form": form})
+    except AcunetixException as e:
+        raise Http404(str(e))
+    raise Http404("Not found method")
+
 def get_active_scans(request):
-    scans = get_scans_in_processing()
-    return create_template_scan(request, scans)
+    server_id=request.GET.get("server")
+    return get_scans_by_type(request, get_scans_in_processing, server_id)
 
-@check_acunetix_api
 def get_scans(request):
-    scans = get_all_scans()
-    return create_template_scan(request, scans)
+    return get_scans_by_type(request, get_all_scans)
 
-@check_acunetix_api
 def import_reports(request):
     try:
         if request.method == "POST":
@@ -153,10 +199,13 @@ def import_reports(request):
                 cleaned_data = form.cleaned_data
                 type_scan = cleaned_data["type_scan"]
                 periodic_in_seconds = cleaned_data["periodic"]
-                type_import = cleaned_data["type_import"]
-                schedule_task(type_import, periodic_in_seconds, type_scan)
+                type_import = cleaned_data["type_import"]                
+                server, token = get_data_server(cleaned_data.pop("server"))
+                is_available_acunetix_api(server, token)
+                schedule_task(server, token, type_import, periodic_in_seconds, type_scan)
 
-                return render(request, "dojo/acunetix_report.html", {"form": form})
+                # return render(request, "dojo/acunetix_report.html", {"form": form})
+                return redirect("periodic_task")
             else:
                 raise Http404("Invalid form")
     except AcunetixException as e:
@@ -166,14 +215,27 @@ def import_reports(request):
         form = GetReportForm()
         return render(request, "dojo/acunetix_report.html", {"form": form})
     
-@check_acunetix_api
-def target_groups(request):
+
+def select_target_group(request):
+    if request.method == "GET":
+        form = AcunetixServerSelectForm()
+        return render(request, "dojo/acunetix_select_target.html", {"form": form})
+    if request.method == "POST":
+        form = AcunetixServerSelectForm(request.POST)
+        if form.is_valid():
+            server = form.cleaned_data.get("server")
+            return redirect(reverse("target_groups", kwargs={"id": server.id}))
+    raise Http404("Invalid form data")
+
+def target_groups(request, id):
+    server = AcunetixServers.objects.get(id=id)
+    server, token = get_data_server(server)
     if request.method == "POST":
         group_ids = get_splited_items(request)
         group_id_list = {"group_id_list": group_ids}
-        delete_target_groups_by_ids(group_id_list)
+        delete_target_groups_by_ids(server=server, token=token, group_id_list=group_id_list)
 
-    groups = get_all_target_groups().get("groups")
+    groups = get_all_target_groups(server, token).get("groups")
     groups_context = [
         {
             "name": group["name"],
@@ -189,7 +251,7 @@ def target_groups(request):
 
     return render(request, "dojo/acunetix_target_groups.html", {"groups": paginate_groups})
 
-@check_acunetix_api
+
 def periodic_task(request):
     if request.method == "POST":
         data = request.POST
@@ -213,3 +275,26 @@ def periodic_task(request):
     periodic_tasks_context = paginate(request, periodic_tasks_context)
 
     return render(request, "dojo/acunetix_delete_reports.html", {"periodic_tasks": periodic_tasks_context})
+
+
+
+def add_acunetix_server(request):
+    if request.method == "POST":
+        form = AddAcunetixServerForm(request.POST)
+        if form.is_valid():
+            form.save()
+        else:
+            raise Http404("Invalid form")
+        return redirect("acunetix_servers")
+        
+    form = AddAcunetixServerForm()
+    return render(request, "dojo/acunetix_add_server.html", {"form": form})
+
+def acunetix_servers(request):
+    print("fdskfdskkfdskfdksfdkfdks", request.method)
+    if request.method == "POST":
+        delete_data = request.POST.getlist("deleteData[]")
+        AcunetixServers.objects.filter(id__in=delete_data).delete()
+    servers = AcunetixServers.objects.all()
+    servers = paginate(request, servers)
+    return render(request, "dojo/acunetix_show_servers.html", {"servers": servers})

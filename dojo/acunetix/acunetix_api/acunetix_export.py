@@ -8,9 +8,10 @@ class ApiGenerateExport(ApiMixin):
     def __init__(
             self,
             json: dict,
+            url: str = ACUNETIX_URL,
             api_key: str = ACUNETIX_TOKEN
     ):
-        url = f"{ACUNETIX_URL}/exports"
+        url = f"{url}/exports"
         super().__init__("POST", url, api_key, json=json)
 
 class ApiGetExport(ApiMixin):
@@ -19,7 +20,8 @@ class ApiGetExport(ApiMixin):
     def __init__(
             self,
             export_id: str,
+            url: str = ACUNETIX_URL,
             api_key: str = ACUNETIX_TOKEN
     ):
-        url = f"{ACUNETIX_URL}/exports/{export_id}"
+        url = f"{url}/exports/{export_id}"
         super().__init__("GET", url, api_key)

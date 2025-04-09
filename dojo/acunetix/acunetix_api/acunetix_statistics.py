@@ -8,9 +8,10 @@ class ApiGetResultByScan(ApiMixin):
     def __init__(
             self,
             scan_id: str,
+            url: str = ACUNETIX_URL,
             api_key: str = ACUNETIX_TOKEN
     ):
-        url = f"{ACUNETIX_URL}/scans/{scan_id}/results"
+        url = f"{url}/scans/{scan_id}/results"
         super().__init__("GET", url, api_key)
 
 class ApiGetCrawlData(ApiMixin):
@@ -20,9 +21,10 @@ class ApiGetCrawlData(ApiMixin):
             self,
             scan_id: str, 
             result_id: str,
+            url: str = ACUNETIX_URL,
             api_key: str = ACUNETIX_TOKEN
     ):
-        url = f"{ACUNETIX_URL}/scans/{scan_id}/results/{result_id}/crawldata"
+        url = f"{url}/scans/{scan_id}/results/{result_id}/crawldata"
         super().__init__("GET", url, api_key)
 
 class ApiGetCrawlDataChildren(ApiMixin):
@@ -33,9 +35,10 @@ class ApiGetCrawlDataChildren(ApiMixin):
             scan_id: str, 
             result_id: str,
             loc_id: str,
+            url: str = ACUNETIX_URL,
             api_key: str = ACUNETIX_TOKEN
     ):
-        url = f"{ACUNETIX_URL}/scans/{scan_id}/results/{result_id}/crawldata/{loc_id}/children"
+        url = f"{url}/scans/{scan_id}/results/{result_id}/crawldata/{loc_id}/children"
         super().__init__("GET", url, api_key)
 
 class ApiGetVulnerabilities(ApiMixin):
@@ -45,7 +48,8 @@ class ApiGetVulnerabilities(ApiMixin):
             self,
             scan_id: str, 
             result_id: str,
+            url: str = ACUNETIX_URL,
             api_key: str = ACUNETIX_TOKEN
     ):
-        url = f"{ACUNETIX_URL}/scans/{scan_id}/results/{result_id}/vulnerabilities"
+        url = f"{url}/scans/{scan_id}/results/{result_id}/vulnerabilities"
         super().__init__("GET", url, api_key)

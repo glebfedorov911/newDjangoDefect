@@ -2,73 +2,81 @@
 {% block content %}
 <div class="container mt-4">
     <h2 class="mb-4">Список сканирований</h2>
-    <div class="table-responsive">
-        <table class="table table-bordered table-striped">
-            <thead class="thead-dark">
-                <tr>
-                    <th>Адрес</th>
-                    <th>Прогресс</th>
-                    <th class="text-danger">Critical</th>
-                    <th class="text-warning">High</th>
-                    <th class="text-primary">Medium</th>
-                    <th class="text-success">Low</th>
-                    <th class="text-info">Info</th>
-                    <th>Статус</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for scan in scans %}
+    {% if has_form %} 
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Сохранить</button>
+        </form>
+    {% else %}
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
                     <tr>
-                        <td><a href="{{ scan.address }}">{{ scan.address }}</a></td>
-                        <td>
-                            <div class="progress" style="height: 20px;">
-                                <div class="progress-bar" role="progressbar" 
-                                     style="width: {{ scan.progress }}%;" 
-                                     aria-valuenow="{{ scan.progress }}" 
-                                     aria-valuemin="0" aria-valuemax="100">
-                                    {{ scan.progress }}%
-                                </div>
-                            </div>
-                        </td>
-                        <td class="text-danger font-weight-bold">{{ scan.critical }}</td>
-                        <td class="text-warning font-weight-bold">{{ scan.high }}</td>
-                        <td class="text-primary font-weight-bold">{{ scan.medium }}</td>
-                        <td class="text-success font-weight-bold">{{ scan.low }}</td>
-                        <td class="text-info font-weight-bold">{{ scan.info }}</td>
-                        <td>
-                            <span class="badge {% if scan.status == 'Completed' %}badge-success{% elif scan.status == 'In Progress' %}badge-warning{% else %}badge-secondary{% endif %}">
-                                {{ scan.status }}
-                            </span>
-                        </td>
+                        <th>Адрес</th>
+                        <th>Прогресс</th>
+                        <th class="text-danger">Critical</th>
+                        <th class="text-warning">High</th>
+                        <th class="text-primary">Medium</th>
+                        <th class="text-success">Low</th>
+                        <th class="text-info">Info</th>
+                        <th>Статус</th>
                     </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-        <nav aria-label="Page navigation">
-            <ul class="pagination">
-                {% if scans.has_previous %}
-                    <li class="page-item">
-                        <a class="page-link" href="?page=1">Первая</a>
+                </thead>
+                <tbody>
+                    {% for scan in scans %}
+                        <tr>
+                            <td><a href="{{ scan.address }}">{{ scan.address }}</a></td>
+                            <td>
+                                <div class="progress" style="height: 20px;">
+                                    <div class="progress-bar" role="progressbar" 
+                                        style="width: {{ scan.progress }}%;" 
+                                        aria-valuenow="{{ scan.progress }}" 
+                                        aria-valuemin="0" aria-valuemax="100">
+                                        {{ scan.progress }}%
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="text-danger font-weight-bold">{{ scan.critical }}</td>
+                            <td class="text-warning font-weight-bold">{{ scan.high }}</td>
+                            <td class="text-primary font-weight-bold">{{ scan.medium }}</td>
+                            <td class="text-success font-weight-bold">{{ scan.low }}</td>
+                            <td class="text-info font-weight-bold">{{ scan.info }}</td>
+                            <td>
+                                <span class="badge {% if scan.status == 'Completed' %}badge-success{% elif scan.status == 'In Progress' %}badge-warning{% else %}badge-secondary{% endif %}">
+                                    {{ scan.status }}
+                                </span>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    {% if scans.has_previous %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page=1">Первая</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ scans.previous_page_number }}">Назад</a>
+                        </li>
+                    {% endif %}
+            
+                    <li class="page-item disabled">
+                        <span class="page-link">Страница {{ scans.number }} из {{ scans.paginator.num_pages }}</span>
                     </li>
-                    <li class="page-item">
-                        <a class="page-link" href="?page={{ scans.previous_page_number }}">Назад</a>
-                    </li>
-                {% endif %}
-        
-                <li class="page-item disabled">
-                    <span class="page-link">Страница {{ scans.number }} из {{ scans.paginator.num_pages }}</span>
-                </li>
-        
-                {% if scans.has_next %}
-                    <li class="page-item">
-                        <a class="page-link" href="?page={{ scans.next_page_number }}">Вперёд</a>
-                    </li>
-                    <li class="page-item">
-                        <a class="page-link" href="?page={{ scans.paginator.num_pages }}">Последняя</a>
-                    </li>
-                {% endif %}
-            </ul>
-        </nav>
+            
+                    {% if scans.has_next %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ scans.next_page_number }}">Вперёд</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ scans.paginator.num_pages }}">Последняя</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
     </div>
-</div>
+{% endif %}
 {% endblock %}

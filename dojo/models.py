@@ -4494,9 +4494,9 @@ class Answered_Survey(models.Model):
         return self.survey.name
 
 class CheckedScan(models.Model):
-    scan_id = models.CharField(max_length=50)
+    scan_id = models.CharField(max_length=500)
     checked = models.BooleanField(default=True)
-    type_scan = models.CharField(max_length=50, null=True, blank=True)
+    type_scan = models.CharField(max_length=500, null=True, blank=True)
 
 class General_Survey(models.Model):
     survey = models.ForeignKey(Engagement_Survey, on_delete=models.CASCADE)
@@ -4511,6 +4511,13 @@ class General_Survey(models.Model):
     def __str__(self):
         return self.survey.name
 
+class AcunetixServers(models.Model):
+    server_address = models.CharField(max_length=15)
+    server_port = models.CharField(max_length=10, default="3443")
+    token_system = models.CharField(max_length=100)
+
+    def __str__(self):
+        return f"{self.server_address}:{self.server_port}"
 
 with warnings.catch_warnings(action="ignore", category=ManagerInheritanceWarning):
     class Answer(PolymorphicModel, TimeStampedModel):
@@ -4667,3 +4674,4 @@ admin.site.register(Test_Import)
 admin.site.register(Test_Import_Finding_Action)
 admin.site.register(Finding_Group)
 admin.site.register(CheckedScan)
+admin.site.register(AcunetixServers)

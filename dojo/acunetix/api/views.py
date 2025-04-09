@@ -6,7 +6,7 @@ from drf_spectacular.utils import extend_schema, OpenApiParameter
 
 
 from dojo.acunetix.acunetix_api.acunetix_exception import AcunetixException
-from dojo.acunetix.acunetix_api.acunetix_access import check_acunetix_api
+from dojo.acunetix.acunetix_api.acunetix_access import is_available_acunetix_api
 from dojo.acunetix.another import (
     check_has_product, create_target_group, delete_target_groups_by_ids, 
     fill_statistic, fill_statistic_for_files, 
@@ -19,7 +19,10 @@ from dojo.acunetix.api.serializers import (
     TargetsCreateSerializer,
     GetReportSerializer,
     TargetGroupsSerializer,
+    AcunetixAddServerSerializer,
+    AcunetixDeleteSerializer
 )
+from dojo.models import AcunetixServers
 from dojo.api_v2.permissions import UserHasDojoGroupPermission
 from django_celery_beat.models import PeriodicTask
 
@@ -27,6 +30,23 @@ import logging
 
 
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG) 
+
+file_handler = logging.FileHandler('./dojo/acunetix/acunetix.log', mode='a', encoding='utf-8')  
+file_handler.setLevel(logging.DEBUG)
+
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+file_handler.setFormatter(formatter)
+
+logger.addHandler(file_handler)
+
+def acunetix_data_get_by_id(server_id) -> tuple:
+    acunetix_server = AcunetixServers.objects.get(id=server_id)
+    server_address = f"https://{acunetix_server.server_address}:{acunetix_server.server_port}/api/v1"
+    token = acunetix_server.token_system
+    is_available_acunetix_api(server_address, token)
+    return server_address, token
+
 
 class TargetCreateViewSet(viewsets.ViewSet):
 
@@ -53,7 +73,6 @@ class TargetCreateViewSet(viewsets.ViewSet):
         ],
         request=TargetCreateSerializer
     )
-    @check_acunetix_api
     @action(detail=False, methods=['post'], url_path='target-create')
     def create_one_target(self, request):
         try:
@@ -64,19 +83,23 @@ class TargetCreateViewSet(viewsets.ViewSet):
                 cleaned_data = target_form.validated_data
                 scan_type = cleaned_data.pop("scan_type")
                 address = cleaned_data.get("address")
-                
+
+                server = cleaned_data.pop("server")
+                server_address, token = acunetix_data_get_by_id(server_id=server)
+
                 try:
                     protocol, product = check_has_product(address)
                 except Exception:
-                    return Response({"error": f"Not found address with address {address}"}, status=status.HTTP_400_BAD_REQUEST)
-                
-                target = post_target_request(cleaned_data)
-                target_id = target.get("target_id")
-                
-                scan = post_scan_request(target_id, scan_type)
-                fill_statistic.apply_async(
-                    args=[scan, protocol, product, address]
-                )
+                    logger.info(f"not found product {address}")
+                    # return Response({"error": f"Not found address with address {address}"}, status=status.HTTP_400_BAD_REQUEST)
+                else:
+                    target = post_target_request(server_address, token, cleaned_data)
+                    target_id = target.get("target_id")
+                    
+                    scan = post_scan_request(server_address, token, target_id, scan_type)
+                    fill_statistic.apply_async(
+                        args=[server_address, token, scan, protocol, product, address]
+                    )
                 
                 return Response({"message": "success"})
             else:
@@ -106,7 +129,6 @@ class TargetCreateViewSet(viewsets.ViewSet):
         ],
         request=TargetsCreateSerializer
     )
-    @check_acunetix_api
     @action(detail=False, methods=['post'], url_path='targets-create')
     def create_some_targets(self, request):
         try:
@@ -117,9 +139,12 @@ class TargetCreateViewSet(viewsets.ViewSet):
                 cleaned_data = targets_form.data
                 addresses = cleaned_data.pop("addresses")
                 group_name = cleaned_data.pop("name")
-                
+
+                server = cleaned_data.pop("server")
+                server_address, token = acunetix_data_get_by_id(server_id=server)
+
                 try:
-                    target_group = create_target_group(group_name)
+                    target_group = create_target_group(server_address, token, group_name)
                 except:
                     return Response({"error": f"Already exist this target"}, status=status.HTTP_400_BAD_REQUEST)
                 target_ids = []
@@ -136,13 +161,14 @@ class TargetCreateViewSet(viewsets.ViewSet):
                         try:
                             protocol, product = check_has_product(address)
                         except ValueError as e:
-                            return Response({"error": f"Not found address with address {address}"}, status=status.HTTP_400_BAD_REQUEST)
+                            logger.info(f"not found product {address}")
+                            # return Response({"error": f"Not found address with address {address}"}, status=status.HTTP_400_BAD_REQUEST)
 
-                        target_created = post_target_request(target_cleaned_data)
+                        target_created = post_target_request(server_address, token, target_cleaned_data)
                         target_id = target_created.get("target_id")
                         target_ids.append(target_id)
 
-                        scan = post_scan_request(target_id, scan_type)
+                        scan = post_scan_request(server_address, token, target_id, scan_type)
                         scans[scan["scan_id"]] = {
                             "scan": scan,
                             "protocol": protocol,
@@ -151,9 +177,9 @@ class TargetCreateViewSet(viewsets.ViewSet):
                             "delete": False
                         }
                 target_group_id = target_group.get("group_id")
-                set_target_to_group(target_ids, target_group_id)
+                set_target_to_group(server_address, token, target_ids, target_group_id)
 
-                fill_statistic_for_files.apply_async(args=[scans])
+                fill_statistic_for_files.apply_async(args=[server_address, token, scans])
 
                 return Response({"message": "success"})
             else:
@@ -171,10 +197,10 @@ class TargetCreateViewSet(viewsets.ViewSet):
             )
         ],
     )
-    @check_acunetix_api
-    @action(detail=False, methods=['get'], url_path='get-active-scans')
-    def get_active_scans(self, request):
-        scans = get_scans_in_processing()
+    @action(detail=False, methods=['get'], url_path='get-active-scans/(?P<server>\d+)')
+    def get_active_scans(self, request, server: int):
+        server_address, token = acunetix_data_get_by_id(server_id=server)
+        scans = get_scans_in_processing(server_address, token)
         return Response(scans)
     
     
@@ -187,10 +213,10 @@ class TargetCreateViewSet(viewsets.ViewSet):
             )
         ],
     )
-    @check_acunetix_api
-    @action(detail=False, methods=['get'], url_path='get-scans')
-    def get_scans(self, request):
-        scans = get_all_scans()
+    @action(detail=False, methods=['get'], url_path='get-scans/(?P<server>\d+)')
+    def get_scans(self, request, server):
+        server_address, token = acunetix_data_get_by_id(server_id=server)
+        scans = get_all_scans(server_address, token)
         return Response(scans)
     
     @extend_schema(
@@ -212,7 +238,6 @@ class TargetCreateViewSet(viewsets.ViewSet):
         ],
         request=GetReportSerializer
     )
-    @check_acunetix_api
     @action(detail=False, methods=['post'], url_path='import-reports')
     def import_reports(self, request):
         try:
@@ -222,7 +247,9 @@ class TargetCreateViewSet(viewsets.ViewSet):
                 type_scan = cleaned_data["type_scan"]
                 periodic_in_seconds = cleaned_data["periodic"]
                 type_import = cleaned_data["type_import"]
-                schedule_task(type_import, periodic_in_seconds, type_scan)
+                server = cleaned_data.pop("server")
+                server_address, token = acunetix_data_get_by_id(server_id=server)
+                schedule_task(server_address, token, type_import, periodic_in_seconds, type_scan)
 
                 return Response({"message": "success"})
             else:
@@ -239,10 +266,10 @@ class TargetCreateViewSet(viewsets.ViewSet):
             )
         ]
     )
-    @action(detail=False, methods=['get'], url_path='get-target-groups')
-    @check_acunetix_api
-    def get_target_groups(self, request):
-        groups = get_all_target_groups().get("groups")
+    @action(detail=False, methods=['get'], url_path='get-target-groups/(?P<server>\d+)')
+    def get_target_groups(self, request, server):
+        server_address, token = acunetix_data_get_by_id(server_id=server)
+        groups = get_all_target_groups(server_address, token).get("groups")
         groups_context = [
             {
                 "name": group["name"],
@@ -268,16 +295,17 @@ class TargetCreateViewSet(viewsets.ViewSet):
         request=TargetGroupsSerializer,
     )
     @action(detail=False, methods=['post'], url_path='delete-target-groups')
-    @check_acunetix_api
     def delete_target_groups(self, request):
         serializer = TargetGroupsSerializer(data=request.data)
         if serializer.is_valid():
             group_ids = serializer.data.get("group_ids")
+            server = serializer.data.get("server")
+            server_address, token = acunetix_data_get_by_id(server_id=server)
             group_id_list = {"group_id_list": group_ids}
-            delete_target_groups_by_ids(group_id_list)
+            delete_target_groups_by_ids(server_address, token, group_id_list)
         
             return Response({"message": "success"})
-        return Response({"message": str(e)})
+        return Response({"message": str("Bad serializer")})
         
     @extend_schema(
         summary="Получить все периодические задачи",
@@ -289,7 +317,6 @@ class TargetCreateViewSet(viewsets.ViewSet):
         ],
     )
     @action(detail=False, methods=['get'], url_path='periodic-tasks')
-    @check_acunetix_api
     def get_periodic_tasks(self, request):
         periodic_tasks = PeriodicTask.objects.all()
         periodic_tasks_context = [
@@ -314,7 +341,6 @@ class TargetCreateViewSet(viewsets.ViewSet):
         request=PeriodicTaskSerializer
     )
     @action(detail=False, methods=['post'], url_path='stop-periodic-tasks')
-    @check_acunetix_api
     def stop_periodic_tasks(self, request):
         serializer = PeriodicTaskSerializer(data=request.data)
         if serializer.is_valid():
@@ -326,3 +352,71 @@ class TargetCreateViewSet(viewsets.ViewSet):
 
             return Response({"message": "success"})
         return Response({"error": "invalid form"})
+
+    @extend_schema(
+        summary="Посмотреть все сервера",
+        description="Посмотреть все сервера",
+        parameters=[
+            OpenApiParameter(
+                name="Indepo",
+            )
+        ],
+    )
+    @action(detail=False, methods=['get'], url_path='get-servers')
+    def get_servers(self, request):
+        servers = AcunetixServers.objects.all()
+        return Response({
+            "data": [
+                {
+                    "server_id": server.id,
+                    "server_address": server.server_address,
+                    "server_port": server.server_port,
+                    "server_token": server.token_system
+                } for server in servers
+            ],
+            "count": len(servers)
+        })
+
+    @extend_schema(
+        summary="Добавить новый сервер",
+        description="""
+            server_address - айпи сервера
+            server_port - порт
+            token_system - токен аккаунта
+        """,
+        parameters=[
+            OpenApiParameter(
+                name="Indepo",
+            )
+        ],
+        request=AcunetixAddServerSerializer
+    )
+    @action(detail=False, methods=['post'], url_path='add-server')
+    def add_server(self, request):
+        data = AcunetixAddServerSerializer(request.data)
+        if data.is_valid():
+            acunetix_server = AcunetixServers.objects.create(**data)
+            acunetix_server.save()
+            return Response({"message": "success add"})
+        return Response({"message": "invalid serializer"}, status=400)
+    
+    @extend_schema(
+        summary="Удалить сервер",
+        description="""
+            передается id в системе
+        """,
+        parameters=[
+            OpenApiParameter(
+                name="Indepo",
+            )
+        ],
+        request=AcunetixDeleteSerializer
+    )
+    @action(detail=False, methods=['post'], url_path='delete-servers')
+    def delete_servers(self, request):
+        data = AcunetixDeleteSerializer(request.data)
+        if data.is_valid():
+            acunetix_server = AcunetixServers.objects.filter(id__in=data.get("ids"))
+            acunetix_server.delete()
+            return Response({"message": "success delete"})
+        return Response({"message": "invalid serializer"}, status=400)
