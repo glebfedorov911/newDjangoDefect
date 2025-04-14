@@ -1,0 +1,1057 @@
+<?xml version="1.0"?>
+<ScanGroup ExportedOn="2025-04-14">
+<Scan>
+        <Name><![CDATA[scan_name]]></Name>
+        <ShortName><![CDATA[scan_short_name]]></ShortName>
+        <StartURL><![CDATA[blrvpn1.target1.com]]></StartURL>
+        <StartTime><![CDATA[2025-04-14T11:20:31.979097+00:00]]></StartTime>
+        <FinishTime><![CDATA[2025-04-14T11:22:55.659813+00:00]]></FinishTime>
+        <ScanTime><![CDATA[2 minutes, 19 seconds]]></ScanTime>
+        <Aborted><![CDATA[False]]></Aborted>
+        <Responsive><![CDATA[True]]></Responsive>
+        <Banner><![CDATA[]]></Banner>
+        <Os><![CDATA[Unknown]]></Os>
+        <WebServer><![CDATA[nginx/1.19.5]]></WebServer>
+        <Technologies>
+            <![CDATA[
+                PHP
+            ]]>
+        </Technologies>
+        <Crawler StartUrl="https://blrvpn1.target1.com">
+            <Cookies>
+            </Cookies>
+            <SiteFiles>
+<SiteFile id="1">
+                    <Name><![CDATA[https://blrvpn1.target1.com/]]></Name>
+                    <URL><![CDATA[/]]></URL>
+                    <FullURL><![CDATA[https://blrvpn1.target1.com/]]></FullURL>
+                    <Inputs>
+                                <Variable Name="Referer" Type="HTTP Header"/>
+                                <Variable Name="User-Agent" Type="HTTP Header"/>
+                                <Variable Name="X-Forwarded-For" Type="HTTP Header"/>
+                                <Variable Name="nui" Type="Cookie"/>
+                    </Inputs>
+                </SiteFile>
+<SiteFile id="2">
+                    <Name><![CDATA[robots.txt]]></Name>
+                    <URL><![CDATA[/robots.txt]]></URL>
+                    <FullURL><![CDATA[https://blrvpn1.target1.com/robots.txt]]></FullURL>
+                    <Inputs>
+                                <Variable Name="Referer" Type="HTTP Header"/>
+                                <Variable Name="User-Agent" Type="HTTP Header"/>
+                                <Variable Name="X-Forwarded-For" Type="HTTP Header"/>
+                                <Variable Name="nui" Type="Cookie"/>
+                    </Inputs>
+                </SiteFile>
+            </SiteFiles>
+        </Crawler>
+        <ReportItems>
+<ReportItem id="1" color="red">
+                <Name><![CDATA[Insecure Transportation Security Protocol Supported (TLS 1.0)]]></Name>
+                <ModuleName><![CDATA[/Scripts/PerServer/SSL_Audit.script]]></ModuleName>
+                <Details><![CDATA[The SSL server (port: 443) encrypts traffic using TLSv1.0.<br/><br/>]]></Details>
+                <Affects><![CDATA[/]]></Affects>
+                <Parameter><![CDATA[]]></Parameter>
+                <AOP_SourceFile><![CDATA[]]></AOP_SourceFile>
+                <AOP_SourceLine></AOP_SourceLine>
+                <AOP_Additional><![CDATA[]]></AOP_Additional>
+                <IsFalsePositive><![CDATA[]]></IsFalsePositive>
+                <Severity><![CDATA[high]]></Severity>
+                <Type><![CDATA[configuration]]></Type>
+                <Impact><![CDATA[An attacker may be able to exploit this problem to conduct man-in-the-middle attacks and decrypt communications between the affected service and clients.]]></Impact>
+                <Description><![CDATA[The web server supports encryption through TLS 1.0, which was formally deprecated in March 2021 as a result of inherent security issues.
+            In addition, TLS 1.0 is not considered to be &quot;strong cryptography&quot; as defined and required by the PCI Data Security Standard 3.2(.1) when used to protect sensitive information transferred to or from web sites.
+		According to PCI, &quot;30 June 2018 is the deadline for disabling SSL/early TLS and implementing a more secure encryption protocol – TLS 1.1 or higher (TLS v1.2 is strongly encouraged) in order to meet the PCI Data Security Standard (PCI DSS) for safeguarding payment data.]]></Description>
+                <DetailedInformation><![CDATA[]]></DetailedInformation>
+                <Recommendation><![CDATA[It is recommended to disable TLS 1.0 and replace it with TLS 1.2 or higher.]]></Recommendation>
+                <TechnicalDetails>
+                    <Request><![CDATA[]]></Request>
+                </TechnicalDetails>
+                <CWEList>
+                    <CWE id="326"><![CDATA[CWE-326]]></CWE>
+                </CWEList>
+                <CVEList>
+                </CVEList>
+                <CVSS>
+                  <Descriptor><![CDATA[AV:N/AC:M/Au:N/C:P/I:P/A:N]]></Descriptor>
+                  <Score><![CDATA[5.8]]></Score>
+                  <AV><![CDATA[Network_Accessible]]></AV>
+                  <AC><![CDATA[Medium]]></AC>
+                  <Au><![CDATA[None]]></Au>
+                  <C><![CDATA[Partial]]></C>
+                  <I><![CDATA[Partial]]></I>
+                  <A><![CDATA[None]]></A>
+                  <E><![CDATA[]]></E>
+                  <RL><![CDATA[]]></RL>
+                  <RC><![CDATA[]]></RC>
+                </CVSS>
+                <CVSS3>
+                  <Descriptor><![CDATA[CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:L/I:L/A:N]]></Descriptor>
+                  <Score><![CDATA[5.4]]></Score>
+                  <TempScore><![CDATA[]]></TempScore>
+                  <EnvScore><![CDATA[]]></EnvScore>
+                  <AV><![CDATA[Network]]></AV>
+                  <AC><![CDATA[High]]></AC>
+                  <PR><![CDATA[None]]></PR>
+                  <UI><![CDATA[None]]></UI>
+                  <S><![CDATA[Changed]]></S>
+                  <C><![CDATA[Low]]></C>
+                  <I><![CDATA[Low]]></I>
+                  <A><![CDATA[None]]></A>
+                  <E><![CDATA[]]></E>
+                  <RL><![CDATA[]]></RL>
+                  <RC><![CDATA[]]></RC>
+                </CVSS3>
+                <CVSS4>
+                  <Descriptor><![CDATA[CVSS:4.0/AV:N/AC:H/AT:N/PR:N/UI:N/VC:L/VI:L/VA:N/SC:L/SI:L/SA:N]]></Descriptor>
+                  <Score><![CDATA[6.3]]></Score>
+                  <AV><![CDATA[Network]]></AV>
+                  <AC><![CDATA[High]]></AC>
+                  <PR><![CDATA[None]]></PR>
+                  <UI><![CDATA[None]]></UI>
+                  <VC><![CDATA[Low]]></VC>
+                  <VI><![CDATA[Low]]></VI>
+                  <VA><![CDATA[None]]></VA>
+                  <SC><![CDATA[Low]]></SC>
+                  <SI><![CDATA[Low]]></SI>
+                  <SA><![CDATA[None]]></SA>
+                </CVSS4>
+                <References>
+                    <Reference>
+                      <Database><![CDATA[RFC 8996: Deprecating TLS 1.0 and TLS 1.1]]></Database>
+                      <URL><![CDATA[https://tools.ietf.org/html/rfc8996]]></URL>
+                    </Reference>
+                    <Reference>
+                      <Database><![CDATA[Are You Ready for 30 June 2018? Saying Goodbye to SSL/early TLS]]></Database>
+                      <URL><![CDATA[https://blog.pcisecuritystandards.org/are-you-ready-for-30-june-2018-sayin-goodbye-to-ssl-early-tls]]></URL>
+                    </Reference>
+                    <Reference>
+                      <Database><![CDATA[PCI 3.1 and TLS 1.2 (Cloudflare Support)]]></Database>
+                      <URL><![CDATA[https://support.cloudflare.com/hc/en-us/articles/205043158-PCI-3-1-and-TLS-1-2]]></URL>
+                    </Reference>
+                </References>
+            </ReportItem>
+<ReportItem id="2" color="orange">
+                <Name><![CDATA[Insecure Transportation Security Protocol Supported (TLS 1.1)]]></Name>
+                <ModuleName><![CDATA[/Scripts/PerServer/SSL_Audit.script]]></ModuleName>
+                <Details><![CDATA[The SSL server (port: 443) encrypts traffic using TLSv1.1.<br/><br/>]]></Details>
+                <Affects><![CDATA[/]]></Affects>
+                <Parameter><![CDATA[]]></Parameter>
+                <AOP_SourceFile><![CDATA[]]></AOP_SourceFile>
+                <AOP_SourceLine></AOP_SourceLine>
+                <AOP_Additional><![CDATA[]]></AOP_Additional>
+                <IsFalsePositive><![CDATA[]]></IsFalsePositive>
+                <Severity><![CDATA[medium]]></Severity>
+                <Type><![CDATA[configuration]]></Type>
+                <Impact><![CDATA[An attacker may be able to exploit this problem to conduct man-in-the-middle attacks and decrypt communications between the affected service and clients.]]></Impact>
+                <Description><![CDATA[The web server supports encryption through TLS 1.1, which was formally deprecated in March 2021 as a result of inherent security issues.
+            When aiming for Payment Card Industry (PCI) Data Security Standard (DSS) compliance, it is recommended to use TLS 1.2 or higher instead.
+		According to PCI, &quot;30 June 2018 is the deadline for disabling SSL/early TLS and implementing a more secure encryption protocol – TLS 1.1 or higher (TLS v1.2 is strongly encouraged) in order to meet the PCI Data Security Standard (PCI DSS) for safeguarding payment data.]]></Description>
+                <DetailedInformation><![CDATA[]]></DetailedInformation>
+                <Recommendation><![CDATA[It is recommended to disable TLS 1.1 and replace it with TLS 1.2 or higher.]]></Recommendation>
+                <TechnicalDetails>
+                    <Request><![CDATA[]]></Request>
+                </TechnicalDetails>
+                <CWEList>
+                    <CWE id="326"><![CDATA[CWE-326]]></CWE>
+                </CWEList>
+                <CVEList>
+                </CVEList>
+                <CVSS>
+                  <Descriptor><![CDATA[AV:N/AC:M/Au:N/C:P/I:P/A:N]]></Descriptor>
+                  <Score><![CDATA[5.8]]></Score>
+                  <AV><![CDATA[Network_Accessible]]></AV>
+                  <AC><![CDATA[Medium]]></AC>
+                  <Au><![CDATA[None]]></Au>
+                  <C><![CDATA[Partial]]></C>
+                  <I><![CDATA[Partial]]></I>
+                  <A><![CDATA[None]]></A>
+                  <E><![CDATA[]]></E>
+                  <RL><![CDATA[]]></RL>
+                  <RC><![CDATA[]]></RC>
+                </CVSS>
+                <CVSS3>
+                  <Descriptor><![CDATA[CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:L/I:L/A:N]]></Descriptor>
+                  <Score><![CDATA[5.4]]></Score>
+                  <TempScore><![CDATA[]]></TempScore>
+                  <EnvScore><![CDATA[]]></EnvScore>
+                  <AV><![CDATA[Network]]></AV>
+                  <AC><![CDATA[High]]></AC>
+                  <PR><![CDATA[None]]></PR>
+                  <UI><![CDATA[None]]></UI>
+                  <S><![CDATA[Changed]]></S>
+                  <C><![CDATA[Low]]></C>
+                  <I><![CDATA[Low]]></I>
+                  <A><![CDATA[None]]></A>
+                  <E><![CDATA[]]></E>
+                  <RL><![CDATA[]]></RL>
+                  <RC><![CDATA[]]></RC>
+                </CVSS3>
+                <CVSS4>
+                  <Descriptor><![CDATA[CVSS:4.0/AV:N/AC:H/AT:N/PR:N/UI:N/VC:L/VI:L/VA:N/SC:L/SI:N/SA:N]]></Descriptor>
+                  <Score><![CDATA[6.3]]></Score>
+                  <AV><![CDATA[Network]]></AV>
+                  <AC><![CDATA[High]]></AC>
+                  <PR><![CDATA[None]]></PR>
+                  <UI><![CDATA[None]]></UI>
+                  <VC><![CDATA[Low]]></VC>
+                  <VI><![CDATA[Low]]></VI>
+                  <VA><![CDATA[None]]></VA>
+                  <SC><![CDATA[Low]]></SC>
+                  <SI><![CDATA[None]]></SI>
+                  <SA><![CDATA[None]]></SA>
+                </CVSS4>
+                <References>
+                    <Reference>
+                      <Database><![CDATA[RFC 8996: Deprecating TLS 1.0 and TLS 1.1]]></Database>
+                      <URL><![CDATA[https://tools.ietf.org/html/rfc8996]]></URL>
+                    </Reference>
+                    <Reference>
+                      <Database><![CDATA[Are You Ready for 30 June 2018? Saying Goodbye to SSL/early TLS]]></Database>
+                      <URL><![CDATA[https://blog.pcisecuritystandards.org/are-you-ready-for-30-june-2018-sayin-goodbye-to-ssl-early-tls]]></URL>
+                    </Reference>
+                    <Reference>
+                      <Database><![CDATA[PCI 3.1 and TLS 1.2 (Cloudflare Support)]]></Database>
+                      <URL><![CDATA[https://support.cloudflare.com/hc/en-us/articles/205043158-PCI-3-1-and-TLS-1-2]]></URL>
+                    </Reference>
+                </References>
+            </ReportItem>
+<ReportItem id="3" color="orange">
+                <Name><![CDATA[Invalid SSL Certificate]]></Name>
+                <ModuleName><![CDATA[/Scripts/PerServer/SSL_Audit.script]]></ModuleName>
+                <Details><![CDATA[<p>The TLS/SSL certificate (serial: 03d4270f737bc6bb5ed7cc652aed507ebac1) has expired..<br/> The certificate validity period is between <strong>Wed Jul 03 2024 13:54:19 GMT+0000 (UTC)</strong> and <strong>Tue Oct 01 2024 13:54:18 GMT+0000 (UTC)</strong></p>]]></Details>
+                <Affects><![CDATA[/]]></Affects>
+                <Parameter><![CDATA[]]></Parameter>
+                <AOP_SourceFile><![CDATA[]]></AOP_SourceFile>
+                <AOP_SourceLine></AOP_SourceLine>
+                <AOP_Additional><![CDATA[]]></AOP_Additional>
+                <IsFalsePositive><![CDATA[]]></IsFalsePositive>
+                <Severity><![CDATA[medium]]></Severity>
+                <Type><![CDATA[configuration]]></Type>
+                <Impact><![CDATA[This SSL certificate is not valid.]]></Impact>
+                <Description><![CDATA[One of the TLS/SSL certificates sent by your server has either expired or is not yet valid. <br/><br/> Most web browsers will present end-users with a security warning, asking them to manually confirm the authenticity of your certificate chain. Software or automated systems may silently refuse to connect to the server. <br/><br/> This alert is not necessarily caused by the server (leaf) certificate, but may have been triggered by an intermediate certificate. Please refer to the certificate serial number in the alert details to identify the affected certificate.]]></Description>
+                <DetailedInformation><![CDATA[]]></DetailedInformation>
+                <Recommendation><![CDATA[Verify Start Date and/or End Dates of your SSL Certificate.]]></Recommendation>
+                <TechnicalDetails>
+                    <Request><![CDATA[]]></Request>
+                </TechnicalDetails>
+                <CWEList>
+                    <CWE id="298"><![CDATA[CWE-298]]></CWE>
+                </CWEList>
+                <CVEList>
+                </CVEList>
+                <CVSS>
+                  <Descriptor><![CDATA[AV:N/AC:L/Au:N/C:N/I:N/A:P]]></Descriptor>
+                  <Score><![CDATA[5.0]]></Score>
+                  <AV><![CDATA[Network_Accessible]]></AV>
+                  <AC><![CDATA[Low]]></AC>
+                  <Au><![CDATA[None]]></Au>
+                  <C><![CDATA[None]]></C>
+                  <I><![CDATA[None]]></I>
+                  <A><![CDATA[Partial]]></A>
+                  <E><![CDATA[]]></E>
+                  <RL><![CDATA[]]></RL>
+                  <RC><![CDATA[]]></RC>
+                </CVSS>
+                <CVSS3>
+                  <Descriptor><![CDATA[CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L]]></Descriptor>
+                  <Score><![CDATA[5.3]]></Score>
+                  <TempScore><![CDATA[]]></TempScore>
+                  <EnvScore><![CDATA[]]></EnvScore>
+                  <AV><![CDATA[Network]]></AV>
+                  <AC><![CDATA[Low]]></AC>
+                  <PR><![CDATA[None]]></PR>
+                  <UI><![CDATA[None]]></UI>
+                  <S><![CDATA[Unchanged]]></S>
+                  <C><![CDATA[None]]></C>
+                  <I><![CDATA[None]]></I>
+                  <A><![CDATA[Low]]></A>
+                  <E><![CDATA[]]></E>
+                  <RL><![CDATA[]]></RL>
+                  <RC><![CDATA[]]></RC>
+                </CVSS3>
+                <CVSS4>
+                  <Descriptor><![CDATA[CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:A/VC:N/VI:N/VA:L/SC:N/SI:N/SA:N]]></Descriptor>
+                  <Score><![CDATA[5.1]]></Score>
+                  <AV><![CDATA[Network]]></AV>
+                  <AC><![CDATA[Low]]></AC>
+                  <PR><![CDATA[None]]></PR>
+                  <UI><![CDATA[Active]]></UI>
+                  <VC><![CDATA[None]]></VC>
+                  <VI><![CDATA[None]]></VI>
+                  <VA><![CDATA[Low]]></VA>
+                  <SC><![CDATA[None]]></SC>
+                  <SI><![CDATA[None]]></SI>
+                  <SA><![CDATA[None]]></SA>
+                </CVSS4>
+                <References>
+                    <Reference>
+                      <Database><![CDATA[Invalid SSL Certificate | Invicti]]></Database>
+                      <URL><![CDATA[https://www.invicti.com/web-vulnerability-scanner/vulnerabilities/invalid-ssl-certificate/]]></URL>
+                    </Reference>
+                </References>
+            </ReportItem>
+<ReportItem id="4" color="orange">
+                <Name><![CDATA[PHP hangs on parsing particular strings as floating point number]]></Name>
+                <ModuleName><![CDATA[/Scripts/PerServer/Version_Check.script]]></ModuleName>
+                <Details><![CDATA[Version detected: <span class="bb-dark">PHP/5.3.3</span>.]]></Details>
+                <Affects><![CDATA[/]]></Affects>
+                <Parameter><![CDATA[]]></Parameter>
+                <AOP_SourceFile><![CDATA[]]></AOP_SourceFile>
+                <AOP_SourceLine></AOP_SourceLine>
+                <AOP_Additional><![CDATA[]]></AOP_Additional>
+                <IsFalsePositive><![CDATA[]]></IsFalsePositive>
+                <Severity><![CDATA[medium]]></Severity>
+                <Type><![CDATA[denialofservice]]></Type>
+                <Impact><![CDATA[Denial of service attack]]></Impact>
+                <Description><![CDATA[<div class="bb-coolbox"><span class="bb-dark">This alert was generated using only banner information. It may be a false positive.  </span></div><br/>
+<p>PHP hangs when parsing '2.2250738585072011e-308' string as a floating point number.</p>
+<p>Affected PHP versions: 5.3 up to version 5.3.5 and 5.2 up to version 5.2.17</p>]]></Description>
+                <DetailedInformation><![CDATA[]]></DetailedInformation>
+                <Recommendation><![CDATA[Upgrade PHP to the latest version.]]></Recommendation>
+                <TechnicalDetails>
+                    <Request><![CDATA[]]></Request>
+                </TechnicalDetails>
+                <CWEList>
+                    <CWE id="189"><![CDATA[CWE-189]]></CWE>
+                </CWEList>
+                <CVEList>
+                    <CVE id="4645" year="2010"><![CDATA[CVE-2010-4645]]></CVE>
+                </CVEList>
+                <CVSS>
+                  <Descriptor><![CDATA[AV:N/AC:L/Au:N/C:N/I:N/A:P/E:POC/RL:OF/RC:C]]></Descriptor>
+                  <Score><![CDATA[5.0]]></Score>
+                  <AV><![CDATA[Network_Accessible]]></AV>
+                  <AC><![CDATA[Low]]></AC>
+                  <Au><![CDATA[None]]></Au>
+                  <C><![CDATA[None]]></C>
+                  <I><![CDATA[None]]></I>
+                  <A><![CDATA[Partial]]></A>
+                  <E><![CDATA[]]></E>
+                  <RL><![CDATA[]]></RL>
+                  <RC><![CDATA[]]></RC>
+                </CVSS>
+                <CVSS3>
+                  <Descriptor><![CDATA[CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L]]></Descriptor>
+                  <Score><![CDATA[5.3]]></Score>
+                  <TempScore><![CDATA[]]></TempScore>
+                  <EnvScore><![CDATA[]]></EnvScore>
+                  <AV><![CDATA[Network]]></AV>
+                  <AC><![CDATA[Low]]></AC>
+                  <PR><![CDATA[None]]></PR>
+                  <UI><![CDATA[None]]></UI>
+                  <S><![CDATA[Unchanged]]></S>
+                  <C><![CDATA[None]]></C>
+                  <I><![CDATA[None]]></I>
+                  <A><![CDATA[Low]]></A>
+                  <E><![CDATA[]]></E>
+                  <RL><![CDATA[]]></RL>
+                  <RC><![CDATA[]]></RC>
+                </CVSS3>
+                <CVSS4>
+                  <Descriptor><![CDATA[CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N]]></Descriptor>
+                  <Score><![CDATA[8.7]]></Score>
+                  <AV><![CDATA[Network]]></AV>
+                  <AC><![CDATA[Low]]></AC>
+                  <PR><![CDATA[None]]></PR>
+                  <UI><![CDATA[None]]></UI>
+                  <VC><![CDATA[None]]></VC>
+                  <VI><![CDATA[None]]></VI>
+                  <VA><![CDATA[High]]></VA>
+                  <SC><![CDATA[None]]></SC>
+                  <SI><![CDATA[None]]></SI>
+                  <SA><![CDATA[None]]></SA>
+                </CVSS4>
+                <References>
+                    <Reference>
+                      <Database><![CDATA[PHP Hangs On Numeric Value 2.2250738585072011e-308]]></Database>
+                      <URL><![CDATA[https://www.exploringbinary.com/php-hangs-on-numeric-value-2-2250738585072011e-308/]]></URL>
+                    </Reference>
+                    <Reference>
+                      <Database><![CDATA[PHP Homepage]]></Database>
+                      <URL><![CDATA[https://www.php.net]]></URL>
+                    </Reference>
+                </References>
+            </ReportItem>
+<ReportItem id="5" color="orange">
+                <Name><![CDATA[SSL Certificate Name Hostname Mismatch]]></Name>
+                <ModuleName><![CDATA[/target/ssltest]]></ModuleName>
+                <Details><![CDATA[<p><b>Subject: </b>CN=0800service.com</p> <p><b>Issuer: </b>C=US,O=Let&#x27;s Encrypt,CN=E5</p> <p><b>Public Key Algorithm: </b>id-ecPublicKey</p> <p><b>Hash Algorithm: </b>sha384</p> <p><b>Certificate: </b>-----BEGIN CERTIFICATE-----
+MIIDfzCCAwWgAwIBAgISA9QnD3N7xrte18xlKu1QfrrBMAoGCCqGSM49BAMDMDIx
+CzAJBgNVBAYTAlVTMRYwFAYDVQQKEw1MZXQncyBFbmNyeXB0MQswCQYDVQQDEwJF
+NTAeFw0yNDA3MDMxMzU0MTlaFw0yNDEwMDExMzU0MThaMBoxGDAWBgNVBAMTDzA4
+MDBzZXJ2aWNlLmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABBWg5sMMjPa2
+jRwGHLFJgZPgm1sBgaTLyXruo7dNYTaEvHy2bVKcj4fxVzAXEYXle5UCeKXQOIJi
+VAMvnxtz8UejggIRMIICDTAOBgNVHQ8BAf8EBAMCB4AwHQYDVR0lBBYwFAYIKwYB
+BQUHAwEGCCsGAQUFBwMCMAwGA1UdEwEB/wQCMAAwHQYDVR0OBBYEFM+Uo6FgpG5G
+guLMPREi3MXNuuVBMB8GA1UdIwQYMBaAFJ8rX888IU+dBLftKyzExnCL0tcNMFUG
+CCsGAQUFBwEBBEkwRzAhBggrBgEFBQcwAYYVaHR0cDovL2U1Lm8ubGVuY3Iub3Jn
+MCIGCCsGAQUFBzAChhZodHRwOi8vZTUuaS5sZW5jci5vcmcvMBoGA1UdEQQTMBGC
+DzA4MDBzZXJ2aWNlLmNvbTATBgNVHSAEDDAKMAgGBmeBDAECATCCAQQGCisGAQQB
+1nkCBAIEgfUEgfIA8AB2AEiw42vapkc0D+VqAvqdMOscUgHLVt0sgdm7v6s52IRz
+AAABkHkW2y4AAAQDAEcwRQIhAObvtMTkus0OAOqxVd/Q2+9S3gGgPF6oBnwpjdbd
+hTGfAiAB2NYqvJueN3Szd7D8QoI18hWVzst9u1Ue1PfiKs1clQB2AD8XS0/XIkdY
+lB1lHIS+DRLtkDd/H4Vq68G/KIXs+GRuAAABkHkW2zQAAAQDAEcwRQIhANRK3rYo
+xzplV32E3zvaQG2CwI7scHVXGnBgnxWf3BLzAiBv6V1ugwJpepwAX925CideS/QB
+K3BDH3pHwjn6JkyxIjAKBggqhkjOPQQDAwNoADBlAjEAx4pERoWKs0JxA8Y8usgw
+gOUncFnHobva1tdumDUQErDvQORKiqeWF+5CLV8zBQbGAjAaJuZd6aptyC8yWk2L
+sT/8Fz7uuOa9QkfGqJ9vjOs34NCwM9OeXRtCnHukXzsE8ys=
+-----END CERTIFICATE-----
+</p>]]></Details>
+                <Affects><![CDATA[/]]></Affects>
+                <Parameter><![CDATA[]]></Parameter>
+                <AOP_SourceFile><![CDATA[]]></AOP_SourceFile>
+                <AOP_SourceLine></AOP_SourceLine>
+                <AOP_Additional><![CDATA[]]></AOP_Additional>
+                <IsFalsePositive><![CDATA[]]></IsFalsePositive>
+                <Severity><![CDATA[medium]]></Severity>
+                <Type><![CDATA[]]></Type>
+                <Impact><![CDATA[<p><span>It can impact both website and the users:</span></p> <ul> <li><span>Warning error messages displayed by browsers when visiting the site</span></li> <li><span>Personal information at risk from man-in-the-middle attacks</span></li> <li><span>Reduction in trust as the site becomes insecure</span></li> <li><span>Ability for an attacker to create identical phishing website</span></li> </ul>]]></Impact>
+                <Description><![CDATA[<p><span>Acunetix detected a hostname mismatch in the SSL certificate. This happens when the common name to which an SSL Certificate is issued (e.g., www.example.com) doesn't exactly match the name displayed in the URL bar.</span></p>]]></Description>
+                <DetailedInformation><![CDATA[]]></DetailedInformation>
+                <Recommendation><![CDATA[The process of fixing name-hostname mismatch issues varies depending on the host or the certificate authority used. Please refer to the corresponding documentation.]]></Recommendation>
+                <TechnicalDetails>
+                    <Request><![CDATA[]]></Request>
+                </TechnicalDetails>
+                <CWEList>
+                    <CWE id="295"><![CDATA[CWE-295]]></CWE>
+                </CWEList>
+                <CVEList>
+                </CVEList>
+                <CVSS>
+                  <Descriptor><![CDATA[AV:N/AC:M/Au:N/C:P/I:P/A:N]]></Descriptor>
+                  <Score><![CDATA[5.8]]></Score>
+                  <AV><![CDATA[Network_Accessible]]></AV>
+                  <AC><![CDATA[Medium]]></AC>
+                  <Au><![CDATA[None]]></Au>
+                  <C><![CDATA[Partial]]></C>
+                  <I><![CDATA[Partial]]></I>
+                  <A><![CDATA[None]]></A>
+                  <E><![CDATA[]]></E>
+                  <RL><![CDATA[]]></RL>
+                  <RC><![CDATA[]]></RC>
+                </CVSS>
+                <CVSS3>
+                  <Descriptor><![CDATA[CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N]]></Descriptor>
+                  <Score><![CDATA[5.3]]></Score>
+                  <TempScore><![CDATA[]]></TempScore>
+                  <EnvScore><![CDATA[]]></EnvScore>
+                  <AV><![CDATA[Network]]></AV>
+                  <AC><![CDATA[Low]]></AC>
+                  <PR><![CDATA[None]]></PR>
+                  <UI><![CDATA[None]]></UI>
+                  <S><![CDATA[Unchanged]]></S>
+                  <C><![CDATA[None]]></C>
+                  <I><![CDATA[Low]]></I>
+                  <A><![CDATA[None]]></A>
+                  <E><![CDATA[]]></E>
+                  <RL><![CDATA[]]></RL>
+                  <RC><![CDATA[]]></RC>
+                </CVSS3>
+                <References>
+                    <Reference>
+                      <Database><![CDATA[What Is an SSL Common Name Mismatch Error and How Do I Fix It?]]></Database>
+                      <URL><![CDATA[https://www.globalsign.com/en/blog/what-is-common-name-mismatch-error]]></URL>
+                    </Reference>
+                </References>
+            </ReportItem>
+<ReportItem id="6" color="orange">
+                <Name><![CDATA[TLS/SSL Sweet32 attack]]></Name>
+                <ModuleName><![CDATA[/Scripts/PerServer/SSL_Audit.script]]></ModuleName>
+                <Details><![CDATA[Cipher suites susceptible to Sweet32 attack (TLS1.0 on port 443): <br/><br/><li>TLS_ECDHE_ECDSA_WITH_3DES_EDE_CBC_SHA</li><br/><br/>Cipher suites susceptible to Sweet32 attack (TLS1.1 on port 443): <br/><br/><li>TLS_ECDHE_ECDSA_WITH_3DES_EDE_CBC_SHA</li><br/><br/>Cipher suites susceptible to Sweet32 attack (TLS1.2 on port 443): <br/><br/><li>TLS_ECDHE_ECDSA_WITH_3DES_EDE_CBC_SHA</li><br/><br/>]]></Details>
+                <Affects><![CDATA[/]]></Affects>
+                <Parameter><![CDATA[]]></Parameter>
+                <AOP_SourceFile><![CDATA[]]></AOP_SourceFile>
+                <AOP_SourceLine></AOP_SourceLine>
+                <AOP_Additional><![CDATA[]]></AOP_Additional>
+                <IsFalsePositive><![CDATA[]]></IsFalsePositive>
+                <Severity><![CDATA[medium]]></Severity>
+                <Type><![CDATA[configuration]]></Type>
+                <Impact><![CDATA[An attacker may intercept HTTPS connections between vulnerable clients and servers.]]></Impact>
+                <Description><![CDATA[The Sweet32 attack is a SSL/TLS vulnerability that allows attackers to compromise HTTPS connections using 64-bit block ciphers.]]></Description>
+                <DetailedInformation><![CDATA[]]></DetailedInformation>
+                <Recommendation><![CDATA[Reconfigure the affected SSL/TLS server to disable support for obsolete 64-bit block ciphers.]]></Recommendation>
+                <TechnicalDetails>
+                    <Request><![CDATA[]]></Request>
+                </TechnicalDetails>
+                <CWEList>
+                    <CWE id="310"><![CDATA[CWE-310]]></CWE>
+                </CWEList>
+                <CVEList>
+                    <CVE id="2183" year="2016"><![CDATA[CVE-2016-2183]]></CVE>
+                    <CVE id="6329" year="2016"><![CDATA[CVE-2016-6329]]></CVE>
+                </CVEList>
+                <CVSS>
+                  <Descriptor><![CDATA[AV:N/AC:M/Au:N/C:P/I:N/A:N]]></Descriptor>
+                  <Score><![CDATA[4.3]]></Score>
+                  <AV><![CDATA[Network_Accessible]]></AV>
+                  <AC><![CDATA[Medium]]></AC>
+                  <Au><![CDATA[None]]></Au>
+                  <C><![CDATA[Partial]]></C>
+                  <I><![CDATA[None]]></I>
+                  <A><![CDATA[None]]></A>
+                  <E><![CDATA[]]></E>
+                  <RL><![CDATA[]]></RL>
+                  <RC><![CDATA[]]></RC>
+                </CVSS>
+                <CVSS3>
+                  <Descriptor><![CDATA[CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N]]></Descriptor>
+                  <Score><![CDATA[7.5]]></Score>
+                  <TempScore><![CDATA[]]></TempScore>
+                  <EnvScore><![CDATA[]]></EnvScore>
+                  <AV><![CDATA[Network]]></AV>
+                  <AC><![CDATA[Low]]></AC>
+                  <PR><![CDATA[None]]></PR>
+                  <UI><![CDATA[None]]></UI>
+                  <S><![CDATA[Unchanged]]></S>
+                  <C><![CDATA[High]]></C>
+                  <I><![CDATA[None]]></I>
+                  <A><![CDATA[None]]></A>
+                  <E><![CDATA[]]></E>
+                  <RL><![CDATA[]]></RL>
+                  <RC><![CDATA[]]></RC>
+                </CVSS3>
+                <CVSS4>
+                  <Descriptor><![CDATA[CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N]]></Descriptor>
+                  <Score><![CDATA[8.7]]></Score>
+                  <AV><![CDATA[Network]]></AV>
+                  <AC><![CDATA[Low]]></AC>
+                  <PR><![CDATA[None]]></PR>
+                  <UI><![CDATA[None]]></UI>
+                  <VC><![CDATA[High]]></VC>
+                  <VI><![CDATA[None]]></VI>
+                  <VA><![CDATA[None]]></VA>
+                  <SC><![CDATA[None]]></SC>
+                  <SI><![CDATA[None]]></SI>
+                  <SA><![CDATA[None]]></SA>
+                </CVSS4>
+                <References>
+                    <Reference>
+                      <Database><![CDATA[Sweet32: Birthday attacks on 64-bit block ciphers in TLS and OpenVPN]]></Database>
+                      <URL><![CDATA[https://sweet32.info/]]></URL>
+                    </Reference>
+                </References>
+            </ReportItem>
+<ReportItem id="7" color="orange">
+                <Name><![CDATA[TLS/SSL Weak Cipher Suites]]></Name>
+                <ModuleName><![CDATA[/Scripts/PerServer/SSL_Audit.script]]></ModuleName>
+                <Details><![CDATA[Weak TLS/SSL Cipher Suites: (offered via TLS1.0 on port 443): <br/><br/><li>TLS_ECDHE_ECDSA_WITH_3DES_EDE_CBC_SHA (Medium strength encryption algorithm (3DES).)</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA    </li><li>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA    </li><br/><br/>Weak TLS/SSL Cipher Suites: (offered via TLS1.1 on port 443): <br/><br/><li>TLS_ECDHE_ECDSA_WITH_3DES_EDE_CBC_SHA (Medium strength encryption algorithm (3DES).)</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA    </li><li>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA    </li><br/><br/>Weak TLS/SSL Cipher Suites: (offered via TLS1.2 on port 443): <br/><br/><li>TLS_ECDHE_ECDSA_WITH_3DES_EDE_CBC_SHA (Medium strength encryption algorithm (3DES).)</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA    </li><li>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256    </li><li>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA    </li><li>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384    </li><br/><br/>]]></Details>
+                <Affects><![CDATA[/]]></Affects>
+                <Parameter><![CDATA[]]></Parameter>
+                <AOP_SourceFile><![CDATA[]]></AOP_SourceFile>
+                <AOP_SourceLine></AOP_SourceLine>
+                <AOP_Additional><![CDATA[]]></AOP_Additional>
+                <IsFalsePositive><![CDATA[]]></IsFalsePositive>
+                <Severity><![CDATA[medium]]></Severity>
+                <Type><![CDATA[configuration]]></Type>
+                <Impact><![CDATA[]]></Impact>
+                <Description><![CDATA[The remote host supports TLS/SSL cipher suites with weak or insecure properties.]]></Description>
+                <DetailedInformation><![CDATA[]]></DetailedInformation>
+                <Recommendation><![CDATA[Reconfigure the affected application to avoid use of weak cipher suites.]]></Recommendation>
+                <TechnicalDetails>
+                    <Request><![CDATA[]]></Request>
+                </TechnicalDetails>
+                <CWEList>
+                    <CWE id="310"><![CDATA[CWE-310]]></CWE>
+                </CWEList>
+                <CVEList>
+                </CVEList>
+                <CVSS>
+                  <Descriptor><![CDATA[AV:L/AC:M/Au:N/C:P/I:P/A:N]]></Descriptor>
+                  <Score><![CDATA[3.3]]></Score>
+                  <AV><![CDATA[Local_Access]]></AV>
+                  <AC><![CDATA[Medium]]></AC>
+                  <Au><![CDATA[None]]></Au>
+                  <C><![CDATA[Partial]]></C>
+                  <I><![CDATA[Partial]]></I>
+                  <A><![CDATA[None]]></A>
+                  <E><![CDATA[]]></E>
+                  <RL><![CDATA[]]></RL>
+                  <RC><![CDATA[]]></RC>
+                </CVSS>
+                <CVSS3>
+                  <Descriptor><![CDATA[CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N]]></Descriptor>
+                  <Score><![CDATA[6.5]]></Score>
+                  <TempScore><![CDATA[]]></TempScore>
+                  <EnvScore><![CDATA[]]></EnvScore>
+                  <AV><![CDATA[Network]]></AV>
+                  <AC><![CDATA[Low]]></AC>
+                  <PR><![CDATA[None]]></PR>
+                  <UI><![CDATA[None]]></UI>
+                  <S><![CDATA[Unchanged]]></S>
+                  <C><![CDATA[Low]]></C>
+                  <I><![CDATA[Low]]></I>
+                  <A><![CDATA[None]]></A>
+                  <E><![CDATA[]]></E>
+                  <RL><![CDATA[]]></RL>
+                  <RC><![CDATA[]]></RC>
+                </CVSS3>
+                <CVSS4>
+                  <Descriptor><![CDATA[CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:L/VA:N/SC:N/SI:N/SA:N]]></Descriptor>
+                  <Score><![CDATA[6.9]]></Score>
+                  <AV><![CDATA[Network]]></AV>
+                  <AC><![CDATA[Low]]></AC>
+                  <PR><![CDATA[None]]></PR>
+                  <UI><![CDATA[None]]></UI>
+                  <VC><![CDATA[Low]]></VC>
+                  <VI><![CDATA[Low]]></VI>
+                  <VA><![CDATA[None]]></VA>
+                  <SC><![CDATA[None]]></SC>
+                  <SI><![CDATA[None]]></SI>
+                  <SA><![CDATA[None]]></SA>
+                </CVSS4>
+                <References>
+                    <Reference>
+                      <Database><![CDATA[OWASP: TLS Cipher String Cheat Sheet]]></Database>
+                      <URL><![CDATA[https://cheatsheetseries.owasp.org/cheatsheets/TLS_Cipher_String_Cheat_Sheet.html]]></URL>
+                    </Reference>
+                    <Reference>
+                      <Database><![CDATA[OWASP: Transport Layer Protection Cheat Sheet]]></Database>
+                      <URL><![CDATA[https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Protection_Cheat_Sheet.html]]></URL>
+                    </Reference>
+                    <Reference>
+                      <Database><![CDATA[Mozilla: TLS Cipher Suite Recommendations]]></Database>
+                      <URL><![CDATA[https://wiki.mozilla.org/Security/Server_Side_TLS]]></URL>
+                    </Reference>
+                    <Reference>
+                      <Database><![CDATA[SSLlabs: SSL and TLS Deployment Best Practices]]></Database>
+                      <URL><![CDATA[https://github.com/ssllabs/research/wiki/SSL-and-TLS-Deployment-Best-Practices]]></URL>
+                    </Reference>
+                    <Reference>
+                      <Database><![CDATA[RFC 9155: Deprecating MD5 and SHA-1 Signature Hashes in TLS 1.2 and DTLS 1.2]]></Database>
+                      <URL><![CDATA[https://datatracker.ietf.org/doc/html/rfc9155]]></URL>
+                    </Reference>
+                </References>
+            </ReportItem>
+<ReportItem id="8" color="blue">
+                <Name><![CDATA[Cookies Not Marked as HttpOnly (verified)]]></Name>
+                <ModuleName><![CDATA[/RPA/Cookie_Without_HttpOnly.js]]></ModuleName>
+                <Details><![CDATA[Cookies without HttpOnly flag set:<br/><ul><li>https://blrvpn1.target1.com/ <br/><br/><pre>Set-Cookie: nui=Qi32jWf8/XGL8StiAxHsAg==; expires=Tue, 14-Apr-26 12:20:01 GMT; path=/</pre><br/></li></ul>]]></Details>
+                <Affects><![CDATA[/]]></Affects>
+                <Parameter><![CDATA[]]></Parameter>
+                <AOP_SourceFile><![CDATA[]]></AOP_SourceFile>
+                <AOP_SourceLine></AOP_SourceLine>
+                <AOP_Additional><![CDATA[]]></AOP_Additional>
+                <IsFalsePositive><![CDATA[]]></IsFalsePositive>
+                <Severity><![CDATA[low]]></Severity>
+                <Type><![CDATA[configuration]]></Type>
+                <Impact><![CDATA[Cookies can be accessed by client-side scripts.]]></Impact>
+                <Description><![CDATA[One or more cookies don't have the HttpOnly flag set. When a cookie is set with the HttpOnly flag, it instructs the browser that the cookie can only be accessed by the server and not by client-side scripts. This is an important security protection for session cookies.]]></Description>
+                <DetailedInformation><![CDATA[]]></DetailedInformation>
+                <Recommendation><![CDATA[If possible, you should set the HttpOnly flag for these cookies.]]></Recommendation>
+                <TechnicalDetails>
+                    <Request><![CDATA[GET / HTTP/1.1
+Referer: https://blrvpn1.target1.com/
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Encoding: gzip,deflate,br
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+Host: blrvpn1.target1.com
+Connection: Keep-alive
+]]></Request>
+                </TechnicalDetails>
+                <CWEList>
+                    <CWE id="1004"><![CDATA[CWE-1004]]></CWE>
+                </CWEList>
+                <CVEList>
+                </CVEList>
+                <CVSS>
+                  <Descriptor><![CDATA[AV:N/AC:L/Au:N/C:N/I:N/A:N]]></Descriptor>
+                  <Score><![CDATA[0.0]]></Score>
+                  <AV><![CDATA[Network_Accessible]]></AV>
+                  <AC><![CDATA[Low]]></AC>
+                  <Au><![CDATA[None]]></Au>
+                  <C><![CDATA[None]]></C>
+                  <I><![CDATA[None]]></I>
+                  <A><![CDATA[None]]></A>
+                  <E><![CDATA[]]></E>
+                  <RL><![CDATA[]]></RL>
+                  <RC><![CDATA[]]></RC>
+                </CVSS>
+                <CVSS3>
+                  <Descriptor><![CDATA[CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:N]]></Descriptor>
+                  <Score><![CDATA[0.0]]></Score>
+                  <TempScore><![CDATA[]]></TempScore>
+                  <EnvScore><![CDATA[]]></EnvScore>
+                  <AV><![CDATA[Network]]></AV>
+                  <AC><![CDATA[Low]]></AC>
+                  <PR><![CDATA[None]]></PR>
+                  <UI><![CDATA[Required]]></UI>
+                  <S><![CDATA[Unchanged]]></S>
+                  <C><![CDATA[None]]></C>
+                  <I><![CDATA[None]]></I>
+                  <A><![CDATA[None]]></A>
+                  <E><![CDATA[]]></E>
+                  <RL><![CDATA[]]></RL>
+                  <RC><![CDATA[]]></RC>
+                </CVSS3>
+                <CVSS4>
+                  <Descriptor><![CDATA[CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:A/VC:N/VI:N/VA:N/SC:N/SI:N/SA:N]]></Descriptor>
+                  <Score><![CDATA[0.0]]></Score>
+                  <AV><![CDATA[Network]]></AV>
+                  <AC><![CDATA[Low]]></AC>
+                  <PR><![CDATA[None]]></PR>
+                  <UI><![CDATA[Active]]></UI>
+                  <VC><![CDATA[None]]></VC>
+                  <VI><![CDATA[None]]></VI>
+                  <VA><![CDATA[None]]></VA>
+                  <SC><![CDATA[None]]></SC>
+                  <SI><![CDATA[None]]></SI>
+                  <SA><![CDATA[None]]></SA>
+                </CVSS4>
+                <References>
+                    <Reference>
+                      <Database><![CDATA[Cookie Not Marked as HttpOnly | Invicti]]></Database>
+                      <URL><![CDATA[https://www.invicti.com/web-vulnerability-scanner/vulnerabilities/cookie-not-marked-as-httponly/]]></URL>
+                    </Reference>
+                </References>
+            </ReportItem>
+<ReportItem id="9" color="blue">
+                <Name><![CDATA[Cookies Not Marked as Secure (verified)]]></Name>
+                <ModuleName><![CDATA[/RPA/Cookie_Without_Secure.js]]></ModuleName>
+                <Details><![CDATA[Cookies without Secure flag set:<br/><ul><li>https://blrvpn1.target1.com/ <br/><br/><pre>Set-Cookie: nui=Qi32jWf8/XGL8StiAxHsAg==; expires=Tue, 14-Apr-26 12:20:01 GMT; path=/</pre><br/></li></ul>]]></Details>
+                <Affects><![CDATA[/]]></Affects>
+                <Parameter><![CDATA[]]></Parameter>
+                <AOP_SourceFile><![CDATA[]]></AOP_SourceFile>
+                <AOP_SourceLine></AOP_SourceLine>
+                <AOP_Additional><![CDATA[]]></AOP_Additional>
+                <IsFalsePositive><![CDATA[]]></IsFalsePositive>
+                <Severity><![CDATA[low]]></Severity>
+                <Type><![CDATA[configuration]]></Type>
+                <Impact><![CDATA[Cookies could be sent over unencrypted channels.]]></Impact>
+                <Description><![CDATA[One or more cookies does not have the Secure flag set. When a cookie is set with the Secure flag, it instructs the browser that the cookie can only be accessed over secure SSL/TLS channels. This is an important security protection for session cookies.]]></Description>
+                <DetailedInformation><![CDATA[]]></DetailedInformation>
+                <Recommendation><![CDATA[If possible, you should set the Secure flag for these cookies.]]></Recommendation>
+                <TechnicalDetails>
+                    <Request><![CDATA[GET / HTTP/1.1
+Referer: https://blrvpn1.target1.com/
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Encoding: gzip,deflate,br
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+Host: blrvpn1.target1.com
+Connection: Keep-alive
+]]></Request>
+                </TechnicalDetails>
+                <CWEList>
+                    <CWE id="614"><![CDATA[CWE-614]]></CWE>
+                </CWEList>
+                <CVEList>
+                </CVEList>
+                <CVSS>
+                  <Descriptor><![CDATA[AV:N/AC:H/Au:N/C:P/I:N/A:N]]></Descriptor>
+                  <Score><![CDATA[2.6]]></Score>
+                  <AV><![CDATA[Network_Accessible]]></AV>
+                  <AC><![CDATA[High]]></AC>
+                  <Au><![CDATA[None]]></Au>
+                  <C><![CDATA[Partial]]></C>
+                  <I><![CDATA[None]]></I>
+                  <A><![CDATA[None]]></A>
+                  <E><![CDATA[]]></E>
+                  <RL><![CDATA[]]></RL>
+                  <RC><![CDATA[]]></RC>
+                </CVSS>
+                <CVSS3>
+                  <Descriptor><![CDATA[CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:N/A:N]]></Descriptor>
+                  <Score><![CDATA[3.1]]></Score>
+                  <TempScore><![CDATA[]]></TempScore>
+                  <EnvScore><![CDATA[]]></EnvScore>
+                  <AV><![CDATA[Network]]></AV>
+                  <AC><![CDATA[High]]></AC>
+                  <PR><![CDATA[None]]></PR>
+                  <UI><![CDATA[Required]]></UI>
+                  <S><![CDATA[Unchanged]]></S>
+                  <C><![CDATA[Low]]></C>
+                  <I><![CDATA[None]]></I>
+                  <A><![CDATA[None]]></A>
+                  <E><![CDATA[]]></E>
+                  <RL><![CDATA[]]></RL>
+                  <RC><![CDATA[]]></RC>
+                </CVSS3>
+                <CVSS4>
+                  <Descriptor><![CDATA[CVSS:4.0/AV:N/AC:H/AT:N/PR:N/UI:A/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N]]></Descriptor>
+                  <Score><![CDATA[2.1]]></Score>
+                  <AV><![CDATA[Network]]></AV>
+                  <AC><![CDATA[High]]></AC>
+                  <PR><![CDATA[None]]></PR>
+                  <UI><![CDATA[Active]]></UI>
+                  <VC><![CDATA[Low]]></VC>
+                  <VI><![CDATA[None]]></VI>
+                  <VA><![CDATA[None]]></VA>
+                  <SC><![CDATA[None]]></SC>
+                  <SI><![CDATA[None]]></SI>
+                  <SA><![CDATA[None]]></SA>
+                </CVSS4>
+                <References>
+                    <Reference>
+                      <Database><![CDATA[SameSite None Cookie Not Marked as Secure - Invicti]]></Database>
+                      <URL><![CDATA[https://www.invicti.com/web-vulnerability-scanner/vulnerabilities/samesite-none-cookie-not-marked-as-secure/]]></URL>
+                    </Reference>
+                </References>
+            </ReportItem>
+<ReportItem id="10" color="blue">
+                <Name><![CDATA[Cookies with missing, inconsistent or contradictory properties (verified)]]></Name>
+                <ModuleName><![CDATA[/RPA/Cookie_Validator.js]]></ModuleName>
+                <Details><![CDATA[List of cookies with missing, inconsistent or contradictory properties:<br/><ul><li>https://blrvpn1.target1.com/ <br/><br/>Cookie was set with: <pre>Set-Cookie: nui=Qi32jWf8/XGL8StiAxHsAg==; expires=Tue, 14-Apr-26 12:20:01 GMT; path=/</pre><br/>This cookie has the following issues:<br/><pre>
+ - Cookie without SameSite attribute.
+When cookies lack the SameSite attribute, Web browsers may apply different and sometimes unexpected defaults. It is therefore recommended to add a SameSite attribute with an appropriate value of either &quot;Strict&quot;, &quot;Lax&quot;, or &quot;None&quot;.
+</pre><br/></li></ul>]]></Details>
+                <Affects><![CDATA[/]]></Affects>
+                <Parameter><![CDATA[]]></Parameter>
+                <AOP_SourceFile><![CDATA[]]></AOP_SourceFile>
+                <AOP_SourceLine></AOP_SourceLine>
+                <AOP_Additional><![CDATA[]]></AOP_Additional>
+                <IsFalsePositive><![CDATA[]]></IsFalsePositive>
+                <Severity><![CDATA[low]]></Severity>
+                <Type><![CDATA[configuration]]></Type>
+                <Impact><![CDATA[Cookies will not be stored, or submitted, by web browsers.]]></Impact>
+                <Description><![CDATA[At least one of the following cookies properties causes the cookie to be invalid or incompatible with either a different property of the same cookie, of with the environment the cookie is being used in. Although this is not a vulnerability in itself, it will likely lead to unexpected behavior by the application, which in turn may cause secondary security issues.]]></Description>
+                <DetailedInformation><![CDATA[]]></DetailedInformation>
+                <Recommendation><![CDATA[Ensure that the cookies configuration complies with the applicable standards.]]></Recommendation>
+                <TechnicalDetails>
+                    <Request><![CDATA[GET / HTTP/1.1
+Referer: https://blrvpn1.target1.com/
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Encoding: gzip,deflate,br
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+Host: blrvpn1.target1.com
+Connection: Keep-alive
+]]></Request>
+                </TechnicalDetails>
+                <CWEList>
+                    <CWE id="284"><![CDATA[CWE-284]]></CWE>
+                </CWEList>
+                <CVEList>
+                </CVEList>
+                <CVSS>
+                  <Descriptor><![CDATA[AV:N/AC:L/Au:N/C:N/I:N/A:N]]></Descriptor>
+                  <Score><![CDATA[0.0]]></Score>
+                  <AV><![CDATA[Network_Accessible]]></AV>
+                  <AC><![CDATA[Low]]></AC>
+                  <Au><![CDATA[None]]></Au>
+                  <C><![CDATA[None]]></C>
+                  <I><![CDATA[None]]></I>
+                  <A><![CDATA[None]]></A>
+                  <E><![CDATA[]]></E>
+                  <RL><![CDATA[]]></RL>
+                  <RC><![CDATA[]]></RC>
+                </CVSS>
+                <CVSS3>
+                  <Descriptor><![CDATA[CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:N]]></Descriptor>
+                  <Score><![CDATA[0.0]]></Score>
+                  <TempScore><![CDATA[]]></TempScore>
+                  <EnvScore><![CDATA[]]></EnvScore>
+                  <AV><![CDATA[Network]]></AV>
+                  <AC><![CDATA[Low]]></AC>
+                  <PR><![CDATA[None]]></PR>
+                  <UI><![CDATA[Required]]></UI>
+                  <S><![CDATA[Unchanged]]></S>
+                  <C><![CDATA[None]]></C>
+                  <I><![CDATA[None]]></I>
+                  <A><![CDATA[None]]></A>
+                  <E><![CDATA[]]></E>
+                  <RL><![CDATA[]]></RL>
+                  <RC><![CDATA[]]></RC>
+                </CVSS3>
+                <CVSS4>
+                  <Descriptor><![CDATA[CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:A/VC:N/VI:N/VA:N/SC:N/SI:N/SA:N]]></Descriptor>
+                  <Score><![CDATA[0.0]]></Score>
+                  <AV><![CDATA[Network]]></AV>
+                  <AC><![CDATA[Low]]></AC>
+                  <PR><![CDATA[None]]></PR>
+                  <UI><![CDATA[Active]]></UI>
+                  <VC><![CDATA[None]]></VC>
+                  <VI><![CDATA[None]]></VI>
+                  <VA><![CDATA[None]]></VA>
+                  <SC><![CDATA[None]]></SC>
+                  <SI><![CDATA[None]]></SI>
+                  <SA><![CDATA[None]]></SA>
+                </CVSS4>
+                <References>
+                    <Reference>
+                      <Database><![CDATA[MDN | Set-Cookie]]></Database>
+                      <URL><![CDATA[https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie]]></URL>
+                    </Reference>
+                    <Reference>
+                      <Database><![CDATA[Securing cookies with cookie prefixes]]></Database>
+                      <URL><![CDATA[https://www.sjoerdlangkemper.nl/2017/02/09/cookie-prefixes/]]></URL>
+                    </Reference>
+                    <Reference>
+                      <Database><![CDATA[Cookies: HTTP State Management Mechanism]]></Database>
+                      <URL><![CDATA[https://tools.ietf.org/html/draft-ietf-httpbis-rfc6265bis-05]]></URL>
+                    </Reference>
+                    <Reference>
+                      <Database><![CDATA[SameSite Updates - The Chromium Projects]]></Database>
+                      <URL><![CDATA[https://www.chromium.org/updates/same-site]]></URL>
+                    </Reference>
+                    <Reference>
+                      <Database><![CDATA[draft-west-first-party-cookies-07: Same-site Cookies]]></Database>
+                      <URL><![CDATA[https://tools.ietf.org/html/draft-west-first-party-cookies-07]]></URL>
+                    </Reference>
+                </References>
+            </ReportItem>
+<ReportItem id="11" color="blue">
+                <Name><![CDATA[Version Disclosure (PHP)]]></Name>
+                <ModuleName><![CDATA[/Scripts/PerServer/Version_Check.script]]></ModuleName>
+                <Details><![CDATA[Version detected: <strong>PHP/5.3.3</strong>.]]></Details>
+                <Affects><![CDATA[/]]></Affects>
+                <Parameter><![CDATA[]]></Parameter>
+                <AOP_SourceFile><![CDATA[]]></AOP_SourceFile>
+                <AOP_SourceLine></AOP_SourceLine>
+                <AOP_Additional><![CDATA[]]></AOP_Additional>
+                <IsFalsePositive><![CDATA[]]></IsFalsePositive>
+                <Severity><![CDATA[low]]></Severity>
+                <Type><![CDATA[informationdisclosure]]></Type>
+                <Impact><![CDATA[An attacker might use the disclosed information to harvest specific security vulnerabilities for the version identified.]]></Impact>
+                <Description><![CDATA[The web server is sending the X-Powered-By: response headers, revealing the PHP version.]]></Description>
+                <DetailedInformation><![CDATA[]]></DetailedInformation>
+                <Recommendation><![CDATA[Configure your web server to prevent information leakage from its HTTP response.]]></Recommendation>
+                <TechnicalDetails>
+                    <Request><![CDATA[]]></Request>
+                </TechnicalDetails>
+                <CWEList>
+                </CWEList>
+                <CVEList>
+                </CVEList>
+                <CVSS>
+                  <Descriptor><![CDATA[AV:N/AC:L/Au:N/C:N/I:N/A:N]]></Descriptor>
+                  <Score><![CDATA[0.0]]></Score>
+                  <AV><![CDATA[Network_Accessible]]></AV>
+                  <AC><![CDATA[Low]]></AC>
+                  <Au><![CDATA[None]]></Au>
+                  <C><![CDATA[None]]></C>
+                  <I><![CDATA[None]]></I>
+                  <A><![CDATA[None]]></A>
+                  <E><![CDATA[]]></E>
+                  <RL><![CDATA[]]></RL>
+                  <RC><![CDATA[]]></RC>
+                </CVSS>
+                <CVSS3>
+                  <Descriptor><![CDATA[CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:N]]></Descriptor>
+                  <Score><![CDATA[0.0]]></Score>
+                  <TempScore><![CDATA[]]></TempScore>
+                  <EnvScore><![CDATA[]]></EnvScore>
+                  <AV><![CDATA[Network]]></AV>
+                  <AC><![CDATA[Low]]></AC>
+                  <PR><![CDATA[None]]></PR>
+                  <UI><![CDATA[None]]></UI>
+                  <S><![CDATA[Unchanged]]></S>
+                  <C><![CDATA[None]]></C>
+                  <I><![CDATA[None]]></I>
+                  <A><![CDATA[None]]></A>
+                  <E><![CDATA[]]></E>
+                  <RL><![CDATA[]]></RL>
+                  <RC><![CDATA[]]></RC>
+                </CVSS3>
+                <CVSS4>
+                  <Descriptor><![CDATA[CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N/E:P]]></Descriptor>
+                  <Score><![CDATA[5.5]]></Score>
+                  <AV><![CDATA[Network]]></AV>
+                  <AC><![CDATA[Low]]></AC>
+                  <PR><![CDATA[None]]></PR>
+                  <UI><![CDATA[None]]></UI>
+                  <VC><![CDATA[Low]]></VC>
+                  <VI><![CDATA[None]]></VI>
+                  <VA><![CDATA[None]]></VA>
+                  <SC><![CDATA[None]]></SC>
+                  <SI><![CDATA[None]]></SI>
+                  <SA><![CDATA[None]]></SA>
+                </CVSS4>
+                <References>
+                    <Reference>
+                      <Database><![CDATA[PHP Documentation: header_remove()]]></Database>
+                      <URL><![CDATA[https://www.php.net/manual/en/function.header-remove.php]]></URL>
+                    </Reference>
+                    <Reference>
+                      <Database><![CDATA[PHP Documentation: php.ini directive expose_php]]></Database>
+                      <URL><![CDATA[https://www.php.net/manual/en/ini.core.php#ini.expose-php]]></URL>
+                    </Reference>
+                </References>
+            </ReportItem>
+<ReportItem id="12" color="green">
+                <Name><![CDATA[Permissions-Policy header not implemented]]></Name>
+                <ModuleName><![CDATA[/httpdata/permissions_policy.js]]></ModuleName>
+                <Details><![CDATA[Locations without Permissions-Policy header:<br/><ul><li>https://blrvpn1.target1.com/</li></ul>]]></Details>
+                <Affects><![CDATA[/]]></Affects>
+                <Parameter><![CDATA[]]></Parameter>
+                <AOP_SourceFile><![CDATA[]]></AOP_SourceFile>
+                <AOP_SourceLine></AOP_SourceLine>
+                <AOP_Additional><![CDATA[]]></AOP_Additional>
+                <IsFalsePositive><![CDATA[]]></IsFalsePositive>
+                <Severity><![CDATA[informational]]></Severity>
+                <Type><![CDATA[configuration]]></Type>
+                <Impact><![CDATA[]]></Impact>
+                <Description><![CDATA[The Permissions-Policy header allows developers to selectively enable and disable use of various browser features and APIs.]]></Description>
+                <DetailedInformation><![CDATA[]]></DetailedInformation>
+                <Recommendation><![CDATA[]]></Recommendation>
+                <TechnicalDetails>
+                    <Request><![CDATA[GET / HTTP/1.1
+Referer: https://blrvpn1.target1.com/
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Encoding: gzip,deflate,br
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+Host: blrvpn1.target1.com
+Connection: Keep-alive
+]]></Request>
+                </TechnicalDetails>
+                <CWEList>
+                    <CWE id="1021"><![CDATA[CWE-1021]]></CWE>
+                </CWEList>
+                <CVEList>
+                </CVEList>
+                <CVSS>
+                  <Descriptor><![CDATA[AV:N/AC:L/Au:N/C:N/I:N/A:N]]></Descriptor>
+                  <Score><![CDATA[0.0]]></Score>
+                  <AV><![CDATA[Network_Accessible]]></AV>
+                  <AC><![CDATA[Low]]></AC>
+                  <Au><![CDATA[None]]></Au>
+                  <C><![CDATA[None]]></C>
+                  <I><![CDATA[None]]></I>
+                  <A><![CDATA[None]]></A>
+                  <E><![CDATA[]]></E>
+                  <RL><![CDATA[]]></RL>
+                  <RC><![CDATA[]]></RC>
+                </CVSS>
+                <CVSS3>
+                  <Descriptor><![CDATA[CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:N/I:N/A:N]]></Descriptor>
+                  <Score><![CDATA[0.0]]></Score>
+                  <TempScore><![CDATA[]]></TempScore>
+                  <EnvScore><![CDATA[]]></EnvScore>
+                  <AV><![CDATA[Network]]></AV>
+                  <AC><![CDATA[Low]]></AC>
+                  <PR><![CDATA[None]]></PR>
+                  <UI><![CDATA[Required]]></UI>
+                  <S><![CDATA[Changed]]></S>
+                  <C><![CDATA[None]]></C>
+                  <I><![CDATA[None]]></I>
+                  <A><![CDATA[None]]></A>
+                  <E><![CDATA[]]></E>
+                  <RL><![CDATA[]]></RL>
+                  <RC><![CDATA[]]></RC>
+                </CVSS3>
+                <CVSS4>
+                  <Descriptor><![CDATA[CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:A/VC:N/VI:N/VA:N/SC:N/SI:N/SA:N]]></Descriptor>
+                  <Score><![CDATA[0.0]]></Score>
+                  <AV><![CDATA[Network]]></AV>
+                  <AC><![CDATA[Low]]></AC>
+                  <PR><![CDATA[None]]></PR>
+                  <UI><![CDATA[Active]]></UI>
+                  <VC><![CDATA[None]]></VC>
+                  <VI><![CDATA[None]]></VI>
+                  <VA><![CDATA[None]]></VA>
+                  <SC><![CDATA[None]]></SC>
+                  <SI><![CDATA[None]]></SI>
+                  <SA><![CDATA[None]]></SA>
+                </CVSS4>
+                <References>
+                    <Reference>
+                      <Database><![CDATA[Permissions-Policy / Feature-Policy (MDN)]]></Database>
+                      <URL><![CDATA[https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy]]></URL>
+                    </Reference>
+                    <Reference>
+                      <Database><![CDATA[Permissions Policy (W3C)]]></Database>
+                      <URL><![CDATA[https://www.w3.org/TR/permissions-policy-1/]]></URL>
+                    </Reference>
+                </References>
+            </ReportItem>
+        </ReportItems>
+    </Scan>
+</ScanGroup>

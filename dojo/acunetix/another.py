@@ -108,7 +108,7 @@ def set_target_to_group(server, token, target_ids: list, group_id: str):
     json = {
         "target_id_list": target_ids
     }
-    api = ApiTargetGroupSetTargets(url=server, api_key=token, list_target=json, group_id=group_id)
+    api = ApiTargetGroupSetTargets(url=server, api_key=token, list_targets=json, group_id=group_id)
     return do_request(api)
 
 def get_scans_in_processing(server, token):
