@@ -109,5 +109,4 @@ class ApiDeleteTargetGroups(ApiMixin):
             api_key: str = ACUNETIX_TOKEN
     ):
         url = f"{url}/target_groups/delete"
-        print(url, list_target_groups, 'fskjdfdsjdfsjfdsj')
         super().__init__("POST", url, api_key, json=list_target_groups)
