@@ -136,19 +136,25 @@ def create_targets_and_start_scan(request):
                             "delete": False
                         }
                         
-                for target_id in target_ids:
-                    scans[scan["scan_id"]] = {
-                        "scan": scan,
-                        "protocol": valid_product[target_id]["protocol"],
-                        "product": valid_product[target_id]["product"],
-                        "address": valid_product[target_id]["address"],
-                        "delete": valid_product[target_id]["delete"]
-                    }
+                        scans[scan["scan_id"]] = {
+                            "scan": scan,
+                            "protocol": valid_product[target_id]["protocol"],
+                            "product": valid_product[target_id]["product"],
+                            "address": valid_product[target_id]["address"],
+                            "delete": valid_product[target_id]["delete"]
+                        }
                 target_group = create_target_group(server=server, token=token, name=group_name)
                 target_group_id = target_group.get("group_id")
                 set_target_to_group(server, token, target_ids, target_group_id)
+                print(scans, "fsdkfdskfdskfdk")
 
                 fill_statistic_for_files.apply_async(args=[server, token, scans])
+                # for scan in scans:
+                #     scan = scans[scan]
+                #     print(scan, scan['scan']['scan_id'], 'kfdakdfsksfd')
+                #     fill_statistic.apply_async(
+                #         args=[server, token, scan["scan"], scan["protocol"], scan["product"], scan["address"]]
+                #     )
 
                 return redirect(f"indepo/scans/active?server={cleaned_data_server.id}")
             else:

@@ -191,28 +191,30 @@ def get_result_id_by_scan(scan_id):
 
 @app.task
 def fill_statistic_for_files(server, token, scans):
-    while not all([scans[scan]['delete'] for scan in scans]):
-        for scan in scans:
-            if not scans[scan]["delete"]:
-                fill_statistic.apply_async(
-                    args=[
-                        server, token,
-                        scans[scan]["scan"], scans[scan]["protocol"], 
-                        scans[scan]["product"], scans[scan]["address"]
-                    ]
-                )
-                scans[scan]["delete"] = True
+    for scan in scans:
+        while True:
+            result = fill_statistic(server, token,
+                scans[scan]["scan"], scans[scan]["protocol"], 
+                scans[scan]["product"], scans[scan]["address"]
+            )
+            print("tutu", result)
+            print("fds;fsdfd", scan)
+            if result:
+                break
+
 @app.task
 def fill_statistic(server, token, scan: dict, protocol: str, product: Product, address: str):
     scan_id = scan["scan_id"]
+    print("prepare to saving")
     while True:
         api = ApiGetScan(scan_id=scan_id, api_key=token, url=server)
         scan_result = do_request(api)
-        scan_status = scan_result['current_session']["progress"]
-        if str(scan_status) == "100":
+        scan_status = scan_result['current_session']["status"]
+        if str(scan_status) == "completed":
             break
         time.sleep(10)
 
+    print('saving')
     endpoints = get_all_endpoints(scan_id)
     endpoints_objs = []
     for endpoint in endpoints:
