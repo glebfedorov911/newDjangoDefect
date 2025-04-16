@@ -87,7 +87,7 @@ def post_scan_request(server, token, target_id: str, profile_id: str) -> dict:
 
 def do_request(api) -> dict:
     result = api.do()
-    logger.info("Success request %s", result)
+    # logger.info("Success request %s", result)
     try:
         return json.loads(result)
     except:
@@ -193,13 +193,14 @@ def get_result_id_by_scan(scan_id):
 def fill_statistic_for_files(server, token, scans):
     while not all([scans[scan]['delete'] for scan in scans]):
         for scan in scans:
-            if not scans[scan]["delete"] and fill_statistic.apply_async(
-                args=[
-                    server, token,
-                    scans[scan]["scan"], scans[scan]["protocol"], 
-                    scans[scan]["product"], scans[scan]["address"]
-                ]
-            ):
+            if not scans[scan]["delete"]:
+                fill_statistic.apply_async(
+                    args=[
+                        server, token,
+                        scans[scan]["scan"], scans[scan]["protocol"], 
+                        scans[scan]["product"], scans[scan]["address"]
+                    ]
+                )
                 scans[scan]["delete"] = True
 @app.task
 def fill_statistic(server, token, scan: dict, protocol: str, product: Product, address: str):
