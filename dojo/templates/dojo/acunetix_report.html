@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Получить отчеты</button>
+    </form>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const typeImport = document.querySelector("#type-import");
+
+            function togglePeriodic() {
+                let periodic = document.querySelector("#periodic");
+                let labelPeriodic = document.querySelector('[for="periodic"]');
+                if (typeImport.value === "O") {
+                    labelPeriodic.style.display = "none";
+                    periodic.style.display = "none";
+                } else {
+                    labelPeriodic.style.display = "block";
+                    periodic.style.display = "block";
+                }
+            }
+
+            togglePeriodic();
+
+            typeImport.addEventListener("change", togglePeriodic)
+        })
+    </script>
+{% endblock %}

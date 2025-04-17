@@ -1,0 +1,983 @@
+<?xml version="1.0"?>
+<ScanGroup ExportedOn="2025-04-17">
+<Scan>
+        <Name><![CDATA[scan_name]]></Name>
+        <ShortName><![CDATA[scan_short_name]]></ShortName>
+        <StartURL><![CDATA[api.autostructure.ru]]></StartURL>
+        <StartTime><![CDATA[2025-04-17T13:22:47.239688+00:00]]></StartTime>
+        <FinishTime><![CDATA[2025-04-17T13:31:40.580779+00:00]]></FinishTime>
+        <ScanTime><![CDATA[8 minutes, 48 seconds]]></ScanTime>
+        <Aborted><![CDATA[False]]></Aborted>
+        <Responsive><![CDATA[True]]></Responsive>
+        <Banner><![CDATA[]]></Banner>
+        <Os><![CDATA[Unknown]]></Os>
+        <WebServer><![CDATA[uvicorn]]></WebServer>
+        <Technologies>
+            <![CDATA[
+            ]]>
+        </Technologies>
+        <Crawler StartUrl="https://api.autostructure.ru">
+            <Cookies>
+            </Cookies>
+            <SiteFiles>
+<SiteFile id="1">
+                    <Name><![CDATA[https://api.autostructure.ru/]]></Name>
+                    <URL><![CDATA[/]]></URL>
+                    <FullURL><![CDATA[https://api.autostructure.ru/]]></FullURL>
+                    <Inputs>
+                                <Variable Name="Referer" Type="HTTP Header"/>
+                                <Variable Name="User-Agent" Type="HTTP Header"/>
+                                <Variable Name="X-Forwarded-For" Type="HTTP Header"/>
+                    </Inputs>
+                </SiteFile>
+<SiteFile id="2">
+                    <Name><![CDATA[openapi.json]]></Name>
+                    <URL><![CDATA[/openapi.json]]></URL>
+                    <FullURL><![CDATA[https://api.autostructure.ru/openapi.json]]></FullURL>
+                    <Inputs>
+                                <Variable Name="Referer" Type="HTTP Header"/>
+                                <Variable Name="User-Agent" Type="HTTP Header"/>
+                                <Variable Name="X-Forwarded-For" Type="HTTP Header"/>
+                    </Inputs>
+                </SiteFile>
+<SiteFile id="3">
+                    <Name><![CDATA[v1]]></Name>
+                    <URL><![CDATA[/v1/]]></URL>
+                    <FullURL><![CDATA[https://api.autostructure.ru/v1/]]></FullURL>
+                    <Inputs>
+                                <Variable Name="Referer" Type="HTTP Header"/>
+                                <Variable Name="User-Agent" Type="HTTP Header"/>
+                                <Variable Name="X-Forwarded-For" Type="HTTP Header"/>
+                    </Inputs>
+                </SiteFile>
+<SiteFile id="4">
+                    <Name><![CDATA[files]]></Name>
+                    <URL><![CDATA[/v1/files/]]></URL>
+                    <FullURL><![CDATA[https://api.autostructure.ru/v1/files/]]></FullURL>
+                    <Inputs>
+                                <Variable Name="Referer" Type="HTTP Header"/>
+                                <Variable Name="User-Agent" Type="HTTP Header"/>
+                                <Variable Name="X-Forwarded-For" Type="HTTP Header"/>
+                    </Inputs>
+                </SiteFile>
+<SiteFile id="5">
+                    <Name><![CDATA[all_files]]></Name>
+                    <URL><![CDATA[/v1/files/all_files]]></URL>
+                    <FullURL><![CDATA[https://api.autostructure.ru/v1/files/all_files]]></FullURL>
+                    <Inputs>
+                                <Variable Name="Referer" Type="HTTP Header"/>
+                                <Variable Name="User-Agent" Type="HTTP Header"/>
+                                <Variable Name="X-Forwarded-For" Type="HTTP Header"/>
+                                <Variable Name="access-token" Type="HTTP Header"/>
+                    </Inputs>
+                </SiteFile>
+<SiteFile id="6">
+                    <Name><![CDATA[delete_files]]></Name>
+                    <URL><![CDATA[/v1/files/delete_files]]></URL>
+                    <FullURL><![CDATA[https://api.autostructure.ru/v1/files/delete_files]]></FullURL>
+                    <Inputs>
+                                <Variable Name="Referer" Type="HTTP Header"/>
+                                <Variable Name="User-Agent" Type="HTTP Header"/>
+                                <Variable Name="X-Forwarded-For" Type="HTTP Header"/>
+                                <Variable Name="access-token" Type="HTTP Header"/>
+                                <Variable Name="0." Type="JSON"/>
+                    </Inputs>
+                </SiteFile>
+<SiteFile id="7">
+                    <Name><![CDATA[download_file]]></Name>
+                    <URL><![CDATA[/v1/files/download_file/]]></URL>
+                    <FullURL><![CDATA[https://api.autostructure.ru/v1/files/download_file/]]></FullURL>
+                </SiteFile>
+<SiteFile id="8">
+                    <Name><![CDATA[after_parsing]]></Name>
+                    <URL><![CDATA[/v1/files/download_file/after_parsing/]]></URL>
+                    <FullURL><![CDATA[https://api.autostructure.ru/v1/files/download_file/after_parsing/]]></FullURL>
+                    <Inputs>
+                                <Variable Name="Referer" Type="HTTP Header"/>
+                                <Variable Name="User-Agent" Type="HTTP Header"/>
+                                <Variable Name="X-Forwarded-For" Type="HTTP Header"/>
+                                <Variable Name="file_id" Type="Path Fragment"/>
+                    </Inputs>
+                </SiteFile>
+<SiteFile id="9">
+                    <Name><![CDATA[after_parsing_with_nds]]></Name>
+                    <URL><![CDATA[/v1/files/download_file/after_parsing_with_nds/]]></URL>
+                    <FullURL><![CDATA[https://api.autostructure.ru/v1/files/download_file/after_parsing_with_nds/]]></FullURL>
+                    <Inputs>
+                                <Variable Name="Referer" Type="HTTP Header"/>
+                                <Variable Name="User-Agent" Type="HTTP Header"/>
+                                <Variable Name="X-Forwarded-For" Type="HTTP Header"/>
+                                <Variable Name="file_id" Type="Path Fragment"/>
+                    </Inputs>
+                </SiteFile>
+<SiteFile id="10">
+                    <Name><![CDATA[after_parsing_without_nds]]></Name>
+                    <URL><![CDATA[/v1/files/download_file/after_parsing_without_nds/]]></URL>
+                    <FullURL><![CDATA[https://api.autostructure.ru/v1/files/download_file/after_parsing_without_nds/]]></FullURL>
+                    <Inputs>
+                                <Variable Name="Referer" Type="HTTP Header"/>
+                                <Variable Name="User-Agent" Type="HTTP Header"/>
+                                <Variable Name="X-Forwarded-For" Type="HTTP Header"/>
+                                <Variable Name="file_id" Type="Path Fragment"/>
+                    </Inputs>
+                </SiteFile>
+<SiteFile id="11">
+                    <Name><![CDATA[before_parsing]]></Name>
+                    <URL><![CDATA[/v1/files/download_file/before_parsing/]]></URL>
+                    <FullURL><![CDATA[https://api.autostructure.ru/v1/files/download_file/before_parsing/]]></FullURL>
+                    <Inputs>
+                                <Variable Name="Referer" Type="HTTP Header"/>
+                                <Variable Name="User-Agent" Type="HTTP Header"/>
+                                <Variable Name="X-Forwarded-For" Type="HTTP Header"/>
+                                <Variable Name="file_id" Type="Path Fragment"/>
+                    </Inputs>
+                </SiteFile>
+<SiteFile id="12">
+                    <Name><![CDATA[get_shablon]]></Name>
+                    <URL><![CDATA[/v1/files/get_shablon]]></URL>
+                    <FullURL><![CDATA[https://api.autostructure.ru/v1/files/get_shablon]]></FullURL>
+                    <Inputs>
+                                <Variable Name="Referer" Type="HTTP Header"/>
+                                <Variable Name="User-Agent" Type="HTTP Header"/>
+                                <Variable Name="X-Forwarded-For" Type="HTTP Header"/>
+                    </Inputs>
+                </SiteFile>
+<SiteFile id="13">
+                    <Name><![CDATA[upload_file]]></Name>
+                    <URL><![CDATA[/v1/files/upload_file]]></URL>
+                    <FullURL><![CDATA[https://api.autostructure.ru/v1/files/upload_file]]></FullURL>
+                    <Inputs>
+                                <Variable Name="Referer" Type="HTTP Header"/>
+                                <Variable Name="User-Agent" Type="HTTP Header"/>
+                                <Variable Name="X-Forwarded-For" Type="HTTP Header"/>
+                                <Variable Name="access-token" Type="HTTP Header"/>
+                                <Variable Name="file" Type="POST (multipart)"/>
+                    </Inputs>
+                </SiteFile>
+<SiteFile id="14">
+                    <Name><![CDATA[filters]]></Name>
+                    <URL><![CDATA[/v1/filters/]]></URL>
+                    <FullURL><![CDATA[https://api.autostructure.ru/v1/filters/]]></FullURL>
+                    <Inputs>
+                                <Variable Name="Referer" Type="HTTP Header"/>
+                                <Variable Name="User-Agent" Type="HTTP Header"/>
+                                <Variable Name="X-Forwarded-For" Type="HTTP Header"/>
+                    </Inputs>
+                </SiteFile>
+<SiteFile id="15">
+                    <Name><![CDATA[create_filter]]></Name>
+                    <URL><![CDATA[/v1/filters/create_filter]]></URL>
+                    <FullURL><![CDATA[https://api.autostructure.ru/v1/filters/create_filter]]></FullURL>
+                    <Inputs>
+                                <Variable Name="Referer" Type="HTTP Header"/>
+                                <Variable Name="User-Agent" Type="HTTP Header"/>
+                                <Variable Name="X-Forwarded-For" Type="HTTP Header"/>
+                                <Variable Name="access-token" Type="HTTP Header"/>
+                                <Variable Name="is_bigger" Type="JSON"/>
+                                <Variable Name="title" Type="JSON"/>
+                                <Variable Name="only_first_logo" Type="JSON"/>
+                                <Variable Name="deep_filter" Type="JSON"/>
+                                <Variable Name="deep_analog" Type="JSON"/>
+                                <Variable Name="logo" Type="JSON"/>
+                                <Variable Name="analog" Type="JSON"/>
+                                <Variable Name="pickup_point" Type="JSON"/>
+                                <Variable Name="replacement" Type="JSON"/>
+                                <Variable Name="date" Type="JSON"/>
+                    </Inputs>
+                </SiteFile>
+<SiteFile id="16">
+                    <Name><![CDATA[delete_filter]]></Name>
+                    <URL><![CDATA[/v1/filters/delete_filter/]]></URL>
+                    <FullURL><![CDATA[https://api.autostructure.ru/v1/filters/delete_filter/]]></FullURL>
+                    <Inputs>
+                                <Variable Name="Referer" Type="HTTP Header"/>
+                                <Variable Name="User-Agent" Type="HTTP Header"/>
+                                <Variable Name="X-Forwarded-For" Type="HTTP Header"/>
+                                <Variable Name="access-token" Type="HTTP Header"/>
+                                <Variable Name="filter_id" Type="Path Fragment"/>
+                    </Inputs>
+                </SiteFile>
+<SiteFile id="17">
+                    <Name><![CDATA[edit_filter]]></Name>
+                    <URL><![CDATA[/v1/filters/edit_filter/]]></URL>
+                    <FullURL><![CDATA[https://api.autostructure.ru/v1/filters/edit_filter/]]></FullURL>
+                    <Inputs>
+                                <Variable Name="Referer" Type="HTTP Header"/>
+                                <Variable Name="User-Agent" Type="HTTP Header"/>
+                                <Variable Name="X-Forwarded-For" Type="HTTP Header"/>
+                                <Variable Name="access-token" Type="HTTP Header"/>
+                                <Variable Name="filter_id" Type="Path Fragment"/>
+                                <Variable Name="logo" Type="JSON"/>
+                                <Variable Name="date" Type="JSON"/>
+                                <Variable Name="is_bigger" Type="JSON"/>
+                                <Variable Name="only_first_logo" Type="JSON"/>
+                                <Variable Name="deep_analog" Type="JSON"/>
+                                <Variable Name="title" Type="JSON"/>
+                                <Variable Name="pickup_point" Type="JSON"/>
+                                <Variable Name="replacement" Type="JSON"/>
+                                <Variable Name="analog" Type="JSON"/>
+                                <Variable Name="deep_filter" Type="JSON"/>
+                    </Inputs>
+                </SiteFile>
+<SiteFile id="18">
+                    <Name><![CDATA[get_filter]]></Name>
+                    <URL><![CDATA[/v1/filters/get_filter/]]></URL>
+                    <FullURL><![CDATA[https://api.autostructure.ru/v1/filters/get_filter/]]></FullURL>
+                    <Inputs>
+                                <Variable Name="Referer" Type="HTTP Header"/>
+                                <Variable Name="User-Agent" Type="HTTP Header"/>
+                                <Variable Name="X-Forwarded-For" Type="HTTP Header"/>
+                                <Variable Name="access-token" Type="HTTP Header"/>
+                                <Variable Name="filter_id" Type="Path Fragment"/>
+                    </Inputs>
+                </SiteFile>
+<SiteFile id="19">
+                    <Name><![CDATA[get_filters]]></Name>
+                    <URL><![CDATA[/v1/filters/get_filters]]></URL>
+                    <FullURL><![CDATA[https://api.autostructure.ru/v1/filters/get_filters]]></FullURL>
+                    <Inputs>
+                                <Variable Name="Referer" Type="HTTP Header"/>
+                                <Variable Name="User-Agent" Type="HTTP Header"/>
+                                <Variable Name="X-Forwarded-For" Type="HTTP Header"/>
+                                <Variable Name="access-token" Type="HTTP Header"/>
+                    </Inputs>
+                </SiteFile>
+<SiteFile id="20">
+                    <Name><![CDATA[nds]]></Name>
+                    <URL><![CDATA[/v1/nds/]]></URL>
+                    <FullURL><![CDATA[https://api.autostructure.ru/v1/nds/]]></FullURL>
+                    <Inputs>
+                                <Variable Name="Referer" Type="HTTP Header"/>
+                                <Variable Name="User-Agent" Type="HTTP Header"/>
+                                <Variable Name="X-Forwarded-For" Type="HTTP Header"/>
+                    </Inputs>
+                </SiteFile>
+<SiteFile id="21">
+                    <Name><![CDATA[edit]]></Name>
+                    <URL><![CDATA[/v1/nds/edit/]]></URL>
+                    <FullURL><![CDATA[https://api.autostructure.ru/v1/nds/edit/]]></FullURL>
+                    <Inputs>
+                                <Variable Name="Referer" Type="HTTP Header"/>
+                                <Variable Name="User-Agent" Type="HTTP Header"/>
+                                <Variable Name="X-Forwarded-For" Type="HTTP Header"/>
+                                <Variable Name="access-token" Type="HTTP Header"/>
+                                <Variable Name="file_id" Type="Path Fragment"/>
+                    </Inputs>
+                </SiteFile>
+<SiteFile id="22">
+                    <Name><![CDATA[new_parser]]></Name>
+                    <URL><![CDATA[/v1/new_parser/]]></URL>
+                    <FullURL><![CDATA[https://api.autostructure.ru/v1/new_parser/]]></FullURL>
+                    <Inputs>
+                                <Variable Name="Referer" Type="HTTP Header"/>
+                                <Variable Name="User-Agent" Type="HTTP Header"/>
+                                <Variable Name="X-Forwarded-For" Type="HTTP Header"/>
+                    </Inputs>
+                </SiteFile>
+<SiteFile id="23">
+                    <Name><![CDATA[get_rezerv]]></Name>
+                    <URL><![CDATA[/v1/new_parser/get_rezerv]]></URL>
+                    <FullURL><![CDATA[https://api.autostructure.ru/v1/new_parser/get_rezerv]]></FullURL>
+                    <Inputs>
+                                <Variable Name="Referer" Type="HTTP Header"/>
+                                <Variable Name="User-Agent" Type="HTTP Header"/>
+                                <Variable Name="X-Forwarded-For" Type="HTTP Header"/>
+                                <Variable Name="access-token" Type="HTTP Header"/>
+                    </Inputs>
+                </SiteFile>
+<SiteFile id="24">
+                    <Name><![CDATA[start]]></Name>
+                    <URL><![CDATA[/v1/new_parser/start/]]></URL>
+                    <FullURL><![CDATA[https://api.autostructure.ru/v1/new_parser/start/]]></FullURL>
+                    <Inputs>
+                                <Variable Name="Referer" Type="HTTP Header"/>
+                                <Variable Name="User-Agent" Type="HTTP Header"/>
+                                <Variable Name="X-Forwarded-For" Type="HTTP Header"/>
+                                <Variable Name="using_proxy" Type="URL encoded GET"/>
+                                <Variable Name="access-token" Type="HTTP Header"/>
+                                <Variable Name="filter_id" Type="Path Fragment"/>
+                    </Inputs>
+                </SiteFile>
+<SiteFile id="25">
+                    <Name><![CDATA[stop]]></Name>
+                    <URL><![CDATA[/v1/new_parser/stop]]></URL>
+                    <FullURL><![CDATA[https://api.autostructure.ru/v1/new_parser/stop]]></FullURL>
+                    <Inputs>
+                                <Variable Name="Referer" Type="HTTP Header"/>
+                                <Variable Name="User-Agent" Type="HTTP Header"/>
+                                <Variable Name="X-Forwarded-For" Type="HTTP Header"/>
+                                <Variable Name="access-token" Type="HTTP Header"/>
+                    </Inputs>
+                </SiteFile>
+<SiteFile id="26">
+                    <Name><![CDATA[proxies]]></Name>
+                    <URL><![CDATA[/v1/proxies/]]></URL>
+                    <FullURL><![CDATA[https://api.autostructure.ru/v1/proxies/]]></FullURL>
+                    <Inputs>
+                                <Variable Name="Referer" Type="HTTP Header"/>
+                                <Variable Name="User-Agent" Type="HTTP Header"/>
+                                <Variable Name="X-Forwarded-For" Type="HTTP Header"/>
+                    </Inputs>
+                </SiteFile>
+<SiteFile id="27">
+                    <Name><![CDATA[buy_proxy]]></Name>
+                    <URL><![CDATA[/v1/proxies/buy_proxy]]></URL>
+                    <FullURL><![CDATA[https://api.autostructure.ru/v1/proxies/buy_proxy]]></FullURL>
+                    <Inputs>
+                                <Variable Name="Referer" Type="HTTP Header"/>
+                                <Variable Name="User-Agent" Type="HTTP Header"/>
+                                <Variable Name="X-Forwarded-For" Type="HTTP Header"/>
+                                <Variable Name="count" Type="URL encoded GET"/>
+                                <Variable Name="duration" Type="URL encoded GET"/>
+                                <Variable Name="access-token" Type="HTTP Header"/>
+                    </Inputs>
+                </SiteFile>
+<SiteFile id="28">
+                    <Name><![CDATA[delete_proxy_group]]></Name>
+                    <URL><![CDATA[/v1/proxies/delete_proxy_group]]></URL>
+                    <FullURL><![CDATA[https://api.autostructure.ru/v1/proxies/delete_proxy_group]]></FullURL>
+                    <Inputs>
+                                <Variable Name="Referer" Type="HTTP Header"/>
+                                <Variable Name="User-Agent" Type="HTTP Header"/>
+                                <Variable Name="X-Forwarded-For" Type="HTTP Header"/>
+                                <Variable Name="date" Type="URL encoded GET"/>
+                                <Variable Name="access-token" Type="HTTP Header"/>
+                    </Inputs>
+                </SiteFile>
+<SiteFile id="29">
+                    <Name><![CDATA[get_balance_bright_data]]></Name>
+                    <URL><![CDATA[/v1/proxies/get_balance_bright_data]]></URL>
+                    <FullURL><![CDATA[https://api.autostructure.ru/v1/proxies/get_balance_bright_data]]></FullURL>
+                    <Inputs>
+                                <Variable Name="Referer" Type="HTTP Header"/>
+                                <Variable Name="User-Agent" Type="HTTP Header"/>
+                                <Variable Name="X-Forwarded-For" Type="HTTP Header"/>
+                    </Inputs>
+                </SiteFile>
+<SiteFile id="30">
+                    <Name><![CDATA[get_proxy_by_date]]></Name>
+                    <URL><![CDATA[/v1/proxies/get_proxy_by_date]]></URL>
+                    <FullURL><![CDATA[https://api.autostructure.ru/v1/proxies/get_proxy_by_date]]></FullURL>
+                    <Inputs>
+                                <Variable Name="Referer" Type="HTTP Header"/>
+                                <Variable Name="User-Agent" Type="HTTP Header"/>
+                                <Variable Name="X-Forwarded-For" Type="HTTP Header"/>
+                                <Variable Name="date" Type="URL encoded GET"/>
+                                <Variable Name="access-token" Type="HTTP Header"/>
+                    </Inputs>
+                </SiteFile>
+<SiteFile id="31">
+                    <Name><![CDATA[get_proxy_group]]></Name>
+                    <URL><![CDATA[/v1/proxies/get_proxy_group]]></URL>
+                    <FullURL><![CDATA[https://api.autostructure.ru/v1/proxies/get_proxy_group]]></FullURL>
+                    <Inputs>
+                                <Variable Name="Referer" Type="HTTP Header"/>
+                                <Variable Name="User-Agent" Type="HTTP Header"/>
+                                <Variable Name="X-Forwarded-For" Type="HTTP Header"/>
+                                <Variable Name="access-token" Type="HTTP Header"/>
+                    </Inputs>
+                </SiteFile>
+<SiteFile id="32">
+                    <Name><![CDATA[get_shablon]]></Name>
+                    <URL><![CDATA[/v1/proxies/get_shablon]]></URL>
+                    <FullURL><![CDATA[https://api.autostructure.ru/v1/proxies/get_shablon]]></FullURL>
+                    <Inputs>
+                                <Variable Name="Referer" Type="HTTP Header"/>
+                                <Variable Name="User-Agent" Type="HTTP Header"/>
+                                <Variable Name="X-Forwarded-For" Type="HTTP Header"/>
+                    </Inputs>
+                </SiteFile>
+<SiteFile id="33">
+                    <Name><![CDATA[prolong_proxy]]></Name>
+                    <URL><![CDATA[/v1/proxies/prolong_proxy]]></URL>
+                    <FullURL><![CDATA[https://api.autostructure.ru/v1/proxies/prolong_proxy]]></FullURL>
+                    <Inputs>
+                                <Variable Name="Referer" Type="HTTP Header"/>
+                                <Variable Name="User-Agent" Type="HTTP Header"/>
+                                <Variable Name="X-Forwarded-For" Type="HTTP Header"/>
+                                <Variable Name="count" Type="URL encoded GET"/>
+                                <Variable Name="duration" Type="URL encoded GET"/>
+                                <Variable Name="date" Type="URL encoded GET"/>
+                                <Variable Name="access-token" Type="HTTP Header"/>
+                    </Inputs>
+                </SiteFile>
+<SiteFile id="34">
+                    <Name><![CDATA[upload_file_with_proxy]]></Name>
+                    <URL><![CDATA[/v1/proxies/upload_file_with_proxy]]></URL>
+                    <FullURL><![CDATA[https://api.autostructure.ru/v1/proxies/upload_file_with_proxy]]></FullURL>
+                    <Inputs>
+                                <Variable Name="Referer" Type="HTTP Header"/>
+                                <Variable Name="User-Agent" Type="HTTP Header"/>
+                                <Variable Name="X-Forwarded-For" Type="HTTP Header"/>
+                                <Variable Name="access-token" Type="HTTP Header"/>
+                                <Variable Name="file" Type="POST (multipart)"/>
+                    </Inputs>
+                </SiteFile>
+<SiteFile id="35">
+                    <Name><![CDATA[showing]]></Name>
+                    <URL><![CDATA[/v1/showing/]]></URL>
+                    <FullURL><![CDATA[https://api.autostructure.ru/v1/showing/]]></FullURL>
+                    <Inputs>
+                                <Variable Name="Referer" Type="HTTP Header"/>
+                                <Variable Name="User-Agent" Type="HTTP Header"/>
+                                <Variable Name="X-Forwarded-For" Type="HTTP Header"/>
+                    </Inputs>
+                </SiteFile>
+<SiteFile id="36">
+                    <Name><![CDATA[show_data]]></Name>
+                    <URL><![CDATA[/v1/showing/show_data/]]></URL>
+                    <FullURL><![CDATA[https://api.autostructure.ru/v1/showing/show_data/]]></FullURL>
+                    <Inputs>
+                                <Variable Name="Referer" Type="HTTP Header"/>
+                                <Variable Name="User-Agent" Type="HTTP Header"/>
+                                <Variable Name="X-Forwarded-For" Type="HTTP Header"/>
+                                <Variable Name="skip" Type="URL encoded GET"/>
+                                <Variable Name="limit" Type="URL encoded GET"/>
+                                <Variable Name="access-token" Type="HTTP Header"/>
+                                <Variable Name="filename" Type="Path Fragment"/>
+                    </Inputs>
+                </SiteFile>
+<SiteFile id="37">
+                    <Name><![CDATA[users]]></Name>
+                    <URL><![CDATA[/v1/users/]]></URL>
+                    <FullURL><![CDATA[https://api.autostructure.ru/v1/users/]]></FullURL>
+                    <Inputs>
+                                <Variable Name="Referer" Type="HTTP Header"/>
+                                <Variable Name="User-Agent" Type="HTTP Header"/>
+                                <Variable Name="X-Forwarded-For" Type="HTTP Header"/>
+                    </Inputs>
+                </SiteFile>
+<SiteFile id="38">
+                    <Name><![CDATA[about_one]]></Name>
+                    <URL><![CDATA[/v1/users/about_one/]]></URL>
+                    <FullURL><![CDATA[https://api.autostructure.ru/v1/users/about_one/]]></FullURL>
+                    <Inputs>
+                                <Variable Name="Referer" Type="HTTP Header"/>
+                                <Variable Name="User-Agent" Type="HTTP Header"/>
+                                <Variable Name="X-Forwarded-For" Type="HTTP Header"/>
+                                <Variable Name="access-token" Type="HTTP Header"/>
+                                <Variable Name="user_id" Type="Path Fragment"/>
+                    </Inputs>
+                </SiteFile>
+<SiteFile id="39">
+                    <Name><![CDATA[delete]]></Name>
+                    <URL><![CDATA[/v1/users/delete/]]></URL>
+                    <FullURL><![CDATA[https://api.autostructure.ru/v1/users/delete/]]></FullURL>
+                    <Inputs>
+                                <Variable Name="Referer" Type="HTTP Header"/>
+                                <Variable Name="User-Agent" Type="HTTP Header"/>
+                                <Variable Name="X-Forwarded-For" Type="HTTP Header"/>
+                                <Variable Name="access-token" Type="HTTP Header"/>
+                                <Variable Name="user_id" Type="Path Fragment"/>
+                    </Inputs>
+                </SiteFile>
+<SiteFile id="40">
+                    <Name><![CDATA[edit]]></Name>
+                    <URL><![CDATA[/v1/users/edit/]]></URL>
+                    <FullURL><![CDATA[https://api.autostructure.ru/v1/users/edit/]]></FullURL>
+                    <Inputs>
+                                <Variable Name="Referer" Type="HTTP Header"/>
+                                <Variable Name="User-Agent" Type="HTTP Header"/>
+                                <Variable Name="X-Forwarded-For" Type="HTTP Header"/>
+                                <Variable Name="access-token" Type="HTTP Header"/>
+                                <Variable Name="user_id" Type="Path Fragment"/>
+                                <Variable Name="is_admin" Type="JSON"/>
+                                <Variable Name="description" Type="JSON"/>
+                                <Variable Name="username" Type="JSON"/>
+                                <Variable Name="password" Type="JSON"/>
+                                <Variable Name="fullname" Type="JSON"/>
+                    </Inputs>
+                </SiteFile>
+<SiteFile id="41">
+                    <Name><![CDATA[login]]></Name>
+                    <URL><![CDATA[/v1/users/login]]></URL>
+                    <FullURL><![CDATA[https://api.autostructure.ru/v1/users/login]]></FullURL>
+                    <Inputs>
+                                <Variable Name="Referer" Type="HTTP Header"/>
+                                <Variable Name="User-Agent" Type="HTTP Header"/>
+                                <Variable Name="X-Forwarded-For" Type="HTTP Header"/>
+                                <Variable Name="access-token" Type="HTTP Header"/>
+                                <Variable Name="password" Type="JSON"/>
+                                <Variable Name="username" Type="JSON"/>
+                    </Inputs>
+                </SiteFile>
+<SiteFile id="42">
+                    <Name><![CDATA[logout]]></Name>
+                    <URL><![CDATA[/v1/users/logout]]></URL>
+                    <FullURL><![CDATA[https://api.autostructure.ru/v1/users/logout]]></FullURL>
+                    <Inputs>
+                                <Variable Name="Referer" Type="HTTP Header"/>
+                                <Variable Name="User-Agent" Type="HTTP Header"/>
+                                <Variable Name="X-Forwarded-For" Type="HTTP Header"/>
+                                <Variable Name="access-token" Type="HTTP Header"/>
+                    </Inputs>
+                </SiteFile>
+<SiteFile id="43">
+                    <Name><![CDATA[show_all]]></Name>
+                    <URL><![CDATA[/v1/users/show_all]]></URL>
+                    <FullURL><![CDATA[https://api.autostructure.ru/v1/users/show_all]]></FullURL>
+                    <Inputs>
+                                <Variable Name="Referer" Type="HTTP Header"/>
+                                <Variable Name="User-Agent" Type="HTTP Header"/>
+                                <Variable Name="X-Forwarded-For" Type="HTTP Header"/>
+                                <Variable Name="access-token" Type="HTTP Header"/>
+                    </Inputs>
+                </SiteFile>
+<SiteFile id="44">
+                    <Name><![CDATA[sign_up]]></Name>
+                    <URL><![CDATA[/v1/users/sign_up]]></URL>
+                    <FullURL><![CDATA[https://api.autostructure.ru/v1/users/sign_up]]></FullURL>
+                    <Inputs>
+                                <Variable Name="Referer" Type="HTTP Header"/>
+                                <Variable Name="User-Agent" Type="HTTP Header"/>
+                                <Variable Name="X-Forwarded-For" Type="HTTP Header"/>
+                                <Variable Name="access-token" Type="HTTP Header"/>
+                                <Variable Name="description" Type="JSON"/>
+                                <Variable Name="username" Type="JSON"/>
+                                <Variable Name="is_admin" Type="JSON"/>
+                                <Variable Name="password" Type="JSON"/>
+                                <Variable Name="fullname" Type="JSON"/>
+                    </Inputs>
+                </SiteFile>
+            </SiteFiles>
+        </Crawler>
+        <ReportItems>
+<ReportItem id="1" color="orange">
+                <Name><![CDATA[HTTP Strict Transport Security (HSTS) Policy Not Enabled]]></Name>
+                <ModuleName><![CDATA[/httpdata/HSTS_not_implemented.js]]></ModuleName>
+                <Details><![CDATA[URLs where HSTS is not enabled:<br/><ul><li>https://api.autostructure.ru/v1/new_parser/</li></ul>]]></Details>
+                <Affects><![CDATA[/]]></Affects>
+                <Parameter><![CDATA[]]></Parameter>
+                <AOP_SourceFile><![CDATA[]]></AOP_SourceFile>
+                <AOP_SourceLine></AOP_SourceLine>
+                <AOP_Additional><![CDATA[]]></AOP_Additional>
+                <IsFalsePositive><![CDATA[]]></IsFalsePositive>
+                <Severity><![CDATA[medium]]></Severity>
+                <Type><![CDATA[configuration]]></Type>
+                <Impact><![CDATA[HSTS can be used to prevent and/or mitigate some types of man-in-the-middle (MitM) attacks]]></Impact>
+                <Description><![CDATA[HTTP Strict Transport Security (HSTS) tells a browser that a web site is only accessable using HTTPS.
+        It was detected that your web application doesn't implement HTTP Strict Transport Security (HSTS) as the Strict Transport Security header is missing from the response.]]></Description>
+                <DetailedInformation><![CDATA[]]></DetailedInformation>
+                <Recommendation><![CDATA[It's recommended to implement HTTP Strict Transport Security (HSTS) into your web application. Consult web references for more information]]></Recommendation>
+                <TechnicalDetails>
+                    <Request><![CDATA[GET /v1/new_parser/ HTTP/1.1
+Referer: https://api.autostructure.ru/openapi.json
+Content-Type: application/json
+Accept: application/json;q=0.9, application/xml;q=0.8
+Accept-Encoding: gzip,deflate,br
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+Host: api.autostructure.ru
+Connection: Keep-alive
+]]></Request>
+                </TechnicalDetails>
+                <CWEList>
+                    <CWE id="16"><![CDATA[CWE-16]]></CWE>
+                </CWEList>
+                <CVEList>
+                </CVEList>
+                <CVSS>
+                  <Descriptor><![CDATA[AV:N/AC:L/Au:N/C:N/I:N/A:N]]></Descriptor>
+                  <Score><![CDATA[0.0]]></Score>
+                  <AV><![CDATA[Network_Accessible]]></AV>
+                  <AC><![CDATA[Low]]></AC>
+                  <Au><![CDATA[None]]></Au>
+                  <C><![CDATA[None]]></C>
+                  <I><![CDATA[None]]></I>
+                  <A><![CDATA[None]]></A>
+                  <E><![CDATA[]]></E>
+                  <RL><![CDATA[]]></RL>
+                  <RC><![CDATA[]]></RC>
+                </CVSS>
+                <CVSS3>
+                  <Descriptor><![CDATA[CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:N/I:N/A:N]]></Descriptor>
+                  <Score><![CDATA[0.0]]></Score>
+                  <TempScore><![CDATA[]]></TempScore>
+                  <EnvScore><![CDATA[]]></EnvScore>
+                  <AV><![CDATA[Network]]></AV>
+                  <AC><![CDATA[Low]]></AC>
+                  <PR><![CDATA[None]]></PR>
+                  <UI><![CDATA[Required]]></UI>
+                  <S><![CDATA[Changed]]></S>
+                  <C><![CDATA[None]]></C>
+                  <I><![CDATA[None]]></I>
+                  <A><![CDATA[None]]></A>
+                  <E><![CDATA[]]></E>
+                  <RL><![CDATA[]]></RL>
+                  <RC><![CDATA[]]></RC>
+                </CVSS3>
+                <CVSS4>
+                  <Descriptor><![CDATA[CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:A/VC:N/VI:N/VA:N/SC:N/SI:N/SA:N]]></Descriptor>
+                  <Score><![CDATA[0.0]]></Score>
+                  <AV><![CDATA[Network]]></AV>
+                  <AC><![CDATA[Low]]></AC>
+                  <PR><![CDATA[None]]></PR>
+                  <UI><![CDATA[Active]]></UI>
+                  <VC><![CDATA[None]]></VC>
+                  <VI><![CDATA[None]]></VI>
+                  <VA><![CDATA[None]]></VA>
+                  <SC><![CDATA[None]]></SC>
+                  <SI><![CDATA[None]]></SI>
+                  <SA><![CDATA[None]]></SA>
+                </CVSS4>
+                <References>
+                    <Reference>
+                      <Database><![CDATA[hstspreload.org]]></Database>
+                      <URL><![CDATA[https://hstspreload.org/]]></URL>
+                    </Reference>
+                    <Reference>
+                      <Database><![CDATA[Strict-Transport-Security]]></Database>
+                      <URL><![CDATA[https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security]]></URL>
+                    </Reference>
+                </References>
+            </ReportItem>
+<ReportItem id="2" color="orange">
+                <Name><![CDATA[SSL Certificate Is About To Expire]]></Name>
+                <ModuleName><![CDATA[/Scripts/PerServer/SSL_Audit.script]]></ModuleName>
+                <Details><![CDATA[<p>The TLS/SSL certificate (serial: 033ce044e77043b7d2019d824710fe261bb8) will expire in less than <strong>60</strong> days. The certificate validity period is from <strong>Tue Mar 11 2025 09:39:26 GMT+0000 (UTC)</strong> to <strong>Mon Jun 09 2025 09:39:25 GMT+0000 (UTC)</strong> (52 days left)</p>]]></Details>
+                <Affects><![CDATA[/]]></Affects>
+                <Parameter><![CDATA[]]></Parameter>
+                <AOP_SourceFile><![CDATA[]]></AOP_SourceFile>
+                <AOP_SourceLine></AOP_SourceLine>
+                <AOP_Additional><![CDATA[]]></AOP_Additional>
+                <IsFalsePositive><![CDATA[]]></IsFalsePositive>
+                <Severity><![CDATA[medium]]></Severity>
+                <Type><![CDATA[configuration]]></Type>
+                <Impact><![CDATA[If an application server detects an expired certificate with a system it is communicating with, the application server may continue processing data as if nothing happened, or the connection may be abruptly terminated.]]></Impact>
+                <Description><![CDATA[One of the TLS/SSL certificates used by your server is about to expire. <br/><br/> Once the certificate has expired, most web browsers will present end-users with a security warning, asking them to manually confirm the authenticity of your certificate chain. Software or automated systems may silently refuse to connect to the server. <br/><br/> This alert is not necessarily caused by the server (leaf) certificate, but may have been triggered by an intermediate certificate. Please refer to the certificate serial number in the alert details to identify the affected certificate.]]></Description>
+                <DetailedInformation><![CDATA[]]></DetailedInformation>
+                <Recommendation><![CDATA[Contact your Certificate Authority to renew the SSL certificate.]]></Recommendation>
+                <TechnicalDetails>
+                    <Request><![CDATA[]]></Request>
+                </TechnicalDetails>
+                <CWEList>
+                    <CWE id="298"><![CDATA[CWE-298]]></CWE>
+                </CWEList>
+                <CVEList>
+                </CVEList>
+                <CVSS>
+                  <Descriptor><![CDATA[AV:N/AC:L/Au:N/C:P/I:N/A:N]]></Descriptor>
+                  <Score><![CDATA[5.0]]></Score>
+                  <AV><![CDATA[Network_Accessible]]></AV>
+                  <AC><![CDATA[Low]]></AC>
+                  <Au><![CDATA[None]]></Au>
+                  <C><![CDATA[Partial]]></C>
+                  <I><![CDATA[None]]></I>
+                  <A><![CDATA[None]]></A>
+                  <E><![CDATA[]]></E>
+                  <RL><![CDATA[]]></RL>
+                  <RC><![CDATA[]]></RC>
+                </CVSS>
+                <CVSS3>
+                  <Descriptor><![CDATA[CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N]]></Descriptor>
+                  <Score><![CDATA[5.3]]></Score>
+                  <TempScore><![CDATA[]]></TempScore>
+                  <EnvScore><![CDATA[]]></EnvScore>
+                  <AV><![CDATA[Network]]></AV>
+                  <AC><![CDATA[Low]]></AC>
+                  <PR><![CDATA[None]]></PR>
+                  <UI><![CDATA[None]]></UI>
+                  <S><![CDATA[Unchanged]]></S>
+                  <C><![CDATA[None]]></C>
+                  <I><![CDATA[Low]]></I>
+                  <A><![CDATA[None]]></A>
+                  <E><![CDATA[]]></E>
+                  <RL><![CDATA[]]></RL>
+                  <RC><![CDATA[]]></RC>
+                </CVSS3>
+                <CVSS4>
+                  <Descriptor><![CDATA[CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N]]></Descriptor>
+                  <Score><![CDATA[6.9]]></Score>
+                  <AV><![CDATA[Network]]></AV>
+                  <AC><![CDATA[Low]]></AC>
+                  <PR><![CDATA[None]]></PR>
+                  <UI><![CDATA[None]]></UI>
+                  <VC><![CDATA[None]]></VC>
+                  <VI><![CDATA[Low]]></VI>
+                  <VA><![CDATA[None]]></VA>
+                  <SC><![CDATA[None]]></SC>
+                  <SI><![CDATA[None]]></SI>
+                  <SA><![CDATA[None]]></SA>
+                </CVSS4>
+                <References>
+                    <Reference>
+                      <Database><![CDATA[SSL Certificate Is About To Expire]]></Database>
+                      <URL><![CDATA[https://www.invicti.com/web-vulnerability-scanner/vulnerabilities/ssl-certificate-is-about-to-expire/]]></URL>
+                    </Reference>
+                </References>
+            </ReportItem>
+<ReportItem id="3" color="orange">
+                <Name><![CDATA[TLS/SSL Weak Cipher Suites]]></Name>
+                <ModuleName><![CDATA[/Scripts/PerServer/SSL_Audit.script]]></ModuleName>
+                <Details><![CDATA[Weak TLS/SSL Cipher Suites: (offered via TLS1.2 on port 443): <br/><br/><li>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA  </li><li>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA  </li><br/><br/>]]></Details>
+                <Affects><![CDATA[/]]></Affects>
+                <Parameter><![CDATA[]]></Parameter>
+                <AOP_SourceFile><![CDATA[]]></AOP_SourceFile>
+                <AOP_SourceLine></AOP_SourceLine>
+                <AOP_Additional><![CDATA[]]></AOP_Additional>
+                <IsFalsePositive><![CDATA[]]></IsFalsePositive>
+                <Severity><![CDATA[medium]]></Severity>
+                <Type><![CDATA[configuration]]></Type>
+                <Impact><![CDATA[]]></Impact>
+                <Description><![CDATA[The remote host supports TLS/SSL cipher suites with weak or insecure properties.]]></Description>
+                <DetailedInformation><![CDATA[]]></DetailedInformation>
+                <Recommendation><![CDATA[Reconfigure the affected application to avoid use of weak cipher suites.]]></Recommendation>
+                <TechnicalDetails>
+                    <Request><![CDATA[]]></Request>
+                </TechnicalDetails>
+                <CWEList>
+                    <CWE id="310"><![CDATA[CWE-310]]></CWE>
+                </CWEList>
+                <CVEList>
+                </CVEList>
+                <CVSS>
+                  <Descriptor><![CDATA[AV:L/AC:M/Au:N/C:P/I:P/A:N]]></Descriptor>
+                  <Score><![CDATA[3.3]]></Score>
+                  <AV><![CDATA[Local_Access]]></AV>
+                  <AC><![CDATA[Medium]]></AC>
+                  <Au><![CDATA[None]]></Au>
+                  <C><![CDATA[Partial]]></C>
+                  <I><![CDATA[Partial]]></I>
+                  <A><![CDATA[None]]></A>
+                  <E><![CDATA[]]></E>
+                  <RL><![CDATA[]]></RL>
+                  <RC><![CDATA[]]></RC>
+                </CVSS>
+                <CVSS3>
+                  <Descriptor><![CDATA[CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N]]></Descriptor>
+                  <Score><![CDATA[6.5]]></Score>
+                  <TempScore><![CDATA[]]></TempScore>
+                  <EnvScore><![CDATA[]]></EnvScore>
+                  <AV><![CDATA[Network]]></AV>
+                  <AC><![CDATA[Low]]></AC>
+                  <PR><![CDATA[None]]></PR>
+                  <UI><![CDATA[None]]></UI>
+                  <S><![CDATA[Unchanged]]></S>
+                  <C><![CDATA[Low]]></C>
+                  <I><![CDATA[Low]]></I>
+                  <A><![CDATA[None]]></A>
+                  <E><![CDATA[]]></E>
+                  <RL><![CDATA[]]></RL>
+                  <RC><![CDATA[]]></RC>
+                </CVSS3>
+                <CVSS4>
+                  <Descriptor><![CDATA[CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:L/VI:L/VA:N/SC:N/SI:N/SA:N]]></Descriptor>
+                  <Score><![CDATA[6.9]]></Score>
+                  <AV><![CDATA[Network]]></AV>
+                  <AC><![CDATA[Low]]></AC>
+                  <PR><![CDATA[None]]></PR>
+                  <UI><![CDATA[None]]></UI>
+                  <VC><![CDATA[Low]]></VC>
+                  <VI><![CDATA[Low]]></VI>
+                  <VA><![CDATA[None]]></VA>
+                  <SC><![CDATA[None]]></SC>
+                  <SI><![CDATA[None]]></SI>
+                  <SA><![CDATA[None]]></SA>
+                </CVSS4>
+                <References>
+                    <Reference>
+                      <Database><![CDATA[OWASP: TLS Cipher String Cheat Sheet]]></Database>
+                      <URL><![CDATA[https://cheatsheetseries.owasp.org/cheatsheets/TLS_Cipher_String_Cheat_Sheet.html]]></URL>
+                    </Reference>
+                    <Reference>
+                      <Database><![CDATA[OWASP: Transport Layer Protection Cheat Sheet]]></Database>
+                      <URL><![CDATA[https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Protection_Cheat_Sheet.html]]></URL>
+                    </Reference>
+                    <Reference>
+                      <Database><![CDATA[Mozilla: TLS Cipher Suite Recommendations]]></Database>
+                      <URL><![CDATA[https://wiki.mozilla.org/Security/Server_Side_TLS]]></URL>
+                    </Reference>
+                    <Reference>
+                      <Database><![CDATA[SSLlabs: SSL and TLS Deployment Best Practices]]></Database>
+                      <URL><![CDATA[https://github.com/ssllabs/research/wiki/SSL-and-TLS-Deployment-Best-Practices]]></URL>
+                    </Reference>
+                    <Reference>
+                      <Database><![CDATA[RFC 9155: Deprecating MD5 and SHA-1 Signature Hashes in TLS 1.2 and DTLS 1.2]]></Database>
+                      <URL><![CDATA[https://datatracker.ietf.org/doc/html/rfc9155]]></URL>
+                    </Reference>
+                </References>
+            </ReportItem>
+<ReportItem id="4" color="green">
+                <Name><![CDATA[Content Security Policy (CSP) Not Implemented]]></Name>
+                <ModuleName><![CDATA[/httpdata/CSP_not_implemented.js]]></ModuleName>
+                <Details><![CDATA[Paths without CSP header:<br/><ul><li>https://api.autostructure.ru/v1/new_parser/</li><br/></ul>]]></Details>
+                <Affects><![CDATA[/]]></Affects>
+                <Parameter><![CDATA[]]></Parameter>
+                <AOP_SourceFile><![CDATA[]]></AOP_SourceFile>
+                <AOP_SourceLine></AOP_SourceLine>
+                <AOP_Additional><![CDATA[]]></AOP_Additional>
+                <IsFalsePositive><![CDATA[]]></IsFalsePositive>
+                <Severity><![CDATA[informational]]></Severity>
+                <Type><![CDATA[configuration]]></Type>
+                <Impact><![CDATA[CSP can be used to prevent and/or mitigate attacks that involve content/code injection, such as cross-site scripting/XSS attacks, attacks that require embedding a malicious resource, attacks that involve malicious use of iframes, such as clickjacking attacks, and others.]]></Impact>
+                <Description><![CDATA[Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks, including Cross Site Scripting (XSS) and data injection attacks. <br/><br/>
+Content Security Policy (CSP) can be implemented by adding a <strong>Content-Security-Policy</strong> header. The value of this header is a string containing the policy directives describing your Content Security Policy. To implement CSP, you should define lists of allowed origins for the all of the types of resources that your site utilizes. For example, if you have a simple site that needs to load scripts, stylesheets, and images hosted locally, as well as from the jQuery library from their CDN, the CSP header could look like the following:
+<pre><code>
+Content-Security-Policy:
+    default-src 'self';
+    script-src 'self' https://code.jquery.com;
+</code></pre>
+<br/><br/>
+It was detected that your web application doesn't implement Content Security Policy (CSP) as the CSP header is missing from the response. It's recommended to implement Content Security Policy (CSP) into your web application.]]></Description>
+                <DetailedInformation><![CDATA[]]></DetailedInformation>
+                <Recommendation><![CDATA[It's recommended to implement Content Security Policy (CSP) into your web application. Configuring Content Security Policy involves adding the <strong>Content-Security-Policy</strong> HTTP header to a web page and giving it values to control resources the user agent is allowed to load for that page.]]></Recommendation>
+                <TechnicalDetails>
+                    <Request><![CDATA[GET /v1/new_parser/ HTTP/1.1
+Referer: https://api.autostructure.ru/openapi.json
+Content-Type: application/json
+Accept: application/json;q=0.9, application/xml;q=0.8
+Accept-Encoding: gzip,deflate,br
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+Host: api.autostructure.ru
+Connection: Keep-alive
+]]></Request>
+                </TechnicalDetails>
+                <CWEList>
+                    <CWE id="1021"><![CDATA[CWE-1021]]></CWE>
+                </CWEList>
+                <CVEList>
+                </CVEList>
+                <CVSS>
+                  <Descriptor><![CDATA[AV:N/AC:L/Au:N/C:N/I:N/A:N]]></Descriptor>
+                  <Score><![CDATA[0.0]]></Score>
+                  <AV><![CDATA[Network_Accessible]]></AV>
+                  <AC><![CDATA[Low]]></AC>
+                  <Au><![CDATA[None]]></Au>
+                  <C><![CDATA[None]]></C>
+                  <I><![CDATA[None]]></I>
+                  <A><![CDATA[None]]></A>
+                  <E><![CDATA[]]></E>
+                  <RL><![CDATA[]]></RL>
+                  <RC><![CDATA[]]></RC>
+                </CVSS>
+                <CVSS3>
+                  <Descriptor><![CDATA[CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:N/I:N/A:N]]></Descriptor>
+                  <Score><![CDATA[0.0]]></Score>
+                  <TempScore><![CDATA[]]></TempScore>
+                  <EnvScore><![CDATA[]]></EnvScore>
+                  <AV><![CDATA[Network]]></AV>
+                  <AC><![CDATA[Low]]></AC>
+                  <PR><![CDATA[None]]></PR>
+                  <UI><![CDATA[Required]]></UI>
+                  <S><![CDATA[Changed]]></S>
+                  <C><![CDATA[None]]></C>
+                  <I><![CDATA[None]]></I>
+                  <A><![CDATA[None]]></A>
+                  <E><![CDATA[]]></E>
+                  <RL><![CDATA[]]></RL>
+                  <RC><![CDATA[]]></RC>
+                </CVSS3>
+                <CVSS4>
+                  <Descriptor><![CDATA[CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:A/VC:N/VI:N/VA:N/SC:N/SI:N/SA:N]]></Descriptor>
+                  <Score><![CDATA[0.0]]></Score>
+                  <AV><![CDATA[Network]]></AV>
+                  <AC><![CDATA[Low]]></AC>
+                  <PR><![CDATA[None]]></PR>
+                  <UI><![CDATA[Active]]></UI>
+                  <VC><![CDATA[None]]></VC>
+                  <VI><![CDATA[None]]></VI>
+                  <VA><![CDATA[None]]></VA>
+                  <SC><![CDATA[None]]></SC>
+                  <SI><![CDATA[None]]></SI>
+                  <SA><![CDATA[None]]></SA>
+                </CVSS4>
+                <References>
+                    <Reference>
+                      <Database><![CDATA[Content Security Policy (CSP)]]></Database>
+                      <URL><![CDATA[https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP]]></URL>
+                    </Reference>
+                    <Reference>
+                      <Database><![CDATA[Implementing Content Security Policy]]></Database>
+                      <URL><![CDATA[https://hacks.mozilla.org/2016/02/implementing-content-security-policy/]]></URL>
+                    </Reference>
+                </References>
+            </ReportItem>
+<ReportItem id="5" color="green">
+                <Name><![CDATA[Permissions-Policy header not implemented]]></Name>
+                <ModuleName><![CDATA[/httpdata/permissions_policy.js]]></ModuleName>
+                <Details><![CDATA[Locations without Permissions-Policy header:<br/><ul><li>https://api.autostructure.ru/v1/new_parser/</li></ul>]]></Details>
+                <Affects><![CDATA[/]]></Affects>
+                <Parameter><![CDATA[]]></Parameter>
+                <AOP_SourceFile><![CDATA[]]></AOP_SourceFile>
+                <AOP_SourceLine></AOP_SourceLine>
+                <AOP_Additional><![CDATA[]]></AOP_Additional>
+                <IsFalsePositive><![CDATA[]]></IsFalsePositive>
+                <Severity><![CDATA[informational]]></Severity>
+                <Type><![CDATA[configuration]]></Type>
+                <Impact><![CDATA[]]></Impact>
+                <Description><![CDATA[The Permissions-Policy header allows developers to selectively enable and disable use of various browser features and APIs.]]></Description>
+                <DetailedInformation><![CDATA[]]></DetailedInformation>
+                <Recommendation><![CDATA[]]></Recommendation>
+                <TechnicalDetails>
+                    <Request><![CDATA[GET /v1/new_parser/ HTTP/1.1
+Referer: https://api.autostructure.ru/openapi.json
+Content-Type: application/json
+Accept: application/json;q=0.9, application/xml;q=0.8
+Accept-Encoding: gzip,deflate,br
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36
+Host: api.autostructure.ru
+Connection: Keep-alive
+]]></Request>
+                </TechnicalDetails>
+                <CWEList>
+                    <CWE id="1021"><![CDATA[CWE-1021]]></CWE>
+                </CWEList>
+                <CVEList>
+                </CVEList>
+                <CVSS>
+                  <Descriptor><![CDATA[AV:N/AC:L/Au:N/C:N/I:N/A:N]]></Descriptor>
+                  <Score><![CDATA[0.0]]></Score>
+                  <AV><![CDATA[Network_Accessible]]></AV>
+                  <AC><![CDATA[Low]]></AC>
+                  <Au><![CDATA[None]]></Au>
+                  <C><![CDATA[None]]></C>
+                  <I><![CDATA[None]]></I>
+                  <A><![CDATA[None]]></A>
+                  <E><![CDATA[]]></E>
+                  <RL><![CDATA[]]></RL>
+                  <RC><![CDATA[]]></RC>
+                </CVSS>
+                <CVSS3>
+                  <Descriptor><![CDATA[CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:N/I:N/A:N]]></Descriptor>
+                  <Score><![CDATA[0.0]]></Score>
+                  <TempScore><![CDATA[]]></TempScore>
+                  <EnvScore><![CDATA[]]></EnvScore>
+                  <AV><![CDATA[Network]]></AV>
+                  <AC><![CDATA[Low]]></AC>
+                  <PR><![CDATA[None]]></PR>
+                  <UI><![CDATA[Required]]></UI>
+                  <S><![CDATA[Changed]]></S>
+                  <C><![CDATA[None]]></C>
+                  <I><![CDATA[None]]></I>
+                  <A><![CDATA[None]]></A>
+                  <E><![CDATA[]]></E>
+                  <RL><![CDATA[]]></RL>
+                  <RC><![CDATA[]]></RC>
+                </CVSS3>
+                <CVSS4>
+                  <Descriptor><![CDATA[CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:A/VC:N/VI:N/VA:N/SC:N/SI:N/SA:N]]></Descriptor>
+                  <Score><![CDATA[0.0]]></Score>
+                  <AV><![CDATA[Network]]></AV>
+                  <AC><![CDATA[Low]]></AC>
+                  <PR><![CDATA[None]]></PR>
+                  <UI><![CDATA[Active]]></UI>
+                  <VC><![CDATA[None]]></VC>
+                  <VI><![CDATA[None]]></VI>
+                  <VA><![CDATA[None]]></VA>
+                  <SC><![CDATA[None]]></SC>
+                  <SI><![CDATA[None]]></SI>
+                  <SA><![CDATA[None]]></SA>
+                </CVSS4>
+                <References>
+                    <Reference>
+                      <Database><![CDATA[Permissions-Policy / Feature-Policy (MDN)]]></Database>
+                      <URL><![CDATA[https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy]]></URL>
+                    </Reference>
+                    <Reference>
+                      <Database><![CDATA[Permissions Policy (W3C)]]></Database>
+                      <URL><![CDATA[https://www.w3.org/TR/permissions-policy-1/]]></URL>
+                    </Reference>
+                </References>
+            </ReportItem>
+        </ReportItems>
+    </Scan>
+</ScanGroup>

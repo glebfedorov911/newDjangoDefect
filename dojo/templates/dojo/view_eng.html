@@ -1,0 +1,1133 @@
+{% extends "base.html" %}
+{% load display_tags %}
+{% load humanize %}
+{% load survey_tags %}
+{% load authorization_tags %}
+{% load static %}
+{% block add_styles %}
+    .tooltip-inner {
+        max-width: 350px;
+    }
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="clearfix panel-nav">
+                        <h4 class="pull-left">
+                          Описание
+                        </h4>
+                        <div class="dropdown pull-right">
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1"
+                                data-toggle="dropdown" aria-expanded="true">
+                            <span class="fa-solid fa-bars"></span>
+                            <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
+                                {% if eng|has_object_permission:"Engagement_Edit" %}
+                                    <li role="presentation">
+                                        <a class="" href="{% url 'edit_engagement' eng.id %}">
+                                        <i class="fa-solid fa-pen-to-square"></i> Редактировать задание
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="" href="{% url 'copy_engagement' eng.id %}?return_url={{ request.get_full_path|urlencode }}"/>
+                                        <i class="fa-solid fa-copy"></i> Скопировать задание
+                                        </a>
+                                    </li>
+                                    <li role="presentation">
+                                        {% if eng.active %}
+                                            <a class="" href="{% url 'close_engagement' eng.id %}">
+                                            <i class="fa-solid fa-xmark"></i> Закрыть задание
+                                            </a>
+                                        {% else %}
+                                            <a class="" href="{% url 'reopen_engagement' eng.id %}">
+                                            <i class="fa-solid fa-rotate-left"></i> Переоткрыть задание
+                                            </a>
+                                        {% endif %}
+                                    </li>
+                                {% endif %}
+                                <li role="presentation">
+                                    <a href="{% url 'engagement_report' eng.id %}?title=&active=1&verified=1&false_p=2&duplicate=2">
+                                    <i class="fa-solid fa-file-lines"></i> Отчёт
+                                    </a>
+                                </li>
+                                <li role="presentation">
+                                    <a href="{% url 'engagement_ics' eng.id %}">
+                                    <i class="fa-solid fa-calendar-plus"></i> Добавить в календарь
+                                    </a>
+                                </li>
+                                <li role="presentation">
+                                    <a href="{% url 'action_history' eng|content_type eng.id %}">
+                                    <i class="fa-solid fa-clock-rotate-left"></i> Посмотреть историю
+                                    </a>
+                                </li>
+                                {% if eng|has_object_permission:"Engagement_Edit" %}
+                                    <li role="separator" class="divider"></li>
+                                    <li role="presentation">
+                                        {% if eng.test_strategy %}
+                                            <a target="_blank" href="{{ eng.test_strategy }}"><i class="fa-solid fa-file-lines"></i> Посмотреть стратегию тестирования
+                                        </a>
+                                        {% else %}
+                                            <a href="{% url 'edit_engagement' eng.id %}"><i class="fa-solid fa-file-lines"></i> Добавить стратегию тестирования</a>
+                                        {% endif %}
+                                    </li>
+                                    {% if threat != 'none' %}
+                                        <li role="presentation">
+                                            <a href="{% url 'view_threatmodel' eng.id %}"><i class="fa-solid fa-file-lines"></i> Скачать модель угроз</a>
+                                        </li>
+                                        <li role="presentation">
+                                            <a href="{% url 'upload_threatmodel' eng.id %}"><i class="fa-solid fa-file-lines"></i> Загрузить модель угроз</a>
+                                        </li>
+                                    {% else %}
+                                        <li role="presentation">
+                                            <a href="{% url 'upload_threatmodel' eng.id %}"><i class="fa-solid fa-file-lines"></i> Загрузить модель угроз</a>
+                                        </li>
+                                    {% endif %}
+                                {% endif %}
+                                {% if eng|has_object_permission:"Engagement_Delete" %}
+                                    <li role="separator" class="divider"></li>
+                                    <li role="presentation">
+                                        <a class="text-danger" href="{% url 'delete_engagement' eng.id %}">
+                                        <i class="fa-solid fa-trash"></i> Удалить задание
+                                        </a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    {% if eng.description %}
+                        {{ eng.description|markdown_render }}
+                    {% else %}
+                        <small class="text-muted"><em>Нет описания.</em></small>
+                    {% endif %}
+                </div>
+            </div>
+            {% if eng.preset %}
+                <div class="row">
+                    <div id="tests" class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <div class="clearfix">
+                                    <h4 class="pull-left">
+                                        Пресеты заданий <small>{{ eng.preset.title|truncatechars_html:60 }}</small>
+                                    </h4>
+                                    {% if eng.product|has_object_permission:"Product_Edit" %}
+                                        <div class="dropdown pull-right">
+                                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1"
+                                                data-toggle="dropdown" aria-expanded="true">
+                                            <span class="fa-solid fa-bars"></span>
+                                            <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
+                                                <li role="presentation">
+                                                    <a class="" href="{% url 'add_engagement_presets' eng.product.id %}">
+                                                    <i class="fa-solid fa-plus"></i> Добавить пресет заданий
+                                                    </a>
+                                                </li>
+                                                <li role="presentation">
+                                                    <a class="" href="{% url 'edit_engagement_presets' eng.product.id eng.preset.id %}">
+                                                    <i class="fa-solid fa-pen-to-square"></i> Изменить пресет заданий
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="tablesorter-bootstrap table table-condensed table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Тип теста</th>
+                                            <th>Сеть</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                {% if preset_test_type.count > 1 %}
+                                                    {% for test in preset_test_type %}
+                                                        {{test.name}}{%if not forloop.last%},{%endif%}
+                                                    {% endfor %}
+                                                {% else %}
+                                                    {{ preset_test_type.0.name }}
+                                                {% endif %}
+                                            </td>
+                                            <td>
+                                                {% if network.count > 1 %}
+                                                    {% for net in network %}
+                                                        {{ net.location }}{%if not forloop.last%},{%endif%}
+                                                    {% endfor %}
+                                                {% else %}
+                                                    {{ network.0.location }}
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="panel-body">
+                                {% if eng.preset.notes %}
+                                    <strong>Notes: </strong>{{ eng.preset.notes|markdown_render }}
+                                {% else %}
+                                    <small class="text-muted"><em>Заметки об испытаниях не найдены.</em></small>
+                                {% endif %}
+                                {% if eng.preset.scope %}
+                                    <strong>Scope: </strong>{{ eng.preset.scope|markdown_render }}
+                                {% else %}
+                                    <small class="text-muted"><em>Объем тестирования не определен.</em></small>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            <div class="row">
+                <div id="tests" class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <div class="clearfix panel-nav">
+                                <h4 class="h4-fix">
+                                    Тесты ({{tests.paginator.count}}) 
+                                </h4>
+                                    <div class="dropdown pull-right" style="display:flex;flex-direction:row;align-items:center;">
+                                        <button id="show-filters" data-toggle="collapse" data-target="#the-filters" class="btn btn-primary toggle-filters"> <i class="fa-solid fa-filter"></i> <i class="caret"></i> </button>
+                                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1"
+                                            data-toggle="dropdown" aria-expanded="true">
+                                        <span class="fa-solid fa-bars"></span>
+                                        <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
+                                            {% if eng|has_object_permission:"Test_Add" %}
+                                                <li role="presentation">
+                                                    <a class="" href="{% url 'add_tests' eng.id %}">
+                                                    <i class="fa-solid fa-plus"></i> Добавить тесты
+                                                    </a>
+                                                </li>
+                                            {% endif %}
+                                            {% if eng|has_object_permission:"Import_Scan_Result" %}
+                                                <li role="presentation">
+                                                    <a class="" href="{% url 'import_scan_results' eng.id %}">
+                                                    <i class="fa-solid fa-upload"></i> Импорт результатов сканирования
+                                                    </a>
+                                                </li>
+                                                <li class="divider"></li>
+                                            {% endif %}
+                                            <li role="presentation">
+                                                <a href="{% url 'engagement_open_findings' eng.id %}">
+                                                <i class="fa-solid fa-file-lines"></i> Посмотреть открытые уязвимости 
+                                                </a>
+                                            </li>
+                                            <li role="presentation">
+                                                <a href="{% url 'engagement_all_findings' eng.id %}">
+                                                <i class="fa-solid fa-file-lines"></i> Посмотреть все уязвимости
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                        <div id="the-filters" class="is-filters panel-body collapse {% if filter.form.has_changed %}in{% endif %}">
+                            {% include "dojo/filter_snippet.html" with form=filter.form %}
+                        </div>
+                    {% if tests %}
+                        <div class="clearfix pagination-in-panel">
+                            {% include "dojo/paging_snippet.html" with page=tests page_size=True %}
+                        </div>
+                        <div class="table-responsive">
+                            <table class="tablesorter-bootstrap table table-condensed table-striped">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Заголовок / Тип</th>
+                                        <th>Дата</th>
+                                        <th>Владелец</th>
+                                        <th>Всего уязвимостей</th>
+                                        <th>Активных (Подтверждено)</th>
+                                        <th>Смягчено</th>
+                                        <th>Дубликаты</th>
+                                        <th>Заметки</th>
+                                        {% if 'TRACK_IMPORT_HISTORY'|setting_enabled %}
+                                            <th>Реимпортировано</th>
+                                        {% endif %}
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for test in tests %}
+                                        <tr>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <a href="#" id="test-menu" class="dropdown-toggle pull-left" data-toggle="dropdown">&nbsp;<i class="fa-solid fa-ellipsis-vertical"></i>&nbsp;</a>
+                                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                                        <li>
+                                                            <a class="" href="{% url 'view_test' test.id %}">
+                                                            <i class="fa-solid fa-rectangle-list"></i> Посмотреть</a>
+                                                        </li>
+                                                        {% if test|has_object_permission:"Test_Edit" %}
+                                                            <li>
+                                                                <a class="" href="{% url 'edit_test' test.id %}">
+                                                                <i class="fa-solid fa-pen-to-square"></i> Редактировать</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="" href="{% url 'copy_test' test.id %}">
+                                                                <i class="fa-solid fa-copy"></i> Копировать</a>
+                                                            </li>
+                                                        {% endif %}
+                                                        {% if test|has_object_permission:"Finding_Add" %}
+                                                            <li class="divider"></li>
+                                                            <li>
+                                                                <a class="" href="{% url 'add_findings' test.id %}">
+                                                                <i class="fa-solid fa-plus"></i> Добавить уязвимость в тест
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a title="Add Finding from Template" href="{% url 'search' test.id %}">
+                                                                <span class="icon-add-template"></span> Уязвимость из шаблона
+                                                                </a>
+                                                            </li>
+                                                        {% endif %}
+                                                        {% if test|has_object_permission:"Import_Scan_Result" %}
+                                                            <li class="divider"></li>
+                                                            <li><a class="" href="{% url 're_import_scan_results' test.id %}">
+                                                                <i class="fa-solid fa-upload"></i> Повторная загрузка результатов сканирования
+                                                                </a>
+                                                            </li>
+                                                        {% endif %}
+                                                        <li class="divider"></li>
+                                                        <li role="presentation">
+                                                            <a href="{% url 'test_report' test.id %}?title=&active=1&verified=1&false_p=2&duplicate=2">
+                                                            <i class="fa-solid fa-file-lines"></i> Отчет о тестировании
+                                                            </a>
+                                                        </li>
+                                                        {% if test|has_object_permission:"Test_Delete" %}
+                                                            <li class="divider"></li>
+                                                            <li>
+                                                                <a class="text-danger" href="{% url 'delete_test' test.id %}">
+                                                                <i class="fa-solid fa-trash"></i> Удалить</a>
+                                                            </li>
+                                                        {% endif %}
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                            <td><a title="{{ test.description }}" id="acunetix" href="{% url 'view_test' test.id %}">{{ test }}</a>
+                                                {% if test.version %}
+                                                    <sup>
+                                                    <a target="_blank" class="tag-label tag-version" data-toggle="tooltip" data-placement="bottom" title="Product Version: {{ test.version }}">
+                                                    {{ test.version }}</a>
+                                                    </sup>
+                                                {% endif %}
+                                                {% include "dojo/snippets/tags.html" with tags=test.tags.all %}
+                                            </td>
+                                            <td>{{ test.target_start|date }} - {{ test.target_end|date }}</td>
+                                            <td>
+                                                {% if test.lead.get_full_name and test.lead.get_full_name.strip %}
+                                                    {{ test.lead.get_full_name }}
+                                                {% elif test.lead %}
+                                                    {{ test.lead }}
+                                                {% endif %}
+                                            </td>
+                                            <td><a  "{% url 'view_test' test.id %}" >{{ test.count_findings_test_all }}</a></td>
+                                            <td>
+                                                <a href="{% url 'view_test' test.id %}?active=true">{{ test.count_findings_test_active }}</a>&nbsp;
+                                                (<a href="{% url 'view_test' test.id %}?active=true&verified=true">{{ test.count_findings_test_active_verified }}</a>)
+                                            </td>
+                                            <td><a href="{% url 'view_test' test.id %}?is_mitigated=1">{{ test.count_findings_test_mitigated }}</a></td>
+                                            <td><a href="{% url 'view_test' test.id %}?duplicate=1">{{ test.count_findings_test_dups }}</a></td>
+                                            <td class="nowrap">
+                                                {% if test.notes.count %}
+                                                    <a href="{% url 'view_test' test.id %}#vuln_notes" alt="{{ test.notes.count }} comment{{ test.notes.count|pluralize }}">
+                                                    <span class="glyphicon glyphicon-comment"></span> {{ test.notes.count }}
+                                                    </a>
+                                                {% endif %}
+                                            </td>
+                                            {% if 'TRACK_IMPORT_HISTORY'|setting_enabled %}
+                                                <td>
+                                                    {{ test.total_reimport_count }}
+                                                </td>
+                                            {% endif %}
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+
+                    {% else %}
+                        <div class="panel-body">
+                            <small class="text-muted"><em>Не найдено тестов.</em></small>
+                        </div>
+                    {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div id="risk" class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4> Принятие риска
+                                {% if eng.product.enable_full_risk_acceptance %}
+                                    {% if eng|has_object_permission:"Risk_Acceptance" %}
+                                        <a title="Add Risk Acceptance..." class="pull-right btn btn-sm btn-primary"
+                                            href="{% url 'add_risk_acceptance' eng.id %}?return_url={{ request.get_full_path|urlencode }}"><span class="fa-solid fa-plus"></span></a>
+                                        </a>
+                                    {% endif %}
+                                {% endif %}
+                            </h4>
+                        </div>
+                        {% if risks_accepted %}
+                            <div class="table-responsive">
+                                <table id="risk_acceptances"
+                                    class="tablesorter-bootstrap table table-condensed table-striped">
+                                    <thead>
+                                        <tr>
+                                            {% block risk_acceptance_header %}
+                                            <th></th>
+                                            <th>Дата</th>
+                                            <th>Принято</th>
+                                            <th>Имя</th>
+                                            <th>Решение</th>
+                                            <!-- <th>Decision Details</th> -->
+                                            <th>Экспирация</th>
+                                            <th>Уязвимости</th>
+                                            <th>Доказательство</th>
+                                            <th>Владелец</th>
+                                            {% endblock risk_acceptance_header %}
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for risk_acceptance in risks_accepted %}
+                                            <tr>
+                                                {% block risk_acceptances %}
+                                                <td class="centered">
+                                                    <ul>
+                                                        <li class="dropdown" style="list-style:none;position:absolute">
+                                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">&nbsp;<b class="fa-solid fa-ellipsis-vertical"></b>&nbsp;</a>
+                                                            <ul class="dropdown-menu">
+                                                                {% with engagement=eng %}
+                                                                    {% include 'dojo/snippets/risk_acceptance_actions_snippet.html' with include_view=True %}
+                                                                {% endwith %}
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </td>
+                                                <td><a href="{% url 'view_risk_acceptance' eng.id risk_acceptance.id %}">{{ risk_acceptance.created|date }}</a></td>
+                                                <td>{{ risk_acceptance.accepted_by }}</td>
+                                                <td><a href="{% url 'view_risk_acceptance' eng.id risk_acceptance.id %}">{{ risk_acceptance.name }}</a></td>
+                                                <td>
+                                                    {{ risk_acceptance.get_decision_display|default_if_none:"" }}
+                                                    {% if risk_acceptance.decision_details %}
+                                                        &nbsp;<i style="position:absolute;" class="fa has-popover fa-info-circle" title="Decision Details" data-trigger="hover" data-placement="bottom" data-container="body" data-html="true"
+                                                            data-content="{{ risk_acceptance.decision_details }}"></i>
+                                                    {% endif %}
+                                                </td>
+                                                <!-- <td>{{ risk_acceptance.decision_details|default_if_none:""| truncatechars_html:100 }}</td> -->
+                                                <td class="{% if risk_acceptance.is_expired %}red{% endif%}">
+                                                    {% if risk_acceptance.expiration_date %}
+                                                        {{ risk_acceptance.expiration_date|date }}
+                                                    {% else %}
+                                                        Never
+                                                    {% endif %}
+                                                </td>
+                                                <td>{{ risk_acceptance.accepted_findings_count }}</td>
+                                                {% if risk_acceptance.filename %}
+                                                    <td><a href="{% url 'download_risk_acceptance' eng.id risk_acceptance.id %}">Yes</a>
+                                                        &nbsp;<i style="position:absolute;" class="fa has-popover fa-info-circle" title="Uploaded proof" data-trigger="hover" data-placement="bottom" data-container="body" data-html="true"
+                                                            data-content="{{ risk_acceptance.filename }}"></i>
+                                                    </td>
+                                                {% else %}
+                                                    <td>No</a></td>
+                                                {% endif %}
+                                                <td>{{ risk_acceptance.owner.get_full_name }}</td>
+                                                {% endblock risk_acceptances %}
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        {% else %}
+                            <div class="panel-body">
+                                <small class="text-muted"><em>Принятия риска не обнаружено.</em></small>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% block global_risk_acceptances %}{% endblock %}
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>Дополнительные функции<span class="pull-right"><a name="collapsible" data-toggle="collapse" href="#add_feat">
+                        <i class="glyphicon glyphicon-chevron-down"></i></a></span>
+                    </h4>
+                </div>
+                <div id="add_feat" class="panel-body collapse">
+                    {% if eng.engagement_type == "Interactive" and system_settings.enable_checklists %}
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4> Checklist<span class="pull-right">
+                                    &nbsp;
+                                    <a name="collapsible" data-toggle="collapse" href="#add_feat_check_list">
+                                    <i class="glyphicon glyphicon-chevron-down"></i></a></span>
+                                    {% if eng|has_object_permission:"Engagement_Edit" %}
+                                        {% if check %}
+                                            <a title="Edit Checklist" class="btn btn-primary pull-right"
+                                                href="{% url 'complete_checklist' eng.id %}">
+                                            <span class="fa-solid fa-pen-to-square"></span></a>
+                                        {% else %}
+                                            <a title="Complete Checklist" class="btn btn-sm btn-primary pull-right"
+                                                href="{% url 'complete_checklist' eng.id %}">
+                                            <span class="fa-solid fa-pen-to-square"></span></a></a>
+                                        {% endif %}
+                                    {% endif %}
+                                </h4>
+                            </div>
+                            <div id="add_feat_check_list" class="panel-body collapse">
+                                {% if check %}
+                                    <div class="panel panel-default">
+                                        <div class="table-responsive">
+                                            <table class="tablesorter-bootstrap table table-condensed table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Сессия</th>
+                                                        <th>Шифрование</th>
+                                                        <th>Конфигурация</th>
+                                                        <th>Аутентификация</th>
+                                                        <th>Авторизация</th>
+                                                        <th>Входные данные</th>
+                                                        <th>Чувствительные данные</th>
+                                                        <th>Другое</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td><span
+                                                            class="label label-{{ check.session_management|checklist_status }}">{{ check.session_management }}</span></td>
+                                                        <td><span
+                                                            class="label label-{{ check.encryption_crypto|checklist_status }}">{{ check.encryption_crypto }}</span></td>
+                                                        <td><span
+                                                            class="label label-{{ check.configuration_management|checklist_status }}">{{ check.configuration_management }}</span></td>
+                                                        <td><span
+                                                            class="label label-{{ check.authentication|checklist_status }}">{{ check.authentication }}</span></td>
+                                                        <td><span
+                                                            class="label label-{{ check.authorization_and_access_control|checklist_status }}">{{ check.authorization_and_access_control }}</span></td>
+                                                        <td><span
+                                                            class="label label-{{ check.data_input_sanitization_validation|checklist_status }}">{{ check.data_input_sanitization_validation }}</span></td>
+                                                        <td><span
+                                                            class="label label-{{ check.sensitive_data|checklist_status }}">{{ check.sensitive_data }}</span></td>
+                                                        <td><span
+                                                            class="label label-{{ check.other|checklist_status }}">{{ check.other }}</span></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                {% else %}
+                                    <div class="panel panel-default">
+                                        <div class="panel-body">
+                                            <small class="text-muted"><em>Контрольный список не заполнен.</em></small>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% if system_settings.enable_questionnaires %}
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4>Анкеты<span class="pull-right">
+                                    &nbsp;
+                                    <a name="collapsible" data-toggle="collapse" href="#add_feat_survey">
+                                    <i class="glyphicon glyphicon-chevron-down"></i></a></span>
+                                    {% if eng|has_object_permission:"Engagement_Edit" %}
+                                    {% add_surveys eng %}
+                                    {% endif %}
+                                </h4>
+                            </div>
+                            <div id="add_feat_survey" class="panel-body collapse">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="panel panel-default">
+                                            {% show_surveys eng users %}
+                                        </div>
+                                    </div>
+                                    <div class="modal fade" id="shareQuestionnaireModal" tabindex="-1" role="dialog" aria-labelledby="shareSurveyModalLabel">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                                        aria-hidden="true">&times;</span></button>
+                                                    <h4 class="modal-title" id="shareSurveyModalLabel">Ссылка на анкету</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p id="questionnaireURL"></p>
+                                                    <div class="alert alert-info" role="alert">
+                                                        <b>Примечание:</b> Только пользователи, авторизованные для {{ eng.product}} будут допущены для ответов к этой анкете.
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Закрыть</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4>Заметки<span class="pull-right">
+                                <a name="collapsible" data-toggle="collapse" href="#add_feat_notes">
+                                <i class="glyphicon glyphicon-chevron-down"></i></a></span>
+                            </h4>
+                        </div>
+                        <div id="add_feat_notes" class="panel-body collapse">
+                            {% if eng|has_object_permission:"Note_Add" %}
+                                <form class="form-horizontal" action="" method="post">
+                                    {% csrf_token %}
+                                    {% include "dojo/form_fields.html" with form=form %}
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-2 col-sm-10">
+                                            <input class="btn btn-secondary" type="submit" id="add_note" label="Add Notes" value="Добавить заметку"/>
+                                        </div>
+                                    </div>
+                                </form>
+                            {% endif %}
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4>Журнал регистрации заметок<span class="pull-right">
+                                        <a data-toggle="collapse" href="#add_feat_note_log">
+                                        <i class="glyphicon glyphicon-chevron-{% if notes %}up{%else%}down{%endif%}"></i></a></span>
+                                    </h4>
+                                </div>
+                                <div id="add_feat_note_log" class="panel-body collapse {% if notes %}in{%endif%}">
+                                    {% for note in notes %}
+                                        <div>
+                                            <div class="panel panel-default">
+                                                <div class="panel-comments">
+                                                    {% if user.username == note.author.username or eng|has_object_permission:"Note_Delete" or user.is_superuser %}
+                                                        <div class="pull-right">
+                                                            <form method="post" action="{% url 'delete_note' note.id 'engagement' eng.id %}">
+                                                                {% csrf_token %}
+                                                                <input type="hidden" aria-label="id" name="id" value="{{note.id}}" id="id_id" />
+                                                                <button type="submit" aria-label="Delete Note" class="btn-delete">
+                                                                <i class="fa-solid fa-trash"></i>
+                                                                </button>
+                                                            </form>
+                                                        </div>
+                                                    {% endif %}
+                                                    {% if user.username == note.author.username or eng|has_object_permission:"Note_Edit" %}
+                                                        <div class="pull-right">
+                                                            <form method="get" action="{% url 'edit_note' note.id 'engagement' eng.id %}">
+                                                                {% csrf_token %}
+                                                                <input type="hidden" aria-label="id" name="id" value="{{note.id}}" id="id_id" />
+                                                                <button type="submit" aria-label="Edit Note" class="btn-edit">
+                                                                <i class="fa-solid fa-pen-to-square"></i>
+                                                                </button>
+                                                            </form>
+                                                        </div>
+                                                    {% endif %}
+                                                    {% if user.username == note.author.username or eng|has_object_permission:"Note_View_History" %}
+                                                        <div class="pull-right">
+                                                            <form method="get" action="{% url 'note_history' note.id 'engagement' eng.id %}">
+                                                                {% csrf_token %}
+                                                                <input type="hidden" aria-label="id" name="id" value="{{note.id}}" id="id_id" />
+                                                                <button type="submit" aria-label="history" class="btn-history">
+                                                                <i class="fa-solid fa-clock-rotate-left"></i>
+                                                                </button>
+                                                            </form>
+                                                        </div>
+                                                    {% endif %}
+                                                    <div class="row-sm-2">
+                                                        <strong>{{ note.author.username }}</strong>
+                                                        <span class="text-muted">Прокомментировано {{ note.date }}</span>
+                                                    </div>
+                                                    {% if note.edited %}
+                                                        <div class="row-sm-2">
+                                                            <strong>{{ note.editor.username }}</strong>
+                                                            <span class="text-muted">Изменено {{ note.edit_time }}</span>
+                                                        </div>
+                                                    {% endif %}
+                                                    {% if note.private %}
+                                                        <div class="row-sm-2">
+                                                            <span class="text-muted">(Не будет отображаться в отчете)</span>
+                                                        </div>
+                                                    {% endif %}
+                                                </div>
+                                                <div class="panel-body">
+                                                    {% if note.note_type != None %}
+                                                        <strong>Тип заметки: {{ note.note_type }}</strong>
+                                                        <br><br>
+                                                    {% endif %}
+                                                    {{ note|linebreaks }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4>Файлы<span class="pull-right">
+                                &nbsp;
+                                <a data-toggle="collapse" href="#add_feat_files">
+                                <i class="glyphicon glyphicon-chevron-down"></i></a></span>
+                                {% if eng|has_object_permission:"Engagement_Edit" %}
+                                    <a title="Manage Files" name="Manage Files" class="btn btn-sm btn-primary pull-right"
+                                        href="{% url 'manage_files' oid=eng.id obj_type='Engagement' %}">
+                                    <span class="fa-solid fa-pen-to-square"></span></a>
+                                {% endif %}
+                            </h4>
+                        </div>
+                        <div id="add_feat_files" class="panel-body collapse {% if files %}in{% endif %}">
+                            {% for file in files %}
+                                <div class="col-md-2" style="text-align: center">
+                                    <div class="row">
+                                        {% url 'access_file' fid=file.id oid=eng.id obj_type='Engagement' as image_url %}
+                                        <a href="{{ image_url }}" target="_blank">
+                                            {% if file|get_thumbnail %}
+                                                <img src="{{ image_url }}" alt="thumbnail" style="width:150px">
+                                            {% else %}
+                                                <span style="font-size: 50px;" class="glyphicon glyphicon-file"></span>
+                                            {% endif %}
+                                        </a>
+                                    </div>
+                                    <div class="row">
+                                        <caption style="text-align:center">{{ file.title }}</caption>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Sidebar -->
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><span class="fa-solid fa-circle-info fa-fw orange-icon" aria-hidden="true"></span> 
+                        {% if eng.name %}
+                            {{ eng.name }}
+                        {% else %}
+                            Задание для <a href="{% url 'view_product' eng.product.id %}">{{ eng.product }}</a>
+                        {% endif %}
+                        {% if eng.version %}
+                            <sup>
+                            <a target="_blank" class="tag-label tag-version" data-toggle="tooltip" data-placement="bottom" title="Product Version: {{ eng.version }}">
+                            {{ eng.version }}</a>
+                            </sup>
+                        {% endif %}
+                        {% include "dojo/snippets/tags.html" with tags=eng.tags.all %}
+                    </h3>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <tbody>
+                            <tr>
+                                <td style="width: 150px;"><strong>Статус</strong></td>
+                                <td>
+                                    {% if eng.status == "Blocked" %}
+                                        <em class="text-danger">
+                                    {% elif eng.status == "On Hold" %}
+                                        <em class="text-warning">
+                                    {% else %}
+                                        <em>
+                                    {% endif %}
+                                    {{ eng.status }}
+                                    </em>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Даты</strong></td>
+                                <td><a target="#" data-toggle="tooltip" data-placement="bottom" title="{{ eng.target_start|date:"l, jS F Y" }} - {{ eng.target_end|date:"l, jS F Y" }}">
+                                    {{ eng.target_start|date:"jS F" }} - {{ eng.target_end|date:"jS F" }}
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Давность</strong></td>
+                                <td>
+                                    {{ eng.target_start|datediff_time:eng.target_end }}
+                                    {% if eng.is_overdue and eng.status != 'Completed'%}
+                                        <sup>
+                                            <div class="tag-label warning-color">
+                                                {{ eng.target_end|overdue }} overdue
+                                            </div>
+                                        </sup>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>
+                                        {% if eng.engagement_type == "Interactive" %}
+                                            Руководитель
+                                        {% else %}
+                                            Сервисный аккаунт
+                                        {% endif %}
+                                    </strong>
+                                </td>
+                                <td>
+                                    {% if eng.lead.get_full_name and eng.lead.get_full_name.strip %}
+                                        {{ eng.lead.get_full_name }}
+                                    {% elif eng.lead %}
+                                        {{ eng.lead }}
+                                    {% else %}
+                                    Не назначен
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Трекер</strong></td>
+                                <td>
+                                    {% if eng.tracker %}
+                                        <a target="_blank" data-toggle="tooltip" data-placement="top" title="{{ eng.tracker }}" href="{{ eng.tracker }}" alt="Development epic or ticket for development requirements.">
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i> {{ eng.tracker|last_value }}</a>
+                                    {% else %}
+                                        {{ eng.tracker|notspecified}}
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Репозиторий</strong></td>
+                                <td>
+                                    {% if eng.source_code_management_uri %}
+                                        <a target="_blank" data-toggle="tooltip" data-placement="top" title="{{ eng.source_code_management_uri }}" href="{{ eng.source_code_management_uri }}">
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i> {{ eng.source_code_management_uri|last_value }}
+                                        </a>
+                                    {% else %}
+                                        {{ eng.source_code_management_uri|notspecified}}
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Стратегия тестирования</strong></td>
+                                <td>
+                                    {% if eng.test_strategy %}
+                                        <a target="_blank" data-toggle="tooltip" data-placement="top" title="{{ eng.test_strategy }}" href="{{ eng.test_strategy }}">
+                                        <i class="fa-solid fa-arrow-up-right-from-square"></i> {{ eng.test_strategy|last_value }}
+                                        </a>
+                                    {% else %}
+                                        {{ eng.test_strategy|notspecified}}
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            {% if jissue and jira_project %}
+                                <tr>
+                                    <td><strong>Jira</strong></td>
+                                    <td><a href="{{ eng | jira_issue_url }}" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> {{ eng | jira_key }}
+                                        <small>(epic)</small>
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% elif jira_project %}
+                                <tr>
+                                    <td><strong>JIRA</strong></td>
+                                    <td>
+                                        <a href="{{ eng | jira_project_url }}" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> {{ eng | jira_key }}
+                                            {% if jira_project.engagement is not eng %}
+                                                <small>(inherited)</small>
+                                            {% else %}
+                                                <small>(project)</small>
+                                            {% endif %}
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% endif %}
+                            <tr>
+                                <td><strong>Обновлено</strong></td>
+                                <td><a target="_blank" data-toggle="tooltip" data-placement="bottom" title="{{ eng.updated|default_if_none:"" }}">
+                                    {{ eng.updated|naturaltime|default_if_none:"" }}</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Создано</strong></td>
+                                <td><a target="_blank" data-toggle="tooltip" data-placement="bottom" title="{{ eng.created|default_if_none:"" }}">
+                                    {{ eng.created|naturaltime|default_if_none:"" }}</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            {% if eng.engagement_type == "CI/CD" %}
+                <div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><span class="fa-solid fa-server" aria-hidden="true"></span>
+                                Детали CI/CD задания
+                            </h3>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <tbody>
+                                    <tr>
+                                        <td style="width: 150px;"><strong>ID билда</strong></td>
+                                        <td>{{ eng.build_id|notspecified }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Хэш коммита</strong></td>
+                                        <td>{{ eng.commit_hash|notspecified|truncatechars_html:13 }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Ветка/Тег</strong></td>
+                                        <td>{{ eng.branch_tag|notspecified }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Оркестровка</strong></td>
+                                        <td>
+                                            {% if eng.orchestration_engine.id %}
+                                                <a href="{% url 'edit_tool_config' eng.orchestration_engine.id %}">{{ eng.orchestration_engine.name }}</a>
+                                            {% else %}
+                                                {{ eng.orchestration_engine.name|notspecified }}
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>SCM Сервер</strong></td>
+                                        <td>
+                                            {% if eng.source_code_management_server.id %}
+                                                <a href="{% url 'edit_tool_config' eng.source_code_management_server.id %}">{{ eng.source_code_management_server.name }}</a>
+                                            {% else %}
+                                                {{ eng.source_code_management_server.name|notspecified }}
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Сервер билда</strong></td>
+                                        <td>
+                                            {% if eng.build_server.id %}
+                                                <a href="{% url 'edit_tool_config' eng.build_server.id %}">{{ eng.build_server.name }}</a>
+                                            {% else %}
+                                                {{ eng.build_server.name|notspecified }}
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            {% if system_settings.enable_credentials %}
+                <div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4><span class="fa-solid fa-key orange-icon" aria-hidden="true"></span>
+                                Учетные данные
+                                {% if creds and eng|has_object_permission:"Engagement_Edit" %}
+                                    <a title="Add New Credential" class="pull-right btn btn-sm btn-primary"
+                                        href="{% url 'new_cred_product_engagement' eng.id %}"><span class="fa-solid fa-plus"></span></a>
+                                {% endif %}
+                            </h4>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Имя</th>
+                                        <th></th>
+                                        <th>Логин</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% if creds %}
+                                    <tr>
+                                        <td colspan="3">
+                                            <small class="text-muted"><em>
+                                                {% if cred_eng %}
+                                                Учетные данные, настроенны для этого <strong>задания</strong>
+                                                {% else %}
+                                                    Учётные данные не настроены для этого <strong>задания</strong>
+                                                {% endif %}
+                                            </em></small>
+                                        </td>
+                                    </tr>
+                                    {% endif %}
+                                    {% for cred in cred_eng %}
+                                        <tr>
+                                            <td>
+                                                <a href="{% url 'view_cred_product_engagement' cred.engagement.id cred.id  %}">{{ cred.cred_id.name }}</a>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    <li class="dropdown" style="list-style:none;">
+                                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">&nbsp;<b class="fa-solid fa-ellipsis-vertical"></b>&nbsp;</a>
+                                                        <ul class="dropdown-menu">
+                                                            {% if user.is_superuser %}
+                                                            <li>
+                                                                <a class="" href="{% url 'view_cred_product_engagement' cred.engagement.id cred.id %}">
+                                                                Посмотреть</a>
+                                                            </li>
+                                                            {% endif %}
+                                                            {% if eng|has_object_permission:"Engagement_Edit" %}
+                                                            <li>
+                                                                <a class="" href="{% url 'delete_cred_engagement' cred.engagement.id cred.id %}">
+                                                                Удалить</a>
+                                                            </li>
+                                                            {% endif %}
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                            <td>{{ cred.cred_id.username }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                    <tr>
+                                        <td colspan="3">
+                                            <small class="text-muted"><em>
+                                                {% if creds %}
+                                                Учетные данные, настроенны для этого<strong>продукта</strong>
+                                                {% else %}
+                                                Учётные данные не настроены для этого <strong>продукта</strong>
+                                                {% endif %}
+                                            </em></small>
+                                        </td>
+                                    </tr>
+                                    {% for cred in creds %}
+                                        <tr>
+                                            <td>
+                                                <a href="{% url 'view_cred_product' cred.product.id cred.id  %}">{{ cred.cred_id.name }}</a>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    <li class="dropdown" style="list-style:none;">
+                                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">&nbsp;<b class="fa-solid fa-ellipsis-vertical"></b>&nbsp;</a>
+                                                        <ul class="dropdown-menu">
+                                                            {% if user.is_superuser %}
+                                                            <li>
+                                                                <a class="" href="{% url 'view_cred_product' cred.product.id cred.id %}">
+                                                                Посмотреть</a>
+                                                            </li>
+                                                            {% endif %}
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                            <td>{{ cred.cred_id.username }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    <div class="protip">
+        <i class="fa-solid fa-lightbulb"></i> <strong>ProTip!</strong> Нажмите <kbd>e</kbd> чтобы изменить эту задачу. Нажмите <kbd>i</kbd> чтобы импортировать результаты сканирования или <kbd>a</kbd> чтобы добавить тесты.
+    </div>
+{% endblock %}
+{% block postscript %}
+    {{ block.super }}
+    
+<script>
+    let breadcrumb = document.querySelector("ol > li:first-child > a")
+    breadcrumb.textContent = "Задачи"
+ </script>
+ 
+    <script>
+        const ENGAGEMENT_STATUS_CHOICES = {
+            'Not Started': 'Не начат',
+            'Blocked': 'Заблокирован',
+            'Cancelled': 'Отменён',
+            'Completed': 'Завершён',
+            'In Progress': 'В работе',
+            'On Hold': 'В ожидании',
+            'Waiting for Resource': 'В ожидании ресурса'
+        };
+    
+        setTimeout(() => {
+            // Получаем все элементы с нужным текстом
+            let texts = document.querySelectorAll("tbody > tr:nth-child(1) > td:nth-child(2) > em");
+    
+            texts.forEach((element) => {
+                // Получаем текущий текст элемента
+                let originalText = element.textContent.trim();
+    
+                // Находим перевод для этого текста в словаре
+                if (ENGAGEMENT_STATUS_CHOICES[originalText]) {
+                    // Если перевод найден, заменяем текст элемента на переведённый
+                    element.textContent = ENGAGEMENT_STATUS_CHOICES[originalText];
+                }
+            });
+        }, 50);
+    </script>
+    <script>
+       texts = document.querySelectorAll("#acunetix")
+       for(let text of texts){
+           if(text.textContent == "Acunetix Scan"){
+               text.innerText = "Indepo scan";
+    
+           }
+          
+
+       }
+    </script>
+    <script type="text/javascript" src="{% static "jquery-highlight/jquery.highlight.js" %}"></script>
+    <script type="application/javascript" src="{% static "jquery.hotkeys/jquery.hotkeys.js" %}"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(document).on('keypress', null, 'e', function () {
+                window.location.assign('{% url 'edit_engagement' eng.id %}');
+            });
+        
+            $(document).on('keypress', null, 'a', function () {
+                window.location.assign('{% url 'add_tests' eng.id %}');
+            });
+        
+            $(document).on('keypress', null, 'i', function () {
+                window.location.assign('{% url 'import_scan_results' eng.id %}');
+            });
+        
+            $("a[data-toggle='collapse']").on('click', function () {
+                var i = $($(this).find('i').get(0));
+                i.toggleClass('glyphicon-chevron-up').toggleClass('glyphicon-chevron-down');
+            });
+        
+            //Ensures dropdown has proper zindex
+            $('.table-responsive').on('show.bs.dropdown', function () {
+            $('.table-responsive').css( "overflow", "inherit" );
+            });
+        
+            $('.table-responsive').on('hide.bs.dropdown', function () {
+                $('.table-responsive').css( "overflow", "auto" );
+            })
+
+            if (document.referrer.indexOf('simple_search') > 0) {
+                var terms = '';
+                if ($.cookie('highlight')) {
+                    terms = $.cookie('highlight').split(' ');
+                    
+                    for (var i = 0; i < terms.length; i++) {
+                        $('body').highlight(terms[i]);
+                    }
+                }
+                
+                $('input#simple_search').val(terms);
+            }
+        
+            $('#shareQuestionnaireModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var path = button.data('whatever') // Extract info from data-* attributes
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
+            var http = location.protocol;
+            var slashes = http.concat("//");
+            var host = slashes.concat(window.location.host);
+            modal.find('p#questionnaireURL').text('Questionnaire URL: ' + host + path)
+            })
+        });
+        
+        {% include 'dojo/snippets/risk_acceptance_actions_snippet_js.html' %}
+        
+    </script>
+{% endblock %}

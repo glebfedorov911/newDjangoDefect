@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+    <form method="post">
+        <h2 class="mb-4">Список Таргет Групп</h2>
+            {% csrf_token %}
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Выбор</th>
+                            <th>Название</th>
+                            <th class="text-danger">Critical</th>
+                            <th class="text-warning">High</th>
+                            <th class="text-primary">Medium</th>
+                            <th class="text-success">Low</th>
+                            <th class="text-info">Info</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for group in groups %}
+                            <tr>
+                                <td><input type="checkbox" name="group_ids" value="{{ group.group_id }}"></td>
+                                <td>{{ group.name }}</td>
+                                <td class="text-danger font-weight-bold">{{ group.critical }}</td>
+                                <td class="text-warning font-weight-bold">{{ group.high }}</td>
+                                <td class="text-primary font-weight-bold">{{ group.medium }}</td>
+                                <td class="text-success font-weight-bold">{{ group.low }}</td>
+                                <td class="text-info font-weight-bold">{{ group.info }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        <button type="submit" class="btn btn-primary mt-3">Отправить</button>
+    </form>
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            {% if groups.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page=1">Первая</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ groups.previous_page_number }}">Назад</a>
+                </li>
+            {% endif %}
+    
+            <li class="page-item disabled">
+                <span class="page-link">Страница {{ groups.number }} из {{ groups.paginator.num_pages }}</span>
+            </li>
+    
+            {% if groups.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ groups.next_page_number }}">Вперёд</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ groups.paginator.num_pages }}">Последняя</a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+document.querySelector("form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    
+    const selectedGroups = Array.from(document.querySelectorAll("input[name='group_ids']:checked"))
+                                .map(checkbox => checkbox.value);
+    
+    const csrfToken = document.querySelector("[name=csrfmiddlewaretoken]").value;
+    
+    fetch(this.action, {
+        method: "POST",
+        headers: {
+            "X-CSRFToken": csrfToken,
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            group_ids: selectedGroups
+        }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log("Success:", data);
+    })
+    .catch(error => console.error("Error:", error));
+});
+</script>
+{% endblock %}

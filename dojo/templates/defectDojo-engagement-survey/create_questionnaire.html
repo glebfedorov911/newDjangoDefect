@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load authorization_tags %}
+{% block content %}
+    {{ block.super }}
+    <h3>Создать новый вопросник</h3>
+    <form class="form-horizontal" method="post">{% csrf_token %}
+        {% include "dojo/form_fields.html" with form=form %}
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+
+                {% if survey %}
+                    <input class="btn btn-primary" type="submit" label="Создать анкету" name="create_questionnaire" value="Обновить опросник"/>
+                    <input class="btn btn-primary" type="submit" label="Добавить вопрос" name="add_questions"
+                           value="Редактировать опросник"/>
+                    {% if "dojo.delete_engagement_survey"|has_configuration_permission:request %}
+                    <a class="btn btn-danger" href="{% url 'delete_questionnaire' survey.id %}">Удалить анкету</a>
+                    {% endif %}
+                {% else %}
+                    <input class="btn btn-primary" type="submit" label="Создать анкету" name="create_questionnaire" value="Создать опросник"/>
+                    <input class="btn btn-primary" type="submit" label="Добавить вопрос" name="add_questions"
+                           value="Создание анкеты и добавление вопросов"/>
+                {% endif %}
+            </div>
+        </div>
+    </form>
+
+{% endblock %}

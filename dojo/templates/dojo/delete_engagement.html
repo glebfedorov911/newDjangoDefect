@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+    {{ block.super }}
+    <h3> Удалить {{ engagement }}</h3>
+    <p>
+        При удалении этого задания будут удалены все связанные с ним объекты.
+        Эти отношения перечислены ниже:
+    </p>
+    <div class="danger-zone panel panel-danger">
+        <div class="panel-heading">
+            <h3>Опасная зона</h3>
+        </div>
+        {% if rels|length > 1 %}
+            <ul class="left">{{ rels|unordered_list }}</ul>
+        {% else %}
+            <p class="text-center">Отношения не найдены.</p>
+        {% endif %}
+        <form class="form-horizontal" method="post">
+            {% csrf_token %}
+            {{ form }}
+
+            <div class="form-group">
+                <button class="btn btn-danger" type="submit" name="delete_name" value="delete_test">Удалить задание</button>
+            </div>
+        </form>
+    </div>
+    <br/>
+    <br/>
+{% endblock %}
+{% block postscript %}
+<script>
+    let breadcrumb = document.querySelector("ol > li:first-child > a")
+    breadcrumb.textContent = "Задачи"
+ </script>
+ {% endblock %}

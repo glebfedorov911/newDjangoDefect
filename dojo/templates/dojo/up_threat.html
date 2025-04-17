@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+    {{ block.super }}
+    <form class="form-horizontal" action="{% url 'upload_threatmodel' eng.id %}" enctype="multipart/form-data"
+          method="post">{% csrf_token %}
+        {% include "dojo/form_fields.html" with form=form %}
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input class="btn btn-primary" type="submit" value="Загрузить файл"/>
+            </div>
+        </div>
+    </form>
+{% endblock %}
+{% block postscript %}
+<script>
+    let breadcrumb = document.querySelector("ol > li:first-child > a")
+    breadcrumb.textContent = "Задачи"
+ </script>
+{% endblock %}
